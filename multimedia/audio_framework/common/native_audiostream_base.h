@@ -144,6 +144,12 @@ typedef enum {
      * @since 10
      */
     AUDIOSTREAM_ENCODING_TYPE_RAW = 0,
+    /**
+     * AudioVivid encoding type.
+     *
+     * @since 11
+     */
+    AUDIOSTREAM_ENCODING_TYPE_AUDIOVIVID = 1,
 } OH_AudioStream_EncodingType;
 
 /**
@@ -549,6 +555,52 @@ typedef struct OH_AudioCapturer_Callbacks_Struct {
             void* userData,
             OH_AudioStream_Result error);
 } OH_AudioCapturer_Callbacks;
+
+/**
+ * Defines the audio effect mode.
+ *
+ * @since 11
+ */
+typedef enum {
+    /**
+     * Audio Effect Mode effect none.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 11
+     */
+    EFFECT_NONE = 0,
+    /**
+     * Audio Effect Mode effect default.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 11
+     */
+    EFFECT_DEFAULT = 1,
+} OH_AudioEffectMode;
+
+/**
+ * This function pointer will point to the callback function that
+ * is used to write audio data with metadata
+ *
+ * @since 11
+ */
+typedef OH_AudioStream_Result (*OH_AudioRenderer_WriteDataWithMetadata_Callback)(
+                OH_AudioRenderer* renderer,
+                void* userData,
+                void* audioData,
+                int32_t audioDataSize,
+                void* metadata,
+                int32_t metadataSize
+);
+
+/**
+ * This function pointer will point to the callback function that
+ * is used to write audio data by avbuffer
+ *
+ * @since 11
+ */
+typedef OH_AudioStream_Result (*OH_AudioRenderer_WriteAVBuffer_Callback)(
+                OH_AudioRenderer* renderer,
+                void* userData,
+                OH_AVBuffer* avBuffer);
 #ifdef __cplusplus
 }
 #endif

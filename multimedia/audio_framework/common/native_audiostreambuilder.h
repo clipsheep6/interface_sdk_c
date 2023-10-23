@@ -199,6 +199,44 @@ OH_AudioStream_Result OH_AudioStreamBuilder_GenerateRenderer(OH_AudioStreamBuild
  */
 OH_AudioStream_Result OH_AudioStreamBuilder_GenerateCapturer(OH_AudioStreamBuilder* builder,
     OH_AudioCapturer** audioCapturer);
+
+/*
+ * Set the channel layout to the stream client
+ *
+ * @since 11
+ *
+ * @param builder Reference provided by OH_AudioStreamBuilder_Create()
+ * @param channelLayout is the layout of the speaker.
+ * @return {@link #AUDIOSTREAM_SUCCESS} or an undesired error.
+ */
+OH_AudioStream_Result OH_AudioStreamBuilder_SetChannelLayout(OH_AudioStreamBuilder* builder,
+    uint64_t channelLayout);
+
+/*
+ * Set the callback of the metadata writing to the renderer client
+ *
+ * @since 11
+ *
+ * @param builder Reference provided by OH_AudioStreamBuilder_Create()
+ * @param callback Callback to the functions that will write the audio data with metadata to the renderer.
+ * @param userData Pointer to an application data structure that will be passed to the callback functions.
+ * @return {@link #AUDIOSTREAM_SUCCESS} or an undesired error.
+ */
+OH_AudioStream_Result OH_AudioStreamBuilder_WriteDataWithMetadataCallback(OH_AudioStreamBuilder* builder,
+    OH_AudioRenderer_WriteDataWithMetadata_Callback callback, void* userData);
+
+/*
+ * Set the callback of the AVBuffer writing to the renderer client 
+ *
+ * @since 11
+ *
+ * @param builder Reference provided by OH_AudioStreamBuilder_Create()
+ * @param callback Callback to the functions that will write the audio data by AVBuffer to the renderer.
+ * @param userData Pointer to an application data structure that will be passed to the callback functions.
+ * @return {@link #AUDIOSTREAM_SUCCESS} or an undesired error.
+ */
+OH_AudioStream_Result OH_AudioStreamBuilder_SetWriteAVBufferCallback(OH_AudioStreamBuilder* builder,
+    OH_AudioRenderer_WriteAVBuffer_Callback callback, void* userData);
 #ifdef __cplusplus
 }
 #endif

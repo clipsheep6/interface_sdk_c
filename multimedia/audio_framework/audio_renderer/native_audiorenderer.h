@@ -226,6 +226,28 @@ OH_AudioStream_Result OH_AudioRenderer_GetTimestamp(OH_AudioRenderer* renderer,
  * @return {@link #AUDIOSTREAM_SUCCESS} or an undesired error.
  */
 OH_AudioStream_Result OH_AudioRenderer_GetFrameSizeInCallback(OH_AudioRenderer* renderer, int32_t* frameSize);
+
+/*
+ * Query the current audio effect mode.
+ *
+ * @since 11
+ *
+ * @param renderer Reference created by OH_AudioStreamBuilder_GenerateRenderer()
+ * @param effectMode Pointer to a variable to receive the current audio effect mode.
+ * @return {@link #AUDIOSTREAM_SUCCESS} or an undesired error.
+ */
+OH_AudioStream_Result OH_AudioRenderer_GetAudioEffectMode(OH_AudioRenderer* renderer, OH_AudioEffectMode* effectMode);
+
+/*
+ * Set the current audio effect mode.
+ *
+ * @since 11
+ *
+ * @param renderer Reference created by OH_AudioStreamBuilder_GenerateRenderer()
+ * @param effectMode is the variable that will be set for the audio effect mode.
+ * @return {@link #AUDIOSTREAM_SUCCESS} or an undesired error.
+ */
+OH_AudioStream_Result OH_AudioRenderer_SetAudioEffectMode(OH_AudioRenderer* renderer, OH_AudioEffectMode effectMode);
 #ifdef __cplusplus
 }
 #endif
