@@ -557,6 +557,90 @@ typedef enum Rdb_SubscribeType {
 } Rdb_SubscribeType;
 
 /**
+ * @brief The callback function of cloud data change event.
+ *
+ * @param context Represents the context of data observer.
+ * @param values Indicates the cloud accounts that changed.
+ * @param count The count of changed cloud accounts.
+ * @see OH_VObject.
+ * @since 11
+ */
+typedef void (*Rdb_BriefObserver)(void *context, const char *values[], uint32_t count);
+
+/**
+ * @brief The callback function of cloud data change details event.
+ *
+ * @param context Represents the context of data observer.
+ * @param changeInfo Indicates the {@link Rdb_ChangeInfo} of changed tables.
+ * @param count The count of changed tables.
+ * @see Rdb_ChangeInfo.
+ * @since 11
+ */
+typedef void (*Rdb_DetailsObserver)(void *context, const Rdb_ChangeInfo **changeInfo, uint32_t count);
+
+/**
+ * @brief Indicates the callback functions.
+ *
+ * @since 11
+ */
+typedef union Rdb_SubscribeCallback {
+    /**
+     * The callback function of cloud data change details event.
+     */
+    Rdb_DetailsObserver *detailsObserver;
+
+    /**
+     * The callback function of cloud data change event.
+     */
+    Rdb_BriefObserver *briefObserver;
+} Rdb_SubscribeCallback;
+
+/**
+ * @brief Indicates the observer of data.
+ *
+ * @since 11
+ */
+typedef struct Rdb_DataObserver {
+    /**
+     * The context of data observer.
+     */
+    void *context;
+
+    /**
+     * The context of data observer.
+     */
+    Rdb_SubscribeCallback *callback;
+} Rdb_DataObserver;
+
+/**
+ * @brief Registers an observer for the database.
+ * When data in the distributed database changes, the callback will be invoked.
+ *
+ * @param store Represents a pointer to an {@link OH_Rdb_Store} instance.
+ * @param type Indicates the subscription type, which is defined in {@link Rdb_SubscribeType}.
+ * @param observer The {@link Rdb_DataObserver} of change events in the database.
+ * @return Returns the status code of the execution. See {@link OH_Rdb_ErrCode}.
+ * @see OH_Rdb_Store.
+ * @see Rdb_DataObserver.
+ * @since 11
+ */
+int OH_Rdb_Subscribe(OH_Rdb_Store *store, Rdb_SubscribeType type, Rdb_DataObserver *observer);
+
+/**
+ * @brief Remove specified observer of specified type from the database.
+ *
+ * @param store Represents a pointer to an {@link OH_Rdb_Store} instance.
+ * @param type Indicates the subscription type, which is defined in {@link Rdb_SubscribeType}.
+ * @param observer The {@link Rdb_DataObserver} of change events in the database.
+ * If this is nullptr, remove all observers of the type.
+ * @return Returns the status code of the execution. See {@link OH_Rdb_ErrCode}.
+ * @see OH_Rdb_Store.
+ * @see Rdb_DataObserver.
+ * @since 11
+ */
+int OH_Rdb_Unsubscribe(OH_Rdb_Store *store, Rdb_SubscribeType type, Rdb_DataObserver *observer);
+
+/**
  * @brief Indicates the database synchronization mode.
  *
  * @since 11
@@ -744,7 +828,27 @@ Rdb_TableDetails *OH_Rdb_GetTableDetails(Rdb_ProgressDetails *progress, int32_t 
  * @see Rdb_ProgressDetails.
  * @since 11
  */
-typedef void (*Rdb_SyncCallback)(Rdb_ProgressDetails *progressDetails);
+typedef void (*Rdb_SyncCallback)(void *context, Rdb_ProgressDetails *progressDetails);
+
+/**
+ * @brief The observer of sync.
+ *
+ * @param progressDetails The details of the sync progress.
+ * @param progressDetails The details of the sync progress.
+ * @see Rdb_ProgressDetails.
+ * @since 11
+ */
+typedef struct Rdb_SyncObserver {
+    /**
+     * The context of sync observer.
+     */
+    void *context;
+
+    /**
+     * The callback function of sync observer.
+     */
+    Rdb_SyncCallback *callback;
+} Rdb_SyncObserver;
 
 /**
  * @brief Sync data to cloud.
@@ -760,7 +864,34 @@ typedef void (*Rdb_SyncCallback)(Rdb_ProgressDetails *progressDetails);
  * @since 11
  */
 int OH_Rdb_CloudSync(OH_Rdb_Store *store, Rdb_SyncMode mode, const char *tables[], uint32_t count,
-    Rdb_SyncCallback *callback);
+    Rdb_SyncObserver *observer);
+
+/**
+ * @brief Subscribes to the automatic synchronization progress of an RDB store.
+ * A callback will be invoked when there is a notification of the automatic synchronization progress.
+ *
+ * @param store Indicates the pointer to the target {@Link OH_Rdb_Store} instance.
+ * @param callback The {@link Rdb_SyncCallback} for the automatic synchornizaiton progress
+ * @param Indicates the callback invoked to return the automatic synchronization progress.
+ * @return Returns the status code of the execution. See {@link OH_Rdb_ErrCode}.
+ * @see OH_Rdb_Store.
+ * @see Rdb_SyncCallback.
+ * @since 11
+ */
+int OH_Rdb_SubscribeAutoSyncProgress(OH_Rdb_Store *store, Rdb_SyncObserver *observer);
+
+ /**
+ * @brief Unsubscribes from the automatic synchronziation progress of an RDB store.
+ *
+ * @param store Indicates the pointer to the target {@Link OH_Rdb_Store} instance.
+ * @param callback Indicates the {@link Rdb_SyncCallback} callback for the automatic synchornizaiton progress.
+ * If it is a null pointer, all callbacks for the automatic synchornizaiton progress will be unregistered.
+ * @return Returns the status code of the execution. See {@link OH_Rdb_ErrCode}.
+ * @see OH_Rdb_Store.
+ * @see Rdb_SyncCallback.
+ * @since 11
+ */
+int OH_Rdb_UnsubscribeAutoSyncProgress(OH_Rdb_Store *store, Rdb_SyncObserver *observer);
 #ifdef __cplusplus
 };
 #endif
