@@ -768,7 +768,9 @@ int OH_Rdb_CloudSync(OH_Rdb_Store *store, Rdb_SyncMode mode, const char *tables[
 *
 * @param store Indicates the pointer to the target {@Link OH_Rdb_Store} instance.
 * @param Indicates the callback invoked to return the automatic synchronization progress.
+* @return Returns the status code of the execution. See {@link OH_Rdb_ErrCode}.
 * @see OH_Rdb_Store.
+* @see Rdb_SyncCallback.
 * @since 11
 */
 int OH_Rdb_SubscribeAutoSyncProgress(OH_Rdb_Store *store, Rdb_SyncCallback *callback);
@@ -779,7 +781,9 @@ int OH_Rdb_SubscribeAutoSyncProgress(OH_Rdb_Store *store, Rdb_SyncCallback *call
 * @param store Indicates the pointer to the target {@Link OH_Rdb_Store} instance.
 * @param progress Indicates the callback for the automatic synchornizaiton progress.
 * If it is a null pointer, all callbacks for the automatic synchornizaiton progress will be unregistered.
+* @return Returns the status code of the execution. See {@link OH_Rdb_ErrCode}.
 * @see OH_Rdb_Store.
+* @see Rdb_SyncCallback.
 * @since 11
 */
 int OH_Rdb_UnsubscribeAutoSyncProgress(OH_Rdb_Store *store, Rdb_SyncCallback *callback);
