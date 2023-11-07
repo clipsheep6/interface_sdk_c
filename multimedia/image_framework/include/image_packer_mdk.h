@@ -21,17 +21,17 @@
  *
  * @Syscap SystemCapability.Multimedia.Image
  * @since 11
- * @version 5.0
+ * @version 4.1
  */
 
 /**
  * @file image_packer_mdk.h
  *
- * @brief Declares APIs for encoding image data into buffer or file.
+ * @brief Declares APIs for encoding image data into data or file.
  * Need link <b>libimage_packerndk.z.so</b>
  *
  * @since 11
- * @version 5.0
+ * @version 4.1
  */
 
 #ifndef INTERFACES_KITS_NATIVE_INCLUDE_IMAGE_PACKER_MDK_H_
@@ -49,7 +49,7 @@ struct ImagePackerNative_;
  * @brief Defines an image packer object at the native layer for the image packer interface.
  *
  * @since 11
- * @version 5.0
+ * @version 4.1
  */
 typedef struct ImagePackerNative_ ImagePackerNative;
 
@@ -57,7 +57,7 @@ typedef struct ImagePackerNative_ ImagePackerNative;
  * @brief Defines the image packing options.
  *
  * @since 11
- * @version 5.0
+ * @version 4.1
  */
 struct OhosImagePackerOpts {
     /** Encoding format. */
@@ -77,7 +77,7 @@ struct OhosImagePackerOpts {
  *
  * @Syscap SystemCapability.Multimedia.Image
  * @since 11
- * @version 5.0
+ * @version 4.1
  */
 int32_t OH_ImagePacker_Create(napi_env env, napi_value *res);
 
@@ -91,7 +91,7 @@ int32_t OH_ImagePacker_Create(napi_env env, napi_value *res);
  * returns a null pointer otherwise.
  * @see ImagePackerNative, OH_ImagePacker_Release
  * @since 11
- * @version 5.0
+ * @version 4.1
  */
 ImagePackerNative* OH_ImagePacker_InitNative(napi_env env, napi_value packer);
 
@@ -112,7 +112,7 @@ ImagePackerNative* OH_ImagePacker_InitNative(napi_env env, napi_value packer);
   * returns {@link IRNdkErrCode} ERR_IMAGE_ENCODE_FAILED - if encoder occur error during encoding
  * @see ImageNative, OhosImageComponent
  * @since 11
- * @version 5.0
+ * @version 4.1
  */
 int32_t OH_ImagePacker_PackToData(ImagePackerNative* native, napi_value source,
     struct OhosImagePackerOpts* opts, uint8_t* outData, size_t* size);
@@ -133,7 +133,7 @@ int32_t OH_ImagePacker_PackToData(ImagePackerNative* native, napi_value source,
   * returns {@link IRNdkErrCode} ERR_IMAGE_ENCODE_FAILED - if encoder occur error during encoding
  * @see ImageNative, OhosImageComponent
  * @since 11
- * @version 5.0
+ * @version 4.1
  */
 int32_t OH_ImagePacker_PackToFile(ImagePackerNative* native, napi_value source,
     struct OhosImagePackerOpts* opts, int fd);
@@ -149,7 +149,7 @@ int32_t OH_ImagePacker_PackToFile(ImagePackerNative* native, napi_value source,
  * @return Returns {@link IRNdkErrCode} IMAGE_RESULT_SUCCESS - if the operation is successful.
  * @see ImageNative, OH_Image_InitImageNative
  * @since 11
- * @version 5.0
+ * @version 4.1
  */
 int32_t OH_ImagePacker_Release(ImagePackerNative* native);
 #ifdef __cplusplus
