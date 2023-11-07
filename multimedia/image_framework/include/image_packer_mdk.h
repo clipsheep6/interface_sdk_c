@@ -27,7 +27,7 @@
 /**
  * @file image_packer_mdk.h
  *
- * @brief Declares APIs for encoding image data into data or file.
+ * @brief Declares APIs for encoding image into data or file.
  * Need link <b>libimage_packerndk.z.so</b>
  *
  * @since 11
