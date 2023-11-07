@@ -40,7 +40,7 @@
  * requird packing options.
  * Finally, release the ImagePakcerNative by OH_ImagePacker_Release.
  *
- * @library libimage_packerndk.z.so
+ * @library libimage_packer_ndk.z.so
  * @syscap SystemCapability.Multimedia.Image
  * @since 11
  * @version 4.1
