@@ -156,7 +156,7 @@ int32_t OH_ImagePacker_PackToFile(ImagePackerNative* native, napi_value source,
  * It is used to release the object {@link ImagePackerNative} at the native layer
  * parsed by calling {@link OH_ImagePacker_InitNative}.
  *
- * @param native Indicates the pointer to an {@link ImageNative} object at the native layer.
+ * @param native Indicates the pointer to an {@link ImagePackerNative} object at the native layer.
  * @return Returns {@link IRNdkErrCode} IMAGE_RESULT_SUCCESS - if the operation is successful.
  * @see {@link OH_Image_InitImageNative}
  * @since 11
