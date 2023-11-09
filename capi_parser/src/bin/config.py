@@ -1,10 +1,12 @@
 import enum
 from coreImpl.parser import parser
+from coreImpl.check import check
 
 
 class ToolNameType(enum.Enum):
     COLLECT = 'collect'
     DIFF = 'diff'
+    CHECK = 'check'
 
 
 toolNameTypeSet = [member.value for name,
@@ -26,6 +28,8 @@ def run_tools(options):
         parser.parser(options.parser_path)
     elif tool_name == ToolNameType["DIFF"].value:
         print("开发中。。。")
+	elif tool_name == ToolNameType['CHECK'].value:
+        check.curr_entry(options.parser_path)
     else:
         print("工具名称错误")
 
