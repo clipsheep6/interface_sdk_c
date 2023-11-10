@@ -39,6 +39,8 @@
 
 #include <netdb.h>
 
+#include <net_connection_type.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -74,6 +76,21 @@ int32_t OH_NetConn_GetAddrInfo(char *host, char *serv, struct addrinfo *hint, st
  * @version 1.0
 */
 int32_t OH_NetConn_FreeDnsResult(struct addrinfo *res);
+
+/**
+ * @brief Queries the default network proxy.
+ *
+ * @param httpProxy HTTP proxy.
+ * @return 0 - Success. 201 - Missing permissions.
+ *         401 - Parameter error. 2100002 - Unable to connect to service.
+ *         2100003 - Internal error.
+ * @permission ohos.permission.INTERNET
+ * @syscap SystemCapability.Communication.NetManager.Core
+ * @since 11
+ * @version 1.0
+*/
+int32_t OH_NetConn_GetAllNets(OH_NetConn_netHandleList *netHandleList);
+
 
 #ifdef __cplusplus
 }
