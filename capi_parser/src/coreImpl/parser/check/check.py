@@ -1,3 +1,18 @@
+/*
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 import json
 from typedef.check.check import ApiResultInfo, FileDocInfo, OutputTxt
 from coreImpl.check.check_doc import process_comment, process_file_doc_info
@@ -10,11 +25,9 @@ def process_api_json(api_info, file_doc_info: FileDocInfo, api_result_info_list)
         comment = api_info['comment']
         api_result_info_list.extend(
             process_comment(comment, file_doc_info, api_info))
-    child_node = get_api_info_child(api_info)
-    if len(child_node) > 0:
-        for index in range(len(child_node)):
-            process_api_json(
-                child_node[index], file_doc_info, api_result_info_list)
+    child_node_list = get_api_info_child(api_info)
+    for child_node in child_node_list:
+        process_api_json(child_node, file_doc_info, api_result_info_list)
 
 
 def get_api_info_child(api_info):
@@ -31,16 +44,14 @@ def process_file_json(file_info, api_result_info_list):
     api_result_info_list.extend(check_file_name(file_info['name']))
     apis = file_info['children']
     file_doc_info = FileDocInfo()
-    for index in range(len(apis)):
-        api = apis[index]
+    for api in apis:
         process_api_json(api, file_doc_info, api_result_info_list)
     api_result_info_list.extend(process_file_doc_info(file_doc_info, file_info))
 
 
 def process_all_json(python_obj) -> list[ApiResultInfo]:
     api_result_info_list = []
-    for index in range(len(python_obj)):
-        file_info = python_obj[index]
+    for file_info in python_obj:
         process_file_json(file_info, api_result_info_list)
     return api_result_info_list
 
