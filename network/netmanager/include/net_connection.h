@@ -40,6 +40,8 @@
 #include <netdb.h>
 #include "net_connection_type.h"
 
+#include <net_connection_type.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif
