@@ -38,6 +38,9 @@
  */
 
 #include <netdb.h>
+#include "net_connection_type.h"
+
+#include <net_connection_type.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -74,6 +77,20 @@ int32_t OH_NetConn_GetAddrInfo(char *host, char *serv, struct addrinfo *hint, st
  * @version 1.0
 */
 int32_t OH_NetConn_FreeDnsResult(struct addrinfo *res);
+
+/**
+ * @brief Queries all activated data networks.
+ *
+ * @param netHandleList Network handle that stores the network ID list.
+ * @return 0 - Success. 201 - Missing permissions.
+ *         401 - Parameter error. 2100002 - Unable to connect to service.
+ *         2100003 - Internal error.
+ * @permission ohos.permission.GET_NETWORK_INFO
+ * @syscap SystemCapability.Communication.NetManager.Core
+ * @since 11
+ * @version 1.0
+*/
+int32_t OH_NetConn_GetAllNets(OH_NetConn_NetHandleList *netHandleList);
 
 #ifdef __cplusplus
 }
