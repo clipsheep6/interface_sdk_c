@@ -17,7 +17,7 @@
 #define NATIVE_NET_CONN_TYPE_H
 
 /**
-* @addtogroup NetConn
+* @addtogroup NetConnection
 * @{
 *
 * @brief Provides the data structures for the C APIs of the network connection module for network management.
