@@ -33,10 +33,3 @@ ohos_ndk_headers("netconn_header") {
     "network/netmanager/net_connection_type.h",
   ]
 }
-
-
-
-
-
-
-
