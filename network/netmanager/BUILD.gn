@@ -29,7 +29,7 @@ ohos_ndk_library("libnet_connection") {
 ohos_ndk_headers("netconn_header") {
   dest_dir = "$ndk_headers_out_dir/network/netmanager"
   sources = [
-    "network/netmanager/include/net_connection.h",
-    "network/netmanager/include/net_connection_type.h",
+    "include/net_connection.h",
+    "include/net_connection_type.h",
   ]
 }
