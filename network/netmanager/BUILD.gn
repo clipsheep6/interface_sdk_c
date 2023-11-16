@@ -21,15 +21,15 @@ ohos_ndk_library("libnet_connection") {
   min_compact_version = "1"
   system_capability = "SystemCapability.Communication.NetManager.Core"
   system_capability_headers = [
-    "network/netmanager/net_connection.h",
-    "network/netmanager/net_connection_type.h",
+    "network/netmanager/include/net_connection.h",
+    "network/netmanager/include/net_connection_type.h",
   ]
 }
 
 ohos_ndk_headers("netconn_header") {
   dest_dir = "$ndk_headers_out_dir/network/netmanager"
   sources = [
-    "net_connection.h",
-    "net_connection_type.h",
+    "network/netmanager/include/net_connection.h",
+    "network/netmanager/include/net_connection_type.h",
   ]
 }
