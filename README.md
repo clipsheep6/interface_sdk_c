@@ -39,8 +39,6 @@
 |  ├─ffrt
 ├─security
 |  ├─huks
-├─sensors
-|  ├─sensor
 ├─startup
 |  ├─init
 ├─third_party

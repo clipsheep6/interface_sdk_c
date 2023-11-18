@@ -36,9 +36,7 @@ This repository is used to store .h declaration files of C APIs. The OpenHarmony
     ├─resourceschedule
     |  ├─ffrt
     ├─security
-    |  ├─huks
-    ├─sensors
-    |  ├─sensor
+    |  ├─huksr
     ├─startup
     |  ├─init
     ├─third_party
