@@ -54,7 +54,7 @@ enum OH_NetStack_CertType {
     /** DER certificate */
     OH_NetStack_CERT_TYPE_DER = 1,
     /** Invalid certificate */
-    OH_NetStack_CERT_TYPE_MAX
+    OH_NetStack_CERT_TYPE_INVALID
 };
 
 /**
