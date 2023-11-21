@@ -233,10 +233,10 @@ OH_AudioStream_Result OH_AudioRenderer_GetFrameSizeInCallback(OH_AudioRenderer* 
 * @since 11
 *
 * @param renderer Reference created by OH_AudioStreamBuilder_GenerateRenderer()
-* @param speed The playback speed.
+* @param speed Pointer to a variable to receive the playback speed.
 * @return {@link #AUDIOSTREAM_SUCCESS} or an undesired error.
 */
-OH_AudioStream_Result OH_AudioRenderer_GetSpeed(OH_AudioRenderer* renderer, float speed);
+OH_AudioStream_Result OH_AudioRenderer_GetSpeed(OH_AudioRenderer* renderer, float* speed);
 
 
 /*
