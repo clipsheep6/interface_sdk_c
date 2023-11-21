@@ -20,8 +20,8 @@ ohos_ndk_library("libnet_ssl_ndk") {
   ndk_description_file = "./libnet_ssl_c.json"
   min_compact_version = "1"
   system_capability = "SystemCapability.Communication.Netstack"
-  system_capability_headers = [ 
-    "/include/net_ssl_c.h" ,
+  system_capability_headers = [
+    "/include/net_ssl_c.h",
     "/include/net_ssl_c_type.h",
   ]
 }
