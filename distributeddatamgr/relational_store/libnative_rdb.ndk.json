@@ -22,6 +22,8 @@
 	{"name":"OH_Rdb_FindModifyTime"},
 	{"name":"OH_Rdb_GetTableDetails"},
 	{"name":"OH_Rdb_CloudSync"},
+	{"name": "OH_Rdb_SubscribeAutoSyncProgress"},
+	{"name": "OH_Rdb_UnsubscribeAutoSyncProgress"},
 	{"name":"OH_VBucket_PutAsset"},
 	{"name":"OH_VBucket_PutAssets"},
 	{"name":"OH_Data_Asset_SetName"},
