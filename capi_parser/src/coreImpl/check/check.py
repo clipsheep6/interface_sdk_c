@@ -14,9 +14,12 @@
 # limitations under the License.
 
 import json
+import os
 from typedef.check.check import ApiResultInfo, FileDocInfo, OutputTxt
 from coreImpl.check.check_doc import process_comment, process_file_doc_info
 from coreImpl.check.check_name import check_file_name, check_ndk_name
+from coreImpl.parser.parser import parser_include_ast
+from coreImpl.check.check_syntax import check_syntax
 
 
 def process_api_json(api_info, file_doc_info: FileDocInfo, api_result_info_list):
@@ -44,46 +47,62 @@ def process_file_json(file_info, api_result_info_list):
     api_result_info_list.extend(check_file_name(file_info['name']))
     apis = file_info['children']
     file_doc_info = FileDocInfo()
+    api_result_info_list.extend(process_comment(file_info["comment"], file_doc_info, file_info))
     for api in apis:
         process_api_json(api, file_doc_info, api_result_info_list)
     api_result_info_list.extend(process_file_doc_info(file_doc_info, file_info))
 
 
-def process_all_json(python_obj) -> list[ApiResultInfo]:
+def process_all_json(python_obj):
     api_result_info_list = []
     for file_info in python_obj:
         process_file_json(file_info, api_result_info_list)
     return api_result_info_list
 
 
-def write_in_txt(check_result):
-    txtResul = []
-    for result in check_result:
-        location = '{}(line:{}, col:{})'.format(result.location, result.locationLine, result.locationColumn)
-        message = 'API check error of [{}]:{}'.format(result.errorType['description'], result.errorInfo)
-        txtResul.append(OutputTxt(result.errorType['id'], result.level, location, result.fileName, message))
-    txtResul.append('api_check: false')
-    result_json = json.dumps(txtResul, default=lambda obj: obj.__dict__, indent=4)
-    fs = open(r'./Error.txt', 'w', encoding='utf-8')
+def write_in_txt(check_result, output_path):
+    result_json = result_to_json(check_result)
+    fs = open(output_path, 'w', encoding='utf-8')
     fs.write(result_json)
     fs.close()
 
 
-def curr_entry(file_path):
-    with open('./src/coreImpl/check/data.json') as json_file:
-        python_obj = json.load(json_file)
-    check_result = process_all_json(python_obj)
+def result_to_json(check_result):
+    txtResul = []
     if len(check_result) == 0:
-        return
-    write_in_txt(check_result)
+        txtResul.append('api_check: false')
+    else:
+        for result in check_result:
+            location = f'{result.location}(line:{result.locationLine}, col:{result.locationColumn})'
+            message = 'API check error of [{}]:{}'.format(result.errorType['description'], result.errorInfo)
+            txtResul.append(OutputTxt(result.errorType['id'], result.level, location, result.fileName, message))
+        txtResul.append('api_check: false')
+    return json.dumps(txtResul, default=lambda obj: obj.__dict__, indent=4)
 
 
-def get_md_files(url) -> list[str]:
+def curr_entry(pr_id):
+    file_path = os.path.abspath(os.path.join(os.getcwd(), f'..{os.sep}..{os.sep}all_files.txt'))
+    file_list = get_md_files(file_path)
+    check_result_list = get_check_result_list(file_list)
+    write_in_txt(check_result_list, r'./Error.txt')
+
+
+def get_check_result_list(file_list):
+    check_result_list = []
+    for file in file_list:
+        root_path = file.split('sdk_c')[0] + 'sdk_c'
+        python_obj = parser_include_ast(root_path, [file])
+        check_result_list.extend(process_all_json(python_obj))
+        check_result_list.extend(check_syntax(file))
+    return check_result_list
+
+
+def get_md_files(url):
     file = open(url, "r")
     file_list = []
     line = file.readline()
     while line:
-        file_list.append(line)
+        file_list.append(line.splitlines()[0])
         line = file.readline()
     file.close()
     return file_list
