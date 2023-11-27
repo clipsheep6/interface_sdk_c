@@ -761,6 +761,32 @@ typedef void (*Rdb_SyncCallback)(Rdb_ProgressDetails *progressDetails);
  */
 int OH_Rdb_CloudSync(OH_Rdb_Store *store, Rdb_SyncMode mode, const char *tables[], uint32_t count,
     Rdb_SyncCallback *callback);
+
+/**
+* @brief Subscribes to the automatic synchronization progress of an RDB store.
+* A callback will be invoked when there is a notification of the automatic synchronization progress.
+*
+* @param store Indicates the pointer to the target {@Link OH_Rdb_Store} instance.
+* @param Indicates the callback invoked to return the automatic synchronization progress.
+* @return Returns the status code of the execution. See {@link OH_Rdb_ErrCode}.
+* @see OH_Rdb_Store.
+* @see Rdb_SyncCallback.
+* @since 11
+*/
+int OH_Rdb_SubscribeAutoSyncProgress(OH_Rdb_Store *store, Rdb_SyncCallback *callback);
+
+/**
+* @brief Unsubscribes from the automatic synchronziation progress of an RDB store.
+*
+* @param store Indicates the pointer to the target {@Link OH_Rdb_Store} instance.
+* @param progress Indicates the callback for the automatic synchornizaiton progress.
+* If it is a null pointer, all callbacks for the automatic synchornizaiton progress will be unregistered.
+* @return Returns the status code of the execution. See {@link OH_Rdb_ErrCode}.
+* @see OH_Rdb_Store.
+* @see Rdb_SyncCallback.
+* @since 11
+*/
+int OH_Rdb_UnsubscribeAutoSyncProgress(OH_Rdb_Store *store, Rdb_SyncCallback *callback);
 #ifdef __cplusplus
 };
 #endif
