@@ -68,8 +68,8 @@ extern "C" {
  * @since 11
  * @version 1.0
  */
-uint32_t OH_NetStack_CertVerification(const struct OH_NetStack_CertBlob *cert,
-                                      const struct OH_NetStack_CertBlob *caCert);
+uint32_t OH_NetStack_CertVerification(const struct NetStack_CertBlob *cert,
+                                      const struct NetStack_CertBlob *caCert);
 #ifdef __cplusplus
 }
 #endif
