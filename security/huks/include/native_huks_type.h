@@ -191,7 +191,9 @@ enum OH_Huks_KeySize {
     OH_HUKS_AES_KEY_SIZE_192 = 192,
     /** AES key of 256 bits. */
     OH_HUKS_AES_KEY_SIZE_256 = 256,
-    /** AES key of 512 bits. */
+    /** AES key of 512 bits.
+     * @deprecated since 11
+     **/
     OH_HUKS_AES_KEY_SIZE_512 = 512,
 
     /** Curve25519 key of 256 bits. */
