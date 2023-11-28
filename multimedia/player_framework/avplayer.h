@@ -440,7 +440,8 @@ OH_AVErrCode OH_AVPlayer_GetCurrentTrack(OH_AVPlayer *player, int32_t trackType,
  * @since 11
  * @version 1.0
 */
-OH_AVErrCode OH_AVPlayer_SetDecryptConfig(OH_AVPlayer *player, OH_MediaKeySession *mediaKeySession, bool secureVideoPath);
+OH_AVErrCode OH_AVPlayer_SetDecryptConfig(OH_AVPlayer *player, OH_MediaKeySession *mediaKeySession,
+    bool secureVideoPath);
 
 /**
  * @brief Method to set player drm info callback.
