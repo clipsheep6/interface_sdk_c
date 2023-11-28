@@ -27,7 +27,7 @@
   { "name": "OH_AVPlayer_SelectTrack" },
   { "name": "OH_AVPlayer_DeselectTrack" },
   { "name": "OH_AVPlayer_GetCurrentTrack" },
-  { "name": "OH_AVPlayer_SetDecryptConfig" },
-  { "name": "OH_AVPlayer_SetDrmInfoCallback" },
-  { "name": "OH_AVPlayer_GetDrmInfo" }
+  { "name": "OH_AVPlayer_SetDecryptionConfig" },
+  { "name": "OH_AVPlayer_SetMediaKeySystemInfoCallback" },
+  { "name": "OH_AVPlayer_GetMediaKeySystemInfo" }
 ]
