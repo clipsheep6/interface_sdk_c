@@ -42,6 +42,8 @@
 #include <stdio.h>
 #include "native_averrors.h"
 #include "avplayer_base.h"
+#include "native_drm_common.h"
+#include "native_mediakeysession.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -426,6 +428,44 @@ OH_AVErrCode OH_AVPlayer_DeselectTrack(OH_AVPlayer *player, int32_t index);
  */
 OH_AVErrCode OH_AVPlayer_GetCurrentTrack(OH_AVPlayer *player, int32_t trackType, int32_t *index);
 
+/**
+ * @brief Set decrypt info.
+ *
+ * @syscap SystemCapability.Multimedia.Media.AVPlayer
+ * @param player Pointer to an OH_AVPlayer instance
+ * @param mediaKeySession A media key session instance with decrypt function.
+ * @param secureVideoPath Require secure decoder or not.
+ * @return Returns {@link AV_ERR_OK} if set successfully; returns an error code defined
+ * in {@link native_averrors.h} otherwise.
+ * @since 11
+ * @version 1.0
+*/
+OH_AVErrCode OH_AVPlayer_SetDecryptConfig(OH_AVPlayer *player, OH_MediaKeySession *mediaKeySession,
+    bool secureVideoPath);
+
+/**
+ * @brief Method to set player drm info callback.
+ * @syscap SystemCapability.Multimedia.Media.AVPlayer
+ * @param player Pointer to an OH_AVPlayer instance
+ * @param callback object pointer.
+ * @return Returns {@link AV_ERR_OK} if the drm info callback is set; returns an error code defined
+ * in {@link native_averrors.h} otherwise.
+ * @since 11
+ * @version 1.0
+ */
+OH_AVErrCode OH_AVPlayer_SetDrmInfoCallback(OH_AVPlayer *player, OH_DRM_DrmInfoCallback callback);
+
+/**
+ * @brief Obtains drm info to create media key session.
+ * @syscap SystemCapability.Multimedia.Media.AVPlayer
+ * @param player Pointer to an OH_AVPlayer instance
+ * @param drmInfo Indicates the drm info which ram space allocated by callee and released by caller.
+ * @return Returns {@link AV_ERR_OK} if the current position is get; returns an error code defined
+ * in {@link native_averrors.h} otherwise.
+ * @since 11
+ * @version 1.0
+ */
+OH_AVErrCode OH_AVPlayer_GetDrmInfo(OH_AVPlayer *player, OH_DRM_DrmInfo **drmInfo);
 
 #ifdef __cplusplus
 }
