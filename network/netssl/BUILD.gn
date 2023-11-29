@@ -29,7 +29,7 @@ ohos_ndk_library("libnet_ssl_ndk") {
 ohos_ndk_headers("net_ssl_header") {
   dest_dir = "$ndk_headers_out_dir/network/netstack/net_ssl"
   sources = [
-    "./include/net_ssl_c.h",
-    "./include/net_ssl_c_type.h",
+    "include/net_ssl_c.h",
+    "include/net_ssl_c_type.h",
   ]
 }
