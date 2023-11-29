@@ -18,42 +18,54 @@
  * @{
  *
  * @brief Provides APIs of Drm.
- *
- * @Syscap SystemCapability.Multimedia.Drm.Core
  * @since 11
  * @version 1.0
  */
 
 /**
  * @file native_mediakeysession.h
- *
- * @brief Defines the Drm MediaKeySession APIs.
- *
- * @library libdrm_framework.z.so
+ * @brief Defines the Drm MediaKeySession APIs. Provide following function:
+ * generate media key request, process media key response, event listening,
+ * get content protection level, check media key status, remove media key etc..
+ * @library libnative_drm.z.so
+ * @Syscap SystemCapability.Multimedia.Drm.Core
  * @since 11
  * @version 1.0
  */
 
-#ifndef OHOS_DRM_NATIVE_MEDIA_KEY_SYSTEM_H
-#define OHOS_DRM_NATIVE_MEDIA_KEY_SYSTEM_H
+#ifndef OHOS_DRM_NATIVE_MEDIA_KEY_SESSION_H
+#define OHOS_DRM_NATIVE_MEDIA_KEY_SESSION_H
 
 #include <stdint.h>
 #include <stdio.h>
-#include "native_drm_common.h"
-#include "native_drm_base.h"
 #include "native_drm_err.h"
+#include "native_drm_common.h"
 
 #ifdef __cplusplus
 extern "C"
 {
 #endif
 
-typedef  OH_DrmErrCode (*OH_MediaKeySessionEventCallback)(OH_DRM_CharBufferPair *eventInfo);
-typedef  OH_DrmErrCode (*OH_MediaKeySessionKeyChangeCallback)(OH_DRM_CharBufferPair *OH_DRM_KeysInfo);
 /**
- * @brief OH_MediaKeySessionCallback struct, used to listen event like key expired and
- * key change etc..
- *
+ * @brief Call back will be invoked when event triggers.
+ * @param eventInfo Event info gotten from media key system.
+ * @return OH_DrmErrCode.
+ * @since 11
+ * @version 1.0
+ */
+typedef  OH_DrmErrCode (*OH_MediaKeySessionEventCallback)(OH_DRM_ListenerType eventType, OH_DRM_Uint8CharBufferPair *eventInfo);
+
+/**
+ * @brief Call back will be invoked when key changes.
+ * @param keysInfo Key info gotten from media key system.
+ * @return OH_DrmErrCode.
+ * @since 11
+ * @version 1.0
+ */
+typedef  OH_DrmErrCode (*OH_MediaKeySessionKeyChangeCallback)(OH_DRM_KeysInfo *keysInfo, bool hasNewGoodKeys);
+
+/**
+ * @brief OH_MediaKeySessionCallback struct, used to listen event like key expired and key change etc..
  * @since 11
  * @version 1.0
  */

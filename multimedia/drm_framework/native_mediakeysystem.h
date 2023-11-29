@@ -18,18 +18,19 @@
  * @{
  *
  * @brief Provides APIs of Drm.
- *
- * @Syscap SystemCapability.Multimedia.Drm.Core
  * @since 11
  * @version 1.0
  */
 
 /**
  * @file native_mediakeysystem.h
- *
- * @brief Defines the Drm MediaKeySystem APIs.
- *
- * @library libdrm_framework.z.so
+ * @brief Defines the Drm MediaKeySystem APIs. Provide following function:
+ * query if specific drm supported or not, create media key session,
+ * get and set configurations, get statistics, get content protection level,
+ * generate provision request, process provision response, event listening,
+ * get content protection level, manage offline media key etc..
+ * @library libnative_drm.z.so
+ * @Syscap SystemCapability.Multimedia.Drm.Core
  * @since 11
  * @version 1.0
  */
@@ -39,7 +40,6 @@
 
 #include <stdint.h>
 #include <stdio.h>
-#include "native_drm_base.h"
 #include "native_drm_err.h"
 #include "native_drm_common.h"
 
@@ -47,8 +47,15 @@
 extern "C" {
 #endif
 
+/**
+ * @brief Call back will be invoked when event triggers.
+ * @param eventInfo Event info gotten from media key system.
+ * @return OH_DrmErrCode.
+ * @since 11
+ * @version 1.0
+ */
+typedef  OH_DrmErrCode (*OH_MediaKeySystemCallback)(OH_DRM_ListenerType eventType, OH_DRM_Uint8CharBufferPair *eventInfo);
 
-typedef  OH_DrmErrCode (*OH_MediaKeySystemCallback)(OH_DRM_CharBufferPair *eventInfo);
 /**
  * @brief Query if media key system is supported.
  * @param name Used to point a Digital Right Management solution.
@@ -205,7 +212,7 @@ OH_DrmErrCode OH_MediaKeySystem_ProcessKeySystemResponse(OH_MediaKeySystem *medi
  * @version 1.0
  */
 OH_DrmErrCode OH_MediaKeySystem_GetOfflineMediaKeyIds(OH_MediaKeySystem *mediaKeySystem,
-    OH_DRM_MediaKeyIdArray **mediaKeyIds, int32_t *mediaKeyIdsLen);
+    OH_DRM_MediakeyIdArray **mediaKeyIds);
 
 /**
  * @brief Get offline media key status.

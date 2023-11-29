@@ -13,6 +13,24 @@
  * limitations under the License.
  */
 
+/**
+ * @addtogroup Drm
+ * @{
+ *
+ * @brief Provides APIs of Drm.
+ * @since 11
+ * @version 1.0
+ */
+
+/**
+ * @file native_drm_err.h
+ * @brief Defines the Drm errors.
+ * @library libnative_drm.z.so
+ * @Syscap SystemCapability.Multimedia.Drm.Core
+ * @since 11
+ * @version 1.0
+ */
+
 #ifndef NATIVE_DRM_ERR_H
 #define NATIVE_DRM_ERR_H
 
@@ -25,7 +43,6 @@ extern "C" {
 
 /**
  * @brief DRM error code
- * @syscap SystemCapability.Multimedia.Drm.Core
  * @since 11
  * @version 1.0
  */
@@ -41,7 +58,7 @@ typedef enum OH_DrmErrCode {
     /**
      * opertation not be permitted.
      */
-    DRM_ERR_OPERATE_NOT_PERMIT,
+    DRM_ERR_OPERATION_NOT_PERMITTED,
     /**
      * invalid argument.
      */
@@ -69,7 +86,7 @@ typedef enum OH_DrmErrCode {
     /**
      * unsupport interface.
      */
-    DRM_ERR_UNSUPPORT,
+    DRM_ERR_UNSUPPORTED,
     /**
      * Meet max MediaKeySystem num limit.
      */
