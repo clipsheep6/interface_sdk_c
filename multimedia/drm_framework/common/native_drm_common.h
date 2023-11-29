@@ -13,25 +13,11 @@
  * limitations under the License.
  */
 
-#ifndef NATIVE_DRM_COMMON_H
-#define NATIVE_DRM_COMMON_H
-
-#include <stdint.h>
-#include <stdio.h>
-#include "native_drm_err.h"
-#include "native_drm_base.h"
-
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 /**
  * @addtogroup Drm
  * @{
  *
  * @brief Provides APIs of Drm.
- *
- * @Syscap SystemCapability.Multimedia.Drm.Core
  * @since 11
  * @version 1.0
  */
@@ -40,11 +26,21 @@ extern "C" {
  * @file native_drm_common.h
  *
  * @brief Defines the Drm common struct.
- *
- * @library libdrm_framework.z.so
+ * @library libnative_drm.z.so
+ * @Syscap SystemCapability.Multimedia.Drm.Core
  * @since 11
  * @version 1.0
  */
+
+#ifndef NATIVE_DRM_COMMON_H
+#define NATIVE_DRM_COMMON_H
+
+#include <stdint.h>
+#include <stdio.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 /**
  * @brief Content potection level.
@@ -373,6 +369,9 @@ typedef struct OH_DRM_DrmInfo {
 } OH_DRM_DrmInfo;
 
 typedef void(*OH_DRM_DrmInfoCallback)(OH_DRM_DrmInfo* drmInfo);
+typedef struct OH_MediaKeySystem OH_MediaKeySystem;
+typedef struct OH_MediaKeySession OH_MediaKeySession;
+
 
 #ifdef __cplusplus
 }

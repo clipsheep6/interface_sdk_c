@@ -13,6 +13,24 @@
  * limitations under the License.
  */
 
+/**
+ * @addtogroup Drm
+ * @{
+ *
+ * @brief Provides APIs of Drm.
+ * @since 11
+ * @version 1.0
+ */
+
+/**
+ * @file native_drm_err.h
+ * @brief Defines the Drm errors.
+ * @library libnative_drm.z.so
+ * @Syscap SystemCapability.Multimedia.Drm.Core
+ * @since 11
+ * @version 1.0
+ */
+
 #ifndef NATIVE_DRM_ERR_H
 #define NATIVE_DRM_ERR_H
 

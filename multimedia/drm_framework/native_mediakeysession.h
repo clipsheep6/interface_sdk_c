@@ -18,18 +18,15 @@
  * @{
  *
  * @brief Provides APIs of Drm.
- *
- * @Syscap SystemCapability.Multimedia.Drm.Core
  * @since 11
  * @version 1.0
  */
 
 /**
  * @file native_mediakeysession.h
- *
  * @brief Defines the Drm MediaKeySession APIs.
- *
- * @library libdrm_framework.z.so
+ * @library libnative_drm.z.so
+ * @Syscap SystemCapability.Multimedia.Drm.Core
  * @since 11
  * @version 1.0
  */
@@ -39,9 +36,8 @@
 
 #include <stdint.h>
 #include <stdio.h>
-#include "native_drm_common.h"
-#include "native_drm_base.h"
 #include "native_drm_err.h"
+#include "native_drm_common.h"
 
 #ifdef __cplusplus
 extern "C"
