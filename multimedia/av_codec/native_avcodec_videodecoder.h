@@ -22,6 +22,8 @@
 #include "native_avformat.h"
 #include "native_avmemory.h"
 #include "native_avcodec_base.h"
+#include "native_drm_common.h"
+#include "native_mediakeysession.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -241,6 +243,21 @@ OH_AVErrCode OH_VideoDecoder_FreeOutputData(OH_AVCodec *codec, uint32_t index);
  * @since 10
  */
 OH_AVErrCode OH_VideoDecoder_IsValid(OH_AVCodec *codec, bool *isValid);
+
+/**
+ * @brief Set decryption info.
+ *
+ * @syscap SystemCapability.Multimedia.Media.VideoDecoder
+ * @param codec Pointer to an OH_AVCodec instance
+ * @param mediaKeySession A media key session instance with decryption function.
+ * @param secureVideoPath Require secure decoder or not.
+ * @return Returns AV_ERR_OK if the execution is successful,
+ * otherwise returns a specific error code, refer to {@link OH_AVErrCode}
+ * @since 11
+ * @version 1.0
+*/
+OH_AVErrCode OH_VideoDecoder_SetDecryptionConfig(OH_AVCodec *codec, MediaKeySession *mediaKeySession,
+    bool secureVideoPath);
 
 #ifdef __cplusplus
 }

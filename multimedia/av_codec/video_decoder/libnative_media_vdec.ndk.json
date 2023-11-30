@@ -15,5 +15,6 @@
     { "name": "OH_VideoDecoder_PushInputData" },
     { "name": "OH_VideoDecoder_RenderOutputData" },
     { "name": "OH_VideoDecoder_FreeOutputData" },
-    { "name": "OH_VideoDecoder_IsValid" }
+    { "name": "OH_VideoDecoder_IsValid" },
+    { "name": "OH_VideoDecoder_SetDecryptionConfig" }
 ]
