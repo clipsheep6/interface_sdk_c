@@ -357,11 +357,12 @@ int32_t OH_NativeWindow_NativeWindowFlushBuffer(OHNativeWindow *window, OHNative
  * @syscap SystemCapability.Graphic.Graphic2D.NativeWindow
  * @param window Indicates the pointer to a <b>OHNativeWindow</b> instance.
  * @param buffer Indicates the pointer to a <b>OHNativeWindowBuffer</b> pointer.
+ * @param fenceFd Indicates the pointer to a file descriptor handle.
  * @return Returns an error code, 0 is success, otherwise, failed.
  * @since 11
  * @version 1.0
  */
-int32_t OH_NativeWindow_GetLastFlushedBuffer(OHNativeWindow *window, OHNativeWindowBuffer **buffer);
+int32_t OH_NativeWindow_GetLastFlushedBuffer(OHNativeWindow *window, OHNativeWindowBuffer **buffer, int *fenceFd);
 
  /**
  * @brief Returns the <b>OHNativeWindowBuffer</b> to the buffer queue through a <b>OHNativeWindow</b> instance, without filling in any content. The <b>OHNativeWindowBuffer</b> can be used for another request.
