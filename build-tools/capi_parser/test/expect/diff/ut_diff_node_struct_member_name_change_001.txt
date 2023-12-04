@@ -1,0 +1,11 @@
+[
+    {
+        "api_name": "character",
+        "api_type": "FIELD_DECL",
+        "diff_type": "STRUCT_MEMBER_NAME_CHANGE",
+        "diff_message": "\u7ed3\u6784\u4f53\u6210\u5458\u540d\u6539\u53d8",
+        "old_api_full_text": "char ch",
+        "new_api_full_text": "char character",
+        "is_compatible": false
+    }
+]

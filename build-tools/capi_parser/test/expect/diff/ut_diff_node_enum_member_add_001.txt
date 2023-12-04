@@ -1,0 +1,11 @@
+[
+    {
+        "api_name": "OH_NN_FORMAT_NHWC",
+        "api_type": "ENUM_CONSTANT_DECL",
+        "diff_type": "ENUM_MEMBER_ADD",
+        "diff_message": "add \u679a\u4e3e\u6210\u5458",
+        "old_api_full_text": "enum Network {\n    /** The tensor does not have a specific layout type (such as scalar or vector). */\n    OH_NN_FORMAT_NONE = 0,\n    /** The tensor arranges data in NCHW format.*/\n    OH_NN_FORMAT_NCHW = 1\n};\n\n#i",
+        "new_api_full_text": "OH_NN_FORMAT_NHWC = 2",
+        "is_compatible": false
+    }
+]

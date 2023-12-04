@@ -1,0 +1,11 @@
+[
+    {
+        "api_name": "KHRONOS_APICALL",
+        "api_type": "MACRO_DEFINITION",
+        "diff_type": "REDUCE_API",
+        "diff_message": "delete api",
+        "old_api_full_text": "KHRONOS_APICALL __declspec(dllimport)",
+        "new_api_full_text": "",
+        "is_compatible": false
+    }
+]

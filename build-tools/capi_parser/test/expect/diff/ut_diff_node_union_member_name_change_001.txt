@@ -1,0 +1,11 @@
+[
+    {
+        "api_name": "key",
+        "api_type": "FIELD_DECL",
+        "diff_type": "UNION_MEMBER_NAME_CHANGE",
+        "diff_message": "\u8054\u5408\u4f53\u6210\u5458\u540d\u6539\u53d8",
+        "old_api_full_text": "int count",
+        "new_api_full_text": "int key",
+        "is_compatible": false
+    }
+]

@@ -1,0 +1,11 @@
+[
+    {
+        "api_name": "OH_NN_FORMAT_NHWC",
+        "api_type": "ENUM_CONSTANT_DECL",
+        "diff_type": "ENUM_MEMBER_VALUE_CHANGE",
+        "diff_message": "\u679a\u4e3e\u6210\u5458\u503c\u6539\u53d8",
+        "old_api_full_text": "OH_NN_FORMAT_NHWC = 2",
+        "new_api_full_text": "OH_NN_FORMAT_NHWC = 5",
+        "is_compatible": false
+    }
+]

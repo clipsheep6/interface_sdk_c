@@ -1,0 +1,20 @@
+[
+    {
+        "api_name": "executor",
+        "api_type": "PARM_DECL",
+        "diff_type": "FUNCTION_PARAM_TYPE_CHANGE",
+        "diff_message": "\u51fd\u6570\u53c2\u6570\u7c7b\u578b\u6539\u53d8",
+        "old_api_full_text": "int *executor",
+        "new_api_full_text": "char executor",
+        "is_compatible": false
+    },
+    {
+        "api_name": "shapeLength",
+        "api_type": "PARM_DECL",
+        "diff_type": "FUNCTION_PARAM_TYPE_CHANGE",
+        "diff_message": "\u51fd\u6570\u53c2\u6570\u7c7b\u578b\u6539\u53d8",
+        "old_api_full_text": "int *shapeLength",
+        "new_api_full_text": "int shapeLength",
+        "is_compatible": false
+    }
+]

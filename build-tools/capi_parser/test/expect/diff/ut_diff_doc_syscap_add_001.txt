@@ -1,0 +1,11 @@
+[
+    {
+        "api_name": "ut_diff_case_001.h",
+        "api_type": "TRANSLATION_UNIT",
+        "diff_type": "DOC_TAG_SYSCAP_NA_TO_HAVE",
+        "diff_message": "\u4ece\u6ca1\u6709syscap\u5230\u6709syscap",
+        "old_api_full_text": "",
+        "new_api_full_text": "",
+        "is_compatible": false
+    }
+]
