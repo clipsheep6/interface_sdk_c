@@ -1,0 +1,92 @@
+[
+    {
+        "api_name": "NEURAL_NETWORK_H",
+        "api_type": "MACRO_DEFINITION",
+        "diff_type": "REDUCE_API",
+        "diff_message": "delete api",
+        "old_api_full_text": "NEURAL_NETWORK_H",
+        "new_api_full_text": "",
+        "is_compatible": false
+    },
+    {
+        "api_name": "std",
+        "api_type": "STRUCT_DECL",
+        "diff_type": "REDUCE_API",
+        "diff_message": "delete api",
+        "old_api_full_text": "struct std{\n  char ch;\n  int len;\n};\n\n",
+        "new_api_full_text": "",
+        "is_compatible": false
+    },
+    {
+        "api_name": "ut_diff_node_struct_member_reduce_001\\ut_diff_node_case1.h",
+        "api_type": "TRANSLATION_UNIT",
+        "diff_type": "REDUCE_API",
+        "diff_message": "delete api",
+        "old_api_full_text": "",
+        "new_api_full_text": "",
+        "is_compatible": false
+    },
+    {
+        "api_name": "NEURAL_NETWORK_H",
+        "api_type": "MACRO_DEFINITION",
+        "diff_type": "REDUCE_API",
+        "diff_message": "delete api",
+        "old_api_full_text": "NEURAL_NETWORK_H",
+        "new_api_full_text": "",
+        "is_compatible": false
+    },
+    {
+        "api_name": "std",
+        "api_type": "STRUCT_DECL",
+        "diff_type": "REDUCE_API",
+        "diff_message": "delete api",
+        "old_api_full_text": "struct std{\n  char ch;\n  int len;\n};\n\n",
+        "new_api_full_text": "",
+        "is_compatible": false
+    },
+    {
+        "api_name": "ut_diff_node_struct_member_name_change_001\\ut_diff_node_case1.h",
+        "api_type": "TRANSLATION_UNIT",
+        "diff_type": "REDUCE_API",
+        "diff_message": "delete api",
+        "old_api_full_text": "",
+        "new_api_full_text": "",
+        "is_compatible": false
+    },
+    {
+        "api_name": "NEURAL_NETWORK_H",
+        "api_type": "MACRO_DEFINITION",
+        "diff_type": "REDUCE_API",
+        "diff_message": "delete api",
+        "old_api_full_text": "NEURAL_NETWORK_H",
+        "new_api_full_text": "",
+        "is_compatible": false
+    },
+    {
+        "api_name": "std",
+        "api_type": "STRUCT_DECL",
+        "diff_type": "REDUCE_API",
+        "diff_message": "delete api",
+        "old_api_full_text": "struct std{\n  char ch;\n  int len;\n};\n\n",
+        "new_api_full_text": "",
+        "is_compatible": false
+    },
+    {
+        "api_name": "ut_diff_node_struct_member_type_change_001\\ut_diff_node_case1.h",
+        "api_type": "TRANSLATION_UNIT",
+        "diff_type": "REDUCE_API",
+        "diff_message": "delete api",
+        "old_api_full_text": "",
+        "new_api_full_text": "",
+        "is_compatible": false
+    },
+    {
+        "api_name": "id",
+        "api_type": "FIELD_DECL",
+        "diff_type": "STRUCT_MEMBER_ADD",
+        "diff_message": "add \u7ed3\u6784\u4f53\u6210\u5458",
+        "old_api_full_text": "struct std{\n  char ch;\n};\n",
+        "new_api_full_text": "int id",
+        "is_compatible": false
+    }
+]

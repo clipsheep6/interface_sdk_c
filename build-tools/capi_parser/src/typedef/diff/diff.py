@@ -106,7 +106,7 @@ class DiffType(enum.Enum):
     DOC_TAG_LIBRARY_A_TO_B = '变更library'
     DOC_TAG_PARAM_NA_TO_HAVE = '新增param标签'
     DOC_TAG_PARAM_HAVE_TO_NA = '删除param标签'
-    DOC_TAG_PARAM_NAME_A_TO_B = '修改param标签描述信息'
+    DOC_TAG_PARAM_NAME_A_TO_B = '修改param名称'
     DOC_TAG_PARAM_A_TO_B = '修改param标签描述信息'
     DOC_TAG_PERMISSION_NA_TO_HAVE = '权限从无到有'
     DOC_TAG_PERMISSION_HAVE_TO_NA = '权限从有到无'
@@ -125,7 +125,33 @@ class DiffType(enum.Enum):
     DOC_TAG_RIGHT_BRACE_HAVE_TO_NA = '删除右括号'
 
 
-compatible_list = [DiffType.FUNCTION_PARAM_NAME_CHANGE]
+compatible_list = [
+    DiffType.ADD_API,
+    DiffType.ADD_DOC,
+    DiffType.ADD_DOC_TAG,
+    DiffType.FUNCTION_PARAM_NAME_CHANGE,
+    DiffType.DOC_TAG_ADDTOGROUP_NA_TO_HAVE,
+    DiffType.DOC_TAG_ADDTOGROUP_HAVE_TO_NA,
+    DiffType.DOC_TAG_ADDTOGROUP_A_TO_B,
+    DiffType.DOC_TAG_BRIEF_NA_TO_HAVE,
+    DiffType.DOC_TAG_BRIEF_HAVE_TO_NA,
+    DiffType.DOC_TAG_BRIEF_A_TO_B,
+    DiffType.DOC_TAG_DEPRECATED_NA_TO_HAVE,
+    DiffType.DOC_TAG_DEPRECATED_HAVE_TO_NA,
+    DiffType.DOC_TAG_DEPRECATED_A_TO_B,
+    DiffType.DOC_TAG_FILE_NA_TO_HAVE,
+    DiffType.DOC_TAG_FILE_HAVE_TO_NA,
+    DiffType.DOC_TAG_FILE_A_TO_B,
+    DiffType.DOC_TAG_PARAM_A_TO_B,
+    DiffType.DOC_TAG_PERMISSION_HAVE_TO_NA,
+    DiffType.DOC_TAG_PERMISSION_RANGE_BIGGER,
+    DiffType.DOC_TAG_SINCE_NA_TO_HAVE,
+    DiffType.DOC_TAG_SINCE_A_TO_B,
+    DiffType.DOC_TAG_LEFT_BRACE_NA_TO_HAVE,
+    DiffType.DOC_TAG_LEFT_BRACE_HAVE_TO_NA,
+    DiffType.DOC_TAG_RIGHT_BRACE_NA_TO_HAVE,
+    DiffType.DOC_TAG_RIGHT_BRACE_HAVE_TO_NA,
+]
 
 
 class DiffInfo:

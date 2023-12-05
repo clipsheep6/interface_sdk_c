@@ -1,0 +1,20 @@
+[
+    {
+        "api_name": "Network_New",
+        "api_type": "TYPEDEF_DECL",
+        "diff_type": "ADD_API",
+        "diff_message": "add api",
+        "old_api_full_text": "",
+        "new_api_full_text": "typedef enum {\n    /** The tensor does not have a specific layout type (such as scalar or vector). */\n    OH_NN_FORMAT_NONE = 0,\n    /** The tensor arranges data in NCHW format.*/\n    OH_NN_FORMAT_NCHW = 1\n} Network_New;\n\n#i",
+        "is_compatible": true
+    },
+    {
+        "api_name": "Network",
+        "api_type": "TYPEDEF_DECL",
+        "diff_type": "REDUCE_API",
+        "diff_message": "delete api",
+        "old_api_full_text": "typedef enum {\n    /** The tensor does not have a specific layout type (such as scalar or vector). */\n    OH_NN_FORMAT_NONE = 0,\n    /** The tensor arranges data in NCHW format.*/\n    OH_NN_FORMAT_NCHW = 1\n} Network;\n\n#i",
+        "new_api_full_text": "",
+        "is_compatible": false
+    }
+]

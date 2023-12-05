@@ -1,0 +1,11 @@
+[
+    {
+        "api_name": "na",
+        "api_type": "FIELD_DECL",
+        "diff_type": "UNION_MEMBER_ADD",
+        "diff_message": "add \u8054\u5408\u4f53\u6210\u5458",
+        "old_api_full_text": "union std{\n  char ch;\n};\n",
+        "new_api_full_text": "char na",
+        "is_compatible": false
+    }
+]

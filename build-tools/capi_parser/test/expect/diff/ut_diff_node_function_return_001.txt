@@ -1,0 +1,11 @@
+[
+    {
+        "api_name": "OH_NNExecutor_GetOutputShape",
+        "api_type": "FUNCTION_DECL",
+        "diff_type": "FUNCTION_RETURN_CHANGE",
+        "diff_message": "\u51fd\u6570\u8fd4\u56de\u7c7b\u578b\u6539\u53d8",
+        "old_api_full_text": "int OH_NNExecutor_GetOutputShape(int *executor, int *shapeLength)",
+        "new_api_full_text": "int *OH_NNExecutor_GetOutputShape(int *executor, int *shapeLength)",
+        "is_compatible": false
+    }
+]

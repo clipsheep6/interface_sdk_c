@@ -1,0 +1,38 @@
+[
+    {
+        "api_name": "NEURAL",
+        "api_type": "MACRO_DEFINITION",
+        "diff_type": "ADD_API",
+        "diff_message": "add api",
+        "old_api_full_text": "",
+        "new_api_full_text": "NEURAL",
+        "is_compatible": true
+    },
+    {
+        "api_name": "KHRONOS_APICALL_AST",
+        "api_type": "MACRO_DEFINITION",
+        "diff_type": "REDUCE_API",
+        "diff_message": "delete api",
+        "old_api_full_text": "KHRONOS_APICALL_AST __declspec(dllimport)",
+        "new_api_full_text": "",
+        "is_compatible": false
+    },
+    {
+        "api_name": "NEURAL_AST",
+        "api_type": "MACRO_DEFINITION",
+        "diff_type": "REDUCE_API",
+        "diff_message": "delete api",
+        "old_api_full_text": "NEURAL_AST",
+        "new_api_full_text": "",
+        "is_compatible": false
+    },
+    {
+        "api_name": "KHRONOS_APICALL",
+        "api_type": "MACRO_DEFINITION",
+        "diff_type": "ADD_API",
+        "diff_message": "add api",
+        "old_api_full_text": "",
+        "new_api_full_text": "KHRONOS_APICALL __declspec(dllimport)",
+        "is_compatible": true
+    }
+]

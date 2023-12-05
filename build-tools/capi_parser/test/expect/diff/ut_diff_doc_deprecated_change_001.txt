@@ -1,0 +1,11 @@
+[
+    {
+        "api_name": "OH_NativeXComponent_GetKeyEventDeviceId",
+        "api_type": "FUNCTION_DECL",
+        "diff_type": "DOC_TAG_DEPRECATED_A_TO_B",
+        "diff_message": "\u63a5\u53e3\u5e9f\u5f03\u7248\u672c\u53d1\u751f\u53d8\u5316",
+        "old_api_full_text": "int OH_NativeXComponent_GetKeyEventDeviceId(int *keyEvent, int *deviceId)",
+        "new_api_full_text": "int OH_NativeXComponent_GetKeyEventDeviceId(int *keyEvent, int *deviceId)",
+        "is_compatible": true
+    }
+]

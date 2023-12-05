@@ -1,0 +1,11 @@
+[
+    {
+        "api_name": "Network",
+        "api_type": "ENUM_DECL",
+        "diff_type": "ENUM_MEMBER_REDUCE",
+        "diff_message": "delete \u679a\u4e3e\u6210\u5458",
+        "old_api_full_text": "OH_NN_FORMAT_NCHW = 1",
+        "new_api_full_text": "enum Network {\n    /** The tensor does not have a specific layout type (such as scalar or vector). */\n    OH_NN_FORMAT_NONE = 0\n};\n\n",
+        "is_compatible": false
+    }
+]

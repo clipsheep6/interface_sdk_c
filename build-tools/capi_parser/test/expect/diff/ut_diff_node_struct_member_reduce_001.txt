@@ -1,0 +1,11 @@
+[
+    {
+        "api_name": "std",
+        "api_type": "STRUCT_DECL",
+        "diff_type": "STRUCT_MEMBER_REDUCE",
+        "diff_message": "delete \u7ed3\u6784\u4f53\u6210\u5458",
+        "old_api_full_text": "int len",
+        "new_api_full_text": "struct std{\n  char ch;\n};\n",
+        "is_compatible": false
+    }
+]
