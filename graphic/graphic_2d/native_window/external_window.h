@@ -364,7 +364,7 @@ int32_t OH_NativeWindow_NativeWindowFlushBuffer(OHNativeWindow *window, OHNative
  * @version 1.0
  */
 int32_t OH_NativeWindow_GetLastFlushedBuffer(OHNativeWindow *window, OHNativeWindowBuffer **buffer,
-                                                int *fenceFd, float matrix[16]);
+    int *fenceFd, float matrix[16]);
 
  /**
  * @brief Returns the <b>OHNativeWindowBuffer</b> to the buffer queue through a <b>OHNativeWindow</b> instance, without filling in any content. The <b>OHNativeWindowBuffer</b> can be used for another request.
