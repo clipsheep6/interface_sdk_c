@@ -175,7 +175,7 @@ enum OH_Huks_KeySize {
     OH_HUKS_RSA_KEY_SIZE_3072 = 3072,
     /** RSA key of 4096 bits. */
     OH_HUKS_RSA_KEY_SIZE_4096 = 4096,
-    
+
     /** Elliptic Curve Cryptography (ECC) key of 224 bits. */
     OH_HUKS_ECC_KEY_SIZE_224 = 224,
     /** ECC key of 256 bits. */
@@ -398,6 +398,10 @@ enum  OH_Huks_ErrCode {
     OH_HUKS_ERR_CODE_INTERNAL_ERROR = 12000012,
     /** The authentication credential does not exist. */
     OH_HUKS_ERR_CODE_CREDENTIAL_NOT_EXIST = 12000013,
+    /** The memory is not sufficient. */
+    OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY = 12000014,
+    /** Failed to call service. */
+    OH_HUKS_ERR_CODE_CALL_SERVICE_FAILED = 12000015,
 };
 
 /**
@@ -447,7 +451,9 @@ enum OH_Huks_AuthAccessType {
     /** The key is invalid after the password is cleared. */
     OH_HUKS_AUTH_ACCESS_INVALID_CLEAR_PASSWORD = 1 << 0,
     /** The key is invalid after a new biometric feature is enrolled. */
-    OH_HUKS_AUTH_ACCESS_INVALID_NEW_BIO_ENROLL = 1 << 1
+    OH_HUKS_AUTH_ACCESS_INVALID_NEW_BIO_ENROLL = 1 << 1,
+    /** The key is always valid. */
+    OH_HUKS_AUTH_ACCESS_ALWAYS_VALID = 1 << 2,
 };
 
 /**
@@ -679,7 +685,7 @@ struct OH_Huks_Blob {
 struct OH_Huks_Param {
     /** Tag value. */
     uint32_t tag;
-    
+
     union {
         /** Parameter of the Boolean type. */
         bool boolParam;
