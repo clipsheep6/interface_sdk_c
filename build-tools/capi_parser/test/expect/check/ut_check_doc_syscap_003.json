@@ -1,0 +1,10 @@
+[
+    {
+        "id": 7,
+        "level": 2,
+        "location": "build-tools\\capi_parser\\test\\ut\\check\\ut_check_doc_syscap_003.h(line:0, col:0)",
+        "file_path": "build-tools\\capi_parser\\test\\ut\\check\\ut_check_doc_syscap_003.h",
+        "message": "API check error of [wrong value]:the [syscap] tag value is incorrect. Please check if the syscap field is configured"
+    },
+    "api_check: false"
+]

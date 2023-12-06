@@ -19,7 +19,7 @@ import os
 import json
 import unittest
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../src")))
-from coreImpl.check.check import get_check_result_list, write_in_txt
+from coreImpl.check import check
 
 
 class TestMethods(unittest.TestCase):
@@ -30,13 +30,24 @@ class TestMethods(unittest.TestCase):
         expect_path = os.path.join(test_path, "expect\\check")
         for dirpath, dirnames, filenames in os.walk(test_case_path):
             for item in filenames:
+                if not item.endswith(".h"):
+                    continue
                 file_name = item.split('.')[0]
-                check_result = get_check_result_list([os.path.join(dirpath, item)])
-                write_in_txt(check_result, os.path.join(output_path, "{}.txt".format(file_name)))
-                with open(os.path.join(expect_path, "{}.txt".format(file_name))) as json_file:
-                    permission_file_content = json.load(json_file)
-                result_json = json.dumps(permission_file_content, default=lambda obj: obj.__dict__, indent=4)
-                self.assertEqual(result_json, "result_json", "{} case is error".format(os.path.join(dirpath, item)))
+                test_case_file_name = os.path.join(dirpath, item)
+                check_result = check.get_check_result_list([test_case_file_name])
+                output_file_name = os.path.join(output_path, "{}.json".format(file_name))
+                check.write_in_txt(check_result, output_file_name)
+                expect_file_name = os.path.join(expect_path, "{}.json".format(file_name))
+                if not os.path.exists(expect_file_name):
+                    continue
+                expect_file = open(expect_file_name)
+                expect_file_content = expect_file.read()
+                expect_file.close()
+                out_json = check.result_to_json(check_result)
+                self.assertEqual(out_json, expect_file_content,
+                                 f"\n{test_case_file_name} case is error.\n" +
+                                 f"{output_file_name} is out file.\n" +
+                                 f"{expect_file_name} is expect out file")
 
 
 if __name__ == '__main__':
