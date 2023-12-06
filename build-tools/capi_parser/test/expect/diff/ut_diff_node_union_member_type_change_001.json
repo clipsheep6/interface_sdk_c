@@ -1,0 +1,11 @@
+[
+    {
+        "api_name": "ch",
+        "api_type": "FIELD_DECL",
+        "diff_type": "UNION_MEMBER_TYPE_CHANGE",
+        "diff_message": "change member type in union",
+        "old_api_full_text": "char ch",
+        "new_api_full_text": "unsigned int ch",
+        "is_compatible": false
+    }
+]

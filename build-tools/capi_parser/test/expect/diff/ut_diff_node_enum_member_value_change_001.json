@@ -1,0 +1,11 @@
+[
+    {
+        "api_name": "OH_NN_FORMAT_NHWC",
+        "api_type": "ENUM_CONSTANT_DECL",
+        "diff_type": "ENUM_MEMBER_VALUE_CHANGE",
+        "diff_message": "change member value in enum",
+        "old_api_full_text": "OH_NN_FORMAT_NHWC = 2",
+        "new_api_full_text": "OH_NN_FORMAT_NHWC = 5",
+        "is_compatible": false
+    }
+]

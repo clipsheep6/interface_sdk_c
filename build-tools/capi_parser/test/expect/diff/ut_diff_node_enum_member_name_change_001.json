@@ -1,0 +1,11 @@
+[
+    {
+        "api_name": "OH_NN_FORMAT",
+        "api_type": "ENUM_CONSTANT_DECL",
+        "diff_type": "ENUM_MEMBER_NAME_CHANGE",
+        "diff_message": "change member name in enum",
+        "old_api_full_text": "OH_NN_FORMAT_NONE = 0",
+        "new_api_full_text": "OH_NN_FORMAT = 0",
+        "is_compatible": false
+    }
+]

@@ -1,0 +1,11 @@
+[
+    {
+        "api_name": "len",
+        "api_type": "FIELD_DECL",
+        "diff_type": "STRUCT_MEMBER_TYPE_CHANGE",
+        "diff_message": "change member type in struct",
+        "old_api_full_text": "int len",
+        "new_api_full_text": "char len",
+        "is_compatible": false
+    }
+]
