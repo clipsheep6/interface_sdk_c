@@ -1,0 +1,20 @@
+[
+    {
+        "api_name": "executor",
+        "api_type": "PARM_DECL",
+        "diff_type": "FUNCTION_PARAM_TYPE_CHANGE",
+        "diff_message": "change param type in function",
+        "old_api_full_text": "int *executor",
+        "new_api_full_text": "char executor",
+        "is_compatible": false
+    },
+    {
+        "api_name": "shapeLength",
+        "api_type": "PARM_DECL",
+        "diff_type": "FUNCTION_PARAM_TYPE_CHANGE",
+        "diff_message": "change param type in function",
+        "old_api_full_text": "int *shapeLength",
+        "new_api_full_text": "int shapeLength",
+        "is_compatible": false
+    }
+]

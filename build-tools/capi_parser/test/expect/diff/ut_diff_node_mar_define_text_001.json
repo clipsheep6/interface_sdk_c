@@ -1,0 +1,11 @@
+[
+    {
+        "api_name": "NEURAL",
+        "api_type": "MACRO_DEFINITION",
+        "diff_type": "DEFINE_TEXT_CHANGE",
+        "diff_message": "change define text",
+        "old_api_full_text": "NEURAL 50",
+        "new_api_full_text": "NEURAL",
+        "is_compatible": false
+    }
+]

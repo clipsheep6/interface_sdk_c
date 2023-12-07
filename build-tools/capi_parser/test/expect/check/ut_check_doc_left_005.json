@@ -1,0 +1,24 @@
+[
+    {
+        "id": 8,
+        "level": 2,
+        "location": "build-tools\\capi_parser\\test\\ut\\check\\ut_check_doc_left_005.h(line:0, col:0)",
+        "file_path": "build-tools\\capi_parser\\test\\ut\\check\\ut_check_doc_left_005.h",
+        "message": "API check error of [wrong scene]:the file has the group tag, but do not has the start tag {."
+    },
+    {
+        "id": 8,
+        "level": 2,
+        "location": "build-tools\\capi_parser\\test\\ut\\check\\ut_check_doc_left_005.h(line:0, col:0)",
+        "file_path": "build-tools\\capi_parser\\test\\ut\\check\\ut_check_doc_left_005.h",
+        "message": "API check error of [wrong scene]:the validity verification of the Doc tag failed. The [{] tag is not allowed to used in Doc which not has addtogroup tag, or used in the wrong place."
+    },
+    {
+        "id": 8,
+        "level": 2,
+        "location": "build-tools\\capi_parser\\test\\ut\\check\\ut_check_doc_left_005.h(line:0, col:0)",
+        "file_path": "build-tools\\capi_parser\\test\\ut\\check\\ut_check_doc_left_005.h",
+        "message": "API check error of [wrong scene]:the [file] tag is repeat. Please check the tag in file"
+    },
+    "api_check: false"
+]

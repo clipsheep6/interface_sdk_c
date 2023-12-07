@@ -1,0 +1,24 @@
+[
+    {
+        "id": 7,
+        "level": 2,
+        "location": "build-tools\\capi_parser\\test\\ut\\check\\ut_check_doc_param_005.h(line:54, col:9)",
+        "file_path": "build-tools\\capi_parser\\test\\ut\\check\\ut_check_doc_param_005.h",
+        "message": "API check error of [wrong value]:the value of the [1] [param] tag is incorrect. Please check if it matches the [1] parameter name"
+    },
+    {
+        "id": 7,
+        "level": 2,
+        "location": "build-tools\\capi_parser\\test\\ut\\check\\ut_check_doc_param_005.h(line:54, col:9)",
+        "file_path": "build-tools\\capi_parser\\test\\ut\\check\\ut_check_doc_param_005.h",
+        "message": "API check error of [wrong value]:the value of the [2] [param] tag is incorrect. Please check if it matches the [2] parameter name"
+    },
+    {
+        "id": 8,
+        "level": 2,
+        "location": "build-tools\\capi_parser\\test\\ut\\check\\ut_check_doc_param_005.h(line:54, col:9)",
+        "file_path": "build-tools\\capi_parser\\test\\ut\\check\\ut_check_doc_param_005.h",
+        "message": "API check error of [wrong scene]:the count of the [param] tag is wrong. Please check the parameters and Doc"
+    },
+    "api_check: false"
+]
