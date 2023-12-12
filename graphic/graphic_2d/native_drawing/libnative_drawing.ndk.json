@@ -86,21 +86,72 @@
     { "name": "OH_Drawing_TypographyGetMaxIntrinsicWidth" },
     { "name": "OH_Drawing_TypographyGetAlphabeticBaseline" },
     { "name": "OH_Drawing_TypographyGetIdeographicBaseline" },
-    { "name": "OH_Drawing_TypographyDidExceedMaxLines" },
-    { "name": "OH_Drawing_TypographyGetRectsForRange" },
-    { "name": "OH_Drawing_TypographyGetRectsForPlaceholders" },
-    { "name": "OH_Drawing_TypographyGetGlyphPositionAtCoordinate" },
-    { "name": "OH_Drawing_TypographyGetGlyphPositionAtCoordinateWithCluster" },
-    { "name": "OH_Drawing_TypographyGetWordBoundary" },
-    { "name": "OH_Drawing_TypographyGetLineCount" },
-    { "name": "OH_Drawing_SetTextStyleDecorationStyle" },
-    { "name": "OH_Drawing_SetTextStyleDecorationThicknessScale" },
-    { "name": "OH_Drawing_SetTextStyleLetterSpacing" },
-    { "name": "OH_Drawing_SetTextStyleWordSpacing" },
-    { "name": "OH_Drawing_SetTextStyleHalfLeading" },
-    { "name": "OH_Drawing_SetTextStyleEllipsis" },
-    { "name": "OH_Drawing_SetTextStyleEllipsisModal" },
-    { "name": "OH_Drawing_SetTypographyTextBreakStrategy" },
-    { "name": "OH_Drawing_SetTypographyTextWordBreakType" },
-    { "name": "OH_Drawing_SetTypographyTextEllipsisModal" }
+    {
+        "first_introduced": "11",
+        "name": "OH_Drawing_TypographyDidExceedMaxLines"
+    },
+    {
+        "first_introduced": "11",
+        "name": "OH_Drawing_TypographyGetRectsForRange"
+    },
+    {
+        "first_introduced": "11",
+        "name": "OH_Drawing_TypographyGetRectsForPlaceholders"
+    },
+    {
+        "first_introduced": "11",
+        "name": "OH_Drawing_TypographyGetGlyphPositionAtCoordinate"
+    },
+    {
+        "first_introduced": "11",
+        "name": "OH_Drawing_TypographyGetGlyphPositionAtCoordinateWithCluster"
+    },
+    {
+        "first_introduced": "11",
+        "name": "OH_Drawing_TypographyGetWordBoundary"
+    },
+    {
+        "first_introduced": "11",
+        "name": "OH_Drawing_TypographyGetLineCount"
+    },
+    {
+        "first_introduced": "11",
+        "name": "OH_Drawing_SetTextStyleDecorationStyle"
+    },
+    {
+        "first_introduced": "11",
+        "name": "OH_Drawing_SetTextStyleDecorationThicknessScale"
+    },
+    {
+        "first_introduced": "11",
+        "name": "OH_Drawing_SetTextStyleLetterSpacing"
+    },
+    {
+        "first_introduced": "11",
+        "name": "OH_Drawing_SetTextStyleWordSpacing"
+    },
+    {
+        "first_introduced": "11",
+        "name": "OH_Drawing_SetTextStyleHalfLeading"
+    },
+    {
+        "first_introduced": "11",
+        "name": "OH_Drawing_SetTextStyleEllipsis"
+    },
+    {
+        "first_introduced": "11",
+        "name": "OH_Drawing_SetTextStyleEllipsisModal"
+    },
+    {
+        "first_introduced": "11",
+        "name": "OH_Drawing_SetTypographyTextBreakStrategy"
+    },
+    {
+        "first_introduced": "11",
+        "name": "OH_Drawing_SetTypographyTextWordBreakType"
+    },
+    {
+        "first_introduced": "11",
+        "name": "OH_Drawing_SetTypographyTextEllipsisModal"
+    }
 ]
