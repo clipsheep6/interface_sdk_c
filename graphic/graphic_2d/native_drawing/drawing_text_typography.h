@@ -150,6 +150,9 @@ enum OH_Drawing_FontStyle {
 
 /**
  * @brief Enumerates text decoration style.
+ * 
+ * @since 11
+ * @version 1.0
  */
 enum OH_Drawing_TextDecorationStyle {
     /** Solid style */
@@ -166,6 +169,9 @@ enum OH_Drawing_TextDecorationStyle {
 
 /**
  * @brief Enumerates ellipsis modal.
+ * 
+ * @since 11
+ * @version 1.0
  */
 enum OH_Drawing_EllipsisModal {
     /** Head modal */
@@ -178,6 +184,9 @@ enum OH_Drawing_EllipsisModal {
 
 /**
  * @brief Enumerates break strategy.
+ * 
+ * @since 11
+ * @version 1.0
  */
 enum OH_Drawing_BreakStrategy {
     /** Greedy strategy */
@@ -190,6 +199,9 @@ enum OH_Drawing_BreakStrategy {
 
 /**
  * @brief Enumerates word break type.
+ * 
+ * @since 11
+ * @version 1.0
  */
 enum OH_Drawing_WordBreakType {
     /** Normal type */
@@ -202,6 +214,9 @@ enum OH_Drawing_WordBreakType {
 
 /**
  * @brief Enumerates rect height style.
+ * 
+ * @since 11
+ * @version 1.0
  */
 enum OH_Drawing_RectHeightStyle {
     /** Tight style */
@@ -220,6 +235,9 @@ enum OH_Drawing_RectHeightStyle {
 
 /**
  * @brief Enumerates rect Width style.
+ * 
+ * @since 11
+ * @version 1.0
  */
 enum OH_Drawing_RectWidthStyle {
     /** Tight style */
@@ -260,6 +278,9 @@ typedef struct {
 
 /**
  * @brief Enumerates affinity.
+ * 
+ * @since 11
+ * @version 1.0
  */
 enum OH_Drawing_Affinity {
     /** upstream affinity */
