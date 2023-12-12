@@ -88,6 +88,10 @@
     { "name": "OH_Drawing_TypographyGetIdeographicBaseline" },
     {
         "first_introduced": "11",
+        "name": "OH_Drawing_TypographyHandlerAddPlaceholder"
+    },
+    {
+        "first_introduced": "11",
         "name": "OH_Drawing_TypographyDidExceedMaxLines"
     },
     {
@@ -100,6 +104,30 @@
     },
     {
         "first_introduced": "11",
+        "name": "OH_Drawing_GetLeftFromTextBox"
+    },
+    {
+        "first_introduced": "11",
+        "name": "OH_Drawing_GetRightFromTextBox"
+    },
+    {
+        "first_introduced": "11",
+        "name": "OH_Drawing_GetTopFromTextBox"
+    },
+    {
+        "first_introduced": "11",
+        "name": "OH_Drawing_GetBottomFromTextBox"
+    },
+    {
+        "first_introduced": "11",
+        "name": "OH_Drawing_GetTextDirectionFromTextBox"
+    },
+    {
+        "first_introduced": "11",
+        "name": "OH_Drawing_GetSizeOfTextBox"
+    },
+    {
+        "first_introduced": "11",
         "name": "OH_Drawing_TypographyGetGlyphPositionAtCoordinate"
     },
     {
@@ -108,7 +136,23 @@
     },
     {
         "first_introduced": "11",
+        "name": "OH_Drawing_GetPositionFromPositionAndAffinity"
+    },
+    {
+        "first_introduced": "11",
+        "name": "OH_Drawing_GetAffinityFromPositionAndAffinity"
+    },
+    {
+        "first_introduced": "11",
         "name": "OH_Drawing_TypographyGetWordBoundary"
+    },
+    {
+        "first_introduced": "11",
+        "name": "OH_Drawing_GetStartFromRange"
+    },
+    {
+        "first_introduced": "11",
+        "name": "OH_Drawing_GetEndFromRange"
     },
     {
         "first_introduced": "11",
@@ -153,5 +197,13 @@
     {
         "first_introduced": "11",
         "name": "OH_Drawing_SetTypographyTextEllipsisModal"
+    },
+    {
+        "first_introduced": "11",
+        "name": "OH_Drawing_TypographyGetLineHeight"
+    },
+    {
+        "first_introduced": "11",
+        "name": "OH_Drawing_TypographyGetLineWidth"
     }
 ]
