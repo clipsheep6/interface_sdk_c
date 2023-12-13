@@ -1,0 +1,10 @@
+[
+    {
+        "id": 8,
+        "level": 2,
+        "location": "build-tools\\capi_parser\\test\\ut\\check\\ut_check_doc_param_004.h(line:62, col:9)",
+        "file_path": "build-tools\\capi_parser\\test\\ut\\check\\ut_check_doc_param_004.h",
+        "message": "API check error of [wrong scene]:the count of the [param] tag is wrong. Please check the parameters and Doc"
+    },
+    "api_check: false"
+]

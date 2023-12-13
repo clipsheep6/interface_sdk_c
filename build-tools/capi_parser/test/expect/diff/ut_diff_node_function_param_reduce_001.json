@@ -1,0 +1,11 @@
+[
+    {
+        "api_name": "OH_NNExecutor_GetOutputShape",
+        "api_type": "FUNCTION_DECL",
+        "diff_type": "FUNCTION_PARAM_REDUCE",
+        "diff_message": "delete param in function",
+        "old_api_full_text": "int *shapeLength",
+        "new_api_full_text": "int OH_NNExecutor_GetOutputShape(int *executor)",
+        "is_compatible": false
+    }
+]

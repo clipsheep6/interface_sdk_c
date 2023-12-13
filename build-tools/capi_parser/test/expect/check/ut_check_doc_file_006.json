@@ -1,0 +1,10 @@
+[
+    {
+        "id": 8,
+        "level": 2,
+        "location": "build-tools\\capi_parser\\test\\ut\\check\\ut_check_doc_file_006.h(line:0, col:0)",
+        "file_path": "build-tools\\capi_parser\\test\\ut\\check\\ut_check_doc_file_006.h",
+        "message": "API check error of [wrong scene]:the file missing file doc"
+    },
+    "api_check: false"
+]

@@ -1,0 +1,11 @@
+[
+    {
+        "api_name": "OH_NativeXComponent_GetKeyEventDeviceId2",
+        "api_type": "FUNCTION_DECL",
+        "diff_type": "ADD_API",
+        "diff_message": "add api",
+        "old_api_full_text": "",
+        "new_api_full_text": "int OH_NativeXComponent_GetKeyEventDeviceId2(int *keyEvent, int *deviceId)",
+        "is_compatible": true
+    }
+]

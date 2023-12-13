@@ -1,0 +1,10 @@
+[
+    {
+        "id": 0,
+        "level": 2,
+        "location": "build-tools\\capi_parser\\test\\ut\\check\\ut_check_doc_addgroup_002.h(line:0, col:0)",
+        "file_path": "build-tools\\capi_parser\\test\\ut\\check\\ut_check_doc_addgroup_002.h",
+        "message": "API check error of [miss tag value]:the [addtogroup] tag value is empty. Please supplement the default value"
+    },
+    "api_check: false"
+]

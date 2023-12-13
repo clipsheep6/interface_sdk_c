@@ -1,0 +1,29 @@
+[
+    {
+        "api_name": "count",
+        "api_type": "FIELD_DECL",
+        "diff_type": "UNION_MEMBER_TYPE_CHANGE",
+        "diff_message": "change member type in union",
+        "old_api_full_text": "char ch",
+        "new_api_full_text": "int count",
+        "is_compatible": false
+    },
+    {
+        "api_name": "count",
+        "api_type": "FIELD_DECL",
+        "diff_type": "UNION_MEMBER_NAME_CHANGE",
+        "diff_message": "change member name in union",
+        "old_api_full_text": "char ch",
+        "new_api_full_text": "int count",
+        "is_compatible": false
+    },
+    {
+        "api_name": "std",
+        "api_type": "UNION_DECL",
+        "diff_type": "UNION_MEMBER_REDUCE",
+        "diff_message": "delete member in union",
+        "old_api_full_text": "int count",
+        "new_api_full_text": "union std{\n  int count;\n};\n",
+        "is_compatible": false
+    }
+]
