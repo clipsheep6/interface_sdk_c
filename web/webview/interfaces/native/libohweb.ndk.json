@@ -1,0 +1,114 @@
+[
+    {
+        "first_introduced": "11",
+        "name": "ArkWebSchemeHandler"
+    },
+    {
+        "first_introduced": "11",
+        "name": "ArkWebResourceHandler"
+    },
+    {
+        "first_introduced": "11",
+        "name": "ArkWebResponse"
+    },
+    {
+        "first_introduced": "11",
+        "name": "OnRequestStart"
+    },
+    {
+        "first_introduced": "11",
+        "name": "OnRequestStop"
+    },
+    {
+        "first_introduced": "11",
+        "name": "OH_NativeArkWeb_SetSchemeHandler"
+    },
+    {
+        "first_introduced": "11",
+        "name": "OH_NativeArkWeb_ClearAllSchemeHandlers"
+    },
+    {
+        "first_introduced": "11",
+        "name": "OH_NativeArkWeb_CreateSchemeHandler"
+    },
+    {
+        "first_introduced": "11",
+        "name": "OH_NativeArkWeb_SchemeHandler_SetOnRequestStart"
+    },
+    {
+        "first_introduced": "11",
+        "name": "OH_NativeArkWeb_SchemeHandler_SetOnRequestStop"
+    },
+    {
+        "first_introduced": "11",
+        "name": "OH_NativeArkWeb_CreateResponse"
+    },
+    {
+        "first_introduced": "11",
+        "name": "OH_NativeArkWeb_DestroyResponse"
+    },
+    {
+        "first_introduced": "11",
+        "name": "OH_NativeArkWeb_Response_SetError"
+    },
+    {
+        "first_introduced": "11",
+        "name": "OH_NativeArkWeb_Response_GetError"
+    },
+    {
+        "first_introduced": "11",
+        "name": "OH_NativeArkWeb_Response_SetStatus"
+    },
+    {
+        "first_introduced": "11",
+        "name": "OH_NativeArkWeb_Response_GetStatus"
+    },
+    {
+        "first_introduced": "11",
+        "name": "OH_NativeArkWeb_Response_SetStatusText"
+    },
+    {
+        "first_introduced": "11",
+        "name": "OH_NativeArkWeb_Response_GetStatusText"
+    },
+    {
+        "first_introduced": "11",
+        "name": "OH_NativeArkWeb_Response_SetMimeType"
+    },
+    {
+        "first_introduced": "11",
+        "name": "OH_NativeArkWeb_Response_GetMimeType"
+    },
+    {
+        "first_introduced": "11",
+        "name": "OH_NativeArkWeb_Response_SetCharset"
+    },
+    {
+        "first_introduced": "11",
+        "name": "OH_NativeArkWeb_Response_GetCharset"
+    },
+    {
+        "first_introduced": "11",
+        "name": "OH_NativeArkWeb_Response_SetHeaderByName"
+    },
+    {
+        "first_introduced": "11",
+        "name": "OH_NativeArkWeb_Response_GetHeaderByName"
+    },
+    {
+        "first_introduced": "11",
+        "name": "OH_NativeArkWeb_ResourceHandler_DidReceiveResponse"
+    },
+    {
+        "first_introduced": "11",
+        "name": "OH_NativeArkWeb_ResourceHandler_DidReceiveData"
+    },
+    {
+        "first_introduced": "11",
+        "name": "OH_NativeArkWeb_ResourceHandler_DidFinish"
+    },
+    {
+        "first_introduced": "11",
+        "name": "OH_NativeArkWeb_ResourceHandler_DidFailWithError"
+    }
+]
