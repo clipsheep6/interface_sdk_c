@@ -31,6 +31,7 @@ This repository is used to store .h declaration files of C APIs. The OpenHarmony
     ├─multimedia
     |  ├─audio_framework
     |  ├─av_codec
+    |  ├─histreamer
     |  ├─image_framework
     |  ├─player_framework
     ├─resourceschedule

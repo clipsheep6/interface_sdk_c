@@ -33,6 +33,7 @@
 ├─multimedia
 |  ├─audio_framework
 |  ├─av_codec
+|  ├─histreamer
 |  ├─image_framework
 |  ├─player_framework
 ├─resourceschedule
