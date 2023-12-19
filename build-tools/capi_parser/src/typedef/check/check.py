@@ -32,69 +32,41 @@ class TAGS(enum.Enum):
 
 
 class ErrorType(enum.Enum):
-    UNKNOW_DECORATOR: {
-        id: 0,
-        'description': 'unknow decorator',
+    DEFAULT = {
+        'id': -1,
+        'description': '',
     }
-    MISSPELL_WORDS: {
-        id: 1,
-        'description': 'misspell words',
+    EMPTY_TAG = {
+        'id': 0,
+        'description': "miss tag value",
     }
-    NAMING_ERRORS: {
-        id: 2,
-        'description': 'naming errors',
-    }
-    UNKNOW_PERMISSION: {
-        id: 3,
-        'description': 'unknow permission',
-    }
-    UNKNOW_SYSCAP: {
-        id: 4,
-        'description': 'unknow syscap',
-    }
-    UNKNOW_DEPRECATED: {
-        id: 5,
-        'description': 'unknow deprecated',
-    }
-    WRONG_ORDER: {
-        id: 6,
-        'description': 'wrong order',
-    }
-    WRONG_VALUE: {
-        id: 7,
-        'description': 'wrong value',
-    }
-    WRONG_SCENE: {
-        id: 8,
-        'description': 'wrong scene',
-    }
-    PARAMETER_ERRORS: {
-        id: 9,
-        'description': 'wrong parameter',
-    }
-    API_PAIR_ERRORS: {
-        id: 10,
-        'description': 'limited api pair errors',
-    }
-    ILLEGAL_ANY: {
-        id: 11,
-        'description': 'illegal any',
-    }
-    API_CHANGE_ERRORS: {
-        id: 12,
-        'description': 'api change errors',
-    }
-    EMPTY_TAG: {
-        id: 13,
-        'description': 'miss tag value',
-    }
-    ERROR_TAG: {
-        id: 14,
+    ERROR_TAG = {
+        'id': 1,
         'description': 'error tag name',
     }
-    SYNTAX_ERRORS: {
-        id: 15,
+    MISSPELL_WORDS = {
+        'id': 1,
+        'description': 'misspell words',
+    }
+    NAMING_ERRORS = {
+        'id': 2,
+        'description': 'naming errors',
+    }
+    SYNTAX_ERRORS = {
+        'id': 3,
         'description': 'syntax errors',
+    }
+    UNKNOW_DEPRECATED = {
+        'id': 5,
+        'description': 'unknow deprecated',
+    }
+    WRONG_VALUE = {
+        'id': 7,
+        'description': 'wrong value',
+    }
+    WRONG_SCENE = {
+        'id': 8,
+        'description': 'wrong scene',
     }
 
 

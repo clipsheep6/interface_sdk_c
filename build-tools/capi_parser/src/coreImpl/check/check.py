@@ -95,3 +95,13 @@ def get_check_result_list(file_list):
         check_result_list.extend(check_syntax(file))
     return check_result_list
 
+
+def get_md_files(url):
+    file = open(url, "r")
+    file_list = []
+    line = file.readline()
+    while line:
+        file_list.append(line.splitlines()[0])
+        line = file.readline()
+    file.close()
+    return file_list
