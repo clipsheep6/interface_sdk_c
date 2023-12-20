@@ -1,0 +1,11 @@
+[
+    {
+        "api_name": "ut_diff_case_001.h",
+        "api_type": "TRANSLATION_UNIT",
+        "diff_type": "DOC_TAG_ADDTOGROUP_HAVE_TO_NA",
+        "diff_message": "delete addtogroup tag",
+        "old_api_full_text": "",
+        "new_api_full_text": "",
+        "is_compatible": true
+    }
+]

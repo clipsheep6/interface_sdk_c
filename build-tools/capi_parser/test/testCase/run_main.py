@@ -19,7 +19,8 @@ import os
 import json
 import unittest
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../src")))
-from coreImpl.check.check import get_check_result_list, write_in_txt
+from coreImpl.check import check
+from coreImpl.diff import diff_file
 
 
 class TestMethods(unittest.TestCase):
@@ -30,13 +31,51 @@ class TestMethods(unittest.TestCase):
         expect_path = os.path.join(test_path, "expect\\check")
         for dirpath, dirnames, filenames in os.walk(test_case_path):
             for item in filenames:
+                if not item.endswith(".h"):
+                    continue
                 file_name = item.split('.')[0]
-                check_result = get_check_result_list([os.path.join(dirpath, item)])
-                write_in_txt(check_result, os.path.join(output_path, "{}.txt".format(file_name)))
-                with open(os.path.join(expect_path, "{}.txt".format(file_name))) as json_file:
-                    permission_file_content = json.load(json_file)
-                result_json = json.dumps(permission_file_content, default=lambda obj: obj.__dict__, indent=4)
-                self.assertEqual(result_json, "result_json", "{} case is error".format(os.path.join(dirpath, item)))
+                test_case_file_name = os.path.join(dirpath, item)
+                check_result = check.get_check_result_list([test_case_file_name])
+                output_file_name = os.path.join(output_path, "{}.json".format(file_name))
+                check.write_in_txt(check_result, output_file_name)
+                expect_file_name = os.path.join(expect_path, "{}.json".format(file_name))
+                if not os.path.exists(expect_file_name):
+                    continue
+                expect_file = open(expect_file_name)
+                expect_file_content = expect_file.read()
+                expect_file.close()
+                out_json = check.result_to_json(check_result)
+                self.assertEqual(out_json, expect_file_content,
+                                 f"\n{test_case_file_name} case is error.\n" +
+                                 f"{output_file_name} is out file.\n" +
+                                 f"{expect_file_name} is expect out file")
+
+    def test_diff(self):
+        test_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..\\"))
+        test_case_old_path = os.path.join(test_path, "ut\\diff\\old")
+        test_case_new_path = os.path.join(test_path, "ut\\diff\\new")
+        output_path = os.path.join(test_path, "output\\diff")
+        expect_path = os.path.join(test_path, "expect\\diff")
+        old_file_list = os.listdir(test_case_old_path)
+        for case_name in old_file_list:
+            output_file_name = os.path.join(output_path, "{}.json".format(case_name))
+            test_case_old_dir = os.path.join(test_case_old_path, case_name)
+            test_case_new_dir = os.path.join(test_case_new_path, case_name)
+            diff_result = diff_file.global_assignment(test_case_old_dir, test_case_new_dir)
+            diff_json = diff_file.result_to_json(diff_result)
+            diff_file.write_in_txt(diff_json, output_file_name)
+            expect_file_name = os.path.join(expect_path, "{}.json".format(case_name))
+            if not os.path.exists(expect_file_name):
+                continue
+            expect_file = open(expect_file_name)
+            expect_file_content = expect_file.read()
+            expect_file.close()
+            self.assertEqual(diff_json, expect_file_content,
+                             f"\n{case_name} case is error.\n" +
+                             f"\n{test_case_old_dir} is old case dir.\n" +
+                             f"\n{test_case_new_dir} is new case dir.\n" +
+                             f"{output_file_name} is out file.\n" +
+                             f"{expect_file_name} is expect out file")
 
 
 if __name__ == '__main__':

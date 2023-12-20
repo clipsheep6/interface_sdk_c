@@ -1,0 +1,17 @@
+[
+    {
+        "id": 8,
+        "level": 2,
+        "location": "build-tools\\capi_parser\\test\\ut\\check\\ut_check_doc_left_002.h(line:0, col:0)",
+        "file_path": "build-tools\\capi_parser\\test\\ut\\check\\ut_check_doc_left_002.h",
+        "message": "API check error of [wrong scene]:the file has the group tag, but do not has the start tag {."
+    },
+    {
+        "id": 8,
+        "level": 2,
+        "location": "build-tools\\capi_parser\\test\\ut\\check\\ut_check_doc_left_002.h(line:0, col:0)",
+        "file_path": "build-tools\\capi_parser\\test\\ut\\check\\ut_check_doc_left_002.h",
+        "message": "API check error of [wrong scene]:the [file] tag is repeat. Please check the tag in file"
+    },
+    "api_check: false"
+]

@@ -1,0 +1,10 @@
+[
+    {
+        "id": 7,
+        "level": 2,
+        "location": "build-tools\\capi_parser\\test\\ut\\check\\ut_check_doc_since_003.h(line:0, col:0)",
+        "file_path": "build-tools\\capi_parser\\test\\ut\\check\\ut_check_doc_since_003.h",
+        "message": "API check error of [wrong value]:the [since] tag value is incorrect. Please check if the tag value is a numerical value"
+    },
+    "api_check: false"
+]
