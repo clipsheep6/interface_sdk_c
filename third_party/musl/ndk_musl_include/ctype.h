@@ -45,7 +45,7 @@ static __inline int __isspace(int _c)
 #define __NEED_locale_t
 #include <bits/alltypes.h>
 
-int   isalnum_l(int, locale_t);
+int   isalnum_ll(int, locale_t);
 int   isalpha_l(int, locale_t);
 int   isblank_l(int, locale_t);
 int   iscntrl_l(int, locale_t);
