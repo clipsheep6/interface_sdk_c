@@ -65,11 +65,12 @@ extern "C" {
  * After {@link OH_NNCompilation_Build} is called, the {@link OH_NNModel} instance can be released. \n
  *
  * @param model Pointer to the {@link OH_NNModel} instance.
+ * @param model2 Pointer to the {@link OH_NNModel} instance.
  * @return Pointer to a {@link OH_NNCompilation} instance, or NULL if it fails to create.
  * @since 9
  * @version 1.0
  */
-OH_NNCompilation *OH_NNCompilation_Construct(const OH_NNModel *model);
+OH_NNCompilation *OH_NNCompilation_Construct(const OH_NNModel *model, const OH_NNModel *model2);
 
 /**
  * @brief Creates a compilation instance based on an offline model file.
@@ -119,7 +120,7 @@ OH_NNCompilation *OH_NNCompilation_ConstructWithOfflineModelBuffer(const void *m
  * @since 11
  * @version 1.0
  */
-OH_NNCompilation *OH_NNCompilation_ConstructForCache();
+OH_NNCompilation *changeFunctionName();
 
 /**
  * @brief Exports the cache to a given buffer.
