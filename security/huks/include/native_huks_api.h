@@ -50,6 +50,7 @@ extern "C" {
  * @param sdkVersion Indicates the pointer to the SDK version (in string format) obtained.
  *    return Returns {@link OH_Huks_ErrCode#OH_HUKS_SUCCESS} if the operation is successful;
  *    returns an error code otherwise.
+ * @deprecated since 11
  * @since 9
  * @version 1.0
  */
