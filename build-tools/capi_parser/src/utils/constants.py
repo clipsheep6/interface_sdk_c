@@ -35,4 +35,3 @@ class RegularExpressions(enum.Enum):
     SOURCES = r'sources\s*=\s*\[[^\]]*\]'
     DEST_DIR = r'dest_dir\s*=\s*"([^"]*)"'
     INCLUDE_H = r'"([^"]+h)"'
-    CREATE_LIB_PATH = r'sysroot\$ndk_headers_out_dir'
