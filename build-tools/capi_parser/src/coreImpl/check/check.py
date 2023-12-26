@@ -22,6 +22,9 @@ from coreImpl.parser.parser import parser_include_ast
 from coreImpl.check.check_syntax import check_syntax
 
 
+file_path_test = []
+
+
 def process_api_json(api_info, file_doc_info: FileDocInfo, api_result_info_list):
     api_result_info_list.extend(check_ndk_name(api_info))
     if 'comment' in api_info.keys():
@@ -69,14 +72,11 @@ def write_in_txt(check_result, output_path):
 
 def result_to_json(check_result):
     txt_resul = []
-    if len(check_result) == 0:
-        txt_resul.append('api_check: false')
-    else:
-        for result in check_result:
-            location = f'{result.location}(line:{result.location_line}, col:{result.location_column})'
-            message = 'API check error of [{}]:{}'.format(result.error_type['description'], result.error_info)
-            txt_resul.append(OutputTxt(result.error_type['id'], result.level, location, result.file_name, message))
-        txt_resul.append('api_check: false')
+    txt_resul.extend(file_path_test)
+    for result in check_result:
+        location = f'{result.location}(line:{result.location_line}, col:{result.location_column})'
+        message = 'API check error of [{}]:{}'.format(result.error_type['description'], result.error_info)
+        txt_resul.append(OutputTxt(result.error_type['id'], result.level, location, result.file_name, message))
     return json.dumps(txt_resul, default=lambda obj: obj.__dict__, indent=4)
 
 
@@ -89,6 +89,8 @@ def curr_entry(file_path):
 def get_check_result_list(file_list):
     check_result_list = []
     for file in file_list:
+        global file_path_test
+        file_path_test.append(f'file_path: {file}')
         root_start = file.split('sdk_c')[0]
         root_path = f'{root_start}sdk_c'
         python_obj = parser_include_ast(root_path, [file])
