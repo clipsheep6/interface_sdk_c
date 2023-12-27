@@ -738,29 +738,20 @@ typedef struct Rdb_ProgressDetails {
 Rdb_TableDetails *OH_Rdb_GetTableDetails(Rdb_ProgressDetails *progress, int32_t version);
 
 /**
- * @brief The callback function of sync.
- *
- * @param progressDetails The details of the sync progress.
- * @see Rdb_ProgressDetails.
- * @since 11
- */
-typedef void (*Rdb_SyncCallback)(Rdb_ProgressDetails *progressDetails);
-
-/**
  * @brief Sync data to cloud.
  *
  * @param store Represents a pointer to an {@link OH_Rdb_Store} instance.
  * @param mode Represents the {@link Rdb_SyncMode} of sync progress.
  * @param tables Indicates the names of tables to sync.
  * @param count The count of tables to sync. If value equals 0, sync all tables of the store.
- * @param callback The {@link Rdb_SyncCallback} of cloud sync progress.
+ * @param observer The {@link Rdb_ProgressObserver} of cloud sync progress.
  * @return Returns the status code of the execution. See {@link OH_Rdb_ErrCode}.
  * @see OH_Rdb_Store.
- * @see Rdb_SyncCallback.
+ * @see Rdb_ProgressObserver.
  * @since 11
  */
 int OH_Rdb_CloudSync(OH_Rdb_Store *store, Rdb_SyncMode mode, const char *tables[], uint32_t count,
-    Rdb_SyncCallback *callback);
+    const Rdb_ProgressObserver *observer);
 #ifdef __cplusplus
 };
 #endif
