@@ -25,19 +25,37 @@
 extern "C" {
 #endif
 
-/*
- * Sets the absolute coordinate of mouse.
+/**
+ * Inject system keys.
  *
- * @param x Indicates the x coordinate of the mouse to be set
- * @param y Indicates the y coordinate of the mouse to be set
- * @return Returns <b>0</b> if success; returns a non-0 value otherwise.
- * @syscap SystemCapability.MultimodalInput.Input.Pointer
+ * @param { CAPI_KeyEvent } keyEvent - the key event to be injected.
+ * @return Returns <b>0</b> if success; returns a non-0 value otherwise
+ * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
+ * @systemapi hide for inner use
  * @since 11
  */
 int32_t OH_InputEvent_InjectEvent(struct InputEvent_KeyEvent* keyEvent);
 
+/**
+ * Inject mouse event.
+ *
+ * @param { CAPI_MouseEvent } mouseEvent - the mouse event to be injected.
+ * @return Returns <b>0</b> if success; returns a non-0 value otherwise
+ * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
+ * @systemapi hide for inner use
+ * @since 11
+ */
 int32_t OH_InputEvent_InjectMouseEvent(struct InputEvent_MouseEvent* mouseEvent);
 
+/**
+ * Inject touch event.
+ *
+ * @param { CAPI_TouchEvent } touchEvent - the touch event to be injected.
+ * @return Returns <b>0</b> if success; returns a non-0 value otherwise
+ * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
+ * @systemapi hide for inner use
+ * @since 11
+ */
 int32_t OH_InputEvent_InjectTouchEvent(struct InputEvent_TouchEvent* touchEvent);
 
 #ifdef __cplusplus
