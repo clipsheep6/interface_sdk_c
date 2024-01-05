@@ -129,6 +129,13 @@ NAPI_EXTERN napi_status napi_coerce_to_native_binding_object(napi_env env,
                                                              void* native_object,
                                                              void* hint);
 
+NAPI_EXTERN napi_status napi_make_callback(napi_env env,
+                                           napi_async_context async_context,
+                                           napi_value recv,
+                                           napi_value func,
+                                           size_t argc,
+                                           const napi_value* argv,
+                                           napi_value* result);
 #ifdef __cplusplus
 }
 #endif
