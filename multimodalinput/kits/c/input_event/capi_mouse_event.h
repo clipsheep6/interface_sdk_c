@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -85,14 +85,14 @@ typedef enum {
 } MouseToolType;
 
 
-struct CAPI_AxisValue {
+struct InputEvent_AxisValue {
     /** Axis type. */
     MouseAxis axis;
     /** Axis value. */
     int32_t value;
 };
 
-struct CAPI_MouseEvent {
+struct InputEvent_MouseEvent {
     /** Mouse event action. */
     MouseAction action;
     /** X coordinate of the mouse pointer on the screen. */
@@ -115,9 +115,9 @@ struct CAPI_MouseEvent {
     /** Button that is being pressed. */
     std::vector<MouseButton> pressedButtons;
     /** All axis data contained in the event. */
-    std::vector<CAPI_AxisValue> axes;
+    std::vector<InputEvent_AxisValue> axes;
     /** List of pressed keys. */
-    std::vector<CAPI_KeyCode> pressedKeys;
+    std::vector<InputEvent_KeyCode> pressedKeys;
     /** Whether ctrlKey is being pressed. */
     bool ctrlKey;
     /** Whether altKey is being pressed. */

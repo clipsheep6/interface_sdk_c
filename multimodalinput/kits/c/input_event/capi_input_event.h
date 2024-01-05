@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -11,28 +11,6 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
-
-/**
- * @addtogroup input
- * @{
- *
- * @brief Provide the definition of the C interface for the input module.
- *
- * @syscap SystemCapability.MultimodalInput.Input.Pointer
- * @since 11
- * @version 1.0
- */
-
-/**
- * @file native_input_pointer.h
- *
- * @brief Declare the pointer api related to mouse cursor settings.
- *
- * @library libohinput.so
- * @syscap SystemCapability.MultimodalInput.Input.Pointer
- * @since 11
- * @version 1.0
  */
 
 #ifndef CAPI_INPUT_EVENT_H
@@ -47,39 +25,20 @@
 extern "C" {
 #endif
 
-
-/**
- * Inject system keys.
+/*
+ * Sets the absolute coordinate of mouse.
  *
- * @param { CAPI_KeyEvent } keyEvent - the key event to be injected.
- * @return Returns <b>0</b> if success; returns a non-0 value otherwise
- * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
- * @systemapi hide for inner use
+ * @param x Indicates the x coordinate of the mouse to be set
+ * @param y Indicates the y coordinate of the mouse to be set
+ * @return Returns <b>0</b> if success; returns a non-0 value otherwise.
+ * @syscap SystemCapability.MultimodalInput.Input.Pointer
  * @since 11
  */
-int32_t OH_InputEvent_InjectEvent(struct CAPI_KeyEvent* keyEvent);
+int32_t OH_InputEvent_InjectEvent(struct InputEvent_KeyEvent* keyEvent);
 
-/**
- * Inject mouse event.
- *
- * @param { CAPI_MouseEvent } mouseEvent - the mouse event to be injected.
- * @return Returns <b>0</b> if success; returns a non-0 value otherwise
- * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
- * @systemapi hide for inner use
- * @since 11
- */
-int32_t OH_InputEvent_InjectMouseEvent(struct CAPI_MouseEvent* mouseEvent);
+int32_t OH_InputEvent_InjectMouseEvent(struct InputEvent_MouseEvent* mouseEvent);
 
-/**
- * Inject touch event.
- *
- * @param { CAPI_TouchEvent } touchEvent - the touch event to be injected.
- * @return Returns <b>0</b> if success; returns a non-0 value otherwise
- * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
- * @systemapi hide for inner use
- * @since 11
- */
-int32_t OH_InputEvent_InjectTouchEvent(struct CAPI_TouchEvent* touchEvent);
+int32_t OH_InputEvent_InjectTouchEvent(struct InputEvent_TouchEvent* touchEvent);
 
 #ifdef __cplusplus
 }

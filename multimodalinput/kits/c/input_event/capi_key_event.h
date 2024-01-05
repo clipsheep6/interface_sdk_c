@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -353,9 +353,9 @@ typedef enum {
     KEYCODE_BTN_7 = 3107,
     KEYCODE_BTN_8 = 3108,
     KEYCODE_BTN_9 = 3109
-} CAPI_KeyCode;
+} InputEvent_KeyCode;
 
-struct CAPI_KeyEvent {
+struct InputEvent_KeyEvent {
     bool isPressed = false;
     int32_t keyCode;
     int32_t keyDownDuration = 0;
