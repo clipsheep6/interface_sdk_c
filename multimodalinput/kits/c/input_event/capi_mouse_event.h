@@ -24,6 +24,12 @@
 extern "C" {
 #endif
 
+/**
+ * @brief Enumerated values of mouse event action.
+ * 
+ * @since 11
+ * @version 1.0
+ */
 typedef enum {
     /** Cancel. */
     MOUSE_ACTION_CANCEL = 0,
@@ -45,6 +51,12 @@ typedef enum {
     MOUSE_ACTION_ACTION_UP = 8
 } MouseEvent_Action;
 
+/**
+ * @brief Enumerated values of mouse event button.
+ * 
+ * @since 11
+ * @version 1.0
+ */
 typedef enum {
     /** Left button on the mouse. */
     MOUSE_BUTTON_LEFT = 0,
@@ -64,6 +76,12 @@ typedef enum {
     MOUSE_BUTTON_TASK = 7
 } MouseEvent_Button;
 
+/**
+ * @brief Enumerated values of mouse event axis.
+ * 
+ * @since 11
+ * @version 1.0
+ */
 typedef enum {
     /** Vertical scroll axis. */
     MOUSE_AXIS_SCROLL_VERTICAL = 0,
@@ -73,6 +91,12 @@ typedef enum {
     MOUSE_AXIS_PINCH = 2
 } MouseEvent_Axis;
 
+/**
+ * @brief Enumerated values of mouse event tool type.
+ * 
+ * @since 11
+ * @version 1.0
+ */
 typedef enum {
     /** Unknown type. */
     MOUSE_TOOLTYPE_UNKNOWN = 0,
@@ -84,7 +108,12 @@ typedef enum {
     MOUSE_TOOLTYPE_TOUCHPAD = 3
 } MouseEvent_ToolType;
 
-
+/**
+ * @brief Structure of the axis information in the mouse event.
+ * 
+ * @since 11
+ * @version 1.0
+ */
 typedef struct MouseEvent_AxisValue {
     /** Axis type. */
     MouseEvent_Axis axis;
@@ -92,6 +121,12 @@ typedef struct MouseEvent_AxisValue {
     int32_t value;
 };
 
+/**
+ * @brief The mouse event to be injected.
+ * 
+ * @since 11
+ * @version 1.0
+ */
 typedef struct OH_MouseEvent {
     /** Mouse event action. */
     MouseEvent_Action action;

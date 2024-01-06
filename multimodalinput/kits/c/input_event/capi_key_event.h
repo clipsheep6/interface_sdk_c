@@ -22,6 +22,12 @@
 extern "C" {
 #endif
 
+/**
+ * @brief Enumerated values of OpenHarmony key code.
+ * 
+ * @since 11
+ * @version 1.0
+ */
 typedef enum {
     KEYCODE_FN = 0,
     KEYCODE_UNKNOWN = -1,
@@ -355,6 +361,12 @@ typedef enum {
     KEYCODE_BTN_9 = 3109
 } OH_KeyCode;
 
+/**
+ * @brief The key event to be injected.
+ * 
+ * @since 11
+ * @version 1.0
+ */
 typedef struct OH_KeyEvent {
     bool isPressed = false;
     int32_t keyCode;

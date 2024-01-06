@@ -16,6 +16,27 @@
 #ifndef CAPI_INPUT_EVENT_H
 #define CAPI_INPUT_EVENT_H
 
+/**
+ * @addtogroup OHInput
+ * @{
+ *
+ * @brief Provides the C interface in the multi-modal input domain.
+ *
+ * @since 11
+ * @version 1.0
+ */
+
+/**
+ * @file capi_input_event.h
+ *
+ * @brief Provides C interfaces for multi-modal event injection.
+ *
+ * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
+ * @library ohinput.so
+ * @since 11
+ * @version 1.0
+ */
+
 #include <stdint.h>
 #include "capi_key_event.h"
 #include "capi_mouse_event.h"
@@ -26,35 +47,47 @@ extern "C" {
 #endif
 
 /**
- * Inject system keys.
+ * @brief Inject system keys.
  *
- * @param { OH_KeyEvent } keyEvent - the key event to be injected.
- * @return Returns <b>0</b> if success; returns a non-0 value otherwise
+ * @param keyEvent - the key event to be injected.
+ * @return 0 - Success. 
+ *         201 - Missing permissions.
+ *         202 - SystemAPI permission error.
+ *         401 - Parameter error.
+ * @permission systemapi hide for inner use
  * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
- * @systemapi hide for inner use
  * @since 11
+ * @version 1.0
  */
 int32_t OH_InputEventClient_InjectEvent(struct OH_KeyEvent* keyEvent);
 
 /**
- * Inject mouse event.
+ * @brief Inject mouse event.
  *
- * @param { OH_MouseEvent } mouseEvent - the mouse event to be injected.
- * @return Returns <b>0</b> if success; returns a non-0 value otherwise
+ * @param mouseEvent - the mouse event to be injected.
+ * @return 0 - Success. 
+ *         201 - Missing permissions.
+ *         202 - SystemAPI permission error.
+ *         401 - Parameter error.
+ * @permission systemapi hide for inner use
  * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
- * @systemapi hide for inner use
  * @since 11
+ * @version 1.0
  */
 int32_t OH_InputEventClient_InjectMouseEvent(struct OH_MouseEvent* mouseEvent);
 
 /**
- * Inject touch event.
+ * @brief Inject touch event.
  *
- * @param { OH_TouchEvent } touchEvent - the touch event to be injected.
- * @return Returns <b>0</b> if success; returns a non-0 value otherwise
+ * @param touchEvent - the touch event to be injected.
+ * @return 0 - Success. 
+ *         201 - Missing permissions.
+ *         202 - SystemAPI permission error.
+ *         401 - Parameter error.
+ * @permission systemapi hide for inner use
  * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
- * @systemapi hide for inner use
  * @since 11
+ * @version 1.0
  */
 int32_t OH_InputEventClient_InjectTouchEvent(struct OH_TouchEvent* touchEvent);
 

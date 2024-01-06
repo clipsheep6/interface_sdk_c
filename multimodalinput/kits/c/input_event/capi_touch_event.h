@@ -23,6 +23,12 @@
 extern "C" {
 #endif
 
+/**
+ * @brief Enumerated values of touch event action.
+ * 
+ * @since 11
+ * @version 1.0
+ */
 typedef enum {
     /** Touch cancelled. */
     TOUCH_ACTION_CANCEL = 0,
@@ -34,6 +40,12 @@ typedef enum {
     TOUCH_ACTION_UP = 3,
 } TouchEvent_Action;
 
+/**
+ * @brief Enumerated values of touch event source type.
+ * 
+ * @since 11
+ * @version 1.0
+ */
 typedef enum {
     /** Touchscreen. */
     TOUCH_SOURCE_TYPE_TOUCH_SCREEN = 0,
@@ -43,6 +55,12 @@ typedef enum {
     TOUCH_SOURCE_TYPE_TOUCH_PAD = 2
 } TouchEvent_SourceType;
 
+/**
+ * @brief Enumerated values of touch event tool type.
+ * 
+ * @since 11
+ * @version 1.0
+ */
 typedef enum {
     /** Finger. */
     TOUCH_TOOLTYPE_FINGER = 0,
@@ -62,6 +80,12 @@ typedef enum {
     TOUCH_TOOLTYPE_LENS = 7,
 } TouchEvent_ToolType;
 
+/**
+ * @brief Information structure of the touch point in a touch event.
+ * 
+ * @since 11
+ * @version 1.0
+ */
 typedef struct TouchEvent_Point {
     /** Pointer identifier. */
     int32_t id;
@@ -101,6 +125,12 @@ typedef struct TouchEvent_Point {
     TouchEvent_ToolType toolType;
 };
 
+/**
+ * @brief The touch event to be injected.
+ * 
+ * @since 11
+ * @version 1.0
+ */
 typedef struct OH_TouchEvent {
     /** Touch action. */
     TouchEvent_Action action;

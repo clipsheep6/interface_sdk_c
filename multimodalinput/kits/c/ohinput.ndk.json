@@ -1,5 +1,14 @@
 [
-    { "name": "OH_InputEventClient_InjectEvent" },
-    { "name": "OH_InputEventClient_InjectMouseEvent" },
-    { "name": "OH_InputEventClient_InjectTouchEvent" }
+    { 
+        "first_introduced": "11",
+        "name": "OH_InputEventClient_InjectEvent"
+    },
+    {
+        "first_introduced": "11",
+        "name": "OH_InputEventClient_InjectMouseEvent"
+    },
+    {
+        "first_introduced": "11",
+        "name": "OH_InputEventClient_InjectTouchEvent"
+    }
 ]
