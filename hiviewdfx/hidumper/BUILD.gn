@@ -1,0 +1,14 @@
+import("//build/ohos.gni")
+
+ohos_ndk_library("hidumper_ndk") {
+    output_name = "hidumper_ndk"
+    ndk_description_file = "./libhidumper.ndk.json"
+    min_compact_version = "1"
+}
+
+ohos_ndk_headers("hidumper_header") {
+    dest_dir = "$ndk_headers_out_dir/hidumper"
+    sources =[
+        "./include/hidumper/dumper.h"
+    ]
+}
