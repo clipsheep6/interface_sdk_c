@@ -353,9 +353,9 @@ typedef enum {
     KEYCODE_BTN_7 = 3107,
     KEYCODE_BTN_8 = 3108,
     KEYCODE_BTN_9 = 3109
-} InputEvent_KeyCode;
+} OH_KeyCode;
 
-struct InputEvent_KeyEvent {
+struct OH_KeyEvent {
     bool isPressed = false;
     int32_t keyCode;
     int32_t keyDownDuration = 0;

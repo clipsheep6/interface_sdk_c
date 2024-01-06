@@ -32,7 +32,7 @@ typedef enum {
     TOUCH_ACTION_MOVE = 2,
     /** Touch lifted. */
     TOUCH_ACTION_UP = 3,
-} InputEvent_TouchAction;
+} TouchEvent_Action;
 
 typedef enum {
     /** Touchscreen. */
@@ -41,7 +41,7 @@ typedef enum {
     TOUCH_SOURCE_TYPE_PEN = 1,
     /** Touchpad. */
     TOUCH_SOURCE_TYPE_TOUCH_PAD = 2
-} InputEvent_TouchSourceType;
+} TouchEvent_SourceType;
 
 typedef enum {
     /** Finger. */
@@ -60,9 +60,9 @@ typedef enum {
     TOUCH_TOOLTYPE_MOUSE = 6,
     /** Lens. */
     TOUCH_TOOLTYPE_LENS = 7,
-} InputEvent_TouchToolType;
+} TouchEvent_ToolType;
 
-struct InputEvent_Touch {
+struct TouchEvent_Point {
     /** Pointer identifier. */
     int32_t id;
     /** Time stamp when touch is pressed. */
@@ -98,18 +98,18 @@ struct InputEvent_Touch {
     /** Y coordinate of the input device. */
     int32_t rawY;
     /** Tool type. */
-    InputEvent_TouchToolType toolType;
+    TouchEvent_ToolType toolType;
 };
 
-struct InputEvent_TouchEvent {
+struct OH_TouchEvent {
     /** Touch action. */
-    InputEvent_TouchAction action;
+    TouchEvent_Action action;
     /** Current touch point. */
-    InputEvent_Touch touch;
+    TouchEvent_Point touch;
     /** All touch points. */
-    std::vector<Touch> touches;
+    std::vector<TouchEvent_Point> touches;
     /** Device type of the touch source. */
-    InputEvent_TouchSourceType sourceType;
+    TouchEvent_SourceType sourceType;
 };
 
 #ifdef __cplusplus

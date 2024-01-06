@@ -43,7 +43,7 @@ typedef enum {
     MOUSE_ACTION_ACTION_DOWN = 7,
     /** Lifting of the mouse touch pad. */
     MOUSE_ACTION_ACTION_UP = 8
-} InputEvent_MouseAction;
+} MouseEvent_Action;
 
 typedef enum {
     /** Left button on the mouse. */
@@ -62,7 +62,7 @@ typedef enum {
     MOUSE_BUTTON_BACK = 6,
     /** Task key on the mouse. */
     MOUSE_BUTTON_TASK = 7
-} InputEvent_MouseButton;
+} MouseEvent_Button;
 
 typedef enum {
     /** Vertical scroll axis. */
@@ -71,7 +71,7 @@ typedef enum {
     MOUSE_AXIS_SCROLL_HORIZONTAL = 1,
     /** Pinch axis. */
     MOUSE_AXIS_PINCH = 2
-} InputEvent_MouseAxis;
+} MouseEvent_Axis;
 
 typedef enum {
     /** Unknown type. */
@@ -82,19 +82,19 @@ typedef enum {
     MOUSE_TOOLTYPE_JOYSTICK = 2,
     /** Touch pad. */
     MOUSE_TOOLTYPE_TOUCHPAD = 3
-} InputEvent_MouseToolType;
+} MouseEvent_ToolType;
 
 
-struct InputEvent_AxisValue {
+struct MouseEvent_AxisValue {
     /** Axis type. */
-    InputEvent_MouseAxis axis;
+    MouseEvent_Axis axis;
     /** Axis value. */
     int32_t value;
 };
 
-struct InputEvent_MouseEvent {
+struct OH_MouseEvent {
     /** Mouse event action. */
-    InputEvent_MouseAction action;
+    MouseEvent_Action action;
     /** X coordinate of the mouse pointer on the screen. */
     int32_t screenX;
     /** Y coordinate of the mouse pointer on the screen. */
@@ -111,13 +111,13 @@ struct InputEvent_MouseEvent {
     /** Y axis offset relative to the previous reported mouse pointer position. */
     int32_t rawDeltaY;
     /** Button that is currently pressed or released. */
-    InputEvent_MouseButton button;
+    MouseEvent_Button button;
     /** Button that is being pressed. */
-    std::vector<InputEvent_MouseButton> pressedButtons;
+    std::vector<MouseEvent_Button> pressedButtons;
     /** All axis data contained in the event. */
-    std::vector<InputEvent_AxisValue> axes;
+    std::vector<MouseEvent_AxisValue> axes;
     /** List of pressed keys. */
-    std::vector<InputEvent_KeyCode> pressedKeys;
+    std::vector<OH_KeyCode> pressedKeys;
     /** Whether ctrlKey is being pressed. */
     bool ctrlKey;
     /** Whether altKey is being pressed. */
@@ -135,7 +135,7 @@ struct InputEvent_MouseEvent {
     /** Whether scrollLock is active. */
     bool scrollLock;
     /** Tool type */
-    InputEvent_MouseToolType toolType;
+    MouseEvent_ToolType toolType;
 };
 
 #ifdef __cplusplus

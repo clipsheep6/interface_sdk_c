@@ -28,35 +28,35 @@ extern "C" {
 /**
  * Inject system keys.
  *
- * @param { CAPI_KeyEvent } keyEvent - the key event to be injected.
+ * @param { OH_KeyEvent } keyEvent - the key event to be injected.
  * @return Returns <b>0</b> if success; returns a non-0 value otherwise
  * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
  * @systemapi hide for inner use
  * @since 11
  */
-int32_t OH_InputEvent_InjectEvent(struct InputEvent_KeyEvent* keyEvent);
+int32_t OH_InputEventClient_InjectEvent(struct OH_KeyEvent* keyEvent);
 
 /**
  * Inject mouse event.
  *
- * @param { CAPI_MouseEvent } mouseEvent - the mouse event to be injected.
+ * @param { OH_MouseEvent } mouseEvent - the mouse event to be injected.
  * @return Returns <b>0</b> if success; returns a non-0 value otherwise
  * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
  * @systemapi hide for inner use
  * @since 11
  */
-int32_t OH_InputEvent_InjectMouseEvent(struct InputEvent_MouseEvent* mouseEvent);
+int32_t OH_InputEventClient_InjectMouseEvent(struct OH_MouseEvent* mouseEvent);
 
 /**
  * Inject touch event.
  *
- * @param { CAPI_TouchEvent } touchEvent - the touch event to be injected.
+ * @param { OH_TouchEvent } touchEvent - the touch event to be injected.
  * @return Returns <b>0</b> if success; returns a non-0 value otherwise
  * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
  * @systemapi hide for inner use
  * @since 11
  */
-int32_t OH_InputEvent_InjectTouchEvent(struct InputEvent_TouchEvent* touchEvent);
+int32_t OH_InputEventClient_InjectTouchEvent(struct OH_TouchEvent* touchEvent);
 
 #ifdef __cplusplus
 }
