@@ -85,14 +85,14 @@ typedef enum {
 } MouseEvent_ToolType;
 
 
-struct MouseEvent_AxisValue {
+typedef struct MouseEvent_AxisValue {
     /** Axis type. */
     MouseEvent_Axis axis;
     /** Axis value. */
     int32_t value;
 };
 
-struct OH_MouseEvent {
+typedef struct OH_MouseEvent {
     /** Mouse event action. */
     MouseEvent_Action action;
     /** X coordinate of the mouse pointer on the screen. */

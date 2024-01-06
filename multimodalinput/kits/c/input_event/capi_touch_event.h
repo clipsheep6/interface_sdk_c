@@ -62,7 +62,7 @@ typedef enum {
     TOUCH_TOOLTYPE_LENS = 7,
 } TouchEvent_ToolType;
 
-struct TouchEvent_Point {
+typedef struct TouchEvent_Point {
     /** Pointer identifier. */
     int32_t id;
     /** Time stamp when touch is pressed. */
@@ -101,7 +101,7 @@ struct TouchEvent_Point {
     TouchEvent_ToolType toolType;
 };
 
-struct OH_TouchEvent {
+typedef struct OH_TouchEvent {
     /** Touch action. */
     TouchEvent_Action action;
     /** Current touch point. */

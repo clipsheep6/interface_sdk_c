@@ -355,7 +355,7 @@ typedef enum {
     KEYCODE_BTN_9 = 3109
 } OH_KeyCode;
 
-struct OH_KeyEvent {
+typedef struct OH_KeyEvent {
     bool isPressed = false;
     int32_t keyCode;
     int32_t keyDownDuration = 0;
