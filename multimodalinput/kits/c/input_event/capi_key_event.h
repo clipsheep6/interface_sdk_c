@@ -16,15 +16,32 @@
 #ifndef CAPI_KEY_EVENT_H
 #define CAPI_KEY_EVENT_H
 
-#include <stdint.h>
+/**
+ * @addtogroup OHInput
+ * @{
+ *
+ * @brief Provides the C interface in the multi-modal input domain.
+ *
+ * @since 11
+ * @version 1.0
+ */
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+/**
+ * @file capi_key_event.h
+ *
+ * @brief Defines the key event structure and related enumeration values.
+ *
+ * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
+ * @library libohinput.so
+ * @since 11
+ * @version 1.0
+ */
+
+#include <stdint.h>
 
 /**
  * @brief Enumerated values of OpenHarmony key code.
- * 
+ *
  * @since 11
  * @version 1.0
  */
@@ -363,7 +380,7 @@ typedef enum {
 
 /**
  * @brief The key event to be injected.
- * 
+ *
  * @since 11
  * @version 1.0
  */
@@ -372,10 +389,6 @@ typedef struct OH_KeyEvent {
     int32_t keyCode;
     int32_t keyDownDuration = 0;
     bool isIntercepted = false;
-};
-
-#ifdef __cplusplus
-}
-#endif
+} OH_KeyEvent;
 
 #endif // CAPI_KEY_EVENT_H

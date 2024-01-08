@@ -16,17 +16,33 @@
 #ifndef CAPI_MOUSE_EVENT_H
 #define CAPI_MOUSE_EVENT_H
 
-#include <stdint.h>
-#include <vector>
-#include "capi_key_event.h"
+/**
+ * @addtogroup OHInput
+ * @{
+ *
+ * @brief Provides the C interface in the multi-modal input domain.
+ *
+ * @since 11
+ * @version 1.0
+ */
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+/**
+ * @file capi_mouse_event.h
+ *
+ * @brief Defines the mouse event structure and related enumeration values.
+ *
+ * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
+ * @library libohinput.so
+ * @since 11
+ * @version 1.0
+ */
+
+#include <stdint.h>
+#include "capi_key_event.h"
 
 /**
  * @brief Enumerated values of mouse event action.
- * 
+ *
  * @since 11
  * @version 1.0
  */
@@ -53,7 +69,7 @@ typedef enum {
 
 /**
  * @brief Enumerated values of mouse event button.
- * 
+ *
  * @since 11
  * @version 1.0
  */
@@ -78,7 +94,7 @@ typedef enum {
 
 /**
  * @brief Enumerated values of mouse event axis.
- * 
+ *
  * @since 11
  * @version 1.0
  */
@@ -93,7 +109,7 @@ typedef enum {
 
 /**
  * @brief Enumerated values of mouse event tool type.
- * 
+ *
  * @since 11
  * @version 1.0
  */
@@ -110,7 +126,7 @@ typedef enum {
 
 /**
  * @brief Structure of the axis information in the mouse event.
- * 
+ *
  * @since 11
  * @version 1.0
  */
@@ -119,11 +135,11 @@ typedef struct MouseEvent_AxisValue {
     MouseEvent_Axis axis;
     /** Axis value. */
     int32_t value;
-};
+} MouseEvent_AxisValue;
 
 /**
  * @brief The mouse event to be injected.
- * 
+ *
  * @since 11
  * @version 1.0
  */
@@ -147,12 +163,6 @@ typedef struct OH_MouseEvent {
     int32_t rawDeltaY;
     /** Button that is currently pressed or released. */
     MouseEvent_Button button;
-    /** Button that is being pressed. */
-    std::vector<MouseEvent_Button> pressedButtons;
-    /** All axis data contained in the event. */
-    std::vector<MouseEvent_AxisValue> axes;
-    /** List of pressed keys. */
-    std::vector<OH_KeyCode> pressedKeys;
     /** Whether ctrlKey is being pressed. */
     bool ctrlKey;
     /** Whether altKey is being pressed. */
@@ -171,10 +181,6 @@ typedef struct OH_MouseEvent {
     bool scrollLock;
     /** Tool type */
     MouseEvent_ToolType toolType;
-};
-
-#ifdef __cplusplus
-}
-#endif
+} OH_MouseEvent;
 
 #endif // CAPI_MOUSE_EVENT_H

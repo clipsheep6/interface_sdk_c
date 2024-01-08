@@ -16,16 +16,32 @@
 #ifndef CAPI_TOUCH_EVENT_H
 #define CAPI_TOUCH_EVENT_H
 
-#include <stdint.h>
-#include <vector>
+/**
+ * @addtogroup OHInput
+ * @{
+ *
+ * @brief Provides the C interface in the multi-modal input domain.
+ *
+ * @since 11
+ * @version 1.0
+ */
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+/**
+ * @file capi_touch_event.h
+ *
+ * @brief Defines the touch event structure and related enumeration values.
+ *
+ * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
+ * @library libohinput.so
+ * @since 11
+ * @version 1.0
+ */
+
+#include <stdint.h>
 
 /**
  * @brief Enumerated values of touch event action.
- * 
+ *
  * @since 11
  * @version 1.0
  */
@@ -42,7 +58,7 @@ typedef enum {
 
 /**
  * @brief Enumerated values of touch event source type.
- * 
+ *
  * @since 11
  * @version 1.0
  */
@@ -57,7 +73,7 @@ typedef enum {
 
 /**
  * @brief Enumerated values of touch event tool type.
- * 
+ *
  * @since 11
  * @version 1.0
  */
@@ -82,7 +98,7 @@ typedef enum {
 
 /**
  * @brief Information structure of the touch point in a touch event.
- * 
+ *
  * @since 11
  * @version 1.0
  */
@@ -123,7 +139,7 @@ typedef struct TouchEvent_Point {
     int32_t rawY;
     /** Tool type. */
     TouchEvent_ToolType toolType;
-};
+} TouchEvent_Point;
 
 /**
  * @brief The touch event to be injected.
@@ -136,14 +152,8 @@ typedef struct OH_TouchEvent {
     TouchEvent_Action action;
     /** Current touch point. */
     TouchEvent_Point touch;
-    /** All touch points. */
-    std::vector<TouchEvent_Point> touches;
     /** Device type of the touch source. */
     TouchEvent_SourceType sourceType;
-};
-
-#ifdef __cplusplus
-}
-#endif
+} OH_TouchEvent;
 
 #endif // CAPI_TOUCH_EVENT_H

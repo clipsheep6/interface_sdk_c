@@ -32,7 +32,7 @@
  * @brief Provides C interfaces for multi-modal event injection.
  *
  * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
- * @library ohinput.so
+ * @library libohinput.so
  * @since 11
  * @version 1.0
  */
@@ -42,15 +42,11 @@
 #include "capi_mouse_event.h"
 #include "capi_touch_event.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 /**
  * @brief Inject system keys.
  *
  * @param keyEvent - the key event to be injected.
- * @return 0 - Success. 
+ * @return 0 - Success.
  *         201 - Missing permissions.
  *         202 - SystemAPI permission error.
  *         401 - Parameter error.
@@ -65,7 +61,7 @@ int32_t OH_InputEventClient_InjectEvent(struct OH_KeyEvent* keyEvent);
  * @brief Inject mouse event.
  *
  * @param mouseEvent - the mouse event to be injected.
- * @return 0 - Success. 
+ * @return 0 - Success.
  *         201 - Missing permissions.
  *         202 - SystemAPI permission error.
  *         401 - Parameter error.
@@ -80,7 +76,7 @@ int32_t OH_InputEventClient_InjectMouseEvent(struct OH_MouseEvent* mouseEvent);
  * @brief Inject touch event.
  *
  * @param touchEvent - the touch event to be injected.
- * @return 0 - Success. 
+ * @return 0 - Success.
  *         201 - Missing permissions.
  *         202 - SystemAPI permission error.
  *         401 - Parameter error.
@@ -91,7 +87,4 @@ int32_t OH_InputEventClient_InjectMouseEvent(struct OH_MouseEvent* mouseEvent);
  */
 int32_t OH_InputEventClient_InjectTouchEvent(struct OH_TouchEvent* touchEvent);
 
-#ifdef __cplusplus
-}
-#endif
 #endif // CAPI_INPUT_EVENT_H
