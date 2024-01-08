@@ -147,7 +147,7 @@ typedef struct TouchEvent_Point {
 
 /**
  * @brief The touch event to be injected.
- * 
+ *
  * @since 11
  * @version 1.0
  */
