@@ -39,6 +39,10 @@
 
 #include <stdint.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /**
  * @brief Enumerated values of touch event action.
  *
@@ -155,5 +159,9 @@ typedef struct OH_TouchEvent {
     /** Device type of the touch source. */
     TouchEvent_SourceType sourceType;
 } OH_TouchEvent;
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif // CAPI_TOUCH_EVENT_H

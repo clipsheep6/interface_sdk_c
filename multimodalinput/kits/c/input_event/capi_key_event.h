@@ -39,6 +39,10 @@
 
 #include <stdint.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /**
  * @brief Enumerated values of OpenHarmony key code.
  *
@@ -390,5 +394,9 @@ typedef struct OH_KeyEvent {
     int32_t keyDownDuration = 0;
     bool isIntercepted = false;
 } OH_KeyEvent;
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif // CAPI_KEY_EVENT_H

@@ -42,6 +42,10 @@
 #include "capi_mouse_event.h"
 #include "capi_touch_event.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /**
  * @brief Inject system keys.
  *
@@ -87,4 +91,7 @@ int32_t OH_InputEventClient_InjectMouseEvent(struct OH_MouseEvent* mouseEvent);
  */
 int32_t OH_InputEventClient_InjectTouchEvent(struct OH_TouchEvent* touchEvent);
 
+#ifdef __cplusplus
+}
+#endif
 #endif // CAPI_INPUT_EVENT_H

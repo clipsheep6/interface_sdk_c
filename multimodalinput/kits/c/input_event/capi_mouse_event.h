@@ -40,6 +40,10 @@
 #include <stdint.h>
 #include "capi_key_event.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /**
  * @brief Enumerated values of mouse event action.
  *
@@ -182,5 +186,9 @@ typedef struct OH_MouseEvent {
     /** Tool type */
     MouseEvent_ToolType toolType;
 } OH_MouseEvent;
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif // CAPI_MOUSE_EVENT_H
