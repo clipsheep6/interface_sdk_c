@@ -128,6 +128,15 @@ NAPI_EXTERN napi_status napi_coerce_to_native_binding_object(napi_env env,
                                                              napi_native_binding_attach_callback attach_cb,
                                                              void* native_object,
                                                              void* hint);
+// Define sendable class
+NAPI_EXTERN napi_status napi_define_sendable_class(napi_env env,
+                                                   const char* utf8name,
+                                                   size_t length,
+                                                   napi_callback constructor,
+                                                   void* data,
+                                                   size_t property_count,
+                                                   const napi_property_descriptor* properties,
+                                                   napi_value* result);
 
 #ifdef __cplusplus
 }

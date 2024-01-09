@@ -93,6 +93,7 @@
     {"name": "napi_get_new_target"},
     {"name": "napi_new_instance"},
     {"name": "napi_define_class"},
+    {"name": "napi_define_sendable_class"},
     {"name": "napi_wrap"},
     {"name": "napi_unwrap"},
     {"name": "napi_remove_wrap"},
