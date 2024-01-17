@@ -1,2 +1,4 @@
 /**/__pycache__/*
 .idea/
+test/ut/check/*.h.gch
+test/output

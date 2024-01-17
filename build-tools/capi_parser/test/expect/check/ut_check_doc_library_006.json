@@ -1,0 +1,10 @@
+[
+    {
+        "id": 7,
+        "level": 2,
+        "location": "build-tools\\capi_parser\\test\\ut\\check\\ut_check_doc_library_006.h(line:0, col:0)",
+        "file_path": "build-tools\\capi_parser\\test\\ut\\check\\ut_check_doc_library_006.h",
+        "message": "API check error of [wrong value]:the [library] tag value is incorrect. This tag must be end with .so or .a, or is NA. Please check the usage method"
+    },
+    "api_check: false"
+]

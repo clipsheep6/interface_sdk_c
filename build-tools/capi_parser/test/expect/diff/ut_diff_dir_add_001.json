@@ -1,0 +1,29 @@
+[
+    {
+        "api_name": "NEURAL_NETWORK_RUNTIME_H",
+        "api_type": "MACRO_DEFINITION",
+        "diff_type": "ADD_API",
+        "diff_message": "add api",
+        "old_api_full_text": "",
+        "new_api_full_text": "NEURAL_NETWORK_RUNTIME_H",
+        "is_compatible": true
+    },
+    {
+        "api_name": "OH_NativeXComponent_GetKeyEventDeviceId",
+        "api_type": "FUNCTION_DECL",
+        "diff_type": "ADD_API",
+        "diff_message": "add api",
+        "old_api_full_text": "",
+        "new_api_full_text": "int OH_NativeXComponent_GetKeyEventDeviceId(int *keyEvent, int *deviceId)",
+        "is_compatible": true
+    },
+    {
+        "api_name": "file2\\ut_diff_case_001.h",
+        "api_type": "TRANSLATION_UNIT",
+        "diff_type": "ADD_API",
+        "diff_message": "add api",
+        "old_api_full_text": "",
+        "new_api_full_text": "",
+        "is_compatible": true
+    }
+]

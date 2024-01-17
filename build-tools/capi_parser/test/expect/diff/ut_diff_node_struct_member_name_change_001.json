@@ -1,0 +1,11 @@
+[
+    {
+        "api_name": "character",
+        "api_type": "FIELD_DECL",
+        "diff_type": "STRUCT_MEMBER_NAME_CHANGE",
+        "diff_message": "change member name in struct",
+        "old_api_full_text": "char ch",
+        "new_api_full_text": "char character",
+        "is_compatible": false
+    }
+]

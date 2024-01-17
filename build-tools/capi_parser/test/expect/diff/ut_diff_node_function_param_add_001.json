@@ -1,0 +1,11 @@
+[
+    {
+        "api_name": "outputShape",
+        "api_type": "PARM_DECL",
+        "diff_type": "FUNCTION_PARAM_ADD",
+        "diff_message": "add param in function",
+        "old_api_full_text": "int OH_NNExecutor_GetOutputShape(int *executor, int *shapeLength)",
+        "new_api_full_text": "int *outputShape",
+        "is_compatible": false
+    }
+]
