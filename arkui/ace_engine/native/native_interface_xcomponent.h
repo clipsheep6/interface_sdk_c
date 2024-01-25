@@ -42,6 +42,8 @@
 #include <vector>
 #endif
 
+#include "arkui/native_type.h"
+
 #include "native_xcomponent_key_event.h"
 
 #ifdef __cplusplus
@@ -624,6 +626,29 @@ int32_t OH_NativeXComponent_RegisterOnFrameCallback(OH_NativeXComponent* compone
  */
 int32_t OH_NativeXComponent_UnregisterOnFrameCallback(OH_NativeXComponent* component);
 
+/**
+ * @brief 将通过ArkUI的native接口创建出来的UI组件挂载到当前XComponent上。
+ *
+ * @param component 表示指向OH_NativeXComponent实例的指针。
+ * @param root 指向Native接口创建的组件实例的指针。
+ * @return 0 - 成功。
+ *         401 - 参数异常。
+ *
+ * @since 12
+ */
+int32_t OH_NativeXComponent_AttachNativeRootNode(OH_NativeXComponent* component, ArkUI_NodeHandle root);
+
+/**
+ * @brief 将ArkUI的native组件从当前XComponent上卸载.
+ *
+ * @param component 表示指向OH_NativeXComponent实例的指针。
+ * @param root 指向Native接口创建的组件实例的指针。
+ * @return 0 - 成功。
+ *         401 - 参数异常。
+ *
+ * @since 12
+ */
+int32_t OH_NativeXComponent_DetachNativeRootNode(OH_NativeXComponent* component, ArkUI_NodeHandle root);
 
 #ifdef __cplusplus
 };
