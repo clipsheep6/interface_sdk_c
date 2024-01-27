@@ -291,17 +291,6 @@ void OH_Drawing_PenSetShaderEffect(OH_Drawing_Pen*, OH_Drawing_ShaderEffect*);
  */
 void OH_Drawing_PenSetFilter(OH_Drawing_Pen*, OH_Drawing_Filter*);
 
-/**
- * @brief Sets a blender that implements the specified blendmode enum for a pen.
- *
- * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
- * @param OH_Drawing_Pen Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
- * @param OH_Drawing_BlendMode Indicates the blend mode.
- * @since 12
- * @version 1.0
- */
-void OH_Drawing_PenSetBlendMode(OH_Drawing_Pen*, OH_Drawing_BlendMode);
-
 #ifdef __cplusplus
 }
 #endif

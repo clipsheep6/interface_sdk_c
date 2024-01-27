@@ -154,17 +154,6 @@ void OH_Drawing_BrushSetShaderEffect(OH_Drawing_Brush*, OH_Drawing_ShaderEffect*
  */
 void OH_Drawing_BrushSetFilter(OH_Drawing_Brush*, OH_Drawing_Filter*);
 
-/**
- * @brief Sets a blender that implements the specified blendmode enum for a brush.
- *
- * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
- * @param OH_Drawing_Pen Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
- * @param OH_Drawing_BlendMode Indicates the blend mode.
- * @since 12
- * @version 1.0
- */
-void OH_Drawing_BrushSetBlendMode(OH_Drawing_Brush*, OH_Drawing_BlendMode);
-
 #ifdef __cplusplus
 }
 #endif
