@@ -22,13 +22,13 @@ ohos_ndk_library("libnet_ssl_ndk") {
   system_capability = "SystemCapability.Communication.Netstack"
 
   system_capability_headers = [
-    "network/netstack/net_ssl/net_ssl_c.h",
-    "network/netstack/net_ssl/net_ssl_c_type.h",
+    "network/netstack/net_ssl_c.h",
+    "network/netstack/net_ssl_c_type.h",
   ]
 }
 
 ohos_ndk_headers("net_ssl_header") {
-  dest_dir = "$ndk_headers_out_dir/network/netstack/net_ssl"
+  dest_dir = "$ndk_headers_out_dir/network/netstack"
   sources = [
     "include/net_ssl_c.h",
     "include/net_ssl_c_type.h",
