@@ -78,30 +78,6 @@ typedef napi_value (*napi_native_binding_attach_callback)(napi_env env, void* na
 NAPI_EXTERN napi_status napi_run_script_path(napi_env env, const char* path, napi_value* result);
 NAPI_EXTERN napi_status napi_queue_async_work_with_qos(napi_env env, napi_async_work work, napi_qos_t qos);
 NAPI_EXTERN napi_status napi_load_module(napi_env env, const char* path, napi_value* result);
-NAPI_EXTERN napi_status napi_get_instance_data(napi_env env, void** data);
-NAPI_EXTERN napi_status napi_set_instance_data(napi_env env,
-                                               void* data,
-                                               napi_finalize finalize_cb,
-                                               void* finalize_hint);
-NAPI_EXTERN napi_status napi_remove_env_cleanup_hook(napi_env env, void (*fun)(void* arg), void* arg);
-NAPI_EXTERN napi_status napi_add_env_cleanup_hook(napi_env env, void (*fun)(void* arg), void* arg);
-NAPI_EXTERN napi_status napi_remove_async_cleanup_hook(napi_async_cleanup_hook_handle remove_handle);
-NAPI_EXTERN napi_status napi_add_async_cleanup_hook(napi_env env,
-                                                    napi_async_cleanup_hook hook,
-                                                    void* arg,
-                                                    napi_async_cleanup_hook_handle* remove_handle);
-NAPI_EXTERN napi_status napi_async_destroy(napi_env env,
-                                           napi_async_context async_context);
-NAPI_EXTERN napi_status napi_async_init(napi_env env,
-                                        napi_value async_resource,
-                                        napi_value async_resource_name,
-                                        napi_async_context* result);
-NAPI_EXTERN napi_status napi_close_callback_scope(napi_env env, napi_callback_scope scope);
-NAPI_EXTERN napi_status napi_open_callback_scope(napi_env env,
-                                                 napi_value resource_object,
-                                                 napi_async_context context,
-                                                 napi_callback_scope* result);
-NAPI_EXTERN napi_status node_api_get_module_file_name(napi_env env, const char** result);
 // Create JSObject with initial properties given by descriptors, note that property key must be String,
 // and must can not convert to element_index, also all keys must not duplicate.
 NAPI_EXTERN napi_status napi_create_object_with_properties(napi_env env,
@@ -121,12 +97,6 @@ NAPI_EXTERN napi_status napi_coerce_to_native_binding_object(napi_env env,
                                                              napi_native_binding_attach_callback attach_cb,
                                                              void* native_object,
                                                              void* hint);
-NAPI_EXTERN napi_status napi_add_finalizer(napi_env env,
-                                           napi_value js_object,
-                                           void* native_object,
-                                           napi_finalize finalize_cb,
-                                           void* finalize_hint,
-                                           napi_ref* result);
 
 #ifdef __cplusplus
 }
