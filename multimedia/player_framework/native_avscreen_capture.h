@@ -78,7 +78,7 @@ OH_AVSCREEN_CAPTURE_ErrCode OH_AVScreenCapture_StopScreenCapture(struct OH_AVScr
  * @param capture Pointer to an OH_AVScreenCapture instance
  * @return Returns AVSCREEN_CAPTURE_ERR_OK if the execution is successful,
  * otherwise returns a specific error code, refer to {@link OH_AVSCREEN_CAPTURE_ErrCode}
- * @since 10
+ * @since 11
  * @version 1.0
  */
 OH_AVSCREEN_CAPTURE_ErrCode OH_AVScreenCapture_StartScreenRecording(struct OH_AVScreenCapture *capture);
@@ -89,7 +89,7 @@ OH_AVSCREEN_CAPTURE_ErrCode OH_AVScreenCapture_StartScreenRecording(struct OH_AV
  * @param capture Pointer to an OH_AVScreenCapture instance
  * @return Returns AVSCREEN_CAPTURE_ERR_OK if the execution is successful,
  * otherwise returns a specific error code, refer to {@link OH_AVSCREEN_CAPTURE_ErrCode}
- * @since 10
+ * @since 11
  * @version 1.0
  */
 OH_AVSCREEN_CAPTURE_ErrCode OH_AVScreenCapture_StopScreenRecording(struct OH_AVScreenCapture *capture);
