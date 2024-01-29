@@ -1477,6 +1477,30 @@ typedef enum {
      *
      */
     NODE_MARK_ANCHOR,
+    /**
+     * @brief Display position of the background image in the component, that is,
+     * the coordinate relative to the upper left corner of the component.
+     * Attribute setting, attribute reset, and attribute obtaining are supported.
+     *
+     * Attribute setting method parameter {@link ArkUI_AttributeItem} format:\n
+     * .value[0].f32 indicates the position in the x-axis direction, in vp.\n
+     * .value[1].f32 indicates the position in the y-axis direction, in vp.\n
+     * \n
+     * Return value {@link ArkUI_AttributeItem} format of the attribute obtaining
+     * method:\n .value[0].f32 indicates the position in the x-axis direction, in
+     * vp.\n .value[1].f32 indicates the position in the y-axis direction, in
+     * vp.\n
+     *
+     * @code {.cpp}
+     * ArkUI_NativeNodeAPI_1* nativeNodeApi =
+     * reinterpret_cast<ArkUI_NativeNodeAPI_1*>(OH_ArkUI_GetNativeAPI(ARKUI_NATIVE_NODE, 1));
+     * ArkUI_NumberValue possitionArray[] = { 20, 0 }
+     * ARKUI_AttributeItem item = { .value = possitionArray, .size = 2};
+     * nativeNodeApi->setAttribute(nodeHandle, NODE_BACKGROUND_IMAGE_POSITION , &item);
+     * auto item = nativeNodeApi->getAttribute(nodeHandle, NODE_BACKGROUND_IMAGE_POSITION);
+     * auto offsetX = item->value[0].f32
+     */
+    NODE_BACKGROUND_IMAGE_POSITION,
 
     /**
      * @brief The text component sets the text content attributes. The interface supports the attribute setting, attribute reset, and attribute obtaining interfaces.
