@@ -374,35 +374,35 @@ enum  OH_Huks_ErrCode {
     OH_HUKS_ERR_CODE_NOT_SUPPORTED_API = 801,
 
     /** The feature is not supported. */
-    OH_HUKS_ERR_CODE_FEATURE_NOT_SUPPORTED = 12000001,
+    OH_HUKS_ERR_CODE_FEATURE_NOT_SUPPORTED = 28100001,
     /** Key algorithm parameters are missing. */
-    OH_HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT = 12000002,
+    OH_HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT = 28100002,
     /** Invalid key algorithm parameters are detected. */
-    OH_HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT = 12000003,
+    OH_HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT = 28100003,
     /** Failed to operate the file. */
-    OH_HUKS_ERR_CODE_FILE_OPERATION_FAIL = 12000004,
+    OH_HUKS_ERR_CODE_FILE_OPERATION_FAIL = 28100004,
     /** The process communication failed. */
-    OH_HUKS_ERR_CODE_COMMUNICATION_FAIL = 12000005,
+    OH_HUKS_ERR_CODE_COMMUNICATION_FAIL = 28100005,
     /** Failed to operate the algorithm library. */
-    OH_HUKS_ERR_CODE_CRYPTO_FAIL = 12000006,
+    OH_HUKS_ERR_CODE_CRYPTO_FAIL = 28100006,
     /** Failed to access the key because the key has expired. */
-    OH_HUKS_ERR_CODE_KEY_AUTH_PERMANENTLY_INVALIDATED = 12000007,
+    OH_HUKS_ERR_CODE_KEY_AUTH_PERMANENTLY_INVALIDATED = 28100007,
     /** Failed to access the key because the authentication has failed. */
-    OH_HUKS_ERR_CODE_KEY_AUTH_VERIFY_FAILED = 12000008,
+    OH_HUKS_ERR_CODE_KEY_AUTH_VERIFY_FAILED = 28100008,
     /** Key access timed out. */
-    OH_HUKS_ERR_CODE_KEY_AUTH_TIME_OUT = 12000009,
+    OH_HUKS_ERR_CODE_KEY_AUTH_TIME_OUT = 28100009,
     /** The number of key operation sessions has reached the limit. */
-    OH_HUKS_ERR_CODE_SESSION_LIMIT = 12000010,
+    OH_HUKS_ERR_CODE_SESSION_LIMIT = 28100010,
     /** The entity does not exist. */
-    OH_HUKS_ERR_CODE_ITEM_NOT_EXIST = 12000011,
+    OH_HUKS_ERR_CODE_ITEM_NOT_EXIST = 28100011,
     /** Internal error. */
-    OH_HUKS_ERR_CODE_INTERNAL_ERROR = 12000012,
+    OH_HUKS_ERR_CODE_INTERNAL_ERROR = 28100012,
     /** The authentication credential does not exist. */
-    OH_HUKS_ERR_CODE_CREDENTIAL_NOT_EXIST = 12000013,
+    OH_HUKS_ERR_CODE_CREDENTIAL_NOT_EXIST = 28100013,
     /** The memory is not sufficient. */
-    OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY = 12000014,
+    OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY = 28100014,
     /** Failed to call service. */
-    OH_HUKS_ERR_CODE_CALL_SERVICE_FAILED = 12000015,
+    OH_HUKS_ERR_CODE_CALL_SERVICE_FAILED = 28100015,
     /**
      * Device password is required but not set.
      *
