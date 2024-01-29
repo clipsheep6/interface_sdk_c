@@ -217,6 +217,7 @@ Drm_ErrCode OH_MediaKeySession_SetMediaKeySessionCallback(MediaKeySession *media
  */
 Drm_ErrCode OH_MediaKeySession_Destroy(MediaKeySession *mediaKeySessoin);
 
+
 #ifdef __cplusplus
 }
 #endif
