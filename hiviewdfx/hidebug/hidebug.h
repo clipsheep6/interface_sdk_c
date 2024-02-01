@@ -142,7 +142,7 @@ typedef struct HiDebug_ThreadCpuUsage {
 } HiDebug_ThreadCpuUsage;
 
 /**
- * @brief Defines pointer of HiDebug_ThreadCpuUsage
+ * @brief Defines pointer of HiDebug_ThreadCpuUsage.
  *
  * @since 12
  */
@@ -157,9 +157,9 @@ typedef HiDebug_ThreadCpuUsage* HiDebug_ThreadCpuUsagePtr;
 HiDebug_ThreadCpuUsagePtr OH_HiDebug_GetAppThreadCpuUsage();
 
 /**
- * @brief Free cpu usage buffer of applicatoin's all thread.
+ * @brief Free cpu usage buffer of application's all thread.
  *
- * @param threadCpuUsage Applicatoin's all thread. See {@link HiDebug_ThreadCpuUsagePtr}
+ * @param threadCpuUsage Indicates applicatoin's all thread. See {@link HiDebug_ThreadCpuUsagePtr}
  * @since 12
  */
 void OH_HiDebug_FreeThreadCpuUsage(HiDebug_ThreadCpuUsagePtr *threadCpuUsage);
