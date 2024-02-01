@@ -46,7 +46,7 @@ extern "C" {
  *
  * @since 12
  */
-typedef struct HiDebug_SysMeminfo {
+typedef struct HiDebug_SysMemInfo {
     /**
      * Total system memory size, in kibibytes
      */
@@ -59,15 +59,15 @@ typedef struct HiDebug_SysMeminfo {
      * System available memory size, in kibibytes
      */
     uint32_t memAvailable;
-} HiDebug_SysMeminfo;
+} HiDebug_SysMemInfo;
 
 /**
  * @brief Obtains the system memory size.
  *
- * @param systemMemInfo Indicates the pointer to {@link HiDebug_SysMemInfo}.
+ * @param sysMemInfo Indicates the pointer to {@link HiDebug_SysMemInfo}.
  * @since 12
  */
-void OH_HiDebug_GetSysMemInfo(HiDebug_SysMeminfo *systemMemInfo);
+void OH_HiDebug_GetSysMemInfo(HiDebug_SysMemInfo *sysMemInfo);
 
 /**
  * @brief Defines application process native memory information structure type.
@@ -116,13 +116,13 @@ void OH_HiDebug_GetAppNativeMemory(HiDebug_NativeMemInfo *nativeMemInfo);
 /**
  * @brief Obtains the cpu usage of system.
  *
- * @return The cpu usage of system
+ * @return Returns the cpu usage of system
  * @since 12
  */
 double OH_HiDebug_GetSysCpuUsage();
 
 /**
- * @brief Defines application CPU usage of all threads structure type.
+ * @brief Defines application cpu usage of all threads structure type.
  *
  * @since 12
  */
@@ -149,18 +149,18 @@ typedef struct HiDebug_ThreadCpuUsage {
 typedef HiDebug_ThreadCpuUsage* HiDebug_ThreadCpuUsagePtr;
 
 /**
- * @brief Obtains cpu usage of application's all thread
+ * @brief Obtains cpu usage of application's all thread.
  *
  * @return Returns all thread cpu usage. See {@link HiDebug_ThreadCpuUsagePtr}
  * @since 12
- * @version 1.0
  */
 HiDebug_ThreadCpuUsagePtr OH_HiDebug_GetAppThreadCpuUsage();
 
 /**
- * @brief Free cpu usage buffer of applicatoin's all thread
+ * @brief Free cpu usage buffer of applicatoin's all thread.
  *
- * @param threadCpuUsage Applicatoin's all thread. . See {@link HiDebug_ThreadCpuUsagePtr}
+ * @param threadCpuUsage Applicatoin's all thread. See {@link HiDebug_ThreadCpuUsagePtr}
+ * @since 12
  */
 void OH_HiDebug_FreeThreadCpuUsage(HiDebug_ThreadCpuUsagePtr *threadCpuUsage);
 
@@ -197,7 +197,7 @@ void OH_HiDebug_GetAppMemoryLimit(OH_HiDebug_MemoryLimit *memoryLimit);
 double OH_HiDebug_GetAppCpuUsage();
 
 /**
- * @brief Enum for trace flag
+ * @brief Enum for trace flag.
  *
  * @since 12
  */
