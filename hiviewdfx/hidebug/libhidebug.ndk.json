@@ -1,0 +1,29 @@
+[
+    {
+        "name": "OH_HiDebug_GetSysCpuUsage"
+    },
+    {
+        "name": "OH_HiDebug_GetAppCpuUsage"
+    },
+    {
+        "name": "OH_HiDebug_GetAppThreadCpuUsage"
+    },
+    {
+        "name": "OH_HiDebug_FreeThreadCpuUsage"
+    },
+    {
+        "name": "OH_HiDebug_GetSysMemInfo"
+    },
+    {
+        "name": "OH_HiDebug_GetAppNativeMemory"
+    },
+    {
+        "name": "OH_HiDebug_GetAppMemoryLimit"
+    },
+    {
+        "name": "OH_HiDebug_StartCaptureAppTrace"
+    },
+    {
+        "name": "OH_HiDebug_StopCaptureAppTrace"
+    }
+]
