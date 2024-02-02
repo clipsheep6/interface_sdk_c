@@ -116,7 +116,6 @@ typedef struct HiDebug_SysMemInfo {
     uint32_t memAvailable;
 } HiDebug_SysMemInfo;
 
-
 /**
  * @brief Defines application process native memory information structure type.
  *
