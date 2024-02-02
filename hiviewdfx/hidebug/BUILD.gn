@@ -15,6 +15,7 @@ import("//build/ohos.gni")
 
 ohos_ndk_library("libhidebug_ndk") {
   output_name = "hidebug_ndk"
+  output_extension = "so"
   ndk_description_file = "./libhidebug.ndk.json"
   min_compact_version = "1"
   system_capability = "SystemCapability.HiviewDFX.HiProfiler.HiDebug"
@@ -23,6 +24,7 @@ ohos_ndk_library("libhidebug_ndk") {
 ohos_ndk_headers("libhidebug_header") {
   dest_dir = "$ndk_headers_out_dir/hidebug"
   sources = [
+    "./include/hidebug/hidebug_type.h",
     "./include/hidebug/hidebug.h",
   ]
 }

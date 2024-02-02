@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -36,6 +36,7 @@
  */
 
 #include <stdint.h>
+#include "hidebug_type.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -58,33 +59,6 @@ double OH_HiDebug_GetSysCpuUsage();
 double OH_HiDebug_GetAppCpuUsage();
 
 /**
- * @brief Defines application cpu usage of all threads structure type.
- *
- * @since 12
- */
-typedef struct HiDebug_ThreadCpuUsage {
-    /**
-     * Thread id
-     */
-    uint32_t threadId;
-    /**
-     * Cpu usage of thread
-     */
-    double cpuUsage;
-    /**
-     * Next thread cpu usage
-     */
-    struct HiDebug_ThreadCpuUsage *next;
-} HiDebug_ThreadCpuUsage;
-
-/**
- * @brief Defines pointer of HiDebug_ThreadCpuUsage.
- *
- * @since 12
- */
-typedef HiDebug_ThreadCpuUsage* HiDebug_ThreadCpuUsagePtr;
-
-/**
  * @brief Obtains cpu usage of application's all thread.
  *
  * @return Returns all thread cpu usage. See {@link HiDebug_ThreadCpuUsagePtr}
@@ -101,68 +75,12 @@ HiDebug_ThreadCpuUsagePtr OH_HiDebug_GetAppThreadCpuUsage();
 void OH_HiDebug_FreeThreadCpuUsage(HiDebug_ThreadCpuUsagePtr *threadCpuUsage);
 
 /**
- * @brief Defines system memory information structure type.
- *
- * @since 12
- */
-typedef struct HiDebug_SysMemInfo {
-    /**
-     * Total system memory size, in kibibytes
-     */
-    uint32_t memTotal;
-    /**
-     * System free memory size, in kibibytes
-     */
-    uint32_t memFree;
-    /**
-     * System available memory size, in kibibytes
-     */
-    uint32_t memAvailable;
-} HiDebug_SysMemInfo;
-
-/**
  * @brief Obtains the system memory size.
  *
  * @param sysMemInfo Indicates the pointer to {@link HiDebug_SysMemInfo}.
  * @since 12
  */
 void OH_HiDebug_GetSysMemInfo(HiDebug_SysMemInfo *sysMemInfo);
-
-/**
- * @brief Defines application process native memory information structure type.
- *
- * @since 12
- */
-typedef struct HiDebug_NativeMemInfo {
-    /**
-     * Process proportional set size memory, in kibibytes
-     */
-    uint32_t pss;
-    /**
-     * Virtual set size memory, in kibibytes
-     */
-    uint32_t vss;
-    /**
-     * Resident set size, in kibibytes
-     */
-    uint32_t rss;
-    /**
-     * The size of the shared dirty memory, in kibibytes
-     */
-    uint32_t sharedDirty;
-    /**
-     * The size of the private dirty memory, in kibibytes
-     */
-    uint32_t privateDirty;
-    /**
-     * The size of the shared clean memory, in kibibytes
-     */
-    uint32_t sharedClean;
-    /**
-     * The size of the private clean memory, in kibibytes
-     */
-    uint32_t privateClean;
-} HiDebug_NativeMemInfo;
 
 /**
  * @brief Obtains the memory info of application process.
@@ -173,22 +91,6 @@ typedef struct HiDebug_NativeMemInfo {
 void OH_HiDebug_GetAppNativeMemory(HiDebug_NativeMemInfo *nativeMemInfo);
 
 /**
- * @brief Defines application process memory limit structure type.
- *
- * @since 12
- */
-typedef struct OH_HiDebug_MemoryLimit {
-    /**
-     * The limit of the application process's resident set, in kibibytes
-     */
-    uint32_t rssLimit;
-    /**
-     * The limit of the application process's virtual memory, in kibibytes
-     */
-    uint32_t vssLimit;
-} OH_HiDebug_MemoryLimit;
-
-/**
  * @brief Obtains the memory limit of application process.
  *
  * @param memoryLimit Indicates the pointer to {@link OH_HiDebug_MemoryLimit}
@@ -197,40 +99,25 @@ typedef struct OH_HiDebug_MemoryLimit {
 void OH_HiDebug_GetAppMemoryLimit(OH_HiDebug_MemoryLimit *memoryLimit);
 
 /**
- * @brief Enum for trace flag.
- *
- * @since 12
- */
-typedef enum HiDebug_TraceFlag {
-    /**
-     * Only capture main thread trace
-     */
-    MAIN_THREAD = 1,
-    /**
-     * Capture all thread trace
-     */
-    ALL_THREADS = 2
-} HiDebug_TraceFlag;
-
-/**
  * @brief Start capture application trace.
  *
  * @param fileName Output trace file name
  * @param flag Trace flag
  * @param tags Tag of trace
  * @param limitSize Max size of trace file, in bytes, the max is 500MB.
- * @return Returns {@code 0} if successful. See {@link HiDebug_ErrorCode}
+ * @return Returns {@code HIDEBUG_SUCCESS} if successful. See {@link HiDebug_ErrorCode}
  * @since 12
  */
-int OH_HiDebug_StartCaptureAppTrace(const char* fileName, HiDebug_TraceFlag flag, uint64_t tags, uint32_t limitSize);
+HiDebug_ErrorCode OH_HiDebug_StartCaptureAppTrace(const char* fileName, HiDebug_TraceFlag flag, uint64_t tags, uint32_t limitSize);
 
 /**
  * @brief Stop capture application trace.
  *
- * @return Returns {@code 0} if successful. See {@link HiDebug_ErrorCode}
+ * @return Returns {@code HIDEBUG_SUCCESS} if successful. See {@link HiDebug_ErrorCode}
  * @since 12
  */
-int OH_HiDebug_StopCaptureAppTrace();
+HiDebug_ErrorCode OH_HiDebug_StopCaptureAppTrace();
+
 #ifdef __cplusplus
 }
 #endif // __cplusplus
