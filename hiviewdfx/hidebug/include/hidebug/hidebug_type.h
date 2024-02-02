@@ -178,11 +178,11 @@ typedef enum HiDebug_TraceFlag {
     /**
      * Only capture main thread trace
      */
-    MAIN_THREAD = 1,
+    HIDEBUG_TRACE_FLAG_MAIN_THREAD = 1,
     /**
      * Capture all thread trace
      */
-    ALL_THREADS = 2
+    HIDEBUG_TRACE_FLAG_ALL_THREADS = 2
 } HiDebug_TraceFlag;
 
 /**
