@@ -190,10 +190,10 @@ typedef enum HiDebug_TraceFlag {
  */
 const uint64_t HIDEBUG_TRACE_TAG_FFRT = (1ULL << 13);
 /**
- * @brief Commonlibrary subsystem tag.
+ * @brief Common library subsystem tag.
  * @since 12
  */
-const uint64_t HIDEBUG_TRACE_TAG_COMMONLIBRARY = (1ULL << 16);
+const uint64_t HIDEBUG_TRACE_TAG_COMMON_LIBRARY = (1ULL << 16);
 /**
  * @brief HDF subsystem tag.
  * @since 12
@@ -215,10 +215,10 @@ const uint64_t HIDEBUG_TRACE_TAG_NWEB = (1ULL << 24);
  */
 const uint64_t HIDEBUG_TRACE_TAG_DISTRIBUTED_AUDIO = (1ULL << 27);
 /**
- * @brief Filemanagement tag.
+ * @brief File management tag.
  * @since 12
  */
-const uint64_t HIDEBUG_TRACE_TAG_FILEMANAGEMENT = (1ULL << 29);
+const uint64_t HIDEBUG_TRACE_TAG_FILE_MANAGEMENT = (1ULL << 29);
 /**
  * @brief OHOS generic tag.
  * @since 12
@@ -250,10 +250,10 @@ const uint64_t HIDEBUG_TRACE_TAG_ZIMAGE = (1ULL << 34);
  */
 const uint64_t HIDEBUG_TRACE_TAG_ZAUDIO = (1ULL << 35);
 /**
- * @brief Distributeddata manager module tag.
+ * @brief Distributed data manager module tag.
  * @since 12
  */
-const uint64_t HIDEBUG_TRACE_TAG_DISTRIBUTEDDATA = (1ULL << 36);
+const uint64_t HIDEBUG_TRACE_TAG_DISTRIBUTED_DATA = (1ULL << 36);
 /**
  * @brief Graphic module tag.
  * @since 12
@@ -270,15 +270,15 @@ const uint64_t HIDEBUG_TRACE_TAG_ACE = (1ULL << 39);
  */
 const uint64_t HIDEBUG_TRACE_TAG_NOTIFICATION = (1ULL << 40);
 /**
- * @brief Notification module tag.
+ * @brief MISC module tag.
  * @since 12
  */
 const uint64_t HIDEBUG_TRACE_TAG_MISC = (1ULL << 41);
 /**
- * @brief Multi modal module tag.
+ * @brief Multi modal input module tag.
  * @since 12
  */
-const uint64_t HIDEBUG_TRACE_TAG_MULTIMODALINPUT = (1ULL << 42);
+const uint64_t HIDEBUG_TRACE_TAG_MULTI_MODAL_INPUT = (1ULL << 42);
 /**
  * @brief RPC and IPC tag.
  * @since 12
@@ -315,7 +315,7 @@ const uint64_t HIDEBUG_TRACE_TAG_DISTRIBUTED_HARDWARE_FWK = (1ULL << 52);
  */
 const uint64_t HIDEBUG_TRACE_TAG_GLOBAL_RESMGR = (1ULL << 53);
 /**
- * @brief Distributed hardware devicemanager tag.
+ * @brief Distributed hardware device manager tag.
  * @since 12
  */
 const uint64_t HIDEBUG_TRACE_TAG_DEVICE_MANAGER = (1ULL << 54);
