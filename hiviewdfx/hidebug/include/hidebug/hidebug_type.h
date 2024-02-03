@@ -157,7 +157,7 @@ typedef struct HiDebug_NativeMemInfo {
  *
  * @since 12
  */
-typedef struct OH_HiDebug_MemoryLimit {
+typedef struct HiDebug_MemoryLimit {
     /**
      * The limit of the application process's resident set, in kibibytes
      */
@@ -166,7 +166,7 @@ typedef struct OH_HiDebug_MemoryLimit {
      * The limit of the application process's virtual memory, in kibibytes
      */
     uint32_t vssLimit;
-} OH_HiDebug_MemoryLimit;
+} HiDebug_MemoryLimit;
 
 /**
  * @brief Enum for trace flag.

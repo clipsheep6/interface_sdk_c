@@ -93,10 +93,10 @@ void OH_HiDebug_GetAppNativeMemory(HiDebug_NativeMemInfo *nativeMemInfo);
 /**
  * @brief Obtains the memory limit of application process.
  *
- * @param memoryLimit Indicates the pointer to {@link OH_HiDebug_MemoryLimit}
+ * @param memoryLimit Indicates the pointer to {@link HiDebug_MemoryLimit}
  * @since 12
  */
-void OH_HiDebug_GetAppMemoryLimit(OH_HiDebug_MemoryLimit *memoryLimit);
+void OH_HiDebug_GetAppMemoryLimit(HiDebug_MemoryLimit *memoryLimit);
 
 /**
  * @brief Start capture application trace.
