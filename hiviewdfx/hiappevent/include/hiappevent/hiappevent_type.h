@@ -46,11 +46,11 @@ extern "C" {
  * @version 1.0
  */
 struct OH_HiAppEvent_AppEventReportConfig {
-	/** The domain of the event. */
-	const char* domain;
-	/** The name of the event. */
-	const char* name;
-	/** The realtime report event. */
+	/* The domain of the event. */
+	char* domain;
+	/* The name of the event. */
+	char* name;
+	/* The realtime report event. */
 	bool isRealTime;
 };
 
@@ -61,32 +61,38 @@ struct OH_HiAppEvent_AppEventReportConfig {
  * @version 1.0
  */
 struct OH_HiAppEvent_Processor {
-	/** The name of the processor. */
-	const char* name;
-	/** The processor enable the developer to debug. */
+	/* The name of the processor. */
+	char* name;
+	/* The processor enable the developer to debug. */
 	bool debugMode;
-	/** The server location which used for the processor to receive the data, defined by the processor. */
-	const char* routeInfo;
-	/** The app ID is provided by the processor. */
-	const char* appId;
-	/** The processor report the event when start. */
+	/* The server location which used for the processor to receive the data, defined by the processor. */
+	char* routeInfo;
+	/* The app ID is provided by the processor. */
+	char* appId;
+	/* The processor report the event when start. */
 	bool onStartReport;
-	/** The processor report the event when the application onBackground. */
+	/* The processor report the event when the application onBackground. */
 	bool onBackgroundReport;
-	/** The processor report the event according to the period. */
+	/* The processor report the event according to the period. */
 	uint32_t periodReport;
-	/** The processor report the event according to the batch size. */
+	/* The processor report the event according to the batch size. */
 	uint32_t batchReport;
-	/** The user ID names which the processor can report. */
-	const char* userIds[];
-	/** The user property names which the processor can report. */
-	const char* userProperties[];
-	/** The events which the processor can report. */
-	struct OH_HiAppEvent_AppEventReportConfig eventConfigs[];
-	/** The processor id. */
+	/* The user ID names which the processor can report. */
+	char* userIds[];
+	/* The user ID name array size. */
+	uint32_t userIdArraySize;
+	/* The user property names which the processor can report. */
+	char* userProperties[];
+	/* The user property array size. */
+	uint32_t userPropertyArraySize;
+	/* The events which the processor can report. */
+	struct OH_HiAppEvent_AppEventReportConfig* eventConfigs;
+	/* The app event report config array size. */
+	uint32_t reportConfigArraySize;	
+	/* The processor id. */
 	int id;
-	/** The extend value. */
-	const char* extend;
+	/* The extend value. */
+	char* extend;
 };
 
 /**
@@ -96,13 +102,13 @@ struct OH_HiAppEvent_Processor {
  * @version 1.0
  */
 struct OH_HiAppEvent_AppEventFilter {
-	/** The name of the processor. */
-	const char* domain;
-	/** The types of the events to be monitored by the watcher. */
+	/* The name of the processor. */
+	char* domain;
+	/* The types of the events to be monitored by the watcher. */
 	uint32_t eventType;
-	/** The names of the events to be monitored by the watcher. */
-	const char* names[];
-	/** The size of the name array. */
+	/* The names of the events to be monitored by the watcher. */
+	char* names[];
+	/* The size of the name array. */
 	uint32_t nameArraySize;
 };
 
@@ -113,17 +119,17 @@ struct OH_HiAppEvent_AppEventFilter {
  * @version 1.0
  */
 struct OH_HiAppEvent_AppEventGroup {
-	/** The name of the event. */
-	const char* name;
-	/** The event array which is group by the name. */
-	const char* appEventInfos[];
-	/** The event array size. */
+	/* The name of the event. */
+	char* name;
+	/* The event array which is group by the name. */
+	char* appEventInfos[];
+	/* The event array size. */
 	uint32_t appEventInfoArraySize
 };
 
 
 typedef void (*OH_HiAppEvent_OnReceive)(const char* domain, struct OH_HiAppEvent_AppEventGroup* appEventGroups);
-typedef void (*OH_HiAppEvent_OnTrigger)(int32_t curRow, int32_t curSize);
+typedef void (*OH_HiAppEvent_OnTrigger)(int32_t row, int32_t size);
 
 /**
  * @brief Defines the watcher information structure.
@@ -132,15 +138,17 @@ typedef void (*OH_HiAppEvent_OnTrigger)(int32_t curRow, int32_t curSize);
  * @version 1.0
  */
 struct OH_HiAppEvent_Watcher {
-	/** The name of the watcher. */
-	const char* name;
-	/** The condition for triggering callback.*/
-	const struct OH_HiAppEvent_TriggerCondition* triggerCondition;
-	/** The event filters for monitoring events. */
-	const struct OH_HiAppEvent_AppEventFilter* appEventFilters;
-	/** The callback function of watcher.*/
+	/* The name of the watcher. */
+	char* name;
+	/* The condition for triggering callback.*/
+	struct OH_HiAppEvent_TriggerCondition triggerCondition;
+	/* The event filters for monitoring events. */
+	struct OH_HiAppEvent_AppEventFilter* appEventFilters;
+	/* The event filters array size. */
+	uint32_t filterArraySize;
+	/* The callback function of watcher.*/
     OH_HiAppEvent_OnTrigger onTrigger;
-	/** The callback function, when watcher receive the event.*/	
+	/* The callback function, when watcher receive the event.*/	
 	OH_HiAppEvent_OnReceive onReceive;
 };
 #ifdef __cplusplus
