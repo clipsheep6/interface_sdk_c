@@ -41,7 +41,7 @@ extern "C" {
 
 /**
  * @brief Defines the event config to be reported by processor..
- *
+ * @SystemCapability.HiviewDFX.HiAppEvent
  * @since 12
  * @version 1.0
  */
@@ -56,7 +56,7 @@ struct OH_HiAppEvent_AppEventReportConfig {
 
 /**
  * @brief Defines the processor information structure.
- *
+ * @SystemCapability.HiviewDFX.HiAppEvent
  * @since 12
  * @version 1.0
  */
@@ -97,7 +97,7 @@ struct OH_HiAppEvent_Processor {
 
 /**
  * @brief Definition of event filter object, which is used to filter events monitored by the watcher.
- *
+ * @SystemCapability.HiviewDFX.HiAppEvent
  * @since 12
  * @version 1.0
  */
@@ -114,7 +114,7 @@ struct OH_HiAppEvent_AppEventFilter {
 
 /**
  * @brief Defines the event group.
- *
+ * @syscap SystemCapability.HiviewDFX.HiAppEvent
  * @since 12
  * @version 1.0
  */
@@ -127,13 +127,29 @@ struct OH_HiAppEvent_AppEventGroup {
 	uint32_t appEventInfoArraySize
 };
 
+/**
+ * @brief Called when watcher receive the event.
+ * @syscap SystemCapability.HiviewDFX.HiAppEvent
+ * @param domain The domain of the event.
+ * @param appEventGroups The event group by the domain.
+ * @since 12
+ * @version 1.0
+ */
+typedef void (*OH_HiAppEvent_OnReceive)(const char* domain, const struct OH_HiAppEvent_AppEventGroup* appEventGroups);
 
-typedef void (*OH_HiAppEvent_OnReceive)(const char* domain, struct OH_HiAppEvent_AppEventGroup* appEventGroups);
+/**
+ * @brief Called when watcher receive the event meet the condition.
+ * @syscap SystemCapability.HiviewDFX.HiAppEvent
+ * @param row The row of events received by watcher.
+ * @param size The size of events received by watcher.
+ * @since 12
+ * @version 1.0
+ */
 typedef void (*OH_HiAppEvent_OnTrigger)(int32_t row, int32_t size);
 
 /**
  * @brief Defines the watcher information structure.
- *
+ * @syscap SystemCapability.HiviewDFX.HiAppEvent
  * @since 12
  * @version 1.0
  */
