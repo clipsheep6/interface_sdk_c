@@ -143,37 +143,6 @@ struct OH_HiAppEvent_Watcher {
 	/** The callback function, when watcher receive the event.*/	
 	OH_HiAppEvent_OnReceive onReceive;
 };
-
-/**
- * @brief Defines the processor information structure.
- *+
- * @since 12
- * @version 1.0
- */
-struct OH_HiAppEvent_Processor {
-	/** The name of the processor. */
-	const char* name;
-	/** The processor enable the developer to debug. */
-	bool debugMode;
-	/** The server location which used for the processor to receive the data, defined by the processor. */
-	const char* routeInfo;
-	/** The app ID is provided by the processor. */
-	const char* appId;
-	/** The processor report the event when start. */
-	bool onStartReport;
-	/** The processor report the event when the application onBackground. */
-	bool onBackgroundReport;
-	/** The processor report the event according to the period. */
-	uint32_t periodReport;
-	/** The processor report the event according to the batch size. */
-	uint32_t batchReport;
-	/** The user ID names which the processor can report. */
-	const char* userIds[];
-	/** The user property names which the processor can report. */
-	const char* userProperties[];
-	/** The events which the processor can report. */
-	struct OH_HiAppEvent_AppEventReportConfig eventConfigs[];
-};
 #ifdef __cplusplus
 }
 #endif
