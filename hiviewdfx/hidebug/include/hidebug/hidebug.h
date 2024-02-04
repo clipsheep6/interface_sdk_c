@@ -80,7 +80,7 @@ void OH_HiDebug_FreeThreadCpuUsage(HiDebug_ThreadCpuUsagePtr *threadCpuUsage);
  * @param sysMemInfo Indicates the pointer to {@link HiDebug_SysMemInfo}.
  * @since 12
  */
-void OH_HiDebug_GetSysMemInfo(HiDebug_SysMemInfo *sysMemInfo);
+void OH_HiDebug_GetSystemMemInfo(HiDebug_SysMemInfo *sysMemInfo);
 
 /**
  * @brief Obtains the memory info of application process.
@@ -88,7 +88,7 @@ void OH_HiDebug_GetSysMemInfo(HiDebug_SysMemInfo *sysMemInfo);
  * @param nativeMemInfo Indicates the pointer to {@link HiDebug_NativeMemInfo}.
  * @since 12
  */
-void OH_HiDebug_GetAppNativeMemory(HiDebug_NativeMemInfo *nativeMemInfo);
+void OH_HiDebug_GetAppNativeMemInfo(HiDebug_NativeMemInfo *nativeMemInfo);
 
 /**
  * @brief Obtains the memory limit of application process.

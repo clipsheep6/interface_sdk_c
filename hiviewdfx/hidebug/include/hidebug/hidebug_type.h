@@ -58,11 +58,11 @@ typedef enum HiDebug_ErrorCode {
     /**
      * Have already capture trace
      */
-    HIDEBUG_ALREADY_CAPTURE_TRACE = 11400102,
+    HIDEBUG_TRACE_CAPTURED_ALREADY = 11400102,
     /**
-     * Without write permission on the file
+     * No write permission on the file
      */
-    HIDEBUG_WITHOUT_PERMISSION = 11400103,
+    HIDEBUG_NO_PERMISSION = 11400103,
     /**
      * The status of the trace is abnormal
      */
