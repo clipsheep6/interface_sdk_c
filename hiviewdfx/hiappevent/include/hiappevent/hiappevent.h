@@ -382,72 +382,91 @@ int OH_HiAppEvent_AddProcessor(struct OH_HiAppEvent_Processor *processor);
  * @brief Remove the processor.
  *
  * @param id The int64_t value of the processor unique ID.
+ * @return Returns {@code 0} if remove the processor is successful, and returns a
+ * negative integer if remove the processor fail.
  * @since 12
  * @version 1.0
  */
 int OH_HiAppEvent_RemoveProcessor(int id);
 
 /**
- * @brief Remove the processor.
+ * @brief Set the property.
  *
- * @param id The int64_t value of the processor unique ID.
+ * @param name The name of the property.
+ * @param value The value of the property.
+ * @return Returns {@code 0} if set user property is successful, and returns a
+ * negative integer if set fail. 
  * @since 12
  * @version 1.0
  */
 int OH_HiAppEvent_SetUserProperty(const char* name, const char* value);
 
 /**
- * @brief Remove the processor.
+ * @brief Get the property.
  *
- * @param id The int64_t value of the processor unique ID.
+ * @param name The name of the property.
+ * @param value The value of the property.
+ * @return Returns {@code 0} if get user property is successful, and returns a
+ * negative integer if get fail. 
  * @since 12
  * @version 1.0
  */
 int OH_HiAppEvent_GetUserProperty(const char* name, char* value);
 
 /**
- * @brief Remove the processor.
+ * @brief Set the user id.
  *
- * @param id The int64_t value of the processor unique ID.
+ * @param name The name of the user id.
+ * @param value The value of the user id.
+ * @return Returns {@code 0} if set user id is successful, and returns a
+ * negative integer if set fail. 
  * @since 12
  * @version 1.0
  */
 int OH_HiAppEvent_SetUserId(const char* name, char* value);
 
 /**
- * @brief Remove the processor.
+ * @brief Get the user id.
  *
- * @param id The int64_t value of the processor unique ID.
+ * @param name The name of the user id.
+ * @param value The value of the user id.
+ * @return Returns {@code 0} if get user id is successful, and returns a
+ * negative integer if get fail. 
  * @since 12
  * @version 1.0
  */
 int OH_HiAppEvent_GetUserId(const char* name, char* value);
 
 /**
- * @brief Add processor to report the event.
+ * @brief Add watcher to receive the event.
  *
- * @param processor The instance which report the event.
- * @return Processor unique ID.
+ * @param watcher The instance which receive the event.
+ * @return Returns {@code 0} if add watcher is successful, and returns a
+ * negative integer if add fail. 
  * @since 12
  * @version 1.0
  */
 int OH_HiAppEvent_AddWatcher(struct OH_HiAppEvent_Watcher* watcher);
 
 /**
- * @brief Add processor to report the event.
+ * @brief Remove watcher.
  *
- * @param processor The instance which report the event.
- * @return Processor unique ID.
+ * @param watcher The instance which report the event.
+ * @return Returns {@code 0} if remove watcher is successful, and returns a
+ * negative integer if remove fail. 
  * @since 12
  * @version 1.0
  */
 int OH_HiAppEvent_RemoveWatcher(struct OH_HiAppEvent_Watcher *watcher);
 
 /**
- * @brief Add processor to report the event.
+ * @brief Take the watcher received event data.
  *
- * @param processor The instance which report the event.
- * @return Processor unique ID.
+ * @param name The name of the watcher which receive the event.
+ * @param appEventInfos The events which the watcher receive.
+ * @param appEventInfoArraySize The events array size.
+ * @return Returns {@code 0} if the watcher has data to take, and returns a
+ * negative integer if the watcher has no data left. 
  * @since 12
  * @version 1.0
  */
