@@ -80,7 +80,7 @@ void OH_HiDebug_FreeThreadCpuUsage(HiDebug_ThreadCpuUsagePtr *threadCpuUsage);
  * @param sysMemInfo Indicates the pointer to {@link HiDebug_SysMemInfo}.
  * @since 12
  */
-void OH_HiDebug_GetSystemMemInfo(HiDebug_SysMemInfo *sysMemInfo);
+void OH_HiDebug_GetSysMemInfo(HiDebug_SysMemInfo *sysMemInfo);
 
 /**
  * @brief Obtains the memory info of application process.
