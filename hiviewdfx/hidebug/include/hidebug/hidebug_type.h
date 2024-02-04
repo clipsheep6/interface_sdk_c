@@ -275,10 +275,10 @@ const uint64_t HIDEBUG_TRACE_TAG_NOTIFICATION = (1ULL << 40);
  */
 const uint64_t HIDEBUG_TRACE_TAG_MISC = (1ULL << 41);
 /**
- * @brief Multi modal input module tag.
+ * @brief Multimodal input module tag.
  * @since 12
  */
-const uint64_t HIDEBUG_TRACE_TAG_MULTI_MODAL_INPUT = (1ULL << 42);
+const uint64_t HIDEBUG_TRACE_TAG_MULTIMODAL_INPUT = (1ULL << 42);
 /**
  * @brief RPC and IPC tag.
  * @since 12
