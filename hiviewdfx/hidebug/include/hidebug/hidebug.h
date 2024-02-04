@@ -48,7 +48,7 @@ extern "C" {
  * @return Returns the cpu usage of system
  * @since 12
  */
-double OH_HiDebug_GetSysCpuUsage();
+double OH_HiDebug_GetSystemCpuUsage();
 
 /**
  * @brief Obtains the cpu usage percent of a process.
@@ -77,10 +77,10 @@ void OH_HiDebug_FreeThreadCpuUsage(HiDebug_ThreadCpuUsagePtr *threadCpuUsage);
 /**
  * @brief Obtains the system memory size.
  *
- * @param sysMemInfo Indicates the pointer to {@link HiDebug_SysMemInfo}.
+ * @param systemMemInfo Indicates the pointer to {@link HiDebug_SystemMemInfo}.
  * @since 12
  */
-void OH_HiDebug_GetSysMemInfo(HiDebug_SysMemInfo *sysMemInfo);
+void OH_HiDebug_GetSystemMemInfo(HiDebug_SystemMemInfo *systemMemInfo);
 
 /**
  * @brief Obtains the memory info of application process.

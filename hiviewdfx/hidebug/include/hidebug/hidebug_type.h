@@ -101,7 +101,7 @@ typedef HiDebug_ThreadCpuUsage* HiDebug_ThreadCpuUsagePtr;
  *
  * @since 12
  */
-typedef struct HiDebug_SysMemInfo {
+typedef struct HiDebug_SystemMemInfo {
     /**
      * Total system memory size, in kibibytes
      */
@@ -114,7 +114,7 @@ typedef struct HiDebug_SysMemInfo {
      * System available memory size, in kibibytes
      */
     uint32_t memAvailable;
-} HiDebug_SysMemInfo;
+} HiDebug_SystemMemInfo;
 
 /**
  * @brief Defines application process native memory information structure type.
@@ -233,22 +233,22 @@ const uint64_t HIDEBUG_TRACE_TAG_ABILITY_MANAGER = (1ULL << 31);
  * @brief Camera module tag.
  * @since 12
  */
-const uint64_t HIDEBUG_TRACE_TAG_ZCAMERA = (1ULL << 32);
+const uint64_t HIDEBUG_TRACE_TAG_CAMERA = (1ULL << 32);
 /**
  * @brief Media module tag.
  * @since 12
  */
-const uint64_t HIDEBUG_TRACE_TAG_ZMEDIA = (1ULL << 33);
+const uint64_t HIDEBUG_TRACE_TAG_MEDIA = (1ULL << 33);
 /**
  * @brief Image module tag.
  * @since 12
  */
-const uint64_t HIDEBUG_TRACE_TAG_ZIMAGE = (1ULL << 34);
+const uint64_t HIDEBUG_TRACE_TAG_IMAGE = (1ULL << 34);
 /**
  * @brief Audio module tag.
  * @since 12
  */
-const uint64_t HIDEBUG_TRACE_TAG_ZAUDIO = (1ULL << 35);
+const uint64_t HIDEBUG_TRACE_TAG_AUDIO = (1ULL << 35);
 /**
  * @brief Distributed data manager module tag.
  * @since 12
