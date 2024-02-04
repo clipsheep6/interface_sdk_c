@@ -368,6 +368,90 @@ int OH_HiAppEvent_Write(const char* domain, const char* name, enum EventType typ
  */
 bool OH_HiAppEvent_Configure(const char* name, const char* value);
 
+/**
+ * @brief Add processor to report the event.
+ *
+ * @param processor The instance which report the event.
+ * @return Processor unique ID.
+ * @since 12
+ * @version 1.0
+ */
+int OH_HiAppEvent_AddProcessor(struct OH_HiAppEvent_Processor *processor);
+
+/**
+ * @brief Remove the processor.
+ *
+ * @param id The int64_t value of the processor unique ID.
+ * @since 12
+ * @version 1.0
+ */
+int OH_HiAppEvent_RemoveProcessor(int id);
+
+/**
+ * @brief Remove the processor.
+ *
+ * @param id The int64_t value of the processor unique ID.
+ * @since 12
+ * @version 1.0
+ */
+int OH_HiAppEvent_SetUserProperty(const char* name, const char* value);
+
+/**
+ * @brief Remove the processor.
+ *
+ * @param id The int64_t value of the processor unique ID.
+ * @since 12
+ * @version 1.0
+ */
+int OH_HiAppEvent_GetUserProperty(const char* name, char* value);
+
+/**
+ * @brief Remove the processor.
+ *
+ * @param id The int64_t value of the processor unique ID.
+ * @since 12
+ * @version 1.0
+ */
+int OH_HiAppEvent_SetUserId(const char* name, char* value);
+
+/**
+ * @brief Remove the processor.
+ *
+ * @param id The int64_t value of the processor unique ID.
+ * @since 12
+ * @version 1.0
+ */
+int OH_HiAppEvent_GetUserId(const char* name, char* value);
+
+/**
+ * @brief Add processor to report the event.
+ *
+ * @param processor The instance which report the event.
+ * @return Processor unique ID.
+ * @since 12
+ * @version 1.0
+ */
+int OH_HiAppEvent_AddWatcher(struct OH_HiAppEvent_Watcher* watcher);
+
+/**
+ * @brief Add processor to report the event.
+ *
+ * @param processor The instance which report the event.
+ * @return Processor unique ID.
+ * @since 12
+ * @version 1.0
+ */
+int OH_HiAppEvent_RemoveWatcher(struct OH_HiAppEvent_Watcher *watcher);
+
+/**
+ * @brief Add processor to report the event.
+ *
+ * @param processor The instance which report the event.
+ * @return Processor unique ID.
+ * @since 12
+ * @version 1.0
+ */
+int OH_HiAppEvent_TakeWatcherData(const char* name, char* appEventInfos[], uint32_t appEventInfoArraySize);
 #ifdef __cplusplus
 }
 #endif
