@@ -376,7 +376,7 @@ bool OH_HiAppEvent_Configure(const char* name, const char* value);
  * @since 12
  * @version 1.0
  */
-int OH_HiAppEvent_AddProcessor(struct OH_HiAppEvent_Processor *processor);
+int OH_HiAppEvent_AddProcessor(struct OH_HiAppEvent_Processor* processor);
 
 /**
  * @brief Remove the processor.
@@ -463,14 +463,14 @@ int OH_HiAppEvent_RemoveWatcher(struct OH_HiAppEvent_Watcher *watcher);
  * @brief Take the watcher received event data.
  *
  * @param name The name of the watcher which receive the event.
- * @param appEventInfos The events which the watcher receive.
- * @param appEventInfoArraySize The events array size.
+ * @param size The buffer size to cache the event.
+ * @param buffer The buffer to cache the event.
  * @return Returns {@code 0} if the watcher has data to take, and returns a
  * negative integer if the watcher has no data left. 
  * @since 12
  * @version 1.0
  */
-int OH_HiAppEvent_TakeWatcherData(const char* name, char* appEventInfos[], uint32_t appEventInfoArraySize);
+int OH_HiAppEvent_TakeWatcherData(const char* name, uint32_t size, char* buffer);
 #ifdef __cplusplus
 }
 #endif
