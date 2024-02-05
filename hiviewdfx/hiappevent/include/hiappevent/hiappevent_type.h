@@ -55,6 +55,21 @@ struct OH_HiAppEvent_AppEventReportConfig {
 };
 
 /**
+ * @brief Defines the event config to be reported by processor..
+ * @SystemCapability.HiviewDFX.HiAppEvent
+ * @since 12
+ * @version 1.0
+ */
+struct OH_HiAppEvent_TriggerCondition {
+	/* The number of write events that trigger callback. */
+	uint32_t row;
+	/* The interval for triggering callback. */
+	uint32_t size;
+	/* The interval for triggering callback. */
+	uint32_t timeOut;
+};
+
+/**
  * @brief Defines the processor information structure.
  * @SystemCapability.HiviewDFX.HiAppEvent
  * @since 12
@@ -92,7 +107,7 @@ struct OH_HiAppEvent_Processor {
 	/* The processor id. */
 	int id;
 	/* The extend value. */
-	char* extend;
+	char* extendConfig;
 };
 
 /**
@@ -135,7 +150,7 @@ struct OH_HiAppEvent_AppEventGroup {
  * @since 12
  * @version 1.0
  */
-typedef void (*OH_HiAppEvent_OnReceive)(const char* domain, const struct OH_HiAppEvent_AppEventGroup* appEventGroups);
+typedef void (*OH_HiAppEvent_OnReceive)(const char* domain, const struct OH_HiAppEvent_AppEventGroup* appEventGroups, uint32_t groupSize);
 
 /**
  * @brief Called when watcher receive the event meet the condition.
