@@ -258,7 +258,7 @@ const uint64_t HIDEBUG_TRACE_TAG_DISTRIBUTED_DATA = (1ULL << 36);
  * @brief Graphic module tag.
  * @since 12
  */
-const uint64_t HIDEBUG_TRACE_TAG_GRAPHIC_AGP = (1ULL << 38);
+const uint64_t HIDEBUG_TRACE_TAG_GRAPHIC = (1ULL << 38);
 /**
  * @brief ACE development framework tag.
  * @since 12
