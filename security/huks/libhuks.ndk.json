@@ -6,37 +6,79 @@
         "name": "OH_Huks_GenerateKeyItem"
     },
     {
+        "name": "OH_Huks_GenerateKeyItemAsUser"
+    },
+    {
         "name": "OH_Huks_ImportKeyItem"
+    },
+    {
+        "name": "OH_Huks_ImportKeyItemAsUser"
     },
     {
         "name": "OH_Huks_ImportWrappedKeyItem"
     },
     {
+        "name": "OH_Huks_ImportWrappedKeyItemAsUser"
+    },
+    {
         "name": "OH_Huks_ExportPublicKeyItem"
+    },
+    {
+        "name": "OH_Huks_ExportPublicKeyItemAsUser"
     },
     {
         "name": "OH_Huks_DeleteKeyItem"
     },
     {
+        "name": "OH_Huks_DeleteKeyItemAsUser"
+    },
+    {
         "name": "OH_Huks_GetKeyItemParamSet"
+    },
+    {
+        "name": "OH_Huks_GetKeyItemParamSetAsUser"
     },
     {
         "name": "OH_Huks_IsKeyItemExist"
     },
     {
+        "name": "OH_Huks_IsKeyItemExistAsUser"
+    },
+    {
         "name": "OH_Huks_AttestKeyItem"
+    },
+    {
+        "name": "OH_Huks_AttestKeyItemAsUser"
+    },
+    {
+        "name": "OH_Huks_AnonAttestKeyItem"
+    },
+    {
+        "name": "OH_Huks_AnonAttestKeyItemAsUser"
     },
     {
         "name": "OH_Huks_InitSession"
     },
     {
+        "name": "OH_Huks_InitSessionAsUser"
+    },
+    {
         "name": "OH_Huks_UpdateSession"
+    },
+    {
+        "name": "OH_Huks_UpdateSessionAsUser"
     },
     {
         "name": "OH_Huks_FinishSession"
     },
     {
+        "name": "OH_Huks_FinishSessionAsUser"
+    },
+    {
         "name": "OH_Huks_AbortSession"
+    },
+    {
+        "name": "OH_Huks_AbortSessionAsUser"
     },
     {
         "name": "OH_Huks_InitParamSet"
