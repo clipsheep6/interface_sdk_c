@@ -45,6 +45,7 @@
     { "name": "OH_Drawing_CanvasTranslate" },
     { "name": "OH_Drawing_CanvasScale" },
     { "name": "OH_Drawing_CanvasClear" },
+    { "name": "OH_Drawing_CanvasGetWidth" },
     { "name": "OH_Drawing_CanvasSetMatrix" },
     { "name": "OH_Drawing_CanvasDrawImageRect" },
     { "name": "OH_Drawing_CanvasReadPixels" },
