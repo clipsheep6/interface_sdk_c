@@ -63,6 +63,26 @@ typedef  Drm_ErrCode (*MediaKeySystem_Callback)(DRM_EventType eventType, uint8_t
     int32_t infoLen, char *extra);
 
 /**
+ * @brief Acquire supported media key systems' name.
+ * @param nameList Used to save media key systems' name.
+ * @return DRM_ERR_INVALID_VAL when the params checked failure, return DRM_ERR_OK when function called successfully.
+ * @since 12
+ * @version 1.0
+ */
+Drm_ErrCode  OH_MediaKeySystem_GetMediaKeySystems(DRM_MediaKeySystemNameList *nameList);
+
+/**
+ * @brief Acquire media key system's uuid.
+ * @param name Media key systems' name.
+ * @param uuid Array to store uuid.
+ * @param uuidLen Uuid array len for in buffer.
+ * @return DRM_ERR_INVALID_VAL when the params checked failure, return DRM_ERR_OK when function called successfully.
+ * @since 12
+ * @version 1.0
+ */
+Drm_ErrCode  OH_MediaKeySystem_GetMediaKeySystemUuid(const char *name, char *uuid, int32_t uuidLen);
+
+/**
  * @brief Query if media key system is supported.
  * @param name Used to point a Digital Right Management solution.
  * @return Supported or not in boolean.
