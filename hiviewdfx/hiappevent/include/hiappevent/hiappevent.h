@@ -369,75 +369,6 @@ int OH_HiAppEvent_Write(const char* domain, const char* name, enum EventType typ
 bool OH_HiAppEvent_Configure(const char* name, const char* value);
 
 /**
- * @brief Add processor to report the event.
- *
- * @param processor The instance which report the event.
- * @return Processor unique ID.
- * @since 12
- * @version 1.0
- */
-int OH_HiAppEvent_AddProcessor(struct OH_HiAppEvent_Processor* processor);
-
-/**
- * @brief Remove the processor.
- *
- * @param id The int64_t value of the processor unique ID.
- * @return Returns {@code 0} if remove the processor is successful, and returns a
- * negative integer if remove the processor fail.
- * @since 12
- * @version 1.0
- */
-int OH_HiAppEvent_RemoveProcessor(int id);
-
-/**
- * @brief Set the property.
- *
- * @param name The name of the property.
- * @param value The value of the property.
- * @return Returns {@code 0} if set user property is successful, and returns a
- * negative integer if set fail. 
- * @since 12
- * @version 1.0
- */
-int OH_HiAppEvent_SetUserProperty(const char* name, const char* value);
-
-/**
- * @brief Get the property.
- *
- * @param name The name of the property.
- * @param value The value of the property.
- * @return Returns {@code 0} if get user property is successful, and returns a
- * negative integer if get fail. 
- * @since 12
- * @version 1.0
- */
-int OH_HiAppEvent_GetUserProperty(const char* name, char* value);
-
-/**
- * @brief Set the user id.
- *
- * @param name The name of the user id.
- * @param value The value of the user id.
- * @return Returns {@code 0} if set user id is successful, and returns a
- * negative integer if set fail. 
- * @since 12
- * @version 1.0
- */
-int OH_HiAppEvent_SetUserId(const char* name, char* value);
-
-/**
- * @brief Get the user id.
- *
- * @param name The name of the user id.
- * @param value The value of the user id.
- * @return Returns {@code 0} if get user id is successful, and returns a
- * negative integer if get fail. 
- * @since 12
- * @version 1.0
- */
-int OH_HiAppEvent_GetUserId(const char* name, char* value);
-
-/**
  * @brief Add watcher to receive the event.
  *
  * @param watcher The instance which receive the event.
@@ -471,6 +402,14 @@ int OH_HiAppEvent_RemoveWatcher(struct OH_HiAppEvent_Watcher *watcher);
  * @version 1.0
  */
 int OH_HiAppEvent_TakeWatcherData(const char* name, uint32_t size, char* buffer);
+
+/**
+ * @brief Clear all local logging data of the application.
+ *
+ * @since 12
+ * @version 1.0
+ */
+void OH_HiAppEvent_ClearData();
 #ifdef __cplusplus
 }
 #endif
