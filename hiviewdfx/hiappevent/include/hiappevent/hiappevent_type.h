@@ -45,21 +45,6 @@ extern "C" {
  * @since 12
  * @version 1.0
  */
-struct OH_HiAppEvent_AppEventReportConfig {
-	/* The domain of the event. */
-	char* domain;
-	/* The name of the event. */
-	char* name;
-	/* The realtime report event. */
-	bool isRealTime;
-};
-
-/**
- * @brief Defines the event config to be reported by processor..
- * @SystemCapability.HiviewDFX.HiAppEvent
- * @since 12
- * @version 1.0
- */
 struct OH_HiAppEvent_TriggerCondition {
 	/* The number of write events that trigger callback. */
 	uint32_t row;
@@ -67,47 +52,6 @@ struct OH_HiAppEvent_TriggerCondition {
 	uint32_t size;
 	/* The interval for triggering callback. */
 	uint32_t timeOut;
-};
-
-/**
- * @brief Defines the processor information structure.
- * @SystemCapability.HiviewDFX.HiAppEvent
- * @since 12
- * @version 1.0
- */
-struct OH_HiAppEvent_Processor {
-	/* The name of the processor. */
-	char* name;
-	/* The processor enable the developer to debug. */
-	bool debugMode;
-	/* The server location which used for the processor to receive the data, defined by the processor. */
-	char* routeInfo;
-	/* The app ID is provided by the processor. */
-	char* appId;
-	/* The processor report the event when start. */
-	bool onStartReport;
-	/* The processor report the event when the application onBackground. */
-	bool onBackgroundReport;
-	/* The processor report the event according to the period. */
-	uint32_t periodReport;
-	/* The processor report the event according to the batch size. */
-	uint32_t batchReport;
-	/* The user ID names which the processor can report. */
-	char* userIds[];
-	/* The user ID name array size. */
-	uint32_t userIdArraySize;
-	/* The user property names which the processor can report. */
-	char* userProperties[];
-	/* The user property array size. */
-	uint32_t userPropertyArraySize;
-	/* The events which the processor can report. */
-	struct OH_HiAppEvent_AppEventReportConfig* eventConfigs;
-	/* The app event report config array size. */
-	uint32_t reportConfigArraySize;	
-	/* The processor id. */
-	int id;
-	/* The extend value. */
-	char* extendConfig;
 };
 
 /**
@@ -120,7 +64,7 @@ struct OH_HiAppEvent_AppEventFilter {
 	/* The name of the processor. */
 	char* domain;
 	/* The types of the events to be monitored by the watcher. */
-	uint32_t eventType;
+	uint32_t eventTypes;
 	/* The names of the events to be monitored by the watcher. */
 	char* names[];
 	/* The size of the name array. */
