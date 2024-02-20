@@ -188,7 +188,7 @@ typedef enum HiDebug_TraceFlag {
 #endif // __cplusplus
 
 /**
- * @brief Ffrt tasks.
+ * @brief FFRT tasks.
  * @since 12
  */
 #define HIDEBUG_TRACE_TAG_FFRT (1ULL << 13)
@@ -283,7 +283,7 @@ typedef enum HiDebug_TraceFlag {
  */
 #define HIDEBUG_TRACE_TAG_MULTIMODAL_INPUT (1ULL << 42)
 /**
- * @brief RPC and IPC tag.
+ * @brief RPC tag.
  * @since 12
  */
 #define HIDEBUG_TRACE_TAG_RPC (1ULL << 46)
@@ -316,12 +316,12 @@ typedef enum HiDebug_TraceFlag {
  * @brief Global resource manager tag.
  * @since 12
  */
-#define HIDEBUG_TRACE_TAG_GLOBAL_RESMGR (1ULL << 53)
+#define HIDEBUG_TRACE_TAG_GLOBAL_RESOURCE_MANAGER (1ULL << 53)
 /**
  * @brief Distributed hardware device manager tag.
  * @since 12
  */
-#define HIDEBUG_TRACE_TAG_DEVICE_MANAGER (1ULL << 54)
+#define HIDEBUG_TRACE_TAG_DISTRIBUTED_HARDWARE_DEVICE_MANAGER (1ULL << 54)
 /**
  * @brief SA tag.
  * @since 12
@@ -331,7 +331,7 @@ typedef enum HiDebug_TraceFlag {
  * @brief Power manager tag.
  * @since 12
  */
-#define HIDEBUG_TRACE_TAG_POWER (1ULL << 56)
+#define HIDEBUG_TRACE_TAG_POWER_MANAGER (1ULL << 56)
 /**
  * @brief Distributed schedule tag.
  * @since 12
