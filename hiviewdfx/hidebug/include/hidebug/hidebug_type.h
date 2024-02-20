@@ -347,6 +347,7 @@ typedef enum HiDebug_TraceFlag {
  * @since 12
  */
 #define HIDEBUG_TRACE_TAG_BLUETOOTH (1ULL << 60)
+
 /** @} */
 
 #endif // HIVIEWDFX_HIDEBUG_TYPE_H
