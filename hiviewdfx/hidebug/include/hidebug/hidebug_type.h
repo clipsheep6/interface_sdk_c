@@ -258,10 +258,10 @@ typedef enum HiDebug_TraceFlag {
  */
 #define HIDEBUG_TRACE_TAG_DISTRIBUTED_DATA (1ULL << 36)
 /**
- * @brief Graphic module tag.
+ * @brief Graphics module tag.
  * @since 12
  */
-#define HIDEBUG_TRACE_TAG_GRAPHIC (1ULL << 38)
+#define HIDEBUG_TRACE_TAG_GRAPHICS (1ULL << 38)
 /**
  * @brief ACE development framework tag.
  * @since 12
@@ -333,10 +333,10 @@ typedef enum HiDebug_TraceFlag {
  */
 #define HIDEBUG_TRACE_TAG_POWER_MANAGER (1ULL << 56)
 /**
- * @brief Distributed schedule tag.
+ * @brief Distributed scheduler tag.
  * @since 12
  */
-#define HIDEBUG_TRACE_TAG_DISTRIBUTED_SCHEDULE (1ULL << 57)
+#define HIDEBUG_TRACE_TAG_DISTRIBUTED_SCHEDULER (1ULL << 57)
 /**
  * @brief Distributed input tag.
  * @since 12
