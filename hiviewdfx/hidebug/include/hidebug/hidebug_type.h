@@ -183,6 +183,9 @@ typedef enum HiDebug_TraceFlag {
      */
     HIDEBUG_TRACE_FLAG_ALL_THREADS = 2
 } HiDebug_TraceFlag;
+#ifdef __cplusplus
+}
+#endif // __cplusplus
 
 /**
  * @brief Ffrt tasks.
@@ -344,10 +347,6 @@ typedef enum HiDebug_TraceFlag {
  * @since 12
  */
 #define HIDEBUG_TRACE_TAG_BLUETOOTH (1ULL << 60)
-
-#ifdef __cplusplus
-}
-#endif // __cplusplus
 /** @} */
 
 #endif // HIVIEWDFX_HIDEBUG_TYPE_H
