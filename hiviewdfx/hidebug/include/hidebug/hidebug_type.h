@@ -188,162 +188,162 @@ typedef enum HiDebug_TraceFlag {
  * @brief Ffrt tasks.
  * @since 12
  */
-const uint64_t HIDEBUG_TRACE_TAG_FFRT = (1ULL << 13);
+#define HIDEBUG_TRACE_TAG_FFRT (1ULL << 13)
 /**
  * @brief Common library subsystem tag.
  * @since 12
  */
-const uint64_t HIDEBUG_TRACE_TAG_COMMON_LIBRARY = (1ULL << 16);
+#define HIDEBUG_TRACE_TAG_COMMON_LIBRARY (1ULL << 16)
 /**
  * @brief HDF subsystem tag.
  * @since 12
  */
-const uint64_t HIDEBUG_TRACE_TAG_HDF = (1ULL << 18);
+#define HIDEBUG_TRACE_TAG_HDF (1ULL << 18)
 /**
  * @brief Net tag.
  * @since 12
  */
-const uint64_t HIDEBUG_TRACE_TAG_NET = (1ULL << 23);
+#define HIDEBUG_TRACE_TAG_NET (1ULL << 23)
 /**
  * @brief NWeb tag.
  * @since 12
  */
-const uint64_t HIDEBUG_TRACE_TAG_NWEB = (1ULL << 24);
+#define HIDEBUG_TRACE_TAG_NWEB (1ULL << 24)
 /**
  * @brief Distributed audio tag.
  * @since 12
  */
-const uint64_t HIDEBUG_TRACE_TAG_DISTRIBUTED_AUDIO = (1ULL << 27);
+#define HIDEBUG_TRACE_TAG_DISTRIBUTED_AUDIO (1ULL << 27)
 /**
  * @brief File management tag.
  * @since 12
  */
-const uint64_t HIDEBUG_TRACE_TAG_FILE_MANAGEMENT = (1ULL << 29);
+#define HIDEBUG_TRACE_TAG_FILE_MANAGEMENT (1ULL << 29)
 /**
  * @brief OHOS generic tag.
  * @since 12
  */
-const uint64_t HIDEBUG_TRACE_TAG_OHOS = (1ULL << 30);
+#define HIDEBUG_TRACE_TAG_OHOS (1ULL << 30)
 /**
  * @brief Ability Manager tag.
  * @since 12
  */
-const uint64_t HIDEBUG_TRACE_TAG_ABILITY_MANAGER = (1ULL << 31);
+#define HIDEBUG_TRACE_TAG_ABILITY_MANAGER (1ULL << 31)
 /**
  * @brief Camera module tag.
  * @since 12
  */
-const uint64_t HIDEBUG_TRACE_TAG_CAMERA = (1ULL << 32);
+#define HIDEBUG_TRACE_TAG_CAMERA (1ULL << 32)
 /**
  * @brief Media module tag.
  * @since 12
  */
-const uint64_t HIDEBUG_TRACE_TAG_MEDIA = (1ULL << 33);
+#define HIDEBUG_TRACE_TAG_MEDIA (1ULL << 33)
 /**
  * @brief Image module tag.
  * @since 12
  */
-const uint64_t HIDEBUG_TRACE_TAG_IMAGE = (1ULL << 34);
+#define HIDEBUG_TRACE_TAG_IMAGE (1ULL << 34)
 /**
  * @brief Audio module tag.
  * @since 12
  */
-const uint64_t HIDEBUG_TRACE_TAG_AUDIO = (1ULL << 35);
+#define HIDEBUG_TRACE_TAG_AUDIO (1ULL << 35)
 /**
  * @brief Distributed data manager module tag.
  * @since 12
  */
-const uint64_t HIDEBUG_TRACE_TAG_DISTRIBUTED_DATA = (1ULL << 36);
+#define HIDEBUG_TRACE_TAG_DISTRIBUTED_DATA (1ULL << 36)
 /**
  * @brief Graphic module tag.
  * @since 12
  */
-const uint64_t HIDEBUG_TRACE_TAG_GRAPHIC = (1ULL << 38);
+#define HIDEBUG_TRACE_TAG_GRAPHIC (1ULL << 38)
 /**
  * @brief ACE development framework tag.
  * @since 12
  */
-const uint64_t HIDEBUG_TRACE_TAG_ACE = (1ULL << 39);
+#define HIDEBUG_TRACE_TAG_ACE (1ULL << 39)
 /**
  * @brief Notification module tag.
  * @since 12
  */
-const uint64_t HIDEBUG_TRACE_TAG_NOTIFICATION = (1ULL << 40);
+#define HIDEBUG_TRACE_TAG_NOTIFICATION (1ULL << 40)
 /**
  * @brief MISC module tag.
  * @since 12
  */
-const uint64_t HIDEBUG_TRACE_TAG_MISC = (1ULL << 41);
+#define HIDEBUG_TRACE_TAG_MISC (1ULL << 41)
 /**
  * @brief Multimodal input module tag.
  * @since 12
  */
-const uint64_t HIDEBUG_TRACE_TAG_MULTIMODAL_INPUT = (1ULL << 42);
+#define HIDEBUG_TRACE_TAG_MULTIMODAL_INPUT (1ULL << 42)
 /**
  * @brief RPC and IPC tag.
  * @since 12
  */
-const uint64_t HIDEBUG_TRACE_TAG_RPC = (1ULL << 46);
+#define HIDEBUG_TRACE_TAG_RPC (1ULL << 46)
 /**
  * @brief ARK tag.
  * @since 12
  */
-const uint64_t HIDEBUG_TRACE_TAG_ARK = (1ULL << 47);
+#define HIDEBUG_TRACE_TAG_ARK (1ULL << 47)
 /**
  * @brief Window manager tag.
  * @since 12
  */
-const uint64_t HIDEBUG_TRACE_TAG_WINDOW_MANAGER = (1ULL << 48);
+#define HIDEBUG_TRACE_TAG_WINDOW_MANAGER (1ULL << 48)
 /**
  * @brief Distributed screen tag.
  * @since 12
  */
-const uint64_t HIDEBUG_TRACE_TAG_DISTRIBUTED_SCREEN = (1ULL << 50);
+#define HIDEBUG_TRACE_TAG_DISTRIBUTED_SCREEN (1ULL << 50)
 /**
  * @brief Distributed camera tag.
  * @since 12
  */
-const uint64_t HIDEBUG_TRACE_TAG_DISTRIBUTED_CAMERA = (1ULL << 51);
+#define HIDEBUG_TRACE_TAG_DISTRIBUTED_CAMERA (1ULL << 51)
 /**
  * @brief Distributed hardware fwk tag.
  * @since 12
  */
-const uint64_t HIDEBUG_TRACE_TAG_DISTRIBUTED_HARDWARE_FWK = (1ULL << 52);
+#define HIDEBUG_TRACE_TAG_DISTRIBUTED_HARDWARE_FWK (1ULL << 52)
 /**
  * @brief Global resource manager tag.
  * @since 12
  */
-const uint64_t HIDEBUG_TRACE_TAG_GLOBAL_RESMGR = (1ULL << 53);
+#define HIDEBUG_TRACE_TAG_GLOBAL_RESMGR (1ULL << 53)
 /**
  * @brief Distributed hardware device manager tag.
  * @since 12
  */
-const uint64_t HIDEBUG_TRACE_TAG_DEVICE_MANAGER = (1ULL << 54);
+#define HIDEBUG_TRACE_TAG_DEVICE_MANAGER (1ULL << 54)
 /**
  * @brief SA tag.
  * @since 12
  */
-const uint64_t HIDEBUG_TRACE_TAG_SAMGR = (1ULL << 55);
+#define HIDEBUG_TRACE_TAG_SAMGR (1ULL << 55)
 /**
  * @brief Power manager tag.
  * @since 12
  */
-const uint64_t HIDEBUG_TRACE_TAG_POWER = (1ULL << 56);
+#define HIDEBUG_TRACE_TAG_POWER (1ULL << 56)
 /**
  * @brief Distributed schedule tag.
  * @since 12
  */
-const uint64_t HIDEBUG_TRACE_TAG_DISTRIBUTED_SCHEDULE = (1ULL << 57);
+#define HIDEBUG_TRACE_TAG_DISTRIBUTED_SCHEDULE (1ULL << 57)
 /**
  * @brief Distributed input tag.
  * @since 12
  */
-const uint64_t HIDEBUG_TRACE_TAG_DISTRIBUTED_INPUT = (1ULL << 59);
+#define HIDEBUG_TRACE_TAG_DISTRIBUTED_INPUT (1ULL << 59)
 /**
  * @brief bluetooth tag.
  * @since 12
  */
-const uint64_t HIDEBUG_TRACE_TAG_BLUETOOTH = (1ULL << 60);
+#define HIDEBUG_TRACE_TAG_BLUETOOTH (1ULL << 60)
 
 #ifdef __cplusplus
 }
