@@ -502,9 +502,9 @@ struct AppEventInfo {
 	/* The name of the event. */
 	const char* name;
 	/* The type of the event. */
-	uint32_t type;
+	enum EventType type;
 	/* The json string of the parameter. */
-	const char* paramJsonStr;	
+	const char* params;
 }
 
 /**
