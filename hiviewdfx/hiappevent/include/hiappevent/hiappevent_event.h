@@ -85,7 +85,7 @@ extern "C" {
  * @since 12
  * @version 1.0
  */
-#define EVENT_APP_CRASH "hiappevent.app_crash"
+#define EVENT_APP_CRASH "APP_CRASH"
 
 /**
  * @brief app freeze event.
@@ -93,7 +93,7 @@ extern "C" {
  * @since 12
  * @version 1.0
  */
-#define EVENT_APP_FREEZE "hiappevent.app_freeze"
+#define EVENT_APP_FREEZE "APP_FREEZE"
 
 /**
  * @brief app launch event.
@@ -101,7 +101,7 @@ extern "C" {
  * @since 12
  * @version 1.0
  */
-#define EVENT_APP_LAUNCH "hiappevent.app_launch"
+#define EVENT_APP_LAUNCH "APP_LAUNCH"
 
 /**
  * @brief app scroll jank event.
@@ -109,7 +109,7 @@ extern "C" {
  * @since 12
  * @version 1.0
  */
-#define EVENT_SCROLL_JANK "hiappevent.scroll_jank"
+#define EVENT_SCROLL_JANK "SCROLL_JANK"
 
 /**
  * @brief app cpu usage high event.
@@ -117,7 +117,7 @@ extern "C" {
  * @since 12
  * @version 1.0
  */
-#define EVENT_CPU_USAGE_HIGH "hiappevent.cpu_usage_high"
+#define EVENT_CPU_USAGE_HIGH "CPU_USAGE_HIGH"
 
 /**
  * @brief app battery usage event.
@@ -125,7 +125,7 @@ extern "C" {
  * @since 12
  * @version 1.0
  */
-#define EVENT_BATTERY_USAGE "hiappevent.battery_usage"
+#define EVENT_BATTERY_USAGE "BATTERY_USAGE"
 
 /**
  * @brief app resource overlimit event.
@@ -133,7 +133,7 @@ extern "C" {
  * @since 12
  * @version 1.0
  */
-#define EVENT_RESOURCE_OVERLIMIT "hiappevent.resource_overlimit"
+#define EVENT_RESOURCE_OVERLIMIT "RESOURCE_OVERLIMIT"
 
 /**
  * @brief OS domain.
@@ -141,7 +141,7 @@ extern "C" {
  * @since 12
  * @version 1.0
  */
-#define DOMAIN_OS "hiappevent.os"
+#define DOMAIN_OS "OS"
 
 #ifdef __cplusplus
 }
