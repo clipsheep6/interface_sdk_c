@@ -108,6 +108,38 @@ enum EventType {
 };
 
 /**
+ * @brief Definition of AppEventInfo object.
+ * @SystemCapability.HiviewDFX.HiAppEvent
+ * @since 12
+ * @version 1.0
+ */
+struct AppEventInfo {
+    /* The domain of the event. */
+	const char* domain;
+	/* The name of the event. */
+	const char* name;
+	/* The type of the event. */
+	enum EventType type;
+	/* The json string of the parameter. */
+	const char* params;
+}
+
+/**
+ * @brief Defines the event group.
+ * @syscap SystemCapability.HiviewDFX.HiAppEvent
+ * @since 12
+ * @version 1.0
+ */
+struct OH_HiAppEvent_AppEventGroup {
+	/* The name of the event. */
+	const char* name;
+	/* The event array which is group by the name. */
+	const struct AppEventInfo* appEventInfos;
+	/* The length of appEventInfos array. */
+	uint32_t infoLen;
+};
+
+/**
  * @brief Event param list node.
  *
  * @since 8
@@ -122,6 +154,37 @@ typedef struct ParamListNode* ParamList;
  * @version 1.0
  */
 typedef struct Watcher Watcher;
+
+/**
+ * @brief Called when watcher receive the event.
+ * @syscap SystemCapability.HiviewDFX.HiAppEvent
+ * @param domain The domain of the event.
+ * @param appEventGroups The event group by the domain.
+ * @param groupLen The length of appEventGroups array.
+ * @since 12
+ * @version 1.0
+ */
+typedef void (*OH_HiAppEvent_OnReceive)(const char* domain, const struct OH_HiAppEvent_AppEventGroup* appEventGroups, uint32_t groupLen);
+
+/**
+ * @brief Called when watcher receive the event meet the condition.
+ * @syscap SystemCapability.HiviewDFX.HiAppEvent
+ * @param row The row of events received by watcher.
+ * @param size The size of events received by watcher.
+ * @since 12
+ * @version 1.0
+ */
+typedef void (*OH_HiAppEvent_OnTrigger)(int32_t row, int32_t size);
+
+/**
+ * @brief Called when watcher take the events.
+ * @syscap SystemCapability.HiviewDFX.HiAppEvent
+ * @param events The event json string array.
+ * @param eventLen The length of events array.
+ * @since 12
+ * @version 1.0
+ */
+typedef void (*OH_HiAppEvent_OnTake)(const char * const * events, int32_t eventLen);
 
 /**
  * @brief Create a pointer to the ParamList.
@@ -489,69 +552,6 @@ int OH_HiAppEvent_RemoveWatcher(Watcher* watcher);
  * @version 1.0
  */
 void OH_HiAppEvent_ClearData();
-
-/**
- * @brief Definition of AppEventInfo object.
- * @SystemCapability.HiviewDFX.HiAppEvent
- * @since 12
- * @version 1.0
- */
-struct AppEventInfo {
-    /* The domain of the event. */
-	const char* domain;
-	/* The name of the event. */
-	const char* name;
-	/* The type of the event. */
-	enum EventType type;
-	/* The json string of the parameter. */
-	const char* params;
-}
-
-/**
- * @brief Defines the event group.
- * @syscap SystemCapability.HiviewDFX.HiAppEvent
- * @since 12
- * @version 1.0
- */
-struct OH_HiAppEvent_AppEventGroup {
-	/* The name of the event. */
-	const char* name;
-	/* The event array which is group by the name. */
-	const struct AppEventInfo* appEventInfos;
-	/* The length of appEventInfos array. */
-	uint32_t infoLen;
-};
-
-/**
- * @brief Called when watcher receive the event.
- * @syscap SystemCapability.HiviewDFX.HiAppEvent
- * @param domain The domain of the event.
- * @param appEventGroups The event group by the domain.
- * @param groupLen The length of appEventGroups array.
- * @since 12
- * @version 1.0
- */
-typedef void (*OH_HiAppEvent_OnReceive)(const char* domain, const struct OH_HiAppEvent_AppEventGroup* appEventGroups, uint32_t groupLen);
-
-/**
- * @brief Called when watcher receive the event meet the condition.
- * @syscap SystemCapability.HiviewDFX.HiAppEvent
- * @param row The row of events received by watcher.
- * @param size The size of events received by watcher.
- * @since 12
- * @version 1.0
- */
-typedef void (*OH_HiAppEvent_OnTrigger)(int32_t row, int32_t size);
-
-/**
- * @brief Called when watcher take the events.
- * @syscap SystemCapability.HiviewDFX.HiAppEvent
- * @param events The event json string array.
- * @param eventLen The length of events array.
- * @since 12
- * @version 1.0
- */
-typedef void (*OH_HiAppEvent_OnTake)(const char * const * events, int32_t eventLen);
 #ifdef __cplusplus
 }
 #endif
