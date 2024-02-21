@@ -130,7 +130,7 @@ struct AppEventInfo {
  * @since 12
  * @version 1.0
  */
-struct OH_HiAppEvent_AppEventGroup {
+struct AppEventGroup {
 	/* The name of the event. */
 	const char* name;
 	/* The event array which is group by the name. */
@@ -164,7 +164,7 @@ typedef struct Watcher Watcher;
  * @since 12
  * @version 1.0
  */
-typedef void (*OH_HiAppEvent_OnReceive)(const char* domain, const struct OH_HiAppEvent_AppEventGroup* appEventGroups, uint32_t groupLen);
+typedef void (*OH_HiAppEvent_OnReceive)(const char* domain, const struct AppEventGroup* appEventGroups, uint32_t groupLen);
 
 /**
  * @brief Called when watcher receive the event meet the condition.
