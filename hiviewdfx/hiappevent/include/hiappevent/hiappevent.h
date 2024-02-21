@@ -80,7 +80,6 @@
 #include "hiappevent_cfg.h"
 #include "hiappevent_event.h"
 #include "hiappevent_param.h"
-#include "hiappevent_type.h"
 
 #ifdef __cplusplus
 extern "C" {
