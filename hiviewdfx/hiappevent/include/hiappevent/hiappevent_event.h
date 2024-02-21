@@ -79,6 +79,70 @@ extern "C" {
  */
 #define EVENT_DISTRIBUTED_SERVICE_START "hiappevent.distributed_service_start"
 
+/**
+ * @brief app crash event.
+ *
+ * @since 12
+ * @version 1.0
+ */
+#define EVENT_APP_CRASH "hiappevent.app_crash"
+
+/**
+ * @brief app freeze event.
+ *
+ * @since 12
+ * @version 1.0
+ */
+#define EVENT_APP_FREEZE "hiappevent.app_freeze"
+
+/**
+ * @brief app launch event.
+ *
+ * @since 12
+ * @version 1.0
+ */
+#define EVENT_APP_LAUNCH "hiappevent.app_launch"
+
+/**
+ * @brief app scroll jank event.
+ *
+ * @since 12
+ * @version 1.0
+ */
+#define EVENT_SCROLL_JANK "hiappevent.scroll_jank"
+
+/**
+ * @brief app cpu usage high event.
+ *
+ * @since 12
+ * @version 1.0
+ */
+#define EVENT_CPU_USAGE_HIGH "hiappevent.cpu_usage_high"
+
+/**
+ * @brief app battery usage event.
+ *
+ * @since 12
+ * @version 1.0
+ */
+#define EVENT_BATTERY_USAGE "hiappevent.battery_usage"
+
+/**
+ * @brief app resource overlimit event.
+ *
+ * @since 12
+ * @version 1.0
+ */
+#define EVENT_RESOURCE_OVERLIMIT "hiappevent.resource_overlimit"
+
+/**
+ * @brief OS domain.
+ *
+ * @since 12
+ * @version 1.0
+ */
+#define DOMAIN_OS "hiappevent.os"
+
 #ifdef __cplusplus
 }
 #endif
