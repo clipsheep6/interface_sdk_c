@@ -128,6 +128,44 @@ NAPI_EXTERN napi_status napi_add_finalizer(napi_env env,
                                            void* finalize_hint,
                                            napi_ref* result);
 
+/**
+ * @brief Serialize a JS object.
+ *
+ * @param env Current running virtual machine context.
+ * @param object The JavaScript value to serialize.
+ * @param transfer_list List of data transferred in transfer mode.
+ * @param clone_list List of Sendable data to be transferred by clone.
+ * @param result Serialization result of the JS object.
+ * @return Returns the function execution status.
+ * @since 12
+*/
+NAPI_EXTERN napi_status napi_serialize(napi_env env,
+                                       napi_value object,
+                                       napi_value transfer_list,
+                                       napi_value clone_list,
+                                       napi_value* result);
+
+/**
+ * @brief Restore serialization data to a JS object.
+ *
+ * @param env Current running virtual machine context.
+ * @param recorder Data to be deserialized.
+ * @param object JS object obtained by deserialization.
+ * @return Returns the function execution status.
+ * @since 12
+*/
+NAPI_EXTERN napi_status napi_deserialize(napi_env env, napi_value recorder, napi_value* object);
+
+/**
+ * @brief Delete serialization data.
+ *
+ * @param env Current running virtual machine context.
+ * @param value Recorder to be deleted.
+ * @return Returns the function execution status.
+ * @since 12
+*/
+NAPI_EXTERN napi_status napi_delete_serialization_data(napi_env env, napi_value value);
+
 #ifdef __cplusplus
 }
 #endif

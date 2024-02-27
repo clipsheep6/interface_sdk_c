@@ -154,5 +154,17 @@
     {
         "first_introduced": "11",
         "name": "napi_make_callback"
+    },
+    {
+        "first_introduced": "12",
+        "name": "napi_serialize"
+    },
+    {
+        "first_introduced": "12",
+        "name": "napi_deserialize"
+    },
+    {
+        "first_introduced": "12",
+        "name": "napi_delete_serialization_data"
     }
 ]
