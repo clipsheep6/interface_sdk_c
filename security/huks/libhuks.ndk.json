@@ -66,13 +66,7 @@
         "name": "OH_Huks_UpdateSession"
     },
     {
-        "name": "OH_Huks_UpdateSessionAsUser"
-    },
-    {
         "name": "OH_Huks_FinishSession"
-    },
-    {
-        "name": "OH_Huks_FinishSessionAsUser"
     },
     {
         "name": "OH_Huks_AbortSession"
