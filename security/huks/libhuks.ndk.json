@@ -72,9 +72,6 @@
         "name": "OH_Huks_AbortSession"
     },
     {
-        "name": "OH_Huks_AbortSessionAsUser"
-    },
-    {
         "name": "OH_Huks_InitParamSet"
     },
     {
