@@ -47,7 +47,6 @@ extern "C" {
  * @since 12
  */
 struct ImageFormatConvertNative_;
-
 /**
  * @brief Defines a native image format convert object for the image format convert APIs.
  *
@@ -55,7 +54,8 @@ struct ImageFormatConvertNative_;
  * @since 12
  */
 typedef struct ImageFormatConvertNative_ ImageFormatCovnertNative;
-
+ImageFormatCovnertNative* OH_ImageCovnertNative_InitNative();
+int32_t OH_ImageCovnertNative_ReleaseNative(ImageFormatCovnertNative* native);
 /**
  * @brief Creates an <b>ImageFormatConvert</b> object at the JavaScript native layer.
  *
