@@ -110,7 +110,7 @@ void OH_HiDebug_GetAppMemoryLimit(HiDebug_MemoryLimit *memoryLimit);
  * @return Returns {@code HIDEBUG_SUCCESS} if successful. See {@link HiDebug_ErrorCode}
  * @since 12
  */
-HiDebug_ErrorCode OH_HiDebug_StartAppTraceCapture(HiDebug_TraceFlag flag, uint64_t tags, uint32_t limitSize, const char* fileName, uint32_t length);
+HiDebug_ErrorCode OH_HiDebug_StartAppTraceCapture(HiDebug_TraceFlag flag, uint64_t tags, uint32_t limitSize, char* fileName, uint32_t length);
 
 /**
  * @brief Stop capture application trace.
