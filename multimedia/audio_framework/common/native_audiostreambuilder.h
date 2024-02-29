@@ -109,7 +109,7 @@ OH_AudioStream_Result OH_AudioStreamBuilder_SetSampleFormat(OH_AudioStreamBuilde
  * @since 10
  *
  * @param builder Reference provided by OH_AudioStreamBuilder_Create()
- * @param encodingType Encoding type for the stream client
+ * @param encodingType Encoding type for the stream client, {@link #AUDIOSTREAM_ENCODING_PCM}
  * @return {@link #AUDIOSTREAM_SUCCESS} or an undesired error.
  */
 OH_AudioStream_Result OH_AudioStreamBuilder_SetEncodingType(OH_AudioStreamBuilder* builder,
@@ -237,7 +237,7 @@ OH_AudioStream_Result OH_AudioStreamBuilder_SetFrameSizeInCallback(OH_AudioStrea
  * @return {@link #AUDIOSTREAM_SUCCESS} or an undesired error.
  */
 OH_AudioStream_Result OH_AudioStreamBuilder_SetChannelLayout(OH_AudioStreamBuilder* builder,
-    uint64_t channelLayout);
+    OH_AudioChannelLayout channelLayout);
 
 /*
  * Set the callback of writing metadata to the renderer client
