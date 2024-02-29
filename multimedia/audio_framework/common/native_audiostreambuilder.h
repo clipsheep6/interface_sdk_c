@@ -109,7 +109,7 @@ OH_AudioStream_Result OH_AudioStreamBuilder_SetSampleFormat(OH_AudioStreamBuilde
  * @since 10
  *
  * @param builder Reference provided by OH_AudioStreamBuilder_Create()
- * @param encodingType Encoding type for the stream client, {@link #AUDIOSTREAM_ENCODING_PCM}
+ * @param encodingType Encoding type for the stream client
  * @return {@link #AUDIOSTREAM_SUCCESS} or an undesired error.
  */
 OH_AudioStream_Result OH_AudioStreamBuilder_SetEncodingType(OH_AudioStreamBuilder* builder,
@@ -226,6 +226,31 @@ OH_AudioStream_Result OH_AudioStreamBuilder_GenerateCapturer(OH_AudioStreamBuild
  */
 OH_AudioStream_Result OH_AudioStreamBuilder_SetFrameSizeInCallback(OH_AudioStreamBuilder* builder,
     int32_t frameSize);
+
+/*
+ * Set the channel layout to the stream client
+ *
+ * @since 12
+ *
+ * @param builder Reference provided by OH_AudioStreamBuilder_Create()
+ * @param channelLayout is the layout of the speaker.
+ * @return {@link #AUDIOSTREAM_SUCCESS} or an undesired error.
+ */
+OH_AudioStream_Result OH_AudioStreamBuilder_SetChannelLayout(OH_AudioStreamBuilder* builder,
+    uint64_t channelLayout);
+
+/*
+ * Set the callback of writing metadata to the renderer client
+ *
+ * @since 12
+ *
+ * @param builder Reference provided by OH_AudioStreamBuilder_Create()
+ * @param callback Callback to the functions that will write audio data with metadata to the renderer.
+ * @param userData Pointer to an application data structure that will be passed to the callback functions.
+ * @return {@link #AUDIOSTREAM_SUCCESS} or an undesired error.
+ */
+OH_AudioStream_Result OH_AudioStreamBuilder_SetWriteDataWithMetadataCallback(OH_AudioStreamBuilder* builder,
+    OH_AudioRenderer_WriteDataWithMetadataCallback callback, void* userData);
 
 #ifdef __cplusplus
 }

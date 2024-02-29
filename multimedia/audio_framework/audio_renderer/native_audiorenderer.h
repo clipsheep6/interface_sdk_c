@@ -250,6 +250,30 @@ OH_AudioStream_Result OH_AudioRenderer_GetSpeed(OH_AudioRenderer* renderer, floa
 */
 OH_AudioStream_Result OH_AudioRenderer_SetSpeed(OH_AudioRenderer* renderer, float speed);
 
+/*
+ * Query current audio effect mode.
+ *
+ * @since 12
+ *
+ * @param renderer Reference created by OH_AudioStreamBuilder_GenerateRenderer()
+ * @param effectMode Pointer to a variable to receive current audio effect mode
+ * @return {@link #AUDIOSTREAM_SUCCESS} or an undesired error.
+ */
+OH_AudioStream_Result OH_AudioRenderer_GetEffectMode(OH_AudioRenderer* renderer,
+    OH_AudioStream_AudioEffectMode* effectMode);
+
+/*
+ * Set current audio effect mode.
+ *
+ * @since 12
+ *
+ * @param renderer Reference created by OH_AudioStreamBuilder_GenerateRenderer()
+ * @param effectMode Audio effect mode that will be set for the stream
+ * @return {@link #AUDIOSTREAM_SUCCESS} or an undesired error.
+ */
+OH_AudioStream_Result OH_AudioRenderer_SetEffectMode(OH_AudioRenderer* renderer,
+    OH_AudioStream_AudioEffectMode effectMode);
+
 #ifdef __cplusplus
 }
 #endif
