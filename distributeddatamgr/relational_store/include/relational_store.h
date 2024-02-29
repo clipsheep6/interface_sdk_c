@@ -135,6 +135,12 @@ typedef struct {
      * @since 11
      */
     int area;
+    /**
+    * Indicates the ID of user, the database will be created under the specified user.
+    *
+    * @since 12
+    */
+    int userId;
 } OH_Rdb_Config;
 #pragma pack()
 
