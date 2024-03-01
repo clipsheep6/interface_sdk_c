@@ -94,15 +94,15 @@ typedef HiDebug_ThreadCpuUsage* HiDebug_ThreadCpuUsagePtr;
  */
 typedef struct HiDebug_SystemMemInfo {
     /**
-     * Total system memory size, in kibibytes
+     * Total system memory size, in kilobyte
      */
     uint32_t totalMem;
     /**
-     * System free memory size, in kibibytes
+     * System free memory size, in kilobyte
      */
     uint32_t freeMem;
     /**
-     * System available memory size, in kibibytes
+     * System available memory size, in kilobyte
      */
     uint32_t availableMem;
 } HiDebug_SystemMemInfo;
@@ -114,31 +114,31 @@ typedef struct HiDebug_SystemMemInfo {
  */
 typedef struct HiDebug_NativeMemInfo {
     /**
-     * Process proportional set size memory, in kibibytes
+     * Process proportional set size memory, in kilobyte
      */
     uint32_t pss;
     /**
-     * Virtual set size memory, in kibibytes
+     * Virtual set size memory, in kilobyte
      */
     uint32_t vss;
     /**
-     * Resident set size, in kibibytes
+     * Resident set size, in kilobyte
      */
     uint32_t rss;
     /**
-     * The size of the shared dirty memory, in kibibytes
+     * The size of the shared dirty memory, in kilobyte
      */
     uint32_t sharedDirty;
     /**
-     * The size of the private dirty memory, in kibibytes
+     * The size of the private dirty memory, in kilobyte
      */
     uint32_t privateDirty;
     /**
-     * The size of the shared clean memory, in kibibytes
+     * The size of the shared clean memory, in kilobyte
      */
     uint32_t sharedClean;
     /**
-     * The size of the private clean memory, in kibibytes
+     * The size of the private clean memory, in kilobyte
      */
     uint32_t privateClean;
 } HiDebug_NativeMemInfo;
@@ -150,11 +150,11 @@ typedef struct HiDebug_NativeMemInfo {
  */
 typedef struct HiDebug_MemoryLimit {
     /**
-     * The limit of the application process's resident set, in kibibytes
+     * The limit of the application process's resident set, in byte
      */
     uint32_t rssLimit;
     /**
-     * The limit of the application process's virtual memory, in kibibytes
+     * The limit of the application process's virtual memory, in byte
      */
     uint32_t vssLimit;
 } HiDebug_MemoryLimit;
