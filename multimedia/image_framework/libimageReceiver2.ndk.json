@@ -1,0 +1,66 @@
+[
+    {
+        "first_introduced": "12",
+        "name": "OH_ImageReceiver2_CreateInfo"
+    },
+    {
+        "name": "OH_ImageReceiver2_SetInfoWidth"
+    },
+    {
+        "name": "OH_ImageReceiver2_GetInfoWidth"
+    },
+    {
+        "name": "OH_ImageReceiver2_SetInfoHeight"
+    },
+    {
+        "name": "OH_ImageReceiver2_GetInfoHeight"
+    },
+    {
+        "name": "OH_ImageReceiver2_SetInfoFormat"
+    },
+    {
+        "name": "OH_ImageReceiver2_GetInfoFormat"
+    },
+    {
+        "name": "OH_ImageReceiver2_SetInfoCapicity"
+    },
+    {
+        "name": "OH_ImageReceiver2_GetInfoCapicity"
+    },
+    {
+        "name": "OH_ImageReceiver2_ReleaseInfo"
+    },
+    {
+        "name": "OH_ImageReceiver2_Create"
+    },
+    {
+        "name": "OH_ImageReceiver2_GetReceivingSurfaceId"
+    },
+    {
+        "name": "OH_ImageReceiver2_ReadLatestImage"
+    },
+    {
+        "name": "OH_ImageReceiver2_ReadNextImage"
+    },
+    {
+        "name": "OH_ImageReceiver2_On"
+    },
+    {
+        "name": "OH_ImageReceiver2_Off"
+    },
+    {
+        "name": "OH_ImageReceiver2_GetInfo"
+    },
+    {
+        "name": "OH_ImageReceiver2_GetSize"
+    },
+    {
+        "name": "OH_ImageReceiver2_GetCapacity"
+    },
+    {
+        "name": "OH_ImageReceiver2_GetFormat"
+    },
+    {
+        "name": "OH_ImageReceiver2_Release"
+    }
+]
