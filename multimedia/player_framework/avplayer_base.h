@@ -102,6 +102,12 @@ typedef enum AVPlaybackSpeed {
     AV_SPEED_FORWARD_1_75_X,
     /* Video playback at 2.0x normal speed */
     AV_SPEED_FORWARD_2_00_X,
+    /* Video playback at 0.5x normal speed */
+    AV_SPEED_FORWARD_0_50_X,
+    /* Video playback at 1.5x normal speed */
+    AV_SPEED_FORWARD_1_50_X,
+    /* Video playback at 3.0x normal speed */
+    AV_SPEED_FORWARD_3_00_X,
 } AVPlaybackSpeed;
 
 /**
