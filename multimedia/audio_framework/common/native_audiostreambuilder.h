@@ -40,7 +40,6 @@
 
 #include "native_audiostream_base.h"
 #include "native_audiorenderer.h"
-#include "native_audio_channel_layout.h"
 #ifdef __cplusplus
 extern "C" {
 #endif
