@@ -158,21 +158,37 @@ typedef struct {
  * @since 12
  */
 typedef struct {
+    /** Support for color printing. */
     bool supportedColorMode;
+    /** Array of supported duplex printing modes. */
     uint32_t *supportedDuplexModes;
+    /** Number of supported duplex printing mode. */
     uint32_t supportedDuplexModesCount;
+    /** Array of supported print paper sizes. */
     Print_PageSize *supportedPageSizes;
+    /** Number of supported print paper sizes. */
     uint32_t supportedPageSizesCount;
+    /** Array of supported print media types. */
     uint32_t *supportedMediaTypes;
+    /** Number of supported print media types. */
     uint32_t supportedMediaTypesCount;
+    /** Array of supported print qulities. */
     uint32_t *supportedQualities;
+    /** Number of supported print qulities. */
     uint32_t supportedQualitiesCount;
+    /** Supported document handling in json format. */
     char *supportedDocumentHandling;
+    /** Supported media source in json format. */
     char *supportedMediaSource;
+    /** Supported copies. */
     uint32_t supportedCopies;
+    /** Default printer resolution. */
     char *supportedResolution;
+    /** Array of supported orientation. */
     uint32_t *supportedOrientation;
+    /** Number of supported orientation. */
     uint32_t supportedOrientationCount;
+    /** advanced capability in json format. */
     char *advanceCapability;
 } Print_PrinterCapability;
 
@@ -181,14 +197,23 @@ typedef struct {
  * @since 12
  */
 typedef struct {
+    /** Default color mode. */
     uint32_t defaultColorMode;
+    /** Default sides. */
     uint32_t defaultSides;
+    /** Default media type. */
     char *defaultMediaType;
+    /** Default media source. */
     char *defaultMediaSource;
+    /** Default print quality */
     uint32_t defaultPrintQuality;
+    /** Default copies. */
     uint32_t defaultCopies;
+    /** Default printer resolution. */
     char *defaultPrinterResolution;
+    /** Default orientation. */
     uint32_t defaultOrientation;
+    /** Other default values in json format. */
     char *otherDefaultValues;
 } Print_DefaultValue;
 
@@ -248,20 +273,35 @@ typedef struct {
  * @since 12
  */
 typedef enum {
+    /** Auto paper source mode. */
     PAPER_SOURCE_MODE_AUTO = 6,
+    /** Cassette paper source mode. */
     PAPER_SOURCE_MODE_CASSETTE = 11,
+    /** Envelope paper source mode. */
     PAPER_SOURCE_MODE_ENVELOPE = 4,
+    /** Manual envelope paper source mode. */
     PAPER_SOURCE_MODE_ENVELOPE_MANUAL = 5,
+    /** Form source mode. */
     PAPER_SOURCE_MODE_FORM_SOURCE = 12,
+    /** Large capacity paper source mode. */
     PAPER_SOURCE_MODE_LARGE_CAPACITY = 10,
+    /** Large format paper source mode. */
     PAPER_SOURCE_MODE_LARGE_FORMAT = 9,
+    /** Lower paper source mode. */
     PAPER_SOURCE_MODE_LOWER = 1,
+    /** Last paper source mode. */
     PAPER_SOURCE_MODE_LAST_PAPER_SOURCE = 13,
+    /** Middle paper source mode. */
     PAPER_SOURCE_MODE_MIDDLE = 2,
+    /** Manual paper source mode. */
     PAPER_SOURCE_MODE_MANUAL = 3,
+    /** Only one paper source mode. */
     PAPER_SOURCE_MODE_ONLY_ONE = 0,
+    /** Tractor paper source mode. */
     PAPER_SOURCE_MODE_TRACTOR = 7,
+    /** Smarll format paper source mode. */
     PAPER_SOURCE_MODE_SMALL_FORMAT = 8,
+    /** Custom paper source mode. */
     PAPER_SOURCE_MODE_CUSTOM_SOURCE = 14,
 } PrintJob_PaperSource;
 
@@ -270,8 +310,11 @@ typedef enum {
  * @since 12
  */
 typedef enum {
+    /** One sided duplex mode. */
     DUPLEX_MODE_ONE_SIDED = 0,
+    /** Long edge two sided duplex mode. */
     DUPLEX_MODE_TWO_SIDED_LONG_EDGE = 1,
+    /** Short edge two sided duplex mode. */
     DUPLEX_MODE_TWO_SIDED_SHORT_EDGE = 2,
 } PrintJob_DuplexMode;
 
@@ -280,8 +323,11 @@ typedef enum {
  * @since 12
  */
 typedef enum {
+    /** Monochrome mode. */
     COLOR_MODE_MONOCHROME = 0,
+    /** Color mode. */
     COLOR_MODE_COLOR = 1,
+    /** Auto mode. */
     COLOR_MODE_AUTO = 2,
 } PrintJob_ColorMode;
 
@@ -290,7 +336,9 @@ typedef enum {
  * @since 12
  */
 typedef enum {
+    /** Portrait mode. */
     ORIENTATION_MODE_PORTRAIT = 0,
+    /** Landscape mode. */
     ORIENTATION_MODE_LANDSCAPE = 1,
 } PrintJob_OrientationMode;
 
@@ -299,9 +347,13 @@ typedef enum {
  * @since 12
  */
 typedef struct {
+    /** Paper id. */
     char *id;
+    /** Paper name. */
     char *name;
+    /** Paper width. */
     uint32_t width;
+    /** Paper height. */
     uint32_t height;
 } PrintJob_PageSize;
 
@@ -310,9 +362,13 @@ typedef struct {
  * @since 12
  */
 typedef struct {
+    /** Start page. */
     uint32_t startPage;
+    /** End page. */
     uint32_t endPage;
+    /** Array of pages. */
     uint32_t *pages;
+    /** Number of pages. */
     uint32_t pagesCount;
 } PrintJob_PageRange;
 
@@ -321,9 +377,13 @@ typedef struct {
  * @since 12
  */
 typedef struct {
+    /** top margin. */
     uint32_t topMargin;
+    /** bottom margin. */
     uint32_t bottomMargin;
+    /** left margin. */
     uint32_t leftMargin;
+    /** right margin. */
     uint32_t rightMargin;
 } PrintJob_PrintMargin;
 
@@ -332,13 +392,21 @@ typedef struct {
  * @since 12
  */
 typedef struct {
+    /** Job name. */
     char *jobName;
+    /** Media type. */
     char *mediaType;
+    /** Document category. */
     uint32_t documentCategory;
+    /** Print quality. */
     char *printQuality;
+    /** Printer name. */
     char *printerName;
+    /** Printer Uri. */
     char *printerUri;
+    /** Document format. */
     char *documentFormat;
+    /** Advanced options in json format. */
     char *advanceOptions;
 } PrintJob_OptionObject;
 
@@ -347,18 +415,31 @@ typedef struct {
  * @since 12
  */
 typedef struct {
+    /** Array of file descriptors to print. */
     uint32_t *fdList;
+    /** Number of file descriptors to print. */
     uint32_t fdListCount;
+    /** Printer id. */
     char *printerId;
+    /** Print resolution in dpi. */
     uint32_t dpi;
+    /** Number of copies printed. */
     uint32_t copyNumber;
+    /** Paper source. */
     PrintJob_PaperSource paperSource;
+    /** Paper size. */
     PrintJob_PageSize pageSize;
+    /** Color mode. */
     PrintJob_ColorMode colorMode;
+    /** Duplex source. */
     PrintJob_DuplexMode duplexMode;
+    /** Page range. */
     PrintJob_PageRange pageRange;
+    /** Print margin. */
     PrintJob_PrintMargin printMargin;
+    /** Orientation mode. */
     PrintJob_OrientationMode orientationMode;
+    /** Print option. */
     PrintJob_OptionObject printOption;
 } Print_PrintJob;
 

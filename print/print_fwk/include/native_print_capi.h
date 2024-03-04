@@ -50,21 +50,19 @@ extern "C" {
  * @since 12
  */
 int32_t OH_Print_Init();
-// 反初始化
+
 /**
  * @brief Release resources before exiting.
  * @since 12
  */
 int32_t OH_Print_Release();
 
-// 开始发现打印机
 /**
  * @brief Start discovering printers.
  * @since 12
  */
 int32_t OH_Print_StartPrinterDiscovery(Print_PrinterChangeCallback callback);
 
-// 停止发现打印机
 /**
  * @brief Stop discovering printers.
  * @since 12
@@ -77,14 +75,12 @@ int32_t OH_Print_StopPrinterDiscovery();
  */
 int32_t OH_Print_ConnectPrinter(const char *printerId);
 
-// 开始打印任务
 /**
  * @brief Start print job.
  * @since 12
  */
 int32_t OH_Print_StartPrintJob(const Print_PrintJob *printJob);
 
-// 注册打印机状态事件
 /**
  * @brief Register printer change events.
  * @since 12
@@ -97,7 +93,6 @@ int32_t OH_Print_RegisterPrinterChangeListener(Print_PrinterChangeCallback callb
  */
 void OH_Print_UnregisterPrinterChangeListener();
 
-// 获取打印机列表
 /**
  * @brief Query the printer list.
  * @since 12
