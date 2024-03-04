@@ -571,7 +571,7 @@ typedef enum {
  * @since 12
  */
 typedef enum {
-    /** The value can be changed to yes or no based on the component. */
+    /** Whether the component can be identified by the accessibility service is dependent on the component. */
     ARKUI_ACCESSIBILITY_MODE_AUTO = 0,
     /** The component can be identified by the accessibility service. */
     ARKUI_ACCESSIBILITY_MODE_ENABLED,
