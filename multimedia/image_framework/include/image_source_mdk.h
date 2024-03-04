@@ -369,6 +369,21 @@ struct OhosImageSourceProperty {
 };
 
 /**
+ * @brief Defines the property record (in key-value format) of the image source.
+ * It is used in {@link OH_ImageSource_GetImageProperties} and {@link OH_ImageSource_ModifyImageProperties}.
+ *
+ * @Syscap SystemCapability.Multimedia.Image
+ * @since 12
+ * @version 1.0
+ */
+struct OhosImageSourcePropertyRecord {
+    /** Image source properties key and value string head.*/
+    struct OhosImageSourceProperty key;
+    /** Image source properties key and value string size.*/
+    struct OhosImageSourceProperty value;
+};
+
+/**
  * @brief Defines the update data of the image source. It is obtained by calling {@link OH_ImageSource_UpdateData}.
  *
  * @Syscap SystemCapability.Multimedia.Image
@@ -851,6 +866,42 @@ int32_t OH_ImageSource_GetImageProperty(const ImageSourceNative* native,
     struct OhosImageSourceProperty* key, struct OhosImageSourceProperty* value);
 
 /**
+ * @brief Obtains the value of an image properties from an <b>ImageSource</b> object.
+ *
+ * @param native Indicates a pointer to the {@link ImageSourceNative} object at the C++ native layer.
+ * @param keys Indicates pointer array to the properties. For details, see {@link OhosImageSourcePropertyRecord}.
+ * @param results Indicates pointer array to the properties keys and values obtained.
+ * If the input one element of <b>results</b> value's value is a null pointer and value's <b>size</b> is <b>0</b>,
+ * the size of the property value is returned through <b>size</b> in <b>value</b>.
+ * To obtain the complete property value, a space greater than <b>size</b> is required.
+ * @return Returns {@link IRNdkErrCode} IMAGE_RESULT_SUCCESS - if the operation is successful.
+ * returns {@link IRNdkErrCode} IMAGE_RESULT_BAD_PARAMETER - if bad parameter.
+ * returns {@link IRNdkErrCode} IMAGE_RESULT_JNI_ENV_ABNORMAL - if Abnormal JNI environment.
+ * returns {@link IRNdkErrCode} IMAGE_RESULT_INVALID_PARAMETER - if invalid parameter.
+ * returns {@link IRNdkErrCode} IMAGE_RESULT_GET_DATA_ABNORMAL - if image get data error.
+ * returns {@link IRNdkErrCode} IMAGE_RESULT_DECODE_FAILED - if decode fail.
+ * returns {@link IRNdkErrCode} IMAGE_RESULT_DECODE_HEAD_ABNORMAL - if image decode head error.
+ * returns {@link IRNdkErrCode} IMAGE_RESULT_CREATE_DECODER_FAILED - if create decoder failed.
+ * returns {@link IRNdkErrCode} IMAGE_RESULT_THIRDPART_SKIA_ERROR - if skia error.
+ * returns {@link IRNdkErrCode} IMAGE_RESULT_DATA_ABNORMAL - if image input data error.
+ * returns {@link IRNdkErrCode} IMAGE_RESULT_DECODE_ABNORMAL - if image decode error.
+ * returns {@link IRNdkErrCode} IMAGE_RESULT_DATA_UNSUPPORT - if image init error.
+ * returns {@link IRNdkErrCode} IMAGE_RESULT_UNKNOWN_FORMAT - if image unknown format.
+ * returns {@link IRNdkErrCode} IMAGE_RESULT_PLUGIN_REGISTER_FAILED - if register plugin fail.
+ * returns {@link IRNdkErrCode} IMAGE_RESULT_PLUGIN_CREATE_FAILED - if create plugin fail.
+ * returns {@link IRNdkErrCode} IMAGE_RESULT_INDEX_INVALID - if invalid index.
+ * returns {@link IRNdkErrCode} IMAGE_RESULT_DECODE_EXIF_UNSUPPORT - if image decode exif unsupport.
+ * returns {@link IRNdkErrCode} IMAGE_RESULT_PROPERTY_NOT_EXIST - if image property not exist.
+ * @see {@link ImageSourceNative}, {@link OhosImageSourcePropertyRecord}, {@link OhosImageSourceProperty}
+ *
+ * @Syscap SystemCapability.Multimedia.Image
+ * @since 12
+ * @version 4.0
+ */
+int32_t OH_ImageSource_GetImageProperties(const ImageSourceNative* native,
+    struct OhosImageSourcePropertyRecord** keys, struct OhosImageSourcePropertyRecord** results);
+
+/**
  * @brief Modifies the value of an image property of an <b>ImageSource</b> object.
  *
  * @param native Indicates a pointer to the {@link ImageSourceNative} object at the C++ native layer.
@@ -882,6 +933,38 @@ int32_t OH_ImageSource_GetImageProperty(const ImageSourceNative* native,
  */
 int32_t OH_ImageSource_ModifyImageProperty(const ImageSourceNative* native,
     struct OhosImageSourceProperty* key, struct OhosImageSourceProperty* value);
+
+/**
+ * @brief Modifies the image properties of an <b>ImageSource</b> object.
+ *
+ * @param native Indicates a pointer to the {@link ImageSourceNative} object at the C++ native layer.
+ * @param records Indicates a pointer to the properties. For details, see {@link OhosImageSourcePropertyRecord}.
+ * @return Returns {@link IRNdkErrCode} IMAGE_RESULT_SUCCESS - if the operation is successful.
+ * returns {@link IRNdkErrCode} IMAGE_RESULT_BAD_PARAMETER - if bad parameter.
+ * returns {@link IRNdkErrCode} IMAGE_RESULT_JNI_ENV_ABNORMAL - if Abnormal JNI environment.
+ * returns {@link IRNdkErrCode} IMAGE_RESULT_INVALID_PARAMETER - if invalid parameter.
+ * returns {@link IRNdkErrCode} IMAGE_RESULT_GET_DATA_ABNORMAL - if image get data error.
+ * returns {@link IRNdkErrCode} IMAGE_RESULT_DECODE_FAILED - if decode fail.
+ * returns {@link IRNdkErrCode} IMAGE_RESULT_DECODE_HEAD_ABNORMAL - if image decode head error.
+ * returns {@link IRNdkErrCode} IMAGE_RESULT_CREATE_DECODER_FAILED - if create decoder failed.
+ * returns {@link IRNdkErrCode} IMAGE_RESULT_THIRDPART_SKIA_ERROR - if skia error.
+ * returns {@link IRNdkErrCode} IMAGE_RESULT_DATA_ABNORMAL - if image input data error.
+ * returns {@link IRNdkErrCode} IMAGE_RESULT_DECODE_ABNORMAL - if image decode error.
+ * returns {@link IRNdkErrCode} IMAGE_RESULT_DATA_UNSUPPORT - if image init error.
+ * returns {@link IRNdkErrCode} IMAGE_RESULT_UNKNOWN_FORMAT - if image unknown format.
+ * returns {@link IRNdkErrCode} IMAGE_RESULT_PLUGIN_REGISTER_FAILED - if register plugin fail.
+ * returns {@link IRNdkErrCode} IMAGE_RESULT_PLUGIN_CREATE_FAILED - if create plugin fail.
+ * returns {@link IRNdkErrCode} IMAGE_RESULT_INDEX_INVALID - if invalid index.
+ * returns {@link IRNdkErrCode} IMAGE_RESULT_DECODE_EXIF_UNSUPPORT - if image decode exif unsupport.
+ * returns {@link IRNdkErrCode} IMAGE_RESULT_PROPERTY_NOT_EXIST - if image property not exist.
+ * @see {@link ImageSourceNative}, {@link OhosImageSourcePropertyRecord}, {@link OhosImageSourceProperty}
+ *
+ * @Syscap SystemCapability.Multimedia.Image
+ * @since 12
+ * @version 1.0
+ */
+int32_t OH_ImageSource_ModifyImageProperties(const ImageSourceNative* native,
+    struct OhosImageSourcePropertyRecord** records);
 
 /**
  * @brief Updates the data of an <b>ImageSource</b> object.
