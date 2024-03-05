@@ -48,6 +48,7 @@ extern "C" {
 
 /**
  * @brief Defines error codes.
+ * 
  * @since 12
  * @version 1.0
  */
@@ -78,6 +79,7 @@ typedef enum {
 
 /**
  * @brief Indicates printer states.
+ * 
  * @since 12
  */
 typedef enum {
@@ -91,6 +93,7 @@ typedef enum {
 
 /**
  * @brief Indicate printer discovery events.
+ * 
  * @since 12
  */
 typedef enum {
@@ -106,6 +109,7 @@ typedef enum {
 
 /**
  * @brief Indicate printer change events.
+ * 
  * @since 12
  */
 typedef enum {
@@ -121,6 +125,7 @@ typedef enum {
 
 /**
  * @brief Indicates paper size info.
+ * 
  * @since 12
  */
 typedef struct {
@@ -144,6 +149,7 @@ typedef struct {
 
 /**
  * @brief Indicates string list.
+ * 
  * @since 12
  */
 typedef struct {
@@ -155,6 +161,7 @@ typedef struct {
 
 /**
  * @brief Indicates printer capabilities.
+ * 
  * @since 12
  */
 typedef struct {
@@ -194,6 +201,7 @@ typedef struct {
 
 /**
  * @brief Indicates current properties
+ * 
  * @since 12
  */
 typedef struct {
@@ -219,6 +227,7 @@ typedef struct {
 
 /**
  * @brief Indicates printer infomation.
+ * 
  * @since 12
  */
 typedef struct {
@@ -248,6 +257,7 @@ typedef struct {
 
 /**
  * @brief Indicates printer property.
+ * 
  * @since 12
  */
 typedef struct {
@@ -259,6 +269,7 @@ typedef struct {
 
 /**
  * @brief List of printer properties.
+ * 
  * @since 12
  */
 typedef struct {
@@ -270,6 +281,7 @@ typedef struct {
 
 /**
  * @brief Indicates PaperSource Mode.
+ * 
  * @since 12
  */
 typedef enum {
@@ -307,6 +319,7 @@ typedef enum {
 
 /**
  * @brief Indicates DuplexMode
+ * 
  * @since 12
  */
 typedef enum {
@@ -320,6 +333,7 @@ typedef enum {
 
 /**
  * @brief Indicates ColorMode
+ * 
  * @since 12
  */
 typedef enum {
@@ -333,6 +347,7 @@ typedef enum {
 
 /**
  * @brief Indicates OrientationMode
+ * 
  * @since 12
  */
 typedef enum {
@@ -344,6 +359,7 @@ typedef enum {
 
 /**
  * @brief Indicates PageSize
+ * 
  * @since 12
  */
 typedef struct {
@@ -359,6 +375,7 @@ typedef struct {
 
 /**
  * @brief Indicates PageRange
+ * 
  * @since 12
  */
 typedef struct {
@@ -374,6 +391,7 @@ typedef struct {
 
 /**
  * @brief Indicates PrintMargin
+ * 
  * @since 12
  */
 typedef struct {
@@ -389,6 +407,7 @@ typedef struct {
 
 /**
  * @brief Indicates PrintJob OptionObject.
+ * 
  * @since 12
  */
 typedef struct {
@@ -412,6 +431,7 @@ typedef struct {
 
 /**
  * @brief Indicates PrintJob Structure.
+ * 
  * @since 12
  */
 typedef struct {
@@ -445,6 +465,7 @@ typedef struct {
 
 /**
  * @brief Printer change callback.
+ * 
  * @since 12
  */
 typedef void (*Print_PrinterChangeCallback)(uint32_t event, const Print_PrinterInfo *printerInfo);

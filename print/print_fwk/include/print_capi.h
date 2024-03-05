@@ -49,6 +49,7 @@ extern "C" {
 /**
  * @brief This API checks and pulls up the print service, initializes the print client,
  *        and establishes a connection to the print service.
+ * 
  * @permission {@code ohos.permission.PRINT}
  * @return Returns {@link Print_ErrorCode#PRINT_ERROR_NONE} if the execution is successful,
  *         otherwise returns a specific error code, refer to {@link Print_ErrorCode}.
@@ -60,6 +61,7 @@ int32_t OH_Print_Init();
 /**
  * @brief This API closes the connection from the print service, dissolves the previous callback,
  *        and releases the print client resources.
+ * 
  * @return Returns {@link Print_ErrorCode#PRINT_ERROR_NONE} if the execution is successful,
  *         otherwise returns a specific error code, refer to {@link Print_ErrorCode}.
  * @syscap SystemCapability.Print.PrintFramework
@@ -69,6 +71,7 @@ int32_t OH_Print_Release();
 
 /**
  * @brief This API starts discovering printers.
+ * 
  * @permission {@code ohos.permission.PRINT}
  * @param callback The {@link Print_PrinterChangeCallback} of printer discovery event.
  * @return Returns {@link Print_ErrorCode#PRINT_ERROR_NONE} if the execution is successful,
@@ -80,6 +83,7 @@ int32_t OH_Print_StartPrinterDiscovery(Print_PrinterChangeCallback callback);
 
 /**
  * @brief This API stops discovering printers.
+ * 
  * @permission {@code ohos.permission.PRINT}
  * @return Returns {@link Print_ErrorCode#PRINT_ERROR_NONE} if the execution is successful,
  *         otherwise returns a specific error code, refer to {@link Print_ErrorCode}.
@@ -90,6 +94,7 @@ int32_t OH_Print_StopPrinterDiscovery();
 
 /**
  * @brief This API connects to the printer using the printer id.
+ * 
  * @permission {@code ohos.permission.PRINT}
  * @param printerId The id of the printer to be connected.
  * @return Returns {@link Print_ErrorCode#PRINT_ERROR_NONE} if the execution is successful,
@@ -101,6 +106,7 @@ int32_t OH_Print_ConnectPrinter(const char *printerId);
 
 /**
  * @brief This API starts initiating a print job.
+ * 
  * @permission {@code ohos.permission.PRINT}
  * @param printJob A pointer to a {@link Print_PrintJob} instance that specifies the information for the print job.
  * @return Returns {@link Print_ErrorCode#PRINT_ERROR_NONE} if the execution is successful,
@@ -112,6 +118,7 @@ int32_t OH_Print_StartPrintJob(const Print_PrintJob *printJob);
 
 /**
  * @brief This API registers the callback for printer changes.
+ * 
  * @permission {@code ohos.permission.PRINT}
  * @param callback The {@link Print_PrinterChangeCallback} to be registered.
  * @return Returns {@link Print_ErrorCode#PRINT_ERROR_NONE} if the execution is successful,
@@ -123,6 +130,7 @@ int32_t OH_Print_RegisterPrinterChangeListener(Print_PrinterChangeCallback callb
 
 /**
  * @brief This API unregisters the callback for printer changes.
+ * 
  * @permission {@code ohos.permission.PRINT}
  * @syscap SystemCapability.Print.PrintFramework
  * @since 12
@@ -131,8 +139,9 @@ void OH_Print_UnregisterPrinterChangeListener();
 
 /**
  * @brief This API queries for a list of added printers.
+ * 
  * @permission {@code ohos.permission.PRINT}
- * @param printerIdList A pointer to a {@link Print_StringList} instance to store the queried printer Id list.
+ * @param printerIdList A pointer to a {@link Print_StringList} instance to store the queried printer id list.
  * @return Returns {@link Print_ErrorCode#PRINT_ERROR_NONE} if the execution is successful,
  *         otherwise returns a specific error code, refer to {@link Print_ErrorCode}.
  * @syscap SystemCapability.Print.PrintFramework
@@ -142,14 +151,16 @@ int32_t OH_Print_QueryPrinterList(Print_StringList *printerIdList);
 
 /**
  * @brief This API frees up the printer list memory for the query.
- * @param printerIdList The queried printer Id list to be released.
+ * 
+ * @param printerIdList The queried printer id list to be released.
  * @syscap SystemCapability.Print.PrintFramework
  * @since 12
  */
 void OH_Print_ReleasePrinterList(Print_StringList *printerIdList);
 
 /**
- * @brief This API queries printer information based on the printer ID.
+ * @brief This API queries printer information based on the printer id.
+ * 
  * @permission {@code ohos.permission.PRINT}
  * @param printerId The id of the printer to be queried.
  * @param printerInfo A pointer to a {@link Print_PrinterInfo} pointer to store the printer infomation.
@@ -162,6 +173,7 @@ int32_t OH_Print_QueryPrinterInfo(const char *printerId, Print_PrinterInfo **pri
 
 /**
  * @brief This API frees up the printer infomation memory for the query.
+ * 
  * @param printerInfo The pointer of the queried printer infomation to be released.
  * @syscap SystemCapability.Print.PrintFramework
  * @since 12
@@ -170,6 +182,7 @@ void OH_Print_ReleasePrinterInfo(Print_PrinterInfo *printerInfo);
 
 /**
  * @brief This API launches the system's printer management window.
+ * 
  * @return Returns {@link Print_ErrorCode#PRINT_ERROR_NONE} if the execution is successful,
  *         otherwise returns a specific error code, refer to {@link Print_ErrorCode}.
  * @syscap SystemCapability.Print.PrintFramework
@@ -179,6 +192,7 @@ int32_t OH_Print_LaunchPrinterManager();
 
 /**
  * @brief This API queries the corresponding printer property values based on the list of property keywords.
+ * 
  * @permission {@code ohos.permission.PRINT}
  * @param printerId The id of the printer to be queried.
  * @param propertyKeyList The list of property keywords to be queried
@@ -193,6 +207,7 @@ int32_t OH_Print_QueryPrinterProperties(const char *printerId, const Print_Strin
 
 /**
  * @brief This API frees up the property list memory for the query.
+ * 
  * @param propertyList The pointer of the queried printer property values to be released.
  * @syscap SystemCapability.Print.PrintFramework
  * @since 12
@@ -201,6 +216,7 @@ void OH_Print_ReleasePrinterProperties(Print_PropertyList *propertyList);
 
 /**
  * @brief This API sets printer properties based on a list of property key-value pairs.
+ * 
  * @permission {@code ohos.permission.PRINT}
  * @param printerId The id of the printer to be set.
  * @param propertyList The list of printer property values to be set.
@@ -213,6 +229,7 @@ int32_t OH_Print_UpdatePrinterProperties(const char *printerId, const Print_Prop
 
 /**
  * @brief This API restores printer properties to default settings based on the list of property keywords.
+ * 
  * @permission {@code ohos.permission.PRINT}
  * @param printerId The id of the printer to be restored.
  * @param propertyKeyList The list of property keywords to be restored.
