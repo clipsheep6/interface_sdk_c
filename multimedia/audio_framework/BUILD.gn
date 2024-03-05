@@ -21,7 +21,7 @@ ohos_ndk_headers("ohaudio_header") {
     "audio_renderer/native_audiorenderer.h",
     "common/native_audiostream_base.h",
     "common/native_audiostreambuilder.h",
-    "../media_foundation/native_audio_channel_layout.h",
+    "common/native_audio_channel_layout.h",
   ]
 }
 
