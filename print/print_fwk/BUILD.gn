@@ -17,8 +17,8 @@ import("//build/ohos/ndk/ndk.gni")
 ohos_ndk_headers("ohprint_header") {
   dest_dir = "$ndk_headers_out_dir/ohprint"
   sources = [
-    "include/native_print_base.h",
-    "include/native_print_capi.h",
+    "include/print_base.h",
+    "include/print_capi.h",
   ]
 }
 
@@ -28,7 +28,7 @@ ohos_ndk_library("libohprint_ndk") {
   ndk_description_file = "./ohprint.ndk.json"
   system_capability = "SystemCapability.Print.PrintFramework"
   system_capability_headers = [
-    "ohprint/native_print_base.h",
-    "ohprint/native_print_capi.h",
+    "ohprint/print_base.h",
+    "ohprint/print_capi.h",
   ]
 }

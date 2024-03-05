@@ -17,7 +17,7 @@
  * @addtogroup OH_Print
  * @{
  *
- * @brief Provide the definition of the C interface for the native print module.
+ * @brief Provide the definition of the C interface for the print module.
  *
  * @syscap SystemCapability.Print.PrintFramework
  *
@@ -26,9 +26,9 @@
  */
 
 /**
- * @file native_print_base.h
+ * @file print_base.h
  *
- * @brief Declare the native print data types.
+ * @brief Declare the print data types.
  *
  * @library libohprint.so
  * @syscap SystemCapability.Print.PrintFramework
