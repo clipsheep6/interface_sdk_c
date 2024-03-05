@@ -17,7 +17,7 @@
  * @addtogroup OH_Print
  * @{
  *
- * @brief Provide the definition of the C interface for the print module.
+ * @brief Provides the definition of the C interface for the print module.
  *
  * @syscap SystemCapability.Print.PrintFramework
  *
@@ -28,7 +28,8 @@
 /**
  * @file print_capi.h
  *
- * @brief Declare the print functions.
+ * @brief Declares the APIs to discover and connect printers, get printer lists and printer information,
+ *        and use a printer to print files, etc.
  *
  * @library libohprint.so
  * @syscap SystemCapability.Print.PrintFramework
