@@ -19,9 +19,9 @@ ohos_ndk_headers("ohaudio_header") {
   sources = [
     "audio_capturer/native_audiocapturer.h",
     "audio_renderer/native_audiorenderer.h",
+    "common/native_audio_channel_layout.h",
     "common/native_audiostream_base.h",
     "common/native_audiostreambuilder.h",
-    "common/native_audio_channel_layout.h",
   ]
 }
 
