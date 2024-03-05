@@ -239,7 +239,7 @@ OH_AudioStream_Result OH_AudioCapturer_GetFramesRead(OH_AudioCapturer* capturer,
  * @param channelLayout Pointer to a variable to receive the channel layout
  * @return {@link #AUDIOSTREAM_SUCCESS} or an undesired error.
  */
-OH_AudioStream_Result OH_AudioRenderer_GetChannelLayout(OH_AudioCapturer* capturer,
+OH_AudioStream_Result OH_AudioCapturer_GetChannelLayout(OH_AudioCapturer* capturer,
     OH_AudioChannelLayout* channelLayout);
 #ifdef __cplusplus
 }
