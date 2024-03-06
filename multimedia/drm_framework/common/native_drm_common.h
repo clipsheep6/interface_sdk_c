@@ -502,6 +502,139 @@ typedef struct MediaKeySystem MediaKeySystem;
  */
 typedef struct MediaKeySession MediaKeySession;
 
+/**
+ * @brief Media key id size.
+ * @since 12
+ * @version 1.0
+ */
+#define META_DRM_KEY_ID_SIZE                    16
+/**
+ * @brief Media key iv size.
+ * @since 12
+ * @version 1.0
+ */
+#define META_DRM_IV_SIZE                        16
+/**
+ * @brief Max count of sub samples.
+ * @since 12
+ * @version 1.0
+ */
+#define META_DRM_MAX_SUB_SAMPLE_NUM             64
+
+/**
+ * @brief Key string of drm cenc info used as param key by {@link OH_AVFormat_SetBuffer}.
+ * @since 12
+ * @version 1.0
+ */
+const char DRM_CENC_INFO[] = "drm_cenc_info";
+
+/**
+ * @brief Drm cenc algorithm type.
+ * @syscap SystemCapability.Multimedia.Drm.Core
+ * @since 12
+ * @version 1.0
+ */
+enum MetaDrmCencAlgorithm {
+    /**
+     * Uncrypted.
+     */
+    META_DRM_ALG_CENC_UNENCRYPTED = 0x0,
+    /**
+     * Aes ctr.
+     */
+    META_DRM_ALG_CENC_AES_CTR = 0x1,
+    /**
+     * Aes wv.
+     */
+    META_DRM_ALG_CENC_AES_WV = 0x2,
+    /**
+     * Aes cbc.
+     */
+    META_DRM_ALG_CENC_AES_CBC = 0x3,
+    /**
+     * Sm4 cbc.
+     */
+    META_DRM_ALG_CENC_SM4_CBC = 0x4,
+    /**
+     * Sm4 ctr.
+     */
+    META_DRM_ALG_CENC_SM4_CTR,
+};
+
+/**
+ * @brief Subsample info of media.
+ * @since 12
+ * @version 1.0
+ */
+struct MetaDrmSubSample {
+    /* Clear header len. */
+    uint32_t clearHeaderLen;
+    /* Payload Len. */
+    uint32_t payLoadLen;
+};
+/**
+ * @brief Struct MetaDrmSubSample alias.
+ * @since 12
+ * @version 1.0
+ */
+typedef struct MetaDrmSubSample MetaDrmSubSample;
+
+/**
+ * @brief Cenc info of media.
+ * @since 12
+ * @version 1.0
+ */
+struct MetaDrmCencInfo {
+    /* Cenc algorithm used. */
+    MetaDrmCencAlgorithm algo;
+    /* Key id. */
+    uint8_t keyId[META_DRM_KEY_ID_SIZE];
+    /* Key id len. */
+    uint32_t keyIdLen;
+    /* Iv. */
+    uint8_t iv[META_DRM_IV_SIZE];
+    /* Iv len. */
+    uint32_t ivLen;
+    /* Whether ambiguity content exists, only used in TS format. */
+    uint32_t isAmbiguity;
+    /* Encrytped blocks num. */
+    uint32_t encryptBlocks;
+    /* Clear blocks num. */
+    uint32_t skipBlocks;
+    /* First encrypted payload offset. */
+    uint32_t firstEncryptOffset;
+    /* Subsamples info. */
+    MetaDrmSubSample subSample[META_DRM_MAX_SUB_SAMPLE_NUM];
+    /* Subsamples num. */
+    uint32_t subSampleNum;
+};
+/**
+ * @brief Struct MetaDrmCencInfo alias.
+ * @since 12
+ * @version 1.0
+ */
+typedef struct MetaDrmCencInfo MetaDrmCencInfo;
+
+/**
+ * @brief Max len of media key system name.
+ * @since 12
+ * @version 1.0
+ */
+#define MAX_MEDIA_KEY_SYSTEM_NAME_LEN 128
+/**
+ * @brief Max num of media key system supported
+ * @since 12
+ * @version 1.0
+ */
+#define MAX_MEDIA_KEY_SYSTEM_NUM 8
+
+typedef struct DRM_MediaKeySystemNameList {
+    /* Media key system count. */
+    uint32_t mediaKeySystemCount;
+    /* Media key system name list. */
+    char nameList[MAX_MEDIA_KEY_SYSTEM_NUM][MAX_MEDIA_KEY_SYSTEM_NAME_LEN];
+} DRM_MediaKeySystemNameList;
+
 #ifdef __cplusplus
 }
 #endif
