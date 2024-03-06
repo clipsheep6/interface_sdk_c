@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -66,6 +66,137 @@ OH_Drawing_Rect* OH_Drawing_RectCreate(float left, float top, float right, float
  * @version 1.0
  */
 void OH_Drawing_RectDestroy(OH_Drawing_Rect*);
+
+/**
+ * @brief  If RectI intersects other, sets RectI to intersection.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param OH_Drawing_Rect Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+ * @param OH_Drawing_Rect Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+ * @return Returns <b>true</b> true if have area in common.
+ * @since 12
+ * @version 1.0
+ */
+bool OH_Drawing_RectIntersect(OH_Drawing_Rect* cRect, OH_Drawing_Rect* other);
+
+/**
+ * @brief Get Height of <b>OH_Drawing_Rect</b> object.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param OH_Drawing_Rect Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+ * @since 12
+ * @version 1.0
+ */
+float OH_Drawing_RectGetHeight(OH_Drawing_Rect* cRect);
+
+/* @brief Obtains the width of a rect.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param OH_Drawing_Rect Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+ * @return Returns the width.
+ * @since 12
+ * @version 1.0
+ */
+float OH_Drawing_RectGetWidth(OH_Drawing_Rect*);
+
+/**
+ * @brief Set the left position of the rect.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param rect Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+ * @param left Indicates the left position of the rect.
+ * @since 12
+ * @version 1.0
+ */
+void OH_Drawing_RectSetLeft(OH_Drawing_Rect* rect, float left);
+
+/**
+ * @brief Set the top position of the rect.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param rect Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+ * @param top Indicates the top position of the rect.
+ * @since 12
+ * @version 1.0
+ */
+void OH_Drawing_RectSetTop(OH_Drawing_Rect* rect, float top);
+
+/**
+ * @brief Set the right position of the rect.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param rect Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+ * @param right Indicates the right position of the rect.
+ * @since 12
+ * @version 1.0
+ */
+void OH_Drawing_RectSetRight(OH_Drawing_Rect* rect, float right);
+
+/**
+ * @brief Set the bottom position of the rect.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param rect Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+ * @param bottom Indicates the bottom position of the rect.
+ * @since 12
+ * @version 1.0
+ */
+void OH_Drawing_RectSetBottom(OH_Drawing_Rect* rect, float bottom);
+
+/**
+ * @brief Get the left position of the rect.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param OH_Drawing_Rect Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+ * @return Return the left position of the rect.
+ * @since 12
+ * @version 1.0
+ */
+float OH_Drawing_RectGetLeft(OH_Drawing_Rect* rect);
+
+/**
+ * @brief Get the top position of the rect.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param OH_Drawing_Rect Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+ * @return Return the top position of the rect.
+ * @since 12
+ * @version 1.0
+ */
+float OH_Drawing_RectGetTop(OH_Drawing_Rect*);
+
+/**
+ * @brief Get the right position of the rect.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param OH_Drawing_Rect Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+ * @return Return the right position of the rect.
+ * @since 12
+ * @version 1.0
+ */
+float OH_Drawing_RectGetRight(OH_Drawing_Rect*);
+
+/**
+ * @brief Get the bottom position of the rect.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param OH_Drawing_Rect Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+ * @return Return the bottom position of the rect.
+ * @since 12
+ * @version 1.0
+ */
+float OH_Drawing_RectGetBottom(OH_Drawing_Rect*);
+
+/**
+ * @brief Copy the original rectangular object to the destination rectangular object.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param OH_Drawing_Rect sRect Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+ * @param OH_Drawing_Rect dRect Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+ * @since 12
+ * @version 1.0
+ */
+void OH_Drawing_RectCopy(OH_Drawing_Rect* sRect, OH_Drawing_Rect* dRect);
 
 #ifdef __cplusplus
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -62,6 +62,14 @@ typedef struct OH_Drawing_Canvas OH_Drawing_Canvas;
 typedef struct OH_Drawing_Pen OH_Drawing_Pen;
 
 /**
+ * @brief Defines a region,which is used to represent an enclosed area on the canvas layer.
+ *
+ * @since 12
+ * @version 1.0
+ */
+typedef struct OH_Drawing_Region OH_Drawing_Region;
+
+/**
  * @brief Defines as a brush, which is used to describe the style and color to fill in a shape.
  *
  * @since 8
@@ -92,6 +100,14 @@ typedef struct OH_Drawing_Bitmap OH_Drawing_Bitmap;
  * @version 1.0
  */
 typedef struct OH_Drawing_Point OH_Drawing_Point;
+
+/**
+ * @brief Defines a ColorSpace, which is used to determine how Quartz interprets color information.
+ *
+ * @since 12
+ * @version 1.0
+ */
+typedef struct OH_Drawing_ColorSpace OH_Drawing_ColorSpace;
 
 /**
  * @brief Defines a point of 2d.
@@ -236,6 +252,38 @@ typedef struct OH_Drawing_SamplingOptions OH_Drawing_SamplingOptions;
  * @version 1.0
  */
 typedef struct OH_Drawing_TextBlobBuilder OH_Drawing_TextBlobBuilder;
+
+/**
+ * @brief Defines a OH_Drawing_FontMgr, which is used to manage font family.
+ *
+ * @since 12
+ * @version 1.0
+ */
+typedef struct OH_Drawing_FontMgr OH_Drawing_FontMgr;
+
+/**
+ * @brief Defines a OH_Drawing_TextFontStyle, which is used to build the OH_Drawing_FontMgr.
+ *
+ * @since 12
+ * @version 1.0
+ */
+typedef struct OH_Drawing_TextFontStyle OH_Drawing_TextFontStyle;
+
+/**
+ * @brief Defines a OH_Drawing_FontStyleSet, which is used to match font family.
+ *
+ * @since 12
+ * @version 1.0
+ */
+typedef struct OH_Drawing_FontStyleSet OH_Drawing_FontStyleSet;
+
+/**
+ * @brief Defines a Pixmap, which is used to build the Pixmap.
+ *
+ * @since 12
+ * @version 1.0
+ */
+typedef struct OH_Drawing_Pixmap OH_Drawing_Pixmap;
 
 /**
  * @brief Enumerates storage formats of bitmap pixels.
@@ -399,6 +447,34 @@ typedef enum {
     /** uses two byte words to represent glyph indices */
     TEXT_ENCODING_GLYPH_ID,
 } OH_Drawing_TextEncoding;
+
+/**
+ * @brief Enumerates slant of fontStyle.
+ *
+ * @since 12
+ * @version 1.0
+ */
+typedef enum {
+    /** upright slant. */
+    FONTSTYLE_UPRIGHT_SLANT,
+    /** italic slant. */
+    FONTSTYLE_ITALIC_SLANT,
+    /** oblique slant. */
+    FONTSTYLE_OBLIQUE_SLANT,
+} OH_Drawing_FontStyleSlant;
+
+/**
+ * @brief Defines a RGBA color composed of 4 floats. Color and alpha components should be in the range of zero to one.
+ *
+ * @since 12
+ * @version 1.0
+ */
+typedef struct {
+    float red;
+    float green;
+    float blue;
+    float alpha;
+} OH_Drawing_Color4f;
 
 #ifdef __cplusplus
 }
