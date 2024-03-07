@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -62,6 +62,14 @@ typedef struct OH_Drawing_Canvas OH_Drawing_Canvas;
 typedef struct OH_Drawing_Pen OH_Drawing_Pen;
 
 /**
+ * @brief Defines a region,which is used to represent an enclosed area on the canvas layer.
+ *
+ * @since 12
+ * @version 1.0
+ */
+typedef struct OH_Drawing_Region OH_Drawing_Region;
+
+/**
  * @brief Defines as a brush, which is used to describe the style and color to fill in a shape.
  *
  * @since 8
@@ -92,6 +100,14 @@ typedef struct OH_Drawing_Bitmap OH_Drawing_Bitmap;
  * @version 1.0
  */
 typedef struct OH_Drawing_Point OH_Drawing_Point;
+
+/**
+ * @brief Defines a ColorSpace, which is used to determine how Quartz interprets color information.
+ *
+ * @since 12
+ * @version 1.0
+ */
+typedef struct OH_Drawing_ColorSpace OH_Drawing_ColorSpace;
 
 /**
  * @brief Defines a point of 2d.
@@ -236,6 +252,14 @@ typedef struct OH_Drawing_SamplingOptions OH_Drawing_SamplingOptions;
  * @version 1.0
  */
 typedef struct OH_Drawing_TextBlobBuilder OH_Drawing_TextBlobBuilder;
+
+/**
+ * @brief Defines a Pixmap, which is used to build the Pixmap.
+ *
+ * @since 12
+ * @version 1.0
+ */
+typedef struct OH_Drawing_Pixmap OH_Drawing_Pixmap;
 
 /**
  * @brief Enumerates storage formats of bitmap pixels.
