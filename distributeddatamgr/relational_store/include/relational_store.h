@@ -658,6 +658,11 @@ typedef enum Rdb_SyncMode {
      * @brief Indicates that data is synchronized from cloud to local.
      */
     RDB_SYNC_MODE_CLOUD_FIRST
+    /**
+     * @brief Indicates that data is forced synchronization from the end with the closest modification time
+     * to the end with a more distant modification time.
+     */
+    RDB_SYNC_MODE_FORCE_TIME_FIRST,
 } Rdb_SyncMode;
 
 /**
@@ -897,6 +902,40 @@ int OH_Rdb_SubscribeAutoSyncProgress(OH_Rdb_Store *store, const Rdb_ProgressObse
  * @since 11
  */
 int OH_Rdb_UnsubscribeAutoSyncProgress(OH_Rdb_Store *store, const Rdb_ProgressObserver *observer);
+
+/**
+ * @brief Lock the selected data row of the predicate so that it cannot be synchronized with the cloud end.
+ *
+ * @param store Indicates the pointer to the target {@Link OH_Rdb_Store} instance.
+ * @param predicates {@link OH_Predicates} object that specifies the data to be locked.
+ * @return Returns the status code of the execution. See {@link OH_Rdb_ErrCode}.
+ * @see OH_Rdb_Store, OH_Predicates.
+ * @since 12
+ **/
+int OH_Rdb_LockRow(OH_Rdb_Store *store, OH_Predicates *predicates);
+
+/**
+ * @brief Unlock the selected data row of the predicate so that it can be synchronized with the cloud end.
+ *
+ * @param store Indicates the pointer to the target {@Link OH_Rdb_Store} instance.
+ * @param predicates {@link OH_Predicates} object that specifies the data to be unlocked.
+ * @return Returns the status code of the execution. See {@link OH_Rdb_ErrCode}.
+ * @see OH_Rdb_Store, OH_Predicates.
+ * @since 12
+ **/
+int OH_Rdb_UnlockRow(OH_Rdb_Store *store, OH_Predicates *predicates);
+
+/**
+ * @brief Queries the locked data by predicates.
+ *
+ * @param store Indicates the pointer to the target {@Link OH_Rdb_Store} instance.
+ * @param predicates {@link OH_Predicates} object that specifies the data to be unlocked.
+ * @param columnNames Indicates the columns to query. If the value is empty array, the query applies to all columns.
+ * @param length Indicates the length of columnNames.
+ * @see OH_Rdb_Store, OH_Predicates, OH_Cursor.
+ * @since 12
+ **/
+OH_Cursor *OH_Rdb_QueryLockedRow(OH_Rdb_Store *store, OH_Predicates *predicates, const char *const *columnNames, int length);
 #ifdef __cplusplus
 };
 #endif
