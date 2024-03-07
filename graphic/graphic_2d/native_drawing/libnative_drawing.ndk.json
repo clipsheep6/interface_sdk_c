@@ -573,6 +573,53 @@
     {
         "first_introduced": "12",
         "name": "OH_Drawing_SetTypographyTextFontHeight"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_GetTextStyleColor"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_GetTextStyleDecorationStyle"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_GetTextStyleFontWeight"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_GetTextStyleFontStyle"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_GetTextStyleBaseLine"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_GetTextStyleFontFamilies"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_GetTextStyleFontSize"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_GetTextStyleLetterSpacing"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_GetTextStyleWordSpacing"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_GetTextStyleFontHeight"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_GetTextStyleHalfLeading"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_GetTextStyleLocale"
     }
-
 ]
