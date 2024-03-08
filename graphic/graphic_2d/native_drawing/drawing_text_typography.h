@@ -1684,6 +1684,39 @@ float OH_Drawing_TypographyGetIndentsWithIndex(OH_Drawing_Typography*, int);
  */
 void OH_Drawing_DestroyTextShadows(OH_Drawing_TextShadow*);
 
+/**
+ * @brief Give the value of kIndexed to fState.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param OH_Drawing_Typography Indicates the pointer to the text <b>OH_Drawing_TypographyMarkDirty</b> object.
+ * @since 12
+ * @version 1.0
+ */
+void  OH_Drawing_TypographyMarkDirty(OH_Drawing_Typography*);
+
+/**
+ * @brief Get the UnresolvedGlyphs of lines in a text file.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param OH_Drawing_Typography Indicates the pointer to the text <b>OH_Drawing_TypographyGetUnresolvedGlyphsCount</b> object.
+ * @return Returns UnresolvedGlyphs count.
+ * @since 12
+ * @version 1.0
+ */
+int32_t OH_Drawing_TypographyGetUnresolvedGlyphsCount(OH_Drawing_Typography*);
+
+/**
+ * @brief Update the font size of lines in a text file.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param OH_Drawing_Typography Indicates the pointer to the text <b>OH_Drawing_TypographyUpdateFontSize</b> object.
+ * @param size_t Indicates size_t the pointer to the text  <b>OH_Drawing_TypographyUpdateFontSize</b> object.
+ * @param float Indicates the pointer to the text  <b>OH_Drawing_TypographyUpdateFontSize</b> object.
+ * @since 12
+ * @version 1.0
+ */
+void OH_Drawing_TypographyUpdateFontSize(OH_Drawing_Typography*, size_t, size_t, float);
+
 #ifdef __cplusplus
 }
 #endif
