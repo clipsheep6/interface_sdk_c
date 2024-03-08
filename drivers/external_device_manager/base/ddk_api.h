@@ -43,44 +43,44 @@ extern "C" {
 
 /**
  * @brief Creates shared memory. To prevent resource leakage, destroy the shared memory that is not required by\n
- * calling <b>OH_DDK_DestroyAShMem</b>.
+ * calling <b>OH_DDK_DestroyAshmem</b>.
  *
  * @param name Pointer to the shared memory to create.
  * @param size Size of the buffer corresponding to the shared memory.
- * @param aSharedMem Pointer to the shared memory created.
+ * @param ashmem Pointer to the shared memory created.
  * @return Returns <b>DDK_SUCCESS</b> if the operation is successful; returns a negative value otherwise.
  * @since 12
  */
-DDK_RetCode OH_DDK_CreateAShMem(const uint8_t *name, size_t size, DDK_ASharedMem **aSharedMem);
+DDK_RetCode OH_DDK_CreateAshmem(const uint8_t *name, size_t size, DDK_Ashmem **ashmem);
 
 /**
  * @brief Maps the created shared memory to the user space. Unmap the shared memory that is not required by using\n
- * <b>OH_DDK_UnMapAShMem</b>.
+ * <b>OH_DDK_UnmapAshmemm</b>.
  *
- * @param aShMemFd File descriptor of the shared memory to map.
- * @param aShMemMapType Protection permission value of the shared memory.
+ * @param ashmemFd File descriptor of the shared memory to map.
+ * @param ashmemMapType Protection permission value of the shared memory.
  * @return Returns <b>DDK_SUCCESS</b> if the operation is successful; returns a negative value otherwise.
  * @since 12
  */
-DDK_RetCode OH_DDK_MapAShMem(const int32_t aShMemFd, const uint8_t aShMemMapType);
+DDK_RetCode OH_DDK_MapAshmem(const int32_t ashmemFd, const uint8_t ashmemMapType);
 
 /**
  * @brief Unmaps shared memory.
  *
- * @param aShMemFd File descriptor of the shared memory to unmap.
+ * @param ashmemFd File descriptor of the shared memory to unmap.
  * @return Returns <b>DDK_SUCCESS</b> if the operation is successful; returns a negative value otherwise.
  * @since 12
  */
-DDK_RetCode OH_DDK_UnMapAShMem(const int32_t aShMemFd);
+DDK_RetCode OH_DDK_UnmapAshmemm(const int32_t ashmemFd);
 
 /**
  * @brief Destroys shared memory.
  *
- * @param aShMemFd File descriptor of the shared memory to destroy.
+ * @param ashmemFd File descriptor of the shared memory to destroy.
  * @return Returns <b>DDK_SUCCESS</b> if the operation is successful; returns a negative value otherwise.
  * @since 12
  */
-DDK_RetCode OH_DDK_DestroyAShMem(const int32_t aShMemFd);
+DDK_RetCode OH_DDK_DestroyAshmem(const int32_t ashmemFd);
 /** @} */
 #ifdef __cplusplus
 }

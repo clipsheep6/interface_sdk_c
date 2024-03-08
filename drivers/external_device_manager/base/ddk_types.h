@@ -42,14 +42,14 @@ extern "C" {
 #endif /* __cplusplus */
 
 /**
- * @brief Defines the shared memory created by using <b>OH_DDK_CreateAShMem</b>.\n
+ * @brief Defines the shared memory created by using <b>OH_DDK_CreateAshmem</b>.\n
  * A buffer for the shared memory provides better performance.
  *
  * @since 12
  */
-typedef struct DDK_ASharedMem {
+typedef struct DDK_Ashmem {
     /** File descriptor of the shared memory. */
-    int32_t aShMemFd;
+    int32_t ashmemFd;
     /** Buffer address. */
     uint8_t * const address;
     /** Buffer size. */
@@ -64,7 +64,7 @@ typedef struct DDK_ASharedMem {
     uint32_t bufferLength;
     /** Length of the transferred data. */
     uint32_t transferredLength;
-} DDK_ASharedMem;
+} DDK_Ashmem;
 
 /**
  * @brief Enumerates the permissions on the mapped memory.
@@ -80,8 +80,7 @@ typedef enum {
     PROT_WRITE = 2,
     /** The mapped memory is executable. */
     PROT_EXEC = 4
-
-} DDK_ASharedMemMapType;
+} DDK_AshmemMapType;
 
 /**
  * @brief Enumerates the error codes used in the Base DDK.
