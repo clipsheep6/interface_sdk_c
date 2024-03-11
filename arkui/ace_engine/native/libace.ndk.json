@@ -170,5 +170,33 @@
     {
         "first_introduced": "12",
         "name": "OH_NativeXComponent_RegisterOnTouchInterceptCallback"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_DisplaySync_Create"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_DisplaySync_Start"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_DisplaySync_Stop"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_DisplaySync_RegisterCallback"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_DisplaySync_UnregisterCallback"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_DisplaySync_SetExpectedFrameRateRange"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_DisplaySync_Destroy"
     }
 ]
