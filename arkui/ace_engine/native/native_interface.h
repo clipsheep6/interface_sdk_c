@@ -64,6 +64,8 @@ typedef struct {
 typedef enum {
     /** API type related to UI components. */
     ARKUI_NATIVE_NODE,
+    /** API type related to Dialog. */
+    ARKUI_NATIVE_DIALOG,
 } ArkUI_NativeAPIVariantKind;
 
 /**
@@ -73,8 +75,18 @@ typedef enum {
  */
 typedef enum {
     /** The ARKUI_NATIVE_NODE type supports the structure {@link ArkUI_NativeNodeAPI_1} of version 1. */
-    ARKUI_NATIVE_NODE_VERSION_1,
+    ARKUI_NATIVE_NODE_VERSION_1 = 1,
 } ArkUI_NativeNodeAPIVersion;
+
+/**
+ * @brief Defines the version information supported by the ARKUI_DIALOG_NODE type.
+ *
+ * @since 12 
+ */
+typedef enum {
+    /** The ARKUI_DIALOG_NODE type supports the structure {@link ArkUI_NativeDialogAPI_1} of version 1. */
+    ARKUI_NATIVE_DIALOG_VERSION_1 = 1,
+} ArkUI_NativeDialogAPIVersion;
 
 /**
  * @brief Obtains the native API set of a specified version.
