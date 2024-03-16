@@ -181,7 +181,7 @@ char* OH_Drawing_FontMgrGetFamilyName(OH_Drawing_FontMgr*, int index, int* len);
  * @brief Releases the memory occupied by font family name.
  *
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
- * @param char Font family name.
+ * @param familyName Font family name.
  * @since 12
  * @version 1.0
  */
