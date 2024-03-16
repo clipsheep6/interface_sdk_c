@@ -293,15 +293,17 @@ typedef enum {
  * @since 12
  * @version 1.0
  */
-enum OH_Drawing_FontConfigJsonInfoCode {
-    /** Failed to get a list of system font file paths */
-    FONT_DIR_SET_ERROR = 0,
-    /** The system font file path list was successfully obtained */
-    FONT_DIR_SET_SUC = 1,
-    /** The list of system font file paths and the list of generic font sets were successfully obtained */
-    FONT_DIR_GENERIC_SET_SUC = 2,
+enum OH_Drawing_FontConfigInfoErrorCode {
     /** The list of system font configuration information was successfully obtained */
-    FONT_CONFIG_JSON_INFO_SUC = 3,
+    SUCCESS = 0,
+    /** Unknown error */
+    ERROR_UNKNOWN = 1,
+    /** Parse system config file error */
+    ERROR_PARSE_FILE = 2,
+    /** Alloc memory error */
+    ERROR_ALLOC_MEMORY = 3,
+    /** Copy string data error */
+    ERROR_COPY_STRING_DATA = 4,
 };
 
 /**
@@ -376,12 +378,12 @@ typedef struct OH_Drawing_LineMetrics {
  * @since 12
  * @version 1.0
  */
-typedef struct OH_Drawing_FallbackInfo {
+typedef struct OH_Drawing_FontFallbackInfo {
     /** The type of language supported by the font set. The language format is bcp47 */
     char* language;
     /** Font family name */
     char* familyName;
-} OH_Drawing_FallbackInfo;
+} OH_Drawing_FontFallbackInfo;
 
 /**
  * @brief Fallback font group.
@@ -389,17 +391,17 @@ typedef struct OH_Drawing_FallbackInfo {
  * @since 12
  * @version 1.0
  */
-typedef struct OH_Drawing_FallbackGroup {
+typedef struct OH_Drawing_FontFallbackGroup {
     /**
      * The name of the font set corresponding to the fallback font set. If the value is null,
-     * all fonts can be set using the fallback font set list
+     * all fonts can be set using the fallback font set list.
      */
     char* groupName;
     /** Fallback font Info Size */
     size_t fallbackInfoSize;
     /** A list of font sets for fallback fonts */
-    OH_Drawing_FallbackInfo** fallbackInfo;
-} OH_Drawing_FallbackGroup;
+    OH_Drawing_FontFallbackInfo* fallbackInfoSet;
+} OH_Drawing_FontFallbackGroup;
 
 /**
  * @brief Font weight mapping information.
@@ -407,12 +409,12 @@ typedef struct OH_Drawing_FallbackGroup {
  * @since 12
  * @version 1.0
  */
-typedef struct OH_Drawing_AdjustInfo {
+typedef struct OH_Drawing_FontAdjustInfo {
     /** The font's original weight value */
     int weight;
     /** The font weight displayed in the application */
     int to;
-} OH_Drawing_AdjustInfo;
+} OH_Drawing_FontAdjustInfo;
 
 /**
  * @brief Alias font information.
@@ -420,16 +422,16 @@ typedef struct OH_Drawing_AdjustInfo {
  * @since 12
  * @version 1.0
  */
-typedef struct OH_Drawing_AliasInfo {
+typedef struct OH_Drawing_FontAliasInfo {
     /** Font family name */
     char* familyName;
     /**
      * Font weight value. When the weight value is greater than 0,
      * the font set contains only fonts with the specified weight.
-     * When the weight value is equal to 0, the font set contains all fonts
+     * When the weight value is equal to 0, the font set contains all fonts.
      */
     int weight;
-} OH_Drawing_AliasInfo;
+} OH_Drawing_FontAliasInfo;
 
 /**
  * @brief General font set information supported by the system.
@@ -445,9 +447,9 @@ typedef struct OH_Drawing_FontGenericInfo {
     /** The size of font weight mapping information lists */
     size_t adjustInfoSize;
     /** List of alias fonts */
-    OH_Drawing_AliasInfo** aliasInfoSet;
+    OH_Drawing_FontAliasInfo* aliasInfoSet;
     /** Font weight mapping information lists */
-    OH_Drawing_AdjustInfo** adjustInfoSet;
+    OH_Drawing_FontAdjustInfo* adjustInfoSet;
 } OH_Drawing_FontGenericInfo;
 
 /**
@@ -456,7 +458,7 @@ typedef struct OH_Drawing_FontGenericInfo {
  * @since 12
  * @version 1.0
  */
-typedef struct OH_Drawing_FontConfigJsonInfo {
+typedef struct OH_Drawing_FontConfigInfo {
     /** Count of system font file paths */
     size_t fontDirSize;
     /** List size of generic font sets */
@@ -466,10 +468,10 @@ typedef struct OH_Drawing_FontConfigJsonInfo {
     /** List of system font file paths */
     char** fontDirSet;
     /** List of generic font sets */
-    OH_Drawing_FontGenericInfo** fontGenericInfoSet;
+    OH_Drawing_FontGenericInfo* fontGenericInfoSet;
     /** List of fallback font sets */
-    OH_Drawing_FallbackGroup** fallbackGroupSet;
-} OH_Drawing_FontConfigJsonInfo;
+    OH_Drawing_FontFallbackGroup* fallbackGroupSet;
+} OH_Drawing_FontConfigInfo;
 
 /**
  * @brief Creates an <b>OH_Drawing_TypographyStyle</b> object.
@@ -1806,27 +1808,25 @@ void OH_Drawing_DestroyTextShadows(OH_Drawing_TextShadow*);
  * @brief Gets system font configuration information.
  *
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
- * @param OH_Drawing_FontConfigJsonInfoCode Error code, based on the error code to
- * release the memory of system font configuration information,
- * For details, see the enum <b>OH_Drawing_FontConfigJsonInfoCode</b>.
+ * @param OH_Drawing_FontConfigInfoErrorCode Indicates error code returned, based on the error code to
+ * release the memory of system font configuration information.
+ * For details, see the enum <b>OH_Drawing_FontConfigInfoErrorCode</b>.
  * @return Returns a pointer to system font configuration information.
- * Indicates the pointer to an <b>OH_Drawing_CreateFontConfigJsonInfo</b> object.
+ * Indicates the pointer to an <b>OH_Drawing_FontConfigInfo</b> object.
  * @since 12
  * @version 1.0
  */
-OH_Drawing_FontConfigJsonInfo* OH_Drawing_CreateFontConfigJsonInfo(OH_Drawing_FontConfigJsonInfoCode*);
+OH_Drawing_FontConfigInfo* OH_Drawing_GetSystemFontConfigInfo(OH_Drawing_FontConfigInfoErrorCode*);
 
 /**
  * @brief Releases the memory occupied by system font configuration information.
  *
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
- * @param OH_Drawing_FontConfigJsonInfo Indicates the pointer to an <b>OH_Drawing_CreateFontConfigJsonInfo</b> object.
- * @param OH_Drawing_FontConfigJsonInfoCode Error code, based on the error code to release the memory of
- * system font configuration information, For details, see the enum <b>OH_Drawing_FontConfigJsonInfoCode</b>.
+ * @param OH_Drawing_FontConfigInfo Indicates the pointer to an <b>OH_Drawing_FontConfigInfo</b> object.
  * @since 12
  * @version 1.0
  */
-void OH_Drawing_DestroyFontConfigJsonInfo(OH_Drawing_FontConfigJsonInfo**, OH_Drawing_FontConfigJsonInfoCode*);
+void OH_Drawing_DestroySystemFontConfigInfo(OH_Drawing_FontConfigInfo*);
 #ifdef __cplusplus
 }
 #endif
