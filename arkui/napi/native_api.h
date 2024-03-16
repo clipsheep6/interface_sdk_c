@@ -78,6 +78,21 @@ typedef napi_value (*napi_native_binding_attach_callback)(napi_env env, void* na
 NAPI_EXTERN napi_status napi_run_script_path(napi_env env, const char* path, napi_value* result);
 NAPI_EXTERN napi_status napi_queue_async_work_with_qos(napi_env env, napi_async_work work, napi_qos_t qos);
 NAPI_EXTERN napi_status napi_load_module(napi_env env, const char* path, napi_value* result);
+
+/**
+ * @brief The module is loaded through the NAPI. By default, the default object is exported from the module.
+ *
+ * @param env Current running virtual machine context.
+ * @param path Path name of the module to be loaded, like @ohos.hilog.
+ * @param module_info Path names of bundle and module, like com.example.application/entry.
+ * @param result Result of loading a module, which is an exported object of the module.
+ * @return Returns the function execution status.
+ * @since 12
+*/
+NAPI_EXTERN napi_status napi_load_module_with_info(napi_env env,
+                                                   const char* path,
+                                                   const char* module_info,
+                                                   napi_value* result);
 NAPI_EXTERN napi_status napi_get_instance_data(napi_env env, void** data);
 NAPI_EXTERN napi_status napi_set_instance_data(napi_env env,
                                                void* data,
@@ -127,6 +142,44 @@ NAPI_EXTERN napi_status napi_add_finalizer(napi_env env,
                                            napi_finalize finalize_cb,
                                            void* finalize_hint,
                                            napi_ref* result);
+/**
+ * @brief Create the ark runtime.
+ *
+ * @param env Indicates the ark runtime environment.
+ * @since 12
+ */
+NAPI_EXTERN napi_status napi_create_ark_runtime(napi_env* env);
+
+/**
+ * @brief Destroy the ark runtime.
+ *
+ * @param env Indicates the ark runtime environment.
+ * @since 12
+ */
+NAPI_EXTERN napi_status napi_destroy_ark_runtime(napi_env* env);
+
+/**
+ * @brief Run the event loop by the given env and running mode in current thread.
+ *
+ * Support to run the native event loop in an asynchronous native thread with the specified running mode.
+ *
+ * @param env Current running virtual machine context.
+ * @param mode Indicates the running mode of the native event loop.
+ * @return Return the function execution status.
+ * @since 12
+ */
+NAPI_EXTERN napi_status napi_run_event_loop(napi_env env, napi_event_mode mode);
+
+/**
+ * @brief Stop the event loop in current thread.
+ *
+ * Support to stop the running event loop in current native thread.
+ *
+ * @param env Current running virtual machine context.
+ * @return Return the function execution status.
+ * @since 12
+ */
+NAPI_EXTERN napi_status napi_stop_event_loop(napi_env env);
 
 #ifdef __cplusplus
 }
