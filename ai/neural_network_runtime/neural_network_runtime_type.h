@@ -992,7 +992,7 @@ typedef enum {
      *
      * * <b>constantValues</b>: value to be added to the pad operation.
      *       The value is a constant with the same data type as <b>inputX</b>.
-     * * <b>paddingMode</b>: Padding mode. For details, refer to **OH_NN_PaddingMode**.
+     * * <b>paddingMode</b>: Padding mode. For details, refer to <b>OH_NN_PaddingMode</b>.
      *
      * Outputs:
      *
