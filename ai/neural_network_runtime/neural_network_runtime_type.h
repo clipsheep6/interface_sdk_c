@@ -276,6 +276,23 @@ typedef enum {
 } OH_NN_DeviceType;
 
 /**
+ * @brief Defines the padding mode.
+ *
+ * @since 12
+ * @version 1.0
+ */
+typedef enum {
+    /** Padding Constant. */
+    OH_NN_PADDING_CONSTANT = 0,
+    /** Padding Reflect */
+    OH_NN_PADDING_REFLECT = 1,
+    /** Padding Replicate */
+    OH_NN_PADDING_SYMMETRIC = 2,
+    /** Padding Circular */
+    OH_NN_PADDING_RESERVED = 3
+} OH_NN_PaddingMode;
+
+/**
  * @brief Defines tensor data types.
  *
  * @since 9
@@ -965,19 +982,23 @@ typedef enum {
      * Inputs:
      *
      * * <b>inputX</b>: <i>n</i>-dimensional tensor in [BatchSize, ...] format.
-     * * <b>paddings</b>: 2D tensor that specifies the length to pad in each dimension. The shape is [n, 2]. 
-     *       For example, <b>paddings[i][0]</b> indicates the number of paddings to be added preceding <b>inputX</b> in the <i>i</i>th dimension.
-     *       <b>paddings[i][1]</b> indicates the number of paddings to be added following <b>inputX</b> in the <i>i</i>th dimension.
+     * * <b>paddings</b>: 2D tensor that specifies the length to pad in each dimension. The shape is [n, 2].
+     *       For example, <b>paddings[i][0]</b> indicates the number of paddings to be added preceding
+     *       <b>inputX</b> in the <i>i</i>th dimension.
+     *       <b>paddings[i][1]</b> indicates the number of paddings to be added following <b>inputX</b>
+     *       in the <i>i</i>th dimension.
      *
      * Parameters:
      *
-     * * <b>padValues</b>: value to be added to the pad operation. The value is a constant with the same data type as <b>inputX</b>.
+     * * <b>constantValues</b>: value to be added to the pad operation.
+     *       The value is a constant with the same data type as <b>inputX</b>.
+     * * <b>paddingMode</b>: Padding mode. For details, refer to **OH_NN_PaddingMode**.
      *
      * Outputs:
      *
-     * * <b>output</b>: <i>n</i>-dimensional tensor after padding, with the same dimensions and data type as <b>inputX</b>.
-     *       The shape is determined by <b>inputX</b> and <b>paddings</b>.
-     *       output.shape[i] = input.shape[i] + paddings[i][0]+paddings[i][1]
+     * * <b>output</b>: <i>n</i>-dimensional tensor after padding, with the same dimensions and data type as
+     *       <b>inputX</b>. The shape is determined by <b>inputX</b> and <b>paddings</b>.
+     *       output.shape[i] = input.shape[i] + paddings[i][0]+paddings[i][1].
      */
     OH_NN_OPS_PAD = 24,
 
@@ -1568,6 +1589,158 @@ typedef enum {
      * * <b>output</b>: <i>n</i>-dimensional tensor, with the same data type and shape as the input tensor.
      */
     OH_NN_OPS_GELU = 56,
+
+    /**
+     * Unpacks the given dimension of a rank-R tensor into rank-(R-1) tensors.
+     * Unpacks tensors from <b>input</b> by chipping it along the <b>axis</b> dimension.
+     * For example, given a tensor of shape (A, B, C, D);
+     * If axis == 0, then the i'th tensor in output is the slice value[i, :, :, :],\n
+     * and each tensor in output will have shape (B, C, D).
+     * If axis == 1, then the i'th tensor in output is the slice value[:, i, :, :],\n
+     * and each tensor in output will have shape (A, C, D). Etc.
+     * This is the opposite of stack.
+     *
+     * Inputs:
+     * * <b>input</b>: <i>n</i>-dimensional tensor.
+     *
+     * Parameters:
+     * * <b>axis</b>: dimension along witch to pack. Default: 0. Negative values wrap around. The range is [-R, R).
+     *
+     * Outputs:
+     * * <b>output</b>: A tuple of tensors, the shape of each objects is the same.
+     */
+    OH_NN_OPS_UNSTACK = 57,
+
+    /**
+     * Obtains the absolute value of the input tensor.
+     *
+     * Inputs:
+     * * <b>input</b>: <i>n</i>-dimensional tensor.
+     *
+     * Outputs:
+     * * <b>output</b>: The absolute value of the input tensor.
+     */
+    OH_NN_OPS_ABS = 58,
+
+    /**
+     * Computes the Gauss error function of input element-wise.
+     *
+     * Inputs:
+     * * <b>input</b>: <i>n</i>-dimensional tensor.
+     *
+     * Outputs:
+     * * <b>output</b>: A tensor, has the same shape and dtype as the input.
+     */
+    OH_NN_OPS_ERF = 59,
+
+    /**
+     * Calculates the exponential of the given input tensor, element-wise.
+     * ExpFusion computes outputs output = base ^ (shift + scale * input), for base > 0.
+     * Or if base is set to the default (-1), base is set to e,
+     * so output = exp(shift + scale * input).
+     *
+     * Inputs:
+     * * <b>input</b>: <i>n</i>-dimensional tensor.
+     *
+     * Parameters:
+     * * <b>base</b>: The base of exponential function, default -1 for a value of <b>e</b>, must be > 0.
+     * * <b>scale</b>: The amplifcation factor of independent value, default 1.
+     * * <b>shift</b>: The offset of independent value, default 0.
+     *
+     * Outputs:
+     * * <b>output</b>: A tensor. The exponential of the input tensor computed element-wise.
+     */
+    OH_NN_OPS_EXP = 60,
+
+    /**
+     * Returns the tensor resulted from performing the less logical operation elementwise\n
+     * on the input tensors <b>input1</b> and <b>input2</b>.
+     *
+     * Inputs:
+     * * <b>input1</b>: <i>n</i>-dimensional tensor.
+     *      The first input is a number or a bool or a tensor whose data type is number or bool.
+     * * <b>input2</b>: <i>n</i>-dimensional tensor. The second input is a number or a bool
+     *      when the first input is a tensor or a tensor whose data type is number or bool.
+     *
+     * Outputs:
+     * * <b>output</b>: A tensor, the shape is the same as the one after broadcasting, and the data type is bool.
+     */
+    OH_NN_OPS_LESS = 61,
+
+    /**
+     * Selects elements from input1 or input2, depending on condition.
+     * The <b>input1</b> and <b>input2</b> tensors must all have the same shape,
+     * and the output will also have that shape.
+     * The condition tensor must be a scalar if <b>input1</b> and <b>input2</b> are scalars.
+     * If <b>input1<b> and <b>input2</b> are vectors or higher rank, then condition must be either a scalar,
+     * a vector with size matching the first dimension of input1, or must have the same shape as input1.
+     * The condition tensor acts as a mask that chooses, based on the value at each element, whether the\n
+     * corresponding element / row in the output should be taken from input1 (if true) or input2 (if false).
+     *
+     * Inputs:
+     * * <b>inputCond</b>: <i>n</i>-dimensional tensor or scalar.
+     *       The condition tensor, decides which element is chosen.
+     * * <b>input1</b>: <i>n</i>-dimensional tensor. a tensor which may have the same shape as <b>condition</b>.
+     *       If condition is rank 1, x1 may have higher rank, but its first dimension must match the size of condition.
+     * * <b>input2</b>: <i>n</i>-dimensional tensor, has the same shape with input1.
+     *
+     * Outputs:
+     * * <b>output</b>: A tensor, has the same shape as the input_cond.
+     */
+    OH_NN_OPS_SELECT = 62,
+
+    /**
+     * Calculates the square of a tensor.
+     *
+     * Inputs:
+     * * <b>input</b>: <i>n</i>-dimensional tensor.
+     *
+     * Outputs:
+     * * <b>output</b>: A tensor, has the same shape and dtype as the input.
+     */
+    OH_NN_OPS_SQUARE = 63,
+
+    /**
+     * Flattens the input tensor into a 2D matrix. If input tensor has shape (d_0, d_1, … d_n),
+     * then the output will have shape (d_0 X d_1 … d_(axis-1), d_axis X d_(axis+1) … X dn).
+     *
+     * Inputs:
+     * * <b>input</b>: <i>n</i>-dimensional tensor. rank >= axis.
+     *
+     * Parameters:
+     * * <b>axis</b>: Indicate up to which input dimensions (exclusive) should be flattened
+     * to the outer dimension of the output.
+     * The value for axis must be in the range [-r, r], where r is the rank of the input tensor.
+     * Negative value means counting dimensions from the back. When axis = 0, the shape of the output tensor is\n
+     * (1, (d_0 X d_1 … d_n)), where the shape of the input tensor is (d_0, d_1, … d_n).
+     *
+     * Outputs:
+     * * <b>output</b>: A tensor, with the contents of the input tensor,
+     * with input dimensions up to axis flattened to the outer dimension of
+     * the output and remaining input dimensions flattened into the inner dimension of the output.
+     */
+    OH_NN_OPS_FLATTEN = 64,
+
+    /**
+     * DepthToSpace rearranges (permutes) data from depth into blocks of spatial data.
+     * This is the reverse transformation of SpaceToDepth. More specifically, this op outputsa copy of the input tensor
+     * where values from the depth dimension are moved in spatial blocks to the height and width dimensions.
+     * By default, mode = DCR. In the DCR mode, elements along the depth dimension from the input tensor are rearranged
+     * in the following order: depth, column, and then row.
+     *
+     * Inputs:
+     * * <b>input</b>: <i>4</i>-dimensional tensor with specific format of NHWC or NCHW.
+     * where N is the batch axis, H is the height, W is the width and C is the channel or depth.
+     *
+     * Parameters:
+     * * <b>blockSize</b>: Blocks of [blocksize, blocksize] are moved.
+     * * <b>mode</b>: DCR (default) for depth-column-row order re-arrangement. Use CRD for column-row-depth order.
+     *
+     * Outputs:
+     * * <b>output</b>: Output tensor of [N, H * blocksize, W * blocksize, C/(blocksize * blocksize)] for NHWC format
+     * or [N, C/(blocksize * blocksize), H * blocksize, W * blocksize] for NCHW format.
+     */
+    OH_NN_OPS_DEPTH_TO_SPACE = 65,
 } OH_NN_OperationType;
 
 /**
@@ -1774,6 +1947,19 @@ typedef enum {
 
     /** This enumerated value is used when the tensor is used as the <b>Axis</b> parameter of the Unsqueeze operator. */
     OH_NN_UNSQUEEZE_AXIS = 77,
+
+    /** This enumerated value is used when the tensor is used as the <b>axis</b> parameter of the Unstack operator. */
+    OH_NN_UNSTACK_AXIS = 78,
+
+    /** This enumerated value is used when the tensor is used as the <b>axis</b> parameter of the Flatten operator. */
+    OH_NN_FLATTEN_AXIS = 79,
+
+    /** This enumerated value is used when the tensor is used as the <b>blockSize</b> parameter
+     *  of the DepthToSpace operator. */
+    OH_NN_DEPTH_TO_SPACE_BLOCK_SIZE = 80,
+    /** This enumerated value is used when the tensor is used as the <b>mode</b> parameter
+     *  of the DepthToSpace operator. */
+    OH_NN_DEPTH_TO_SPACE_MODE = 81,
 } OH_NN_TensorType;
 
 /**
