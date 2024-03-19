@@ -1,0 +1,34 @@
+[
+    {
+        "first_introduced": "12",
+        "name": "OH_Image2_GetImageSize"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Image2_GetFormat"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Image2_GetComponentTypes"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Image2_GetByteBuffer"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Image2_GetBufferSize"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Image2_GetRowStride"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Image2_GetPixelStride"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Image2_Release"
+    }
+]
