@@ -251,8 +251,8 @@ OH_AudioStream_Result OH_AudioRenderer_GetSpeed(OH_AudioRenderer* renderer, floa
 */
 OH_AudioStream_Result OH_AudioRenderer_SetSpeed(OH_AudioRenderer* renderer, float speed);
 
-/*
- * Query the channel layout of the renderer client.
+/**
+ * @brief Query the channel layout of the renderer client.
  *
  * @since 12
  *
@@ -263,8 +263,8 @@ OH_AudioStream_Result OH_AudioRenderer_SetSpeed(OH_AudioRenderer* renderer, floa
 OH_AudioStream_Result OH_AudioRenderer_GetChannelLayout(OH_AudioRenderer* renderer,
     OH_AudioChannelLayout* channelLayout);
 
-/*
- * Query current audio effect mode.
+/**
+ * @brief Query current audio effect mode.
  *
  * @since 12
  *
@@ -275,8 +275,8 @@ OH_AudioStream_Result OH_AudioRenderer_GetChannelLayout(OH_AudioRenderer* render
 OH_AudioStream_Result OH_AudioRenderer_GetEffectMode(OH_AudioRenderer* renderer,
     OH_AudioStream_AudioEffectMode* effectMode);
 
-/*
- * Set current audio effect mode.
+/**
+ * @brief Set current audio effect mode.
  *
  * @since 12
  *

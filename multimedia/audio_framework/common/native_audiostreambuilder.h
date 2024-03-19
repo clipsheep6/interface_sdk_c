@@ -127,8 +127,8 @@ OH_AudioStream_Result OH_AudioStreamBuilder_SetEncodingType(OH_AudioStreamBuilde
 OH_AudioStream_Result OH_AudioStreamBuilder_SetLatencyMode(OH_AudioStreamBuilder* builder,
     OH_AudioStream_LatencyMode latencyMode);
 
-/*
- * Set the channel layout to the stream client
+/**
+ * @brief Set the channel layout to the stream client
  *
  * @since 12
  *
@@ -239,8 +239,8 @@ OH_AudioStream_Result OH_AudioStreamBuilder_GenerateCapturer(OH_AudioStreamBuild
 OH_AudioStream_Result OH_AudioStreamBuilder_SetFrameSizeInCallback(OH_AudioStreamBuilder* builder,
     int32_t frameSize);
 
-/*
- * Set the callback of writing metadata to the renderer client
+/**
+ * @brief Set the callback of writing metadata to the renderer client
  *
  * @since 12
  *
