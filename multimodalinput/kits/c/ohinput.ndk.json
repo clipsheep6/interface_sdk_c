@@ -34,5 +34,145 @@
     {
         "first_introduced": "12",
         "name": "OH_Input_GetKeySwitch"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Input_SetKeyAction"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Input_GetKeyAction"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Input_SetKeyRepeat"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Input_GetKeyRepeat"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Input_InjectKeyEvent"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Input_CreateKeyEvent"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Input_DestroyKeyEvent"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Input_InjectMouseEvent"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Input_CreateMouseEvent"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Input_DestroyMouseEvent"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Input_InjectTouchEvent"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Input_CreateTouchEvent"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Input_DestroyTouchEvent"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Input_SetMouseDisplayX"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Input_GetMouseDisplayX"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Input_SetMouseDisplayY"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Input_GetMouseDisplayY"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Input_SetMouseAction"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Input_GetMouseAction"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Input_SetMouseSourceType"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Input_GetMouseSourceType"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Input_SetButtonId"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Input_GetButtonId"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Input_SetScrollValue"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Input_GetScrollValue"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Input_SetTouchDisplayX"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Input_GetTouchDisplayX"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Input_SetTouchDisplayY"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Input_GetTouchDisplayY"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Input_SetTouchAction"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Input_GetTouchAction"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Input_SetTouchSourceType"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Input_GetTouchSourceType"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Input_SetTouchToolType"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Input_GetTouchToolType"
     }
 ]
