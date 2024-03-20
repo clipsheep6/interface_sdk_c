@@ -476,14 +476,14 @@ OH_AVErrCode OH_AVPlayer_GetCurrentTrack(OH_AVPlayer *player, int32_t trackType,
  *
  * @syscap SystemCapability.Multimedia.Media.AVPlayer
  * @param player Pointer to an OH_AVPlayer instance.
- * @param trackDescriptions A list of track descriptions returned by player server.
+ * @param trackDescriptions Pointer to a list of track descriptions returned by player server.
  * @param trackCount Track count returned by player server.
  * @return Returns {@link AV_ERR_OK} if the track index is get; returns an error code defined
  * in {@link native_averrors.h} otherwise.
  * @since 12
  * @version 1.0
  */
-OH_AVErrCode OH_AVPlayer_GetTrackDescriptions(OH_AVPlayer *player, OH_AVFormat **trackDescriptions, int32_t *trackCount);
+OH_AVErrCode OH_AVPlayer_GetTrackDescriptions(OH_AVPlayer *player, OH_AVFormat ***trackDescriptions, int32_t *trackCount);
 
 /**
  * @brief Method to set subtitle callback.
