@@ -186,12 +186,7 @@ typedef enum {
  *
  * @since 12
  */
-struct Input_KeyState {
-    /** 按键键值 */
-    int32_t keyCode;
-    /** 按键状态 */
-    int32_t keyState;
-} Input_KeyState;
+struct Input_KeyState;
 
 /**
  * @brief 
@@ -659,7 +654,7 @@ int32_t OH_Input_GetTouchSourceType(struct Input_TouchEvent* touchEvent);
  * @brief 设置工具类型。
  * 
  * @param touchEvent 触摸事件。
- * @param toolType 资源类型。
+ * @param toolType 工具类型。
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 12
  */
