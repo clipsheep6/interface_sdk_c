@@ -28,6 +28,46 @@ extern "C" {
 typedef struct OH_AVSource OH_AVSource;
 
 /**
+ * @brief The function pointer will be called to get sequenced media data.
+ * @syscap SystemCapability.Multimedia.Media.CodecBase
+ * @param data The buffer to fill.
+ * @param length Length of data to read.
+ * @param offset Start offset to read.
+ * @return Returns actual length of data read to the buffer.
+ * @since 12
+*/
+typedef int32_t (*OH_AVDataSourceReadAt)(OH_AVBuffer *data, uint32_t length, int64_t offset);
+
+/**
+ * @brief User customized data source.
+ * @syscap SystemCapability.Multimedia.Media.CodecBase
+ * @since 12
+*/
+typedef struct OH_AVDataSource {
+    /**
+     * @brief Total size of the data source.
+     * @syscap SystemCapability.Multimedia.Media.CodecBase
+     * @since 12
+     */
+    int64_t size;
+    /**
+     * @brief Data callback of the data source.
+     * @syscap SystemCapability.Multimedia.Media.CodecBase
+     * @since 12
+     */
+    OH_AVDataSourceReadAt readAt;
+} OH_AVDataSource;
+
+/**
+ * @brief Creates an OH_AVSource instance that models the media with data source.
+ * @syscap SystemCapability.Multimedia.Media.Spliter
+ * @param dataSource User customized media resource.
+ * @return Returns a pointer to an OH_AVSource instance
+ * @since 12
+*/
+OH_AVSource *OH_AVSource_CreateWithDataSource(OH_AVDataSource *dataSource);
+
+/**
  * @brief Creates an OH_AVSource instance that models the media at the URI.
  * @syscap SystemCapability.Multimedia.Media.Spliter
  * @param uri An URI for a remote media resource.
