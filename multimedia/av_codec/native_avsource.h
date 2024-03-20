@@ -33,10 +33,10 @@ typedef struct OH_AVSource OH_AVSource;
  * @param data The buffer to fill.
  * @param length Length of data to read.
  * @param offset Start offset to read.
- * @return Returns actual length of data read to the buffer.
+ * @return Actual length of data read to the buffer.
  * @since 12
 */
-typedef int32_t (*OH_AVDataSourceReadAt)(OH_AVBuffer *data, uint32_t length, int64_t offset);
+typedef int32_t (*OH_AVDataSourceReadAt)(OH_AVBuffer *data, int32_t length, int64_t offset);
 
 /**
  * @brief User customized data source.

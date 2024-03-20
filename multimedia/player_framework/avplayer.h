@@ -84,32 +84,6 @@ OH_AVErrCode OH_AVPlayer_SetURLSource(OH_AVPlayer *player, const char *url);
 OH_AVErrCode OH_AVPlayer_SetFDSource(OH_AVPlayer *player, int32_t fd, int64_t offset, int64_t size);
 
 /**
- * @brief Adds a subtitle source for the player.
- * @syscap SystemCapability.Multimedia.Media.AVPlayer
- * @param player Pointer to an OH_AVPlayer instance
- * @param url Indicates the subtitle source.
- * @return Returns {@link AV_ERR_OK} if the url is set successfully; returns an error code defined
- * in {@link native_averrors.h} otherwise.
- * @since 12
- * @version 1.0
- */
-OH_AVErrCode OH_AVPlayer_AddSubtitleUrlSource(OH_AVPlayer *player, const char *url);
-
-/**
- * @brief Adds a subtitle file descriptor source for the player.
- * @syscap SystemCapability.Multimedia.Media.AVPlayer
- * @param player Pointer to an OH_AVPlayer instance
- * @param fd Indicates the file descriptor of subtitle source.
- * @param offset Indicates the offset of subtitle source in file descriptor.
- * @param size Indicates the size of subtitle source.
- * @return Returns {@link AV_ERR_OK} if the fd source is set successfully; returns an error code defined
- * in {@link native_averrors.h} otherwise.
- * @since 12
- * @version 1.0
- */
-OH_AVErrCode OH_AVPlayer_AddSubtitleFdSource(OH_AVPlayer *player, int32_t fd, int64_t offset, int64_t size);
-
-/**
  * @brief Prepares the playback environment and buffers media data asynchronous.
  *
  * This function must be called after {@link SetSource}.
@@ -468,35 +442,6 @@ OH_AVErrCode OH_AVPlayer_DeselectTrack(OH_AVPlayer *player, int32_t index);
  */
 OH_AVErrCode OH_AVPlayer_GetCurrentTrack(OH_AVPlayer *player, int32_t trackType, int32_t *index);
 
-/**
- * @brief Obtain all track descriptions of current playback. Track index can be extracted with
- * key {@link OH_MD_KEY_TRACK_ID} from each track description.
- *
- * Please get it in the prepared/playing/paused/completed state.
- *
- * @syscap SystemCapability.Multimedia.Media.AVPlayer
- * @param player Pointer to an OH_AVPlayer instance.
- * @param trackDescriptions Pointer to a list of track descriptions returned by player server.
- * @param trackCount Track count returned by player server.
- * @return Returns {@link AV_ERR_OK} if the track index is get; returns an error code defined
- * in {@link native_averrors.h} otherwise.
- * @since 12
- * @version 1.0
- */
-OH_AVErrCode OH_AVPlayer_GetTrackDescriptions(OH_AVPlayer *player, OH_AVFormat ***trackDescriptions, int32_t *trackCount);
-
-/**
- * @brief Method to set subtitle callback.
- * @syscap SystemCapability.Multimedia.Media.AVPlayer
- * @param player Pointer to an OH_AVPlayer instance
- * @param callback Pointer to a subtitle callback function.
- * @param userData User specific data.
- * @return Returns {@link AV_ERR_OK} if the playercallback is set; returns an error code defined
- * in {@link native_averrors.h} otherwise.
- * @since 12
- * @version 1.0
- */
-OH_AVErrCode OH_AVPlayer_SetSubtitleCallback(OH_AVPlayer *player, OH_AVPlayerOnSubtitleUpdate callback, void *userData);
 
 #ifdef __cplusplus
 }

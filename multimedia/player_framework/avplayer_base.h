@@ -46,13 +46,6 @@ extern "C" {
 typedef struct OH_AVPlayer OH_AVPlayer;
 
 /**
- * @brief Provides key to get track ID.
- * @syscap SystemCapability.Multimedia.Media.AVPlayer
- * @since 12
- */
-extern const char *OH_MD_KEY_TRACK_ID;
-
-/**
  * @brief Player States
  * @syscap SystemCapability.Multimedia.Media.AVPlayer
  * @since 11
@@ -205,20 +198,6 @@ typedef void (*OH_AVPlayerOnInfo)(OH_AVPlayer *player, AVPlayerOnInfoType type, 
  * @version 1.0
  */
 typedef void (*OH_AVPlayerOnError)(OH_AVPlayer *player, int32_t errorCode, const char *errorMsg);
-
-/**
- * @brief Called when subtitle data are updated.
- * @syscap SystemCapability.Multimedia.Media.AVPlayer
- * @param player The pointer to an OH_AVPlayer instance.
- * @param text Current subtitle data.
- * @param startTime Start time of current subtitle data.
- * @param duration Duration of current subtitle data.
- * @param userData User specific data.
- * @since 12
- * @version 1.0
- */
-typedef void (*OH_AVPlayerOnSubtitleUpdate)(OH_AVPlayer *player, const char *text, int32_t startTime,
-    int32_t duration, void *userData);
 
 /**
  * @brief A collection of all callback function pointers in OH_AVPlayer. Register an instance of this
