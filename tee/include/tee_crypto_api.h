@@ -51,25 +51,35 @@ extern "C" {
 
 #ifndef NULL
 /**
- * Definition of <b>NULL</b>.
+ * @brief Definition of <b>NULL</b>.
+ *
+ * @since 12
  */
 #define NULL ((void *)0)
 #endif
 /**
  * @brief Defines the maximum key length, in bits.
+ *
+ * @since 12
  */
 #define TEE_MAX_KEY_SIZE_IN_BITS      (1024 * 8)
 /**
  * @brief Defines the length of the SW_RSA key, in bytes.
+ *
+ * @since 12
  */
 #define SW_RSA_KEYLEN                 1024
 /**
  * @brief Defines the maximum length of other Diffie-Hellman (DH) information, in bytes.
+ *
+ * @since 12
  */
 #define TEE_DH_MAX_SIZE_OF_OTHER_INFO 64 /* bytes */
 
 /**
  * @brief Enumerates the cryptographic operation handles.
+ *
+ * @since 12
  */
 enum __TEE_Operation_Constants {
     /** Cipher */
@@ -90,6 +100,8 @@ enum __TEE_Operation_Constants {
 
 /**
  * @brief Enumerates the cryptographic algorithms.
+ *
+ * @since 12
  */
 enum __tee_crypto_algorithm_id {
     /** Invalid algorithm */
@@ -282,11 +294,15 @@ enum __tee_crypto_algorithm_id {
 typedef enum __tee_crypto_algorithm_id tee_crypto_algorithm_id;
 /**
  * @brief No element is available.
+  *
+ * @since 12
  */
 #define TEE_OPTIONAL_ELEMENT_NONE 0x00000000
 
 /**
  * @brief Enumerates the Elliptic-Curve Cryptography (ECC) curves supported.
+ *
+ * @since 12
  */
 typedef enum {
     /** CURVE_NIST_P192 */
@@ -307,6 +323,8 @@ typedef enum {
 
 /**
  * @brief Enumerates the Mask Generation Function (MGF1) modes.
+ *
+ * @since 12
  */
 typedef enum {
     TEE_DH_HASH_SHA1_mode   = 0,
@@ -319,6 +337,8 @@ typedef enum {
 
 /**
  * @brief Enumerates the cryptographic operation modes.
+ *
+ * @since 12
  */
 enum __TEE_OperationMode {
     /** Encryption */
@@ -339,6 +359,8 @@ enum __TEE_OperationMode {
 
 /**
  * @brief Enumerates the cryptographic operation states.
+ *
+ * @since 12
  */
 enum tee_operation_state {
     /** Initial */
@@ -354,6 +376,8 @@ typedef uint32_t TEE_OperationMode;
 
 /**
  * @brief Defines the operation information.
+ *
+ * @since 12
  */
 struct __TEE_OperationInfo {
     /** Algorithm ID */
@@ -385,6 +409,8 @@ typedef struct __TEE_OperationInfo TEE_OperationInfo;
 
 /**
  * @brief Defines the key information stored in the <b>OperationInfo</b>.
+ *
+ * @since 12
  */
 typedef struct {
     /** Key length */
@@ -395,6 +421,8 @@ typedef struct {
 
 /**
  * @brief Defines information about an operation.
+ *
+ * @since 12
  */
 typedef struct {
     /** Algorithm ID */
@@ -419,6 +447,8 @@ typedef struct {
 
 /**
  * @brief Defines the cryptographic operation handle.
+ *
+ * @since 12
  */
 struct __TEE_OperationHandle {
     /** Algorithm ID */
@@ -467,6 +497,8 @@ struct __TEE_OperationHandle {
 
 /**
  * @brief Defines the data used for conversion of integers.
+ *
+ * @since 12
  */
 typedef struct {
     /** Source */
@@ -477,15 +509,21 @@ typedef struct {
 
 /**
  * @brief Defines the maximum length of an RSA public key.
+ *
+ * @since 12
  */
 #define RSA_PUBKEY_MAXSIZE sizeof(CRYS_RSAUserPubKey_t)
 /**
  * @brief Defines the maximum length of an RES private key.
+ *
+ * @since 12
  */
 #define RSA_PRIVKEY_MAXSIZE sizeof(CRYS_RSAUserPrivKey_t)
 
 /**
  * @brief Defines a structure to hold the input and output data.
+ *
+ * @since 12
  */
 typedef struct {
     /** Source data */
@@ -500,6 +538,8 @@ typedef struct {
 
 /**
  * @brief Defines the AE initialization data.
+ *
+ * @since 12
  */
 typedef struct {
     /** nonce */
@@ -518,6 +558,8 @@ typedef struct {
  * @brief Defines the pointer to <b>__TEE_OperationHandle</b>.
  *
  * @see __TEE_OperationHandle
+ *
+ * @since 12
  */
 typedef struct __TEE_OperationHandle *TEE_OperationHandle;
 
@@ -525,11 +567,15 @@ typedef struct __TEE_OperationHandle *TEE_OperationHandle;
  * @brief Defines the <b>__TEE_OperationHandle</b> struct.
  *
  * @see __TEE_OperationHandle
+ *
+ * @since 12
  */
 typedef struct __TEE_OperationHandle TEE_OperationHandleVar;
 
 /**
  * @brief Defines the <b>__TEE_ObjectHandle</b> struct.
+ *
+ * @since 12
  */
 typedef struct __TEE_ObjectHandle TEE_ObjectHandleVar;
 

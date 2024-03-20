@@ -58,6 +58,11 @@ extern "C" {
  */
 TEE_Result tee_ext_get_device_unique_id(uint8_t *device_unique_id, uint32_t *length);
 
+/**
+ * @brief Defines the memory information.
+ * 
+ * @since 12
+ */
 struct meminfo_t {
     uint64_t buffer;
     uint32_t size;

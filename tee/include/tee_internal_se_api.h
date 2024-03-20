@@ -39,7 +39,7 @@
  * @version 1.0
  */
 
-#include <tee_defines.h>
+#include "tee_defines.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -66,7 +66,7 @@ typedef struct __TEE_SEChannelHandle *TEE_SEChannelHandle;
  */
 #define SE_LOGIC_CHANNEL_MAX 8U
 
-#define TEE_SC_TYPE_SPC03 0x01
+#define TEE_SC_TYPE_SCP03 0x01
 
 #define BYTE_LEN 8
 
@@ -102,9 +102,9 @@ typedef struct __TEE_SEAID {
  * @since 12
  */
 typedef enum {
-    /** A base key acc. to SPC02. */
+    /** A base key acc. to SCP02. */
     TEE_SC_BASE_KEY = 0,
-    /** A key set (key-MAC, key_ENC) acc. to SPC02, SPC03. */
+    /** A key set (key-MAC, key_ENC) acc. to SCP02, SCP03. */
     TEE_SC_KEY_SET = 1
 } TEE_SC_KeyType;
 
@@ -165,7 +165,7 @@ typedef struct __TEE_SC_DeviceKeyRef {
     union {
         TEE_ObjectHandle scBaseKeyHandle;
         TEE_SC_KeySetRef scKeySetRef;
-    };
+    } __TEE_key;
 } TEE_SC_DeviceKeyRef;
 
 /**
@@ -191,7 +191,7 @@ typedef struct __TEE_SC_Params {
     /** The SC type defined by OID. */
     TEE_SC_OID scOID;
     /** The SC security level. */
-    TEE_SC_SecurityLevel;
+    TEE_SC_SecurityLevel scSecurityLevel;
     /** Reference to SC card keys. */
     TEE_SC_CardKeyRef scCardKeyRef;
     /** Reference to SC device keys. */
@@ -210,7 +210,7 @@ typedef struct __TEE_SC_Params {
  * @since 12
  * @version 1.0
  */
-TEE_Result TEE_SEServiceOpen(TEE_SEServiceHandle se_service_handle);
+TEE_Result TEE_SEServiceOpen(TEE_SEServiceHandle *se_service_handle);
 
 /**
  * @brief Close the SE service.
@@ -249,7 +249,7 @@ TEE_Result TEE_SEServiceGetReaders(TEE_SEServiceHandle se_service_handle, TEE_SE
  * @since 12
  * @version 1.0
  */
-void TEE_SEReaderGetProperties(TEE_SEReaderHandle *se_reader_handle, TEE_SEReaderProperties *reader_properties);
+void TEE_SEReaderGetProperties(TEE_SEReaderHandle se_reader_handle, TEE_SEReaderProperties *reader_properties);
 
 /**
  * @brief Get the SE reader's name.
@@ -266,7 +266,7 @@ void TEE_SEReaderGetProperties(TEE_SEReaderHandle *se_reader_handle, TEE_SEReade
  * @since 12
  * @version 1.0
  */
-TEE_Result TEE_SEReaderGetName(TEE_SEReaderHandle *se_reader_handle, char *reader_name, uint32_t *reader_name_len);
+TEE_Result TEE_SEReaderGetName(TEE_SEReaderHandle se_reader_handle, char *reader_name, uint32_t *reader_name_len);
 
 /**
  * @brief Open a session between the SE reader to the SE.
@@ -282,7 +282,7 @@ TEE_Result TEE_SEReaderGetName(TEE_SEReaderHandle *se_reader_handle, char *reade
  * @since 12
  * @version 1.0
  */
-TEE_Result TEE_SEReaderOpenSession(TEE_SEReaderHandle *se_reader_handle, TEE_SESessionHandle *se_session_handle);
+TEE_Result TEE_SEReaderOpenSession(TEE_SEReaderHandle se_reader_handle, TEE_SESessionHandle *se_session_handle);
 
 /**
  * @brief Close the session between the SE reader to the SE.
@@ -292,14 +292,14 @@ TEE_Result TEE_SEReaderOpenSession(TEE_SEReaderHandle *se_reader_handle, TEE_SES
  * @since 12
  * @version 1.0
  */
-void TEE_SEReaderCloseSessions(TEE_SEReaderHandle *se_reader_handle);
+void TEE_SEReaderCloseSessions(TEE_SEReaderHandle se_reader_handle);
 
 /**
  * @brief Get the SE ATR.
  *
  * @param se_session_handle  Indicates the session handle.
  * @param atr  Indicates the SE ATR.
- * @param atrlen  Indicates the length of ATR.
+ * @param atrLen  Indicates the length of ATR.
  *
  * @return Returns {@code TEE_SUCCESS} if the operation is successful.
  *         Returns {@code TEE_ERROR_BAD_PARAMETERS} if input parameter is incorrect.
@@ -308,7 +308,7 @@ void TEE_SEReaderCloseSessions(TEE_SEReaderHandle *se_reader_handle);
  * @since 12
  * @version 1.0
  */
-TEE_Result TEE_SESessionGetATR(TEE_SESessionHandle *se_session_handle, void *atr, uint32_t *atrlen);
+TEE_Result TEE_SESessionGetATR(TEE_SESessionHandle se_session_handle, void *atr, uint32_t *atrLen);
 
 /**
  * @brief Check whether the session is closed.
@@ -322,7 +322,7 @@ TEE_Result TEE_SESessionGetATR(TEE_SESessionHandle *se_session_handle, void *atr
  * @since 12
  * @version 1.0
  */
-TEE_Result TEE_SESessionIsClosed(TEE_SESessionHandle *se_session_handle);
+TEE_Result TEE_SESessionIsClosed(TEE_SESessionHandle se_session_handle);
 
 /**
  * @brief Close the SE session.
@@ -332,7 +332,7 @@ TEE_Result TEE_SESessionIsClosed(TEE_SESessionHandle *se_session_handle);
  * @since 12
  * @version 1.0
  */
-void TEE_SESessionClose(TEE_SESessionHandle *se_session_handle);
+void TEE_SESessionClose(TEE_SESessionHandle se_session_handle);
 
 /**
  * @brief Close all channels which pointed to by the SE session.
@@ -342,7 +342,7 @@ void TEE_SESessionClose(TEE_SESessionHandle *se_session_handle);
  * @since 12
  * @version 1.0
  */
-void TEE_SESessionCloseChannels(TEE_SESessionHandle *se_session_handle);
+void TEE_SESessionCloseChannels(TEE_SESessionHandle se_session_handle);
 
 /**
  * @brief Open a basic channel which pointed to by the SE session.
@@ -360,11 +360,11 @@ void TEE_SESessionCloseChannels(TEE_SESessionHandle *se_session_handle);
  * @since 12
  * @version 1.0
  */
-TEE_Result TEE_SESessionOpenBasicChannel(TEE_SESessionHandle *se_session_handle, TEE_SEAID *se_aid,
+TEE_Result TEE_SESessionOpenBasicChannel(TEE_SESessionHandle se_session_handle, TEE_SEAID *se_aid,
                                          TEE_SEChannelHandle *se_channel_handle);
 
 /**
- * @brief Open a logic channel which pointed to by the SE session.
+ * @brief Open a logical channel which pointed to by the SE session.
  *
  * @param se_session_handle  Indicates the session handle.
  * @param se_aid  Indicates the SE AID.
@@ -379,7 +379,7 @@ TEE_Result TEE_SESessionOpenBasicChannel(TEE_SESessionHandle *se_session_handle,
  * @since 12
  * @version 1.0
  */
-TEE_Result TEE_SESessionOpenLogicChannel(TEE_SESessionHandle *se_session_handle, TEE_SEAID *se_aid,
+TEE_Result TEE_SESessionOpenLogicalChannel(TEE_SESessionHandle se_session_handle, TEE_SEAID *se_aid,
                                          TEE_SEChannelHandle *se_channel_handle);
 
 /**
@@ -390,7 +390,7 @@ TEE_Result TEE_SESessionOpenLogicChannel(TEE_SESessionHandle *se_session_handle,
  * @since 12
  * @version 1.0
  */
-void TEE_SEChannelClose(TEE_SEChannelHandle *se_channel_handle);
+void TEE_SEChannelClose(TEE_SEChannelHandle se_channel_handle);
 
 /**
  * @brief Select the next SE service which pointed to by the channel handle.
@@ -404,7 +404,7 @@ void TEE_SEChannelClose(TEE_SEChannelHandle *se_channel_handle);
  * @since 12
  * @version 1.0
  */
-TEE_Result TEE_SEChannelSelectNext(TEE_SEChannelHandle *se_channel_handle);
+TEE_Result TEE_SEChannelSelectNext(TEE_SEChannelHandle se_channel_handle);
 
 /**
  * @brief Get the response of SE when open the channel handle.
@@ -420,7 +420,7 @@ TEE_Result TEE_SEChannelSelectNext(TEE_SEChannelHandle *se_channel_handle);
  * @since 12
  * @version 1.0
  */
-TEE_Result TEE_SEChannelGetSelectResponse(TEE_SEChannelHandle *se_channel_handle, void *response,
+TEE_Result TEE_SEChannelGetSelectResponse(TEE_SEChannelHandle se_channel_handle, void *response,
                                           uint32_t *response_len);
 
 /**
@@ -440,14 +440,14 @@ TEE_Result TEE_SEChannelGetSelectResponse(TEE_SEChannelHandle *se_channel_handle
  * @since 12
  * @version 1.0
  */
-TEE_Result TEE_SEChannelTransmit(TEE_SEChannelHandle *se_channel_handle, void *command, uint32_t *command_len, 
+TEE_Result TEE_SEChannelTransmit(TEE_SEChannelHandle se_channel_handle, void *command, uint32_t command_len, 
                                  void *response, uint32_t *response_len);
 
 /**
  * @brief Open a SE secure channel based on the input channel handle.
  * Thereafter, when the {@code TEE_SEChannelTransmit} is called, all APDUs(ENC/MAC protected) transmitted based on
  * the handle are automatically protected based on the defined secure channel parameter options.
- * Currently, only SPC03 is supported.
+ * Currently, only SCP03 is supported.
  *
  * @param se_channel_handle  Indicates the SE channel handle.
  * @param sc_params  Indicates the parameter reference for the secure channel protocol.
@@ -461,7 +461,7 @@ TEE_Result TEE_SEChannelTransmit(TEE_SEChannelHandle *se_channel_handle, void *c
  * @since 12
  * @version 1.0
  */
-TEE_Result TEE_SESecureChannelOpen(TEE_SEChannelHandle *se_channel_handle, TEE_SC_Params *sc_params);
+TEE_Result TEE_SESecureChannelOpen(TEE_SEChannelHandle se_channel_handle, TEE_SC_Params *sc_params);
 
 /**
  * @brief Close the SE secure channel based on the input channel handle.
@@ -473,7 +473,7 @@ TEE_Result TEE_SESecureChannelOpen(TEE_SEChannelHandle *se_channel_handle, TEE_S
  * @since 12
  * @version 1.0
  */
-void TEE_SESecureChannelClose(TEE_SEChannelHandle *se_channel_handle);
+void TEE_SESecureChannelClose(TEE_SEChannelHandle se_channel_handle);
 
 /**
  * @brief Get the channel Id which pointed to by the input channel handle.
@@ -487,7 +487,7 @@ void TEE_SESecureChannelClose(TEE_SEChannelHandle *se_channel_handle);
  * @since 12
  * @version 1.0
  */
-TEE_Result TEE_SEChannelGetID(TEE_SEChannelHandle *se_channel_handle, uint8_t *channel_id);
+TEE_Result TEE_SEChannelGetID(TEE_SEChannelHandle se_channel_handle, uint8_t *channel_id);
 #ifdef __cplusplus
 }
 #endif

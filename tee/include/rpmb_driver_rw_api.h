@@ -65,13 +65,13 @@ extern "C" {
  * @since 12
  * @version 1.0
  */
-#define TOTAL_BLK_SIZ (TOTAL_BLK * BLK_SIZE)
+#define TOTAL_BLK_SIZE (TOTAL_BLK * BLK_SIZE)
 
 #define SEC_WRITE_PROTECT_ENTRY_NUM 4
-#define SEC_WRITE_PROTECT_ENTRY_RESERVERD_NUM 3
-#define SEC_WRITE_PROTECT_ENTRY_RESERVERD_SIZE 16
-#define SEC_WRITE_PROTECT_FRAME_RESERVERD_NUM 14
-#define SEC_WRITE_PROTECT_FRAME_RESERVERD_END_NUM 176
+#define SEC_WRITE_PROTECT_ENTRY_RESERVED_NUM 3
+#define SEC_WRITE_PROTECT_ENTRY_RESERVED_SIZE 16
+#define SEC_WRITE_PROTECT_FRAME_RESERVED_NUM 14
+#define SEC_WRITE_PROTECT_FRAME_RESERVED_END_NUM 176
 #define SEC_WRITE_PROTECT_BLK_SIZE 256
 #define SEC_WRITE_PROTECT_LUN_MAX 5
 
@@ -85,8 +85,8 @@ extern "C" {
  * @version 1.0
  */
 typedef enum {
-    SEC_WRITE_PROTECTED_DISABLE = 0,
-    SEC_WRITE_PROTECTED_ENABLE = 1,
+    SEC_WRITE_PROTECT_DISABLE = 0,
+    SEC_WRITE_PROTECT_ENABLE = 1,
 } write_protect_flag;
 
 /**
@@ -120,11 +120,11 @@ typedef enum {
  * | 3   |           Reserved             |
  * +-----+---+---+---+---+---+---+---+----+
  * | 4   |     LOGICAL BLOCK ADDRESS      | -> logical_blk_addr
- * +-----+---+---+---+---+---+---+---+----+
+ * +-----+                                +
  * | ... |                                |
- * +-----+---+---+---+---+---+---+---+----+
+ * +-----+                                +
  * | 11  |                                |
- * +-----+---+---+---+---+---+---+---+----+
+ * +-----+                                +
  * | 12  |                                |
  * +-----+---+---+---+---+---+---+---+----+
  * | ... |     NUMBER OF LOGICAL BLOCKS   | -> logical_blk_num
@@ -137,7 +137,7 @@ typedef enum {
  */
 struct rpmb_protect_cfg_blk_entry {
     uint8_t wp_data;
-    uint8_t reserved[SEC_WRITE_PROTECT_ENTRY_RESERVERD_NUM];
+    uint8_t reserved[SEC_WRITE_PROTECT_ENTRY_RESERVED_NUM];
     /** This field specifies the LBA of the first logical address of the Secure Write Protect ares. */
     uint64_t logical_blk_addr;
     /** This field specifies the number of contiguous logical size that belong to the Secure Write Protect. */
@@ -201,9 +201,9 @@ struct rpmb_protect_cfg_blk_entry {
 struct rpmb_protect_cfg_block {
     uint8_t lun;
     uint8_t data_length;
-    uint8_t reserved[SEC_WRITE_PROTECT_FRAME_RESERVERD_NUM];
+    uint8_t reserved[SEC_WRITE_PROTECT_FRAME_RESERVED_NUM];
     struct rpmb_protect_cfg_blk_entry entries[SEC_WRITE_PROTECT_ENTRY_NUM];
-    uint8_t reserved_end[SEC_WRITE_PROTECT_FRAME_RESERVERD_END_NUM];
+    uint8_t reserved_end[SEC_WRITE_PROTECT_FRAME_RESERVED_END_NUM];
 }__attribute__((packed));
 
 /**
@@ -272,7 +272,7 @@ TEE_Result tee_ext_rpmb_driver_write(const uint8_t *buf, size_t size, uint32_t b
  * @since 12
  * @version 1.0
  */
-TEE_Result tee_ext_rpmb_driver_read(const uint8_t *buf, size_t size, uint32_t block, uint32_t offset);
+TEE_Result tee_ext_rpmb_driver_read(uint8_t *buf, size_t size, uint32_t block, uint32_t offset);
 
 /**
  * @brief Remove data from RPMB driver.

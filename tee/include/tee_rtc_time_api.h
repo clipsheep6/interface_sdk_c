@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-#ifndef TEE_RTC_TIME_API_H
-#define TEE_RTC_TIME_API_H
+#ifndef __TEE_RTC_TIME_API_H
+#define __TEE_RTC_TIME_API_H
 
 /**
  * @addtogroup TeeTrusted
@@ -60,7 +60,7 @@ extern "C" {
 TEE_Result tee_ext_create_timer(uint32_t time_seconds, TEE_timer_property *timer_property);
 
 /**
- * @brief Destroy a secure timer.
+ * @brief Destory a secure timer.
  *
  * @param timer_property Indicates the property of the timer, where only need to specify the timer type.
  *
@@ -70,7 +70,7 @@ TEE_Result tee_ext_create_timer(uint32_t time_seconds, TEE_timer_property *timer
  * @since 12
  * @version 1.0
  */
-TEE_Result tee_ext_destroy_timer(TEE_timer_property *timer_property);
+TEE_Result tee_ext_destory_timer(TEE_timer_property *timer_property);
 
 /**
  * @brief Obtain the set timing duration.
@@ -84,7 +84,7 @@ TEE_Result tee_ext_destroy_timer(TEE_timer_property *timer_property);
  * @since 12
  * @version 1.0
  */
-TEE_Result tee_ext_get_timer_expire(TEE_timer_property *timer_property, uint32_t time_seconds);
+TEE_Result tee_ext_get_timer_expire(TEE_timer_property *timer_property, uint32_t *time_seconds);
 
 /**
  * @brief Obtain the remain timing duration.
@@ -98,7 +98,7 @@ TEE_Result tee_ext_get_timer_expire(TEE_timer_property *timer_property, uint32_t
  * @since 12
  * @version 1.0
  */
-TEE_Result tee_ext_get_timer_remain(TEE_timer_property *timer_property, uint32_t time_seconds);
+TEE_Result tee_ext_get_timer_remain(TEE_timer_property *timer_property, uint32_t *time_seconds);
 
 /**
  * @brief Obtain the current timing of the RTC clock.

@@ -16,14 +16,6 @@
 #ifndef __TEE_CORE_API_H
 #define __TEE_CORE_API_H
 
- /**
- * @file tee_core_api.h
- *
- * @brief Provides APIs for managing trusted application (TA) sessions.
- *
- * @since 12
- */
-
 /**
  * @addtogroup TeeTrusted
  * @{
@@ -31,6 +23,15 @@
  * @brief TEE(Trusted Excution Environment) API.
  * Provides security capability APIs such as trusted storage, encryption and decryption,
  * and trusted time for trusted application development.
+ *
+ * @since 12
+ * @version 1.0
+ */
+
+ /**
+ * @file tee_core_api.h
+ *
+ * @brief Provides APIs for managing trusted application (TA) sessions.
  *
  * @library libtee_ndk.z.so
  * @kit TEE Kit

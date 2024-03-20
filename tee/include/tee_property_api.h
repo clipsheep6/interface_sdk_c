@@ -49,6 +49,12 @@ extern "C" {
  * for compatibility.
  * Do not make any change to the content below.
  */
+
+/**
+ * @brief Enumerates the types of the property set.
+ *
+ * @since 12
+ */
 typedef enum {
     TEE_PROPSET_UNKNOW             = 0,
     TEE_PROPSET_TEE_IMPLEMENTATION = 0xFFFFFFFD,

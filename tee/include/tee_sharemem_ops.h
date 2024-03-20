@@ -103,7 +103,7 @@ uint32_t tee_free_sharemem(void *addr, uint32_t size);
  * @since 12
  * @version 1.0
  */
-int32_t copy_from_sharemem(uint32_t src_task, uint64_t src, uint32_t src_size, uint64_t dst, uint32_t dst_size);
+int32_t copy_from_sharemem(uint32_t src_task, uint64_t src, uint32_t src_size, uintptr_t dst, uint32_t dst_size);
 
 /**
  * @brief Copy shared memory to destination task.
@@ -120,7 +120,7 @@ int32_t copy_from_sharemem(uint32_t src_task, uint64_t src, uint32_t src_size, u
  * @since 12
  * @version 1.0
  */
-int32_t copy_to_sharemem(uint64_t src, uint32_t src_size, uint32_t dst_task, uint64_t dst, uint32_t dst_size);
+int32_t copy_to_sharemem(uintptr_t src, uint32_t src_size, uint32_t dst_task, uint64_t dst, uint32_t dst_size);
 #ifdef __cplusplus
 }
 #endif

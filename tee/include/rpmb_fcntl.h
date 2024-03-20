@@ -92,7 +92,7 @@ TEE_Result TEE_RPMB_FS_Format(void);
 TEE_Result TEE_RPMB_FS_Write(const char *filename, const uint8_t *buf, size_t size);
 
 /**
- * @brief RPMB files from RPMB.
+ * @brief Read files from RPMB.
  *
  * @attention If you want to improve the performance of reading files, you need to define the heap size in TA's
  * manifest to be at leaset 3 times the file size plus 256KB.
@@ -112,7 +112,22 @@ TEE_Result TEE_RPMB_FS_Write(const char *filename, const uint8_t *buf, size_t si
  * @since 12
  * @version 1.0
  */
-TEE_Result TEE_RPMB_FS_Read(const char *filename, const uint8_t *buf, size_t size, uint32_t *count);
+TEE_Result TEE_RPMB_FS_Read(const char *filename, uint8_t *buf, size_t size, uint32_t *count);
+
+/**
+ * @brief Rename file name in RPMB.
+ *
+ * @param old_name Indicates the old file name.
+ * @param new_name Indicates the new file name.
+ *
+ * @return Returns {@code TEE_SUCCESS} if the operation is successful.
+ *         Returns {@code TEE_ERROR_BAD_PARAMETERS} if input parameter is incorrect, or the file name is longer than 64 bytes.
+ *         Returns {@code TEE_ERROR_RPMB_FILE_NOT_FOUND} if the file dose not exist.
+ *
+ * @since 12
+ * @version 1.0
+ */
+TEE_Result TEE_RPMB_FS_Rename(const char *old_name, const char *new_name);
 
 /**
  * @brief Delete files in RPMB.
@@ -161,7 +176,7 @@ TEE_Result TEE_RPMB_FS_Stat(const char *filename, struct rpmb_fs_stat *stat);
  */
 struct rpmb_fs_statdisk {
     /** Indicates the total size of PRMB partition. */
-    uint32_t disk;
+    uint32_t disk_size;
     /** Indicates the TA used size. */
     uint32_t ta_used_size;
     /** Indicates the free size of the PRMB partition. */
@@ -253,7 +268,7 @@ enum TEE_RPMB_KEY_STAT {
  * @since 12
  * @version 1.0
  */
-TEE_Result TEE_RPMB_KEY_Status(void);
+uint32_t TEE_RPMB_KEY_Status(void);
 
 /**
  * @brief Process the current TA version information.

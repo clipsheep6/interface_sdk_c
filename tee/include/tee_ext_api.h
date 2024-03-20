@@ -48,7 +48,7 @@ extern "C" {
 #endif /* __cpluscplus */
 #endif /* __cpluscplus */
 
-#define TEE_SMC_FROM_USER 0
+#define TEE_SMC_FROM_USR 0
 #define TEE_SMC_FROM_KERNEL 1
 
 /**
@@ -69,7 +69,7 @@ typedef struct ta_caller_info {
         struct {
             TEE_UUID caller_uuid;
             uint32_t group_id;
-        }
+        };
         uint8_t ca_info[RESERVED_BUF_SIZE];
     } caller_identity;
     uint8_t smc_from_kernel_mode;

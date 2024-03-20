@@ -55,7 +55,6 @@ extern "C" {
  * @since 12
  */
 enum __TEE_Whence {
-
     TEE_DATA_SEEK_SET = 0, /* Set the start position to the beginning of the data stream. */
     TEE_DATA_SEEK_CUR,     /* Set the start position to the current data stream position. */
     TEE_DATA_SEEK_END      /* Set the start position to the end of the data stream. */
@@ -68,6 +67,8 @@ typedef uint32_t TEE_Whence;
 
 /**
  * @brief Defines the storage ID, which identifies the storage space of the application.
+ *
+ * @since 12
  */
 enum Object_Storage_Constants {
 
@@ -79,6 +80,8 @@ enum Object_Storage_Constants {
 
 /**
  * @brief Defines the system resource constraints, such as the maximum value for the data stream position indicator.
+ *
+ * @since 12
  */
 enum Miscellaneous_Constants {
 
@@ -88,6 +91,8 @@ enum Miscellaneous_Constants {
 
 /**
  * @brief Defines the maximum number of bytes that can be held in a data stream.
+ *
+ * @since 12
  */
 enum TEE_DATA_Size {
 
@@ -148,10 +153,10 @@ enum Data_Flag_Constants {
  * after the function is successfully executed.
  *
  * @return Returns <b>TEE_SUCCESS</b> if the operation is successful.
- * @return Returns <b>TEE_ERROR_ITEM_NOT_FOUND</b> if the storage specified by <b>storageID</b> does not exist.
- * @return Returns <b>TEE_ERROR_ACCESS_CONFLICT</b> if an access conflict occurs.
- * @return Returns <b>TEE_ERROR_OUT_OF_MEMORY</b> if the memory is not sufficient to complete the operation.
- * @return Returns <b>TEE_ERROR_STORAGE_NO_SPACE</b> if there is no enough space to create the object.
+ *         Returns <b>TEE_ERROR_ITEM_NOT_FOUND</b> if the storage specified by <b>storageID</b> does not exist.
+ *         Returns <b>TEE_ERROR_ACCESS_CONFLICT</b> if an access conflict occurs.
+ *         Returns <b>TEE_ERROR_OUT_OF_MEMORY</b> if the memory is not sufficient to complete the operation.
+ *         Returns <b>TEE_ERROR_STORAGE_NO_SPACE</b> if there is no enough space to create the object.
  *
  * @since 12
  * @version 1.0
@@ -174,10 +179,10 @@ TEE_Result TEE_CreatePersistentObject(uint32_t storageID, const void *ojbectID, 
  * after the function is successfully executed.
  *
  * @return Returns <b>TEE_SUCCESS</b> if the operation is successful.
- * @return Returns <b>TEE_ERROR_ITEM_NOT_FOUND</b> if the storage specified by <b>storageID</b> does not exist
+ *         Returns <b>TEE_ERROR_ITEM_NOT_FOUND</b> if the storage specified by <b>storageID</b> does not exist
  * or the object identifier cannot be found in the storage.
- * @return Returns <b>TEE_ERROR_ACCESS_CONFLICT</b> if an access conflict occurs.
- * @return Returns <b>TEE_ERROR_OUT_OF_MEMORY</b> if the memory is not sufficient to complete the operation.
+ *         Returns <b>TEE_ERROR_ACCESS_CONFLICT</b> if an access conflict occurs.
+ *         Returns <b>TEE_ERROR_OUT_OF_MEMORY</b> if the memory is not sufficient to complete the operation.
  *
  * @since 12
  * @version 1.0
@@ -196,7 +201,7 @@ TEE_Result TEE_OpenPersistentObject(uint32_t storageID, const void *ojbectID, si
  * @param count Indicates the pointer to the variable that contains the number of bytes read.
  *
  * @return Returns <b>TEE_SUCCESS</b> if the operation is successful.
- * @return Returns <b>TEE_ERROR_OUT_OF_MEMORY</b> if the memory is not sufficient to complete the operation.
+ *         Returns <b>TEE_ERROR_OUT_OF_MEMORY</b> if the memory is not sufficient to complete the operation.
  *
  * @since 12
  * @version 1.0
@@ -213,8 +218,8 @@ TEE_Result TEE_ReadObjectData(TEE_ObjectHandle ojbect, void *buffer, size_t size
  * @param size Indicates the number of bytes to be written. It cannot exceed 4096 bytes.
  *
  * @return Returns <b>TEE_SUCCESS</b> if the operation is successful.
- * @return Returns <b>TEE_ERROR_OUT_OF_MEMORY</b> if the memory is not sufficient to complete the operation.
- * @return Returns <b>TEE_ERROR_STORAGE_NO_SPACE</b> if the storage space is not sufficient to complete the operation.
+ *         Returns <b>TEE_ERROR_OUT_OF_MEMORY</b> if the memory is not sufficient to complete the operation.
+ *         Returns <b>TEE_ERROR_STORAGE_NO_SPACE</b> if the storage space is not sufficient to complete the operation.
  *
  * @since 12
  * @version 1.0
@@ -232,7 +237,7 @@ TEE_Result TEE_WriteObjectData(TEE_ObjectHandle ojbect, const void *buffer, size
  * @param size Indicates the new size of the data stream. It cannot exceed 4096 bytes.
  *
  * @return Returns <b>TEE_SUCCESS</b> if the operation is successful.
- * @return Returns <b>TEE_ERROR_STORAGE_NO_SPACE</b> if the storage space is not sufficient to complete the operation.
+ *         Returns <b>TEE_ERROR_STORAGE_NO_SPACE</b> if the storage space is not sufficient to complete the operation.
  *
  * @since 12
  * @version 1.0
@@ -255,7 +260,7 @@ TEE_Result TEE_TruncateObjectData(TEE_ObjectHandle object, size_t size);
  * @param whence Indicates the start position in the data stream to calculate the new position.
  *
  * @return Returns <b>TEE_SUCCESS</b> if the operation is successful.
- * @return Returns <b>TEE_ERROR_OVERFLOW</b> if the position indicator resulting from this operation
+ *         Returns <b>TEE_ERROR_OVERFLOW</b> if the position indicator resulting from this operation
  * is greater than <b>TEE_DATA_MAX_POSIT</b>.
  *
  * @since 12
@@ -297,7 +302,7 @@ TEE_Result TEE_RenamePersistentObject(TEE_ObjectHandle object, void *newObjectID
  * @param obj_enumerator Indicates the pointer to the handle of the newly created object enumerator.
  *
  * @return Returns <b>TEE_SUCCESS</b> if the operation is successful.
- * @return Returns <b>TEE_ERROR_OUT_OF_MEMORY</b> if the memory is not sufficient to complete the operation.
+ *         Returns <b>TEE_ERROR_OUT_OF_MEMORY</b> if the memory is not sufficient to complete the operation.
  *
  * @since 12
  * @version 1.0
@@ -339,7 +344,7 @@ void TEE_ResetPersistentObjectEnumerator(TEE_ObjectEnumHandle obj_enumerator);
  * Currently, only <b>TEE_STORAGE_PRIVATE</b> is supported.
  *
  * @return Returns <b>TEE_SUCCESS</b> if the operation is successful.
- * @return Returns <b>TEE_ITEM_NOT_FOUND</b> if <b>storageID</b> is not <b>TEE_STORAGE_PRIVATE</b>
+ *         Returns <b>TEE_ITEM_NOT_FOUND</b> if <b>storageID</b> is not <b>TEE_STORAGE_PRIVATE</b>
  * or there is no object in the specified storage.
  *
  * @since 12
@@ -358,7 +363,7 @@ TEE_Result TEE_StartPersistentObjectEnumerator(TEE_ObjectEnumHandle obj_enumerat
  * @param object_id_len Indicates the pointer to the <b>objectIDLen</b>.
  *
  * @return Returns <b>TEE_SUCCESS</b> if the operation is successful.
- * @param Returns <b>TEE_ITEM_NOT_FOUND</b> if the object enumerator has no element
+ *         Returns <b>TEE_ITEM_NOT_FOUND</b> if the object enumerator has no element
  * or the enumerator has not been initialized.
  *
  * @since 12
@@ -376,7 +381,7 @@ TEE_Result TEE_GetNextPersistentObject(TEE_ObjectEnumHandle obj_enumerator,
  * @param object Indicates the object handle to close.
  *
  * @return Returns <b>TEE_SUCCESS</b> if the operation is successful.
- * @return Returns <b>TEE_ERROR_STORAGE_NOT_AVAILABLE</b> if the object is stored
+ *         Returns <b>TEE_ERROR_STORAGE_NOT_AVAILABLE</b> if the object is stored
  * in a storage area that is inaccessible currently.
  *
  * @since 12

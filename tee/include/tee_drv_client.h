@@ -31,7 +31,11 @@
  *
  * @brief Declare tee driver client API.
  *
+ * @library libtee_ndk.z.so
+ * @kit TEE Kit
+ * @syscap SystemCapability.Tee.TeeClient
  * @since 12
+ * @version 1.0
  */
 
 #include <stdint.h>
@@ -50,13 +54,9 @@ extern "C" {
  * @return Returns greater than 0, which means the fd of the corresponding driver.
  *         Returns less than or equal to 0, which means falied to open the driver.
  *
- * @library libtee_ndk.z.so
- * @kit TEE Kit
- * @syscap SystemCapability.Tee.TeeClient
  * @since 12
  * @version 1.0
  */
-
 int64_t tee_drv_open(const char *drv_name, const void *param, uint32_t param_len);
 
 /**

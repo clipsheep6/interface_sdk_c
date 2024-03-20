@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-#ifndef TEE_HW_EXT_API_LEGACY_H
-#define TEE_HW_EXT_API_LEGACY_H
+#ifndef __TEE_HW_EXT_API_LEGACY_H__
+#define __TEE_HW_EXT_API_LEGACY_H__
 
 /**
  * @addtogroup TeeTrusted

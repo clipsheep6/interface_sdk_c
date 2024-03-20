@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-#ifndef TEE_DYNAMIC_SRV_H
-#define TEE_DYNAMIC_SRV_H
+#ifndef _TEE_DYNAMIC_SRV_H_
+#define _TEE_DYNAMIC_SRV_H_
 
 /**
  * @addtogroup TeeTrusted
@@ -40,7 +40,7 @@
  */
 
 #include <pthread.h>
-#include <tee_service_public.h>
+#include "tee_service_public.h"
 
 #ifdef __cplusplus
 extern "C" {

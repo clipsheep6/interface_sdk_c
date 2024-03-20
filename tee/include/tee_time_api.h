@@ -113,6 +113,17 @@ TEE_Result TEE_SetTAPersistentTime(TEE_Time *time);
  */
 void TEE_GetREETime(TEE_Time *time);
 
+/**
+ * @brief Obtains the string format of the current Rich Execution Environment (REE) system time.
+ *
+ * @param tim_str Indicates the REE system time string.
+ * @param time_str_len Indicates the length of the string.
+ *
+ * @since 12
+ * @version 1.0
+ */
+void TEE_GetREETimeStr(char *tim_str, uint32_t time_str_len);
+
 #ifdef __cplusplus
 }
 #endif

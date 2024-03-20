@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-#ifndef TEE_TUI_GP_API_H
-#define TEE_TUI_GP_API_H
+#ifndef TASK_TUI_GP_API_H
+#define TASK_TUI_GP_API_H
 
 /**
  * @addtogroup TeeTrusted
@@ -126,7 +126,7 @@ typedef enum {
     /** The picture provided by an object in the secure storage. */
     TEE_TUI_OBJECT_SOURCE,
     /** The picture provided as a file. */
-    TEE_TUI_FILE_SOURCE = 0x8001,
+    TEE_TUI_FILE_SOURCE = 0x8001
 } TEE_TUIImageSource;
 
 /** 

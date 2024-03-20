@@ -47,6 +47,11 @@
 extern "C" {
 #endif
 
+/**
+ * @brief Enumerates the types of the crypto engine.
+ *
+ * @since 12
+ */
 enum CRYPTO_ENGINE {
     SOFT_CRYPTO = 2,
     CRYPTO_ENGINE_MAX = 1024,
