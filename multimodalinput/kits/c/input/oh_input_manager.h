@@ -379,7 +379,7 @@ Input_KeyEvent *OH_Input_CreateKeyEvent(int32_t keyCode, int32_t action);
 /**
  * @brief 销毁按键事件。
  * 
- * @param keyEvent 
+ * @param keyEvent 按键事件。
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 12
  */
@@ -388,7 +388,7 @@ void OH_Input_DestroyKeyEvent(struct Input_KeyEvent** keyEvent);
 /**
  * @brief 注入鼠标事件。
  * 
- * @param mouseEvent 
+ * @param mouseEvent 鼠标事件。
  * @return 
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 12
@@ -411,7 +411,7 @@ Input_MouseEvent *OH_Input_CreateMouseEvent(int32_t displayX, int32_t displayY, 
 /**
  * @brief 销毁鼠标事件。
  * 
- * @param mouseEvent 
+ * @param mouseEvent 鼠标事件。
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 12
  */
@@ -420,7 +420,7 @@ void OH_Input_DestroyMouseEvent(struct Input_MouseEvent** mouseEvent);
 /**
  * @brief 注入触摸事件。
  * 
- * @param touchEvent 
+ * @param touchEvent 触摸事件。
  * @return 
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 12
@@ -430,11 +430,11 @@ int32_t OH_Input_InjectTouchEvent(struct Input_TouchEvent* touchEvent);
 /**
  * @brief 创建触摸事件。
  * 
- * @param displayX 
- * @param displayY 
- * @param action 
- * @param sourceType 
- * @param toolType 
+ * @param displayX X坐标。
+ * @param displayY Y坐标。
+ * @param action 触屏动作。
+ * @param sourceType 资源类型。
+ * @param toolType 工具类型。
  * @return 
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 12
