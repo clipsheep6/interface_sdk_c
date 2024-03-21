@@ -19,7 +19,7 @@
  *
  * @brief Provides APIs for access to the image interface.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 10
  * @version 2.0
  */
@@ -296,7 +296,7 @@ static const char *MIME_TYPE_ICON = "image/x-icon";
  * @brief Defines a pointer to bits per sample, one of the image properties.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 10
  * @version 4.0
  */
@@ -306,7 +306,7 @@ const char *OHOS_IMAGE_PROPERTY_BITS_PER_SAMPLE = "BitsPerSample";
  * @brief Defines a pointer to the orientation, one of the image properties.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 10
  * @version 4.0
  */
@@ -316,7 +316,7 @@ const char *OHOS_IMAGE_PROPERTY_ORIENTATION = "Orientation";
  * @brief Defines a pointer to the image length, one of the image properties.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 10
  * @version 4.0
  */
@@ -326,7 +326,7 @@ const char *OHOS_IMAGE_PROPERTY_IMAGE_LENGTH = "ImageLength";
  * @brief Defines a pointer to the image width, one of the image properties.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 10
  * @version 4.0
  */
@@ -336,7 +336,7 @@ const char *OHOS_IMAGE_PROPERTY_IMAGE_WIDTH = "ImageWidth";
  * @brief Defines a pointer to the GPS latitude, one of the image properties.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 10
  * @version 4.0
  */
@@ -346,7 +346,7 @@ const char *OHOS_IMAGE_PROPERTY_GPS_LATITUDE = "GPSLatitude";
  * @brief Defines a pointer to the GPS longitude, one of the image properties.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 10
  * @version 4.0
  */
@@ -356,7 +356,7 @@ const char *OHOS_IMAGE_PROPERTY_GPS_LONGITUDE = "GPSLongitude";
  * @brief Defines a pointer to the GPS latitude reference information, one of the image properties.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 10
  * @version 4.0
  */
@@ -366,7 +366,7 @@ const char *OHOS_IMAGE_PROPERTY_GPS_LATITUDE_REF = "GPSLatitudeRef";
  * @brief Defines a pointer to the GPS longitude reference information, one of the image properties.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 10
  * @version 4.0
  */
@@ -376,7 +376,7 @@ const char *OHOS_IMAGE_PROPERTY_GPS_LONGITUDE_REF = "GPSLongitudeRef";
  * @brief Defines a pointer to the created date and time, one of the image properties.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 10
  * @version 4.0
  */
@@ -386,7 +386,7 @@ const char *OHOS_IMAGE_PROPERTY_DATE_TIME_ORIGINAL = "DateTimeOriginal";
  * @brief Defines a pointer to the exposure time, one of the image properties.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 10
  * @version 4.0
  */
@@ -396,7 +396,7 @@ const char *OHOS_IMAGE_PROPERTY_EXPOSURE_TIME = "ExposureTime";
  * @brief Defines a pointer to the scene type, one of the image properties.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 10
  * @version 4.0
  */
@@ -406,7 +406,7 @@ const char *OHOS_IMAGE_PROPERTY_SCENE_TYPE = "SceneType";
  * @brief Defines a pointer to the ISO speed ratings, one of the image properties.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 10
  * @version 4.0
  */
@@ -416,7 +416,7 @@ const char *OHOS_IMAGE_PROPERTY_ISO_SPEED_RATINGS = "ISOSpeedRatings";
  * @brief Defines a pointer to the f-number of the image, one of the image properties.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 10
  * @version 4.0
  */
@@ -426,7 +426,7 @@ const char *OHOS_IMAGE_PROPERTY_F_NUMBER = "FNumber";
  * @brief Defines a pointer to the compressed bits per pixel, one of the image properties.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 10
  * @version 4.0
  */
@@ -437,7 +437,7 @@ const char *OHOS_IMAGE_PROPERTY_COMPRESSED_BITS_PER_PIXEL = "CompressedBitsPerPi
  * If thumbnails use JPEG compression, this tag value is set to 6.
  * Used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -447,7 +447,7 @@ const char *OHOS_IMAGE_PROPERTY_COMPRESSION = "Compression";
  * @brief The pixel composition. In JPEG compressed data a JPEG marker is used instead.
  * Used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -458,7 +458,7 @@ const char *OHOS_IMAGE_PROPERTY_PHOTOMETRIC_INTERPRETATION = "PhotometricInterpr
  * With JPEG compressed data this is not needed and is omitted. See also <RowsPerStrip> and <StripByteCounts>.
  * Used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -469,7 +469,7 @@ const char *OHOS_IMAGE_PROPERTY_STRIP_OFFSETS = "StripOffsets";
  * In JPEG compressed data a JPEG marker is used instead.
  * Used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -480,7 +480,7 @@ const char *OHOS_IMAGE_PROPERTY_SAMPLES_PER_PIXEL = "SamplesPerPixel";
  * With JPEG compressed data this is not needed and is omitted. See also <StripOffsets> and <StripByteCounts>.
  * Used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -490,7 +490,7 @@ const char *OHOS_IMAGE_PROPERTY_ROWS_PER_STRIP = "RowsPerStrip";
  * @brief Total bytes in each strip. Not needed and omitted for JPEG compressed data.
  * Used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -500,7 +500,7 @@ const char *OHOS_IMAGE_PROPERTY_STRIP_BYTE_COUNTS = "StripByteCounts";
  * @brief Pixels per <ResolutionUnit> in <ImageWidth> direction. If unknown, 72 [dpi] is used.
  * Used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -510,7 +510,7 @@ const char *OHOS_IMAGE_PROPERTY_X_RESOLUTION = "XResolution";
  * @brief Pixels per <ResolutionUnit> in <ImageLength> direction. Same value as <XResolution> is used.
  * Used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -521,7 +521,7 @@ const char *OHOS_IMAGE_PROPERTY_Y_RESOLUTION = "YResolution";
  * is assumed.
  * Used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -531,7 +531,7 @@ const char *OHOS_IMAGE_PROPERTY_PLANAR_CONFIGURATION = "PlanarConfiguration";
  * @brief Unit for <XResolution> and <YResolution>. Same unit for both. If unknown, 2 (inches) is used.
  * Used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -541,7 +541,7 @@ const char *OHOS_IMAGE_PROPERTY_RESOLUTION_UNIT = "ResolutionUnit";
  * @brief Image transfer function, described in tabular style. Not necessary if color space is specified in
  * <ColorSpace>. Used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -551,7 +551,7 @@ const char *OHOS_IMAGE_PROPERTY_TRANSFER_FUNCTION = "TransferFunction";
  * @brief Records software or firmware name and version used to generate the image. If blank, treated as unknown.
  * Used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -562,7 +562,7 @@ const char *OHOS_IMAGE_PROPERTY_SOFTWARE = "Software";
  * Ex.) "Camera owner, John Smith; Photographer, Michael Brown; Image creator, Ken James"
  * Used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -572,7 +572,7 @@ const char *OHOS_IMAGE_PROPERTY_ARTIST = "Artist";
  * @brief Chromaticity of the image's white point. Not necessary if color space is specified in <ColorSpace>.
  * Used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -582,7 +582,7 @@ const char *OHOS_IMAGE_PROPERTY_WHITE_POINT = "WhitePoint";
  * @brief Chromaticity of the image's three primary colors. Not necessary if color space is specified in <ColorSpace>.
  * Used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -593,7 +593,7 @@ const char *OHOS_IMAGE_PROPERTY_PRIMARY_CHROMATICITIES = "PrimaryChromaticities"
  * Color space is declared in a color space information tag.
  * Used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -603,7 +603,7 @@ const char *OHOS_IMAGE_PROPERTY_YCBCR_COEFFICIENTS = "YCbCrCoefficients";
  * @brief Sampling ratio of chrominance to luminance. In JPEG data a JPEG marker is used instead.
  * Used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -614,7 +614,7 @@ const char *OHOS_IMAGE_PROPERTY_YCBCR_SUB_SAMPLING = "YCbCrSubSampling";
  * For Y:Cb:Cr = 4:2:2, 2 (co-sited) is recommended. If absent, TIFF default is assumed.
  * Used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -625,7 +625,7 @@ const char *OHOS_IMAGE_PROPERTY_YCBCR_POSITIONING = "YCbCrPositioning";
  * Color space is declared in a color space information tag.
  * Used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -636,7 +636,7 @@ const char *OHOS_IMAGE_PROPERTY_REFERENCE_BLACK_WHITE = "ReferenceBlackWhite";
  * Format: "Copyright, John Smith, 19xx. All rights reserved.".
  * Used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -646,7 +646,7 @@ const char *OHOS_IMAGE_PROPERTY_COPYRIGHT = "Copyright";
  * @brief Offset to start byte of JPEG thumbnail data. Not used for primary image JPEG data.
  * Used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -657,7 +657,7 @@ const char *OHOS_IMAGE_PROPERTY_JPEG_INTERCHANGE_FORMAT = "JPEGInterchangeFormat
  * JPEG thumbnails are continuous bitstream from SOI to EOI. Must be recorded in no more than 64 Kbytes.
  * Used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -667,7 +667,7 @@ const char *OHOS_IMAGE_PROPERTY_JPEG_INTERCHANGE_FORMAT_LENGTH = "JPEGInterchang
  * @brief Class of the program used by the camera to set exposure.
  * Used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -677,7 +677,7 @@ const char *OHOS_IMAGE_PROPERTY_EXPOSURE_PROGRAM = "ExposureProgram";
  * @brief Spectral sensitivity of each channel of the camera used.
  * Used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -687,7 +687,7 @@ const char *OHOS_IMAGE_PROPERTY_SPECTRAL_SENSITIVITY = "SpectralSensitivity";
  * @brief Opto-Electric Conversion Function (OECF) specified in ISO 14524.
  * Used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -697,7 +697,7 @@ const char *OHOS_IMAGE_PROPERTY_OECF = "OECF";
  * @brief Supported version of this standard. Nonexistence means nonconformance to the standard.
  * Used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -707,7 +707,7 @@ const char *OHOS_IMAGE_PROPERTY_EXIF_VERSION = "ExifVersion";
  * @brief Date and time when the image was stored as digital data.
  * Used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -717,7 +717,7 @@ const char *OHOS_IMAGE_PROPERTY_DATE_TIME_DIGITIZED = "DateTimeDigitized";
  * @brief Info specific to compressed data. For uncompressed data, see <PhotometricInterpretation> tag.
  * Used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -727,7 +727,7 @@ const char *OHOS_IMAGE_PROPERTY_COMPONENTS_CONFIGURATION = "ComponentsConfigurat
  * @brief Shutter speed.
  * Used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -737,7 +737,7 @@ const char *OHOS_IMAGE_PROPERTY_SHUTTER_SPEED_VALUE = "ShutterSpeedValue";
  * @brief The value of brightness.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -747,7 +747,7 @@ const char *OHOS_IMAGE_PROPERTY_BRIGHTNESS_VALUE = "BrightnessValue";
  * @brief The smallest F number of the lens.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -757,7 +757,7 @@ const char *OHOS_IMAGE_PROPERTY_MAX_APERTURE_VALUE = "MaxApertureValue";
  * @brief The distance to the subject, given in meters.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -767,7 +767,7 @@ const char *OHOS_IMAGE_PROPERTY_SUBJECT_DISTANCE = "SubjectDistance";
  * @brief This tag indicates the location and area of the main subject in the overall scene.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -778,7 +778,7 @@ const char *OHOS_IMAGE_PROPERTY_SUBJECT_AREA = "SubjectArea";
  * the manufacturer.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -788,7 +788,7 @@ const char *OHOS_IMAGE_PROPERTY_MAKER_NOTE = "MakerNote";
  * @brief A tag used to record fractions of seconds for the <DateTime> tag.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -798,7 +798,7 @@ const char *OHOS_IMAGE_PROPERTY_SUBSEC_TIME = "SubsecTime";
  * @brief A tag used to record fractions of seconds for the <DateTimeOriginal> tag.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -807,7 +807,7 @@ const char *OHOS_IMAGE_PROPERTY_SUBSEC_TIME_ORIGINAL = "SubsecTimeOriginal";
 /**
  * @brief A tag used to record fractions of seconds for the <DateTimeDigitized> tag.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -817,7 +817,7 @@ const char *OHOS_IMAGE_PROPERTY_SUBSEC_TIME_DIGITIZED = "SubsecTimeDigitized";
  * @brief The FlashPix format version supported by a FPXR file.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -830,7 +830,7 @@ const char *OHOS_IMAGE_PROPERTY_FLASHPIX_VERSION = "FlashpixVersion";
  * treated as sRGB when it is converted to FlashPix.
  * Used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -842,7 +842,7 @@ const char *OHOS_IMAGE_PROPERTY_COLOR_SPACE = "ColorSpace";
  * (an ASCII string consisting of 8 characters + '.' + 3 characters). The path is not recorded.
  * Used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -852,7 +852,7 @@ const char *OHOS_IMAGE_PROPERTY_RELATED_SOUND_FILE = "RelatedSoundFile";
  * @brief Amount of flash energy (BCPS).
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -862,7 +862,7 @@ const char *OHOS_IMAGE_PROPERTY_FLASH_ENERGY = "FlashEnergy";
  * @brief SFR of the camera.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -872,7 +872,7 @@ const char *OHOS_IMAGE_PROPERTY_SPATIAL_FREQUENCY_RESPONSE = "SpatialFrequencyRe
  * @brief Number of pixels per FocalPlaneResolutionUnit (37392) in ImageWidth direction for main image.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -882,7 +882,7 @@ const char *OHOS_IMAGE_PROPERTY_FOCAL_PLANE_X_RESOLUTION = "FocalPlaneXResolutio
  * @brief Number of pixels per FocalPlaneResolutionUnit (37392) in ImageLength direction for main image.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -892,7 +892,7 @@ const char *OHOS_IMAGE_PROPERTY_FOCAL_PLANE_Y_RESOLUTION = "FocalPlaneYResolutio
  * @brief Unit of measurement for FocalPlaneXResolution(37390) and FocalPlaneYResolution(37391).
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -902,7 +902,7 @@ const char *OHOS_IMAGE_PROPERTY_FOCAL_PLANE_RESOLUTION_UNIT = "FocalPlaneResolut
  * @brief Indicates the location and area of the main subject in the overall scene.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -912,7 +912,7 @@ const char *OHOS_IMAGE_PROPERTY_SUBJECT_LOCATION = "SubjectLocation";
  * @brief Encodes the camera exposure index setting when image was captured.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -922,7 +922,7 @@ const char *OHOS_IMAGE_PROPERTY_EXPOSURE_INDEX = "ExposureIndex";
  * @brief Type of image sensor.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -933,7 +933,7 @@ const char *OHOS_IMAGE_PROPERTY_SENSING_METHOD = "SensingMethod";
  * This indicates that the image was recorded on a DSC.
  * Used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -944,7 +944,7 @@ const char *OHOS_IMAGE_PROPERTY_FILE_SOURCE = "FileSource";
  * This is applicable when a one-chip color area sensor is used. It does not apply to all sensing methods.
  * Used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -955,7 +955,7 @@ const char *OHOS_IMAGE_PROPERTY_CFA_PATTERN = "CFAPattern";
  * When special processing is performed, the reader is expected to disable or minimize any further processing.
  * Used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -966,7 +966,7 @@ const char *OHOS_IMAGE_PROPERTY_CUSTOM_RENDERED = "CustomRendered";
  * the camera shoots a series of frames of the same scene at different exposure settings.
  * Used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -977,7 +977,7 @@ const char *OHOS_IMAGE_PROPERTY_EXPOSURE_MODE = "ExposureMode";
  * value is 0, this indicates that digital zoom was not used.
  * Used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -988,7 +988,7 @@ const char *OHOS_IMAGE_PROPERTY_DIGITAL_ZOOM_RATIO = "DigitalZoomRatio";
  * the image was shot. Note that this differs from the <SceneType> tag.
  * Used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -998,7 +998,7 @@ const char *OHOS_IMAGE_PROPERTY_SCENE_CAPTURE_TYPE = "SceneCaptureType";
  * @brief This tag indicates the degree of overall image gain adjustment.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -1008,7 +1008,7 @@ const char *OHOS_IMAGE_PROPERTY_GAIN_CONTROL = "GainControl";
  * @brief This tag indicates the direction of contrast processing applied by the camera when the image was shot.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -1018,7 +1018,7 @@ const char *OHOS_IMAGE_PROPERTY_CONTRAST = "Contrast";
  * @brief This tag indicates the direction of saturation processing applied by the camera when the image was shot.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -1028,7 +1028,7 @@ const char *OHOS_IMAGE_PROPERTY_SATURATION = "Saturation";
  * @brief This tag indicates the direction of sharpness processing applied by the camera when the image was shot.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -1038,7 +1038,7 @@ const char *OHOS_IMAGE_PROPERTY_SHARPNESS = "Sharpness";
  * @brief Indicates picture-taking conditions of a camera model. Used only to indicate conditions in the reader.
  * Used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -1048,7 +1048,7 @@ const char *OHOS_IMAGE_PROPERTY_DEVICE_SETTING_DESCRIPTION = "DeviceSettingDescr
  * @brief Indicates the distance to the subject.
  * Used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -1059,7 +1059,7 @@ const char *OHOS_IMAGE_PROPERTY_SUBJECT_DISTANCE_RANGE = "SubjectDistanceRange";
  * Recorded as an ASCII string equivalent to hexadecimal notation and 128-bit fixed length.
  * Used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -1072,7 +1072,7 @@ const char *OHOS_IMAGE_PROPERTY_IMAGE_UNIQUE_ID = "ImageUniqueID";
  * When the version is 2.0.0.0, the tag value is 02000000.H).
  * Used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -1086,7 +1086,7 @@ const char *OHOS_IMAGE_PROPERTY_GPS_VERSION_ID = "GPSVersionID";
  * The reference unit is meters. Note that this tag is BYTE type, unlike other reference tags.
  * Used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -1097,7 +1097,7 @@ const char *OHOS_IMAGE_PROPERTY_GPS_ALTITUDE_REF = "GPSAltitudeRef";
  * Altitude is expressed as one RATIONAL value. The reference unit is meters.
  * Used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -1111,7 +1111,7 @@ const char *OHOS_IMAGE_PROPERTY_GPS_ALTITUDE = "GPSAltitude";
  * NULL.
  * Used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -1122,7 +1122,7 @@ const char *OHOS_IMAGE_PROPERTY_GPS_SATELLITES = "GPSSatellites";
  * "A" means measurement is in progress, and "V" means the measurement is Interoperability.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -1133,7 +1133,7 @@ const char *OHOS_IMAGE_PROPERTY_GPS_STATUS = "GPSStatus";
  * "2" means two-dimensional measurement and "3" means three-dimensional measurement is in progress.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -1144,7 +1144,7 @@ const char *OHOS_IMAGE_PROPERTY_GPS_MEASURE_MODE = "GPSMeasureMode";
  * measurement, and PDOP during three-dimensional measurement.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -1155,7 +1155,7 @@ const char *OHOS_IMAGE_PROPERTY_GPS_DOP = "GPSDOP";
  * represents kilometers per hour, miles per hour, and knots.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -1165,7 +1165,7 @@ const char *OHOS_IMAGE_PROPERTY_GPS_SPEED_REF = "GPSSpeedRef";
  * @brief Indicates the speed of GPS receiver movement.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -1176,7 +1176,7 @@ const char *OHOS_IMAGE_PROPERTY_GPS_SPEED = "GPSSpeed";
  * direction and "M" is magnetic direction.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -1186,7 +1186,7 @@ const char *OHOS_IMAGE_PROPERTY_GPS_TRACK_REF = "GPSTrackRef";
  * @brief Indicates the direction of GPS receiver movement. The range of values is from 0.00 to 359.99.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -1197,7 +1197,7 @@ const char *OHOS_IMAGE_PROPERTY_GPS_TRACK = "GPSTrack";
  * true direction and "M" is magnetic direction.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -1208,7 +1208,7 @@ const char *OHOS_IMAGE_PROPERTY_GPS_IMG_DIRECTION_REF = "GPSImgDirectionRef";
  * It is used in {@link OH_ImageSource_GetImageProperty} and
  * {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -1219,7 +1219,7 @@ const char *OHOS_IMAGE_PROPERTY_GPS_IMG_DIRECTION = "GPSImgDirection";
  * Japan, the value of this tag is "TOKYO" or "WGS-84".
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -1230,7 +1230,7 @@ const char *OHOS_IMAGE_PROPERTY_GPS_MAP_DATUM = "GPSMapDatum";
  * value "N" indicates north latitude, and "S" is south latitude.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -1243,7 +1243,7 @@ const char *OHOS_IMAGE_PROPERTY_GPS_DEST_LATITUDE_REF = "GPSDestLatitudeRef";
  * for example, fractions of minutes are given up to two decimal places, the format would be dd/1,mmmm/100,0/1.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -1254,7 +1254,7 @@ const char *OHOS_IMAGE_PROPERTY_GPS_DEST_LATITUDE = "GPSDestLatitude";
  * indicates east longitude, and "W" is west longitude.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -1265,7 +1265,7 @@ const char *OHOS_IMAGE_PROPERTY_GPS_DEST_LONGITUDE_REF = "GPSDestLongitudeRef";
  * is defined using the same scheme as UserComment.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -1276,7 +1276,7 @@ const char *OHOS_IMAGE_PROPERTY_GPS_PROCESSING_METHOD = "GPSProcessingMethod";
  * same scheme as UserComment.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -1286,7 +1286,7 @@ const char *OHOS_IMAGE_PROPERTY_GPS_AREA_INFORMATION = "GPSAreaInformation";
  * @brief Indicates whether differential correction is applied to the GPS receiver.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -1296,7 +1296,7 @@ const char *OHOS_IMAGE_PROPERTY_GPS_DIFFERENTIAL = "GPSDifferential";
  * @brief This tag records the serial number of the body of the camera that was used in photography as an ASCII string.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -1306,7 +1306,7 @@ const char *OHOS_IMAGE_PROPERTY_BODY_SERIAL_NUMBER = "BodySerialNumber";
  * @brief This tag records the owner of a camera used in photography as an ASCII string.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -1316,7 +1316,7 @@ const char *OHOS_IMAGE_PROPERTY_CAMERA_OWNER_NAME = "CameraOwnerName";
  * @brief Indicates whether the recorded image is a composite image or not.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -1327,7 +1327,7 @@ const char *OHOS_IMAGE_PROPERTY_COMPOSITE_IMAGE = "CompositeImage";
  * the DNG specification, this tag should contain the bytes: 1, 1, 0, 0.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -1340,7 +1340,7 @@ const char *OHOS_IMAGE_PROPERTY_DNG_VERSION = "DNGVersion";
  * for example, fractions of minutes are given up to two decimal places, the format would be ddd/1,mmmm/100,0/1.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -1351,7 +1351,7 @@ const char *OHOS_IMAGE_PROPERTY_GPS_DEST_LONGITUDE = "GPSDestLongitude";
  * direction and "M" is magnetic direction.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -1361,7 +1361,7 @@ const char *OHOS_IMAGE_PROPERTY_GPS_DEST_BEARING_REF = "GPSDestBearingRef";
  * @brief Indicates the bearing to the destination point. The range of values is from 0.00 to 359.99.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -1372,7 +1372,7 @@ const char *OHOS_IMAGE_PROPERTY_GPS_DEST_BEARING = "GPSDestBearing";
  * represent kilometers, miles and knots.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -1382,7 +1382,7 @@ const char *OHOS_IMAGE_PROPERTY_GPS_DEST_DISTANCE_REF = "GPSDestDistanceRef";
  * @brief Indicates the distance to the destination point.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -1395,7 +1395,7 @@ const char *OHOS_IMAGE_PROPERTY_GPS_DEST_DISTANCE = "GPSDestDistance";
  * applied).
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -1407,7 +1407,7 @@ const char *OHOS_IMAGE_PROPERTY_DEFAULT_CROP_SIZE = "DefaultCropSize";
  * and input value indicate normalized value, whose minimum value is 0 and maximum value is 1.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -1419,7 +1419,7 @@ const char *OHOS_IMAGE_PROPERTY_GAMMA = "Gamma";
  * ISOSpeedLatitudezzz.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -1431,7 +1431,7 @@ const char *OHOS_IMAGE_PROPERTY_ISO_SPEED_LATITUDEYYY = "ISOSpeedLatitudeyyy";
  * ISOSpeedLatitudeyyy.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -1441,7 +1441,7 @@ const char *OHOS_IMAGE_PROPERTY_ISO_SPEED_LATITUDEZZZ = "ISOSpeedLatitudezzz";
  * @brief This tag records the lens manufactor as an ASCII string.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -1451,7 +1451,7 @@ const char *OHOS_IMAGE_PROPERTY_LENS_MAKE = "LensMake";
  * @brief This tag records the lens's model name and model number as an ASCII string.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -1462,7 +1462,7 @@ const char *OHOS_IMAGE_PROPERTY_LENS_MODEL = "LensModel";
  * an ASCII string.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -1474,7 +1474,7 @@ const char *OHOS_IMAGE_PROPERTY_LENS_SERIAL_NUMBER = "LensSerialNumber";
  * used in photography. When the minimum F number is unknown, the notation is 0/0
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -1484,7 +1484,7 @@ const char *OHOS_IMAGE_PROPERTY_LENS_SPECIFICATION = "LensSpecification";
  * @brief A general indication of the kind of data contained in this subfile.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -1494,7 +1494,7 @@ const char *OHOS_IMAGE_PROPERTY_NEW_SUBFILE_TYPE = "NewSubfileType";
  * @brief Time difference from Universal Time Coordinated including daylight saving time of DateTime tag.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -1504,7 +1504,7 @@ const char *OHOS_IMAGE_PROPERTY_OFFSET_TIME = "OffsetTime";
  * @brief Time difference from Universal Time Coordinated including daylight saving time of DateTimeDigitized tag.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -1514,7 +1514,7 @@ const char *OHOS_IMAGE_PROPERTY_OFFSET_TIME_DIGITIZED = "OffsetTimeDigitized";
  * @brief Time difference from Universal Time Coordinated including daylight saving time of DateTimeOriginal tag.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -1525,7 +1525,7 @@ const char *OHOS_IMAGE_PROPERTY_OFFSET_TIME_ORIGINAL = "OffsetTimeOriginal";
  * the said composite image, such as respective exposure times of captured source images (tentatively recorded images).
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -1535,7 +1535,7 @@ const char *OHOS_IMAGE_PROPERTY_SOURCE_EXPOSURE_TIMES_OF_COMPOSITE_IMAGE = "Sour
  * @brief Indicates the number of the source images (tentatively recorded images) captured for a composite Image.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -1546,7 +1546,7 @@ const char *OHOS_IMAGE_PROPERTY_SOURCE_IMAGE_NUMBER_OF_COMPOSITE_IMAGE = "Source
  * The NewSubfileType field should be used instead.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -1556,7 +1556,7 @@ const char *OHOS_IMAGE_PROPERTY_SUBFILE_TYPE = "SubfileType";
  * @brief This tag indicates horizontal positioning errors in meters.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -1566,7 +1566,7 @@ const char *OHOS_IMAGE_PROPERTY_GPS_H_POSITIONING_ERROR = "GPSHPositioningError"
  * @brief Burst Number
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -1576,7 +1576,7 @@ const char *OHOS_IMAGE_PROPERTY_BURST_NUMBER = "HwMnoteBurstNumber";
  * @brief Face Conf
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -1586,7 +1586,7 @@ const char *OHOS_IMAGE_PROPERTY_FACE_CONF = "HwMnoteFaceConf";
  * @brief Face Leye Center
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
@@ -1596,7 +1596,7 @@ const char *OHOS_IMAGE_PROPERTY_FACE_LEYE_CENTER = "HwMnoteFaceLeyeCenter";
  * @brief Face Mouth Center
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
- * @Syscap SystemCapability.Multimedia.Image
+ * @syscap SystemCapability.Multimedia.Image
  * @since 12
  * @version 5.0
  */
