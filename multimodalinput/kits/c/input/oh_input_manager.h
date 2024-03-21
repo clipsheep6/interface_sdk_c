@@ -66,120 +66,116 @@ enum Input_KeyStateAction {
  *
  * @since 12
  */
-typedef enum {
+enum InputEvent_MouseAction {
+    /** 取消鼠标操作 */
     MOUSE_ACTION_CANCEL = 0,
+    /** 鼠标移动操作 */
     MOUSE_ACTION_MOVE = 1,
+    /** 鼠标按键按下操作 */
     MOUSE_ACTION_BUTTON_DOWN = 2,
+    /** 鼠标按键抬起操作 */
     MOUSE_ACTION_BUTTON_UP = 3,
+    /** 鼠标轴事件开始动作 */
     MOUSE_ACTION_AXIS_BEGIN = 4,
+    /** 鼠标轴事件更新动作 */
     MOUSE_ACTION_AXIS_UPDATE = 5,
+    /** 鼠标轴事件结束动作 */
     MOUSE_ACTION_AXIS_END = 6,
+    /** 鼠标触摸板按下动作 */
     MOUSE_ACTION_ACTION_DOWN = 7,
+    /** 鼠标触摸板抬起动作 */
     MOUSE_ACTION_ACTION_UP = 8,
-} InputEvent_MouseAction;
-
-/**
- * @brief 鼠标按键。
- *
- * @since 12
- */
-typedef enum {
-    MOUSE_BUTTON_LEFT = 0,
-    MOUSE_BUTTON_MIDDLE = 1,
-    MOUSE_BUTTON_RIGHT = 2,
-    MOUSE_BUTTON_SIDE = 3,
-    MOUSE_BUTTON_EXTRA = 4,
-    MOUSE_BUTTON_FORWARD = 5,
-    MOUSE_BUTTON_BACK = 6,
-    MOUSE_BUTTON_TASK = 7,
-} InputEvent_MouseButton;
+};
 
 /**
  * @brief 鼠标轴类型。
  *
  * @since 12
  */
-typedef enum {
+enum InputEvent_MouseAxis {
+    /** 垂直滚动轴 */
     MOUSE_AXIS_SCROLL_VERTICAL = 0,
+    /** 水平滚动轴 */
     MOUSE_AXIS_SCROLL_HORIZONTAL = 1,
-    MOUSE_AXIS_PINCH = 2,
-} InputEvent_MouseAxis;
+};
 
 /**
  * @brief 鼠标工具类型。
  *
  * @since 12
  */
-typedef enum {
+enum InputEvent_MouseToolType {
     /** 鼠标 */
     MOUSE_TOOL_TYPE_MOUSE = 0,
     /** 摇杆 */
     MOUSE_TOOL_TYPE_JOYSTICK = 1,
-} InputEvent_MouseToolType;
+};
 
 /**
  * @brief 触屏行为，包括按下、移动、抬起等。
  *
  * @since 12
  */
-typedef enum {
+enum InputEvent_TouchAction {
+    /** 取消触摸操作 */
     TOUCH_ACTION_CANCEL = 0,
+    /** 触摸按下操作 */
     TOUCH_ACTION_DOWN = 1,
+    /** 触摸移动操作 */
     TOUCH_ACTION_MOVE = 2,
+    /** 触摸抬起操作 */
     TOUCH_ACTION_UP = 3,
-} InputEvent_TouchAction;
+};
 
 /**
  * @brief 触屏源类型。
  *
  * @since 12
  */
-typedef enum {
+enum InputEvent_TouchSourceType {
     /** 触屏 */
     TOUCH_SOURCE_TYPE_TOUCH_SCREEN = 0,
     /** 手写笔 */
     TOUCH_SOURCE_TYPE_PEN = 1,
     /** 触摸板 */
     TOUCH_SOURCE_TYPE_TOUCH_PAD = 2,
-    /** 手指 */
-    TOUCH_SOURCE_TYPE_FINGER = 3,
-    /** 手写笔 */
-    TOUCH_SOURCE_TYPE_PEN = 4,
-    /** 橡皮 */
-    TOUCH_SOURCE_TYPE_RUBBER = 5,
-    /** 刷子 */
-    TOUCH_SOURCE_TYPE_BRUSH = 6,
-    /** 铅笔 */
-    TOUCH_SOURCE_TYPE_PENCIL = 7,
-    /** 喷枪 */
-    TOUCH_SOURCE_TYPE_AIRBRUSH = 8,
-} InputEvent_TouchSourceType;
+};
 
 /**
  * @brief 触屏工具类型。
  *
  * @since 12
  */
-typedef enum {
+enum InputEvent_TouchToolType {
+    /** 手指 */
     TOUCH_TOOLTYPE_FINGER = 0,
+    /** 手写笔 */
     TOUCH_TOOLTYPE_PEN = 1,
+    /** 橡皮 */
     TOUCH_TOOLTYPE_RUBBER = 2,
+    /** 刷子 */
     TOUCH_TOOLTYPE_BRUSH = 3,
+    /** 铅笔 */
     TOUCH_TOOLTYPE_PENCIL = 4,
+    /** 喷枪 */
     TOUCH_TOOLTYPE_AIRBRUSH = 5,
+    /** 鼠标 */
     TOUCH_TOOLTYPE_MOUSE = 6,
+    /** 透镜 */
     TOUCH_TOOLTYPE_LENS = 7,
-} InputEvent_TouchToolType;
+};
 
 /**
  * @brief 设置工具类型。
  *
  * @since 12
  */
-typedef enum {
+enum InputEvent_KeyAction {
+    /** 按键释放操作 */
     KEY_ACTION_UNPRESSED = 0,
-    KEY_ACTION_PRESSED = 1
-} InputEvent_KeyAction;
+    /** 按键按下操作 */
+    KEY_ACTION_PRESSED = 1,
+};
 
 /**
  * @brief Defines key information, which identifies a key pressing behavior. For example, the Ctrl key information contains the key value and key type.
@@ -189,21 +185,21 @@ typedef enum {
 struct Input_KeyState;
 
 /**
- * @brief 
+ * @brief 按键事件。
  *
  * @since 12
  */
 struct Input_KeyEvent;
 
 /**
- * @brief 
+ * @brief 鼠标事件。
  *
  * @since 12
  */
 struct Input_MouseEvent;
 
 /**
- * @brief 
+ * @brief 触摸事件。
  *
  * @since 12
  */
@@ -289,7 +285,7 @@ void OH_Input_SetKeyAction(struct Input_KeyEvent* keyEvent, int32_t keyAction);
  * @brief 获取按键动作。
  * 
  * @param keyEvent 按键事件。
- * @return 
+ * @return 返回按键枚举对象的动作。
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 12
  */
@@ -299,17 +295,17 @@ int32_t OH_Input_GetKeyAction(struct Input_KeyEvent* keyEvent);
  * @brief 设置是否重复输入。
  * 
  * @param keyEvent 按键事件。
- * @param repeat 是否重复输入。
+ * @param repeat 按键是否重复输入。
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 12
  */
 void OH_Input_SetKeyRepeat(struct Input_KeyEvent* keyEvent, bool repeat);
 
 /**
- * @brief 获取是否重复输入。
+ * @brief 获取按键是否重复输入。
  * 
  * @param keyEvent 按键事件。
- * @return 
+ * @return 返回按键枚举对象是否重复输入。
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 12
  */
@@ -359,25 +355,27 @@ int32_t OH_Input_GetKeySwitch(struct Input_KeyState* keyState);
  * @brief 注入按键事件。
  * 
  * @param keyEvent 按键事件。
- * @return 
+ * @return 0 - 成功
+ *         201 - 权限拒绝
+ *         401 - 参数错误
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 12
  */
 int32_t OH_Input_InjectKeyEvent(struct Input_KeyEvent* keyEvent);
 
 /**
- * @brief 创建按键事件。
+ * @brief 创建按键事件对象。
  * 
  * @param keyCode 按键键值。
- * @param action 
- * @return 
+ * @param action 按键动作。
+ * @return 如果成功，返回一个Input_KeyEvent的指针对象
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 12
  */
 Input_KeyEvent *OH_Input_CreateKeyEvent(int32_t keyCode, int32_t action);
 
 /**
- * @brief 销毁按键事件。
+ * @brief 销毁按键事件对象。
  * 
  * @param keyEvent 按键事件。
  * @syscap SystemCapability.MultimodalInput.Input.Core
@@ -389,27 +387,29 @@ void OH_Input_DestroyKeyEvent(struct Input_KeyEvent** keyEvent);
  * @brief 注入鼠标事件。
  * 
  * @param mouseEvent 鼠标事件。
- * @return 
+ * @return 0 - 成功
+ *         201 - 权限拒绝
+ *         401 - 参数错误
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 12
  */
 int32_t OH_Input_InjectMouseEvent(struct Input_MouseEvent* mouseEvent);
 
 /**
- * @brief 创建鼠标事件。
+ * @brief 创建鼠标事件对象。
  * 
- * @param displayX 
- * @param displayY 
- * @param action 
- * @param sourceType 
- * @return 
+ * @param displayX 鼠标事件的相对屏幕X坐标。
+ * @param displayY 鼠标事件的相对屏幕Y坐标。
+ * @param action 鼠标事件的动作。
+ * @param sourceType 鼠标事件的资源类型。
+ * @return 如果成功，返回一个 Input_TouchEvent 的指针对象
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 12
  */
 Input_MouseEvent *OH_Input_CreateMouseEvent(int32_t displayX, int32_t displayY, int32_t action, int32_t sourceType);
 
 /**
- * @brief 销毁鼠标事件。
+ * @brief 销毁鼠标事件对象。
  * 
  * @param mouseEvent 鼠标事件。
  * @syscap SystemCapability.MultimodalInput.Input.Core
@@ -421,30 +421,32 @@ void OH_Input_DestroyMouseEvent(struct Input_MouseEvent** mouseEvent);
  * @brief 注入触摸事件。
  * 
  * @param touchEvent 触摸事件。
- * @return 
+ * @return 0 - 成功
+ *         201 - 权限拒绝
+ *         401 - 参数错误
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 12
  */
 int32_t OH_Input_InjectTouchEvent(struct Input_TouchEvent* touchEvent);
 
 /**
- * @brief 创建触摸事件。
+ * @brief 创建触摸事件对象。
  * 
- * @param displayX X坐标。
- * @param displayY Y坐标。
- * @param action 触屏动作。
- * @param sourceType 资源类型。
- * @param toolType 工具类型。
- * @return 
+ * @param displayX 触摸事件的相对屏幕X坐标。
+ * @param displayY 触摸事件的相对屏幕Y坐标。
+ * @param action 触摸事件的触屏动作。
+ * @param sourceType 触摸事件的资源类型。
+ * @param toolType 触摸事件的工具类型。
+ * @return 如果成功，返回一个 Input_TouchEvent 的指针对象
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 12
  */
 Input_TouchEvent *OH_Input_CreateTouchEvent(int32_t displayX, int32_t displayY, int32_t action, int32_t sourceType, int32_t toolType);
 
 /**
- * @brief 销毁触摸事件。
+ * @brief 销毁触摸事件对象。
  * 
- * @param touchEvent 
+ * @param touchEvent 触摸事件。
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 12
  */
@@ -464,7 +466,7 @@ void OH_Input_SetMouseDisplayX(struct Input_MouseEvent* mouseEvent, int32_t disp
  * @brief 获取相对屏幕X坐标。
  * 
  * @param mouseEvent 鼠标事件。
- * @return 
+ * @return 返回鼠标事件的相对屏幕X坐标。
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 12
  */
@@ -484,7 +486,7 @@ void OH_Input_SetMouseDisplayY(struct Input_MouseEvent* mouseEvent, int32_t disp
  * @brief 获取相对屏幕Y坐标。
  * 
  * @param mouseEvent 鼠标事件。
- * @return 
+ * @return 返回鼠标事件的相对屏幕Y坐标。
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 12
  */
@@ -504,7 +506,7 @@ void OH_Input_SetMouseAction(struct Input_MouseEvent* mouseEvent, int32_t mouseA
  * @brief 获取动作，按下、移动、抬起。
  * 
  * @param mouseEvent 鼠标事件。
- * @return 
+ * @return 返回鼠标事件的动作。
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 12
  */
@@ -524,7 +526,7 @@ void OH_Input_SetMouseSourceType(struct Input_MouseEvent* mouseEvent, int32_t so
  * @brief 获取资源类型。
  * 
  * @param mouseEvent 鼠标事件。
- * @return 
+ * @return 返回鼠标事件的资源类型。
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 12
  */
@@ -544,7 +546,7 @@ void OH_Input_SetButtonId(struct Input_MouseEvent* mouseEvent, int32_t buttonId)
  * @brief 获取鼠标按键。
  * 
  * @param mouseEvent 鼠标事件。
- * @return 
+ * @return 返回鼠标事件的按键ID。
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 12
  */
@@ -564,7 +566,7 @@ void OH_Input_SetScrollValue(struct Input_MouseEvent* mouseEvent, int32_t scroll
  * @brief 获取滚轮偏移值。
  * 
  * @param mouseEvent 鼠标事件。
- * @return 
+ * @return 返回鼠标事件的滚轮偏移值。
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 12
  */
@@ -574,7 +576,7 @@ int32_t OH_Input_GetScrollValue(struct Input_MouseEvent* mouseEvent);
  * @brief 设置X坐标。
  * 
  * @param touchEvent 触摸事件。
- * @param displayX X坐标。
+ * @param displayX 触摸事件相对屏幕的X坐标。
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 12
  */
@@ -584,7 +586,7 @@ void OH_Input_SetTouchDisplayX(struct Input_TouchEvent* touchEvent, int32_t disp
  * @brief 获取X坐标。
  * 
  * @param touchEvent 触摸事件。
- * @return 
+ * @return 返回触摸事件的相对屏幕X坐标。
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 12
  */
@@ -594,7 +596,7 @@ int32_t OH_Input_GetTouchDisplayX(struct Input_TouchEvent* touchEvent);
  * @brief 设置Y坐标。
  * 
  * @param touchEvent 触摸事件。
- * @param displayY Y坐标。
+ * @param displayY 触摸事件相对屏幕的Y坐标。
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 12
  */
@@ -604,7 +606,7 @@ void OH_Input_SetTouchDisplayY(struct Input_TouchEvent* touchEvent, int32_t disp
  * @brief 获取Y坐标。
  * 
  * @param touchEvent 触摸事件。
- * @return 
+ * @return 返回触摸事件的相对屏幕Y坐标。
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 12
  */
@@ -624,7 +626,7 @@ void OH_Input_SetTouchAction(struct Input_TouchEvent* touchEvent, int32_t mouseA
  * @brief 获取动作。
  * 
  * @param touchEvent 触摸事件。
- * @return 
+ * @return 返回触摸事件的动作。
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 12
  */
@@ -644,7 +646,7 @@ void OH_Input_SetTouchSourceType(struct Input_TouchEvent* touchEvent, int32_t so
  * @brief 获取资源类型。
  * 
  * @param touchEvent 触摸事件。
- * @return 
+ * @return 返回触摸事件资源类型。
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 12
  */
@@ -664,7 +666,7 @@ void OH_Input_SetTouchToolType(struct Input_TouchEvent* touchEvent, int32_t tool
  * @brief 获取工具类型。
  * 
  * @param touchEvent 触摸事件。
- * @return 
+ * @return 返回触摸事件工具类型。
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 12
  */
