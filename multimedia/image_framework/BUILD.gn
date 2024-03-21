@@ -27,6 +27,26 @@ ohos_ndk_headers("image_header") {
   ]
 }
 
+ohos_ndk_library("libpixelmap") {
+  ndk_description_file = "./libpixelmap.ndk.json"
+  output_name = "pixelmap"
+  output_extension = "so"
+  min_compact_version = "12"
+  system_capability = "SystemCapability.Multimedia.Image.Core"
+  system_capability_headers = [
+    "./include/image/pixelmap_native.h",
+    "./include/image/image_common.h",
+  ]
+}
+
+ohos_ndk_headers("libpixelmap_header") {
+  dest_dir = "$ndk_headers_out_dir/multimedia/image_framework"
+  sources = [
+    "./include/image/pixelmap_native.h",
+    "./include/image/image_common.h",
+  ]
+}
+
 ohos_ndk_library("libimage_ndk") {
   ndk_description_file = "./libimage_ndk.ndk.json"
   min_compact_version = "1"
@@ -63,6 +83,24 @@ ohos_ndk_headers("image_source_ndk_header") {
   sources = [ "./include/image_source_mdk.h" ]
 }
 
+ohos_ndk_library("libimage_source") {
+  ndk_description_file = "./libimage_source.ndk.json"
+  output_name = "image_source"
+  output_extension = "so"
+  min_compact_version = "12"
+  system_capability = "SystemCapability.Multimedia.Image.ImageSource"
+  system_capability_headers = [
+  "./include/image/image_source_native.h",
+  "./include/image/image_common.h",
+  ]
+}
+
+ohos_ndk_headers("libimage_source_header") {
+  dest_dir = "$ndk_headers_out_dir/multimedia/image_framework"
+  sources = [ "./include/image/image_source_native.h",
+  ]
+}
+
 ohos_ndk_library("libimage_packer_ndk") {
   ndk_description_file = "./libimage_packer_ndk.ndk.json"
   output_name = "image_packer_ndk"
@@ -71,4 +109,22 @@ ohos_ndk_library("libimage_packer_ndk") {
 ohos_ndk_headers("image_packer_ndk_header") {
   dest_dir = "$ndk_headers_out_dir/multimedia/image_framework"
   sources = [ "./include/image_packer_mdk.h" ]
+}
+
+ohos_ndk_library("libimage_packer") {
+  ndk_description_file = "./libimage_packer.ndk.json"
+  output_name = "image_packer"
+  output_extension = "so"
+  min_compact_version = "12"
+  system_capability = "SystemCapability.Multimedia.Image.ImagePacker"
+  system_capability_headers = [
+  "./include/image/image_packer_native.h",
+  "./include/image/image_common.h",
+  ]
+}
+
+ohos_ndk_headers("libimage_packer_header") {
+  dest_dir = "$ndk_headers_out_dir/multimedia/image_framework"
+  sources = [ "./include/image/image_packer_native.h",
+  ]
 }
