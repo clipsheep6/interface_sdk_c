@@ -608,11 +608,11 @@
     },
     {
         "first_introduced": "12",
-        "name": "OH_Drawing_FontStyleSetCreate"
+        "name": "OH_Drawing_FontMgrCreateFontStyleSet"
     },
     {
         "first_introduced": "12",
-        "name": "OH_Drawing_DestroyFontStyleSet"
+        "name": "OH_Drawing_FontMgrDestroyFontStyleSet"
     },
     {
         "first_introduced": "12",
