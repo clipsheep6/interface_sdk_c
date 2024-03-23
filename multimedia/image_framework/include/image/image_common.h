@@ -1342,7 +1342,7 @@ const char *OHOS_IMAGE_PROPERTY_GPS_DEST_DISTANCE = "GPSDestDistance";
 const char *OHOS_IMAGE_PROPERTY_DEFAULT_CROP_SIZE = "DefaultCropSize";
 
 /**
- * @brief The Gamma tag represents the gamma coefficient used for color correction in image processing.
+ * @brief Indicates the value of coefficient gamma.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
  * @syscap SystemCapability.Multimedia.Image
@@ -1352,7 +1352,7 @@ const char *OHOS_IMAGE_PROPERTY_DEFAULT_CROP_SIZE = "DefaultCropSize";
 const char *OHOS_IMAGE_PROPERTY_GAMMA = "Gamma";
 
 /**
- * @brief The ISO speed latitude yyy value of the camera.
+ * @brief The tag indicate the ISO speed latitude yyy value of the camera or input device that is defined in ISO 12232.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
  * @syscap SystemCapability.Multimedia.Image
@@ -1362,7 +1362,7 @@ const char *OHOS_IMAGE_PROPERTY_GAMMA = "Gamma";
 const char *OHOS_IMAGE_PROPERTY_ISO_SPEED_LATITUDEYYY = "ISOSpeedLatitudeyyy";
 
 /**
- * @brief The ISO speed latitude zzz value of the camera.
+ * @brief The tag indicate the ISO speed latitude zzz value of the camera or input device that is defined in ISO 12232.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
  * @syscap SystemCapability.Multimedia.Image
@@ -1482,7 +1482,7 @@ const char *OHOS_IMAGE_PROPERTY_SOURCE_IMAGE_NUMBER_OF_COMPOSITE_IMAGE = "Source
 const char *OHOS_IMAGE_PROPERTY_SUBFILE_TYPE = "SubfileType";
 
 /**
- * @brief This tag denotes the horizontal positioning inaccuracies measured in meters.
+ * @brief This tag indicates horizontal positioning errors in meters.
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
  * @syscap SystemCapability.Multimedia.Image
