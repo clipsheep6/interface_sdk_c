@@ -1684,6 +1684,29 @@ float OH_Drawing_TypographyGetIndentsWithIndex(OH_Drawing_Typography*, int);
  */
 void OH_Drawing_DestroyTextShadows(OH_Drawing_TextShadow*);
 
+/**
+ * @brief Releases the memory occupied by vector with the text shadow object <b>OH_Drawing_TextShadow</b>.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param OH_Drawing_Typography A pointer to a typesetting object
+ * @param lineNumber The specific number of rows you need to get, starting at one
+ * @param charNumber Gets the number of words that the current row has
+ * @param success Marks the success of this information acquisition
+ * @return Returns the first address to the current font metrics
+ * @since 12
+ * @version 1.0
+ */
+OH_Drawing_Font_Metrics* OH_Drawing_TypographyGetLineFontMetrics(OH_Drawing_Typography* typography, size_t lineNumber,
+    size_t* charNumber, bool* success);
+
+/**
+ * @brief Free up all the space taken up by the lineFontMetric
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param lineFontMetric The first address of the lineFontMetric gather to be destroyed
+ * @since 12
+ * @version 1.0
+ */
+void OH_Drawing_DestroyFontMetrics(OH_Drawing_Font_Metrics* lineFontMetric);
 #ifdef __cplusplus
 }
 #endif
