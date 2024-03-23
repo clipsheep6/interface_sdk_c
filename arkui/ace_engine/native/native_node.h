@@ -4335,13 +4335,16 @@ typedef struct {
      *
      * @param node Indicates the target node.
      * @param eventType Indicates the type of event to register.
-     * @param eventId Indicates the custom event ID, which is passed in the callback of {@link ArkUI_NodeEvent}
+     * @param eventId Indicates the custom event ID, which is passed in the callback of <@link ArkUI_NodeEvent>
      * when the event is triggered.
+     * @param extraParam Indicates the custom event parameter, which is passed in the callback of
+     * <@link ArkUI_NodeEvent> when the event is triggered.
      * @return Returns 0 if success.
      * Returns 401 if a parameter exception occurs.
      * Returns 106102 if the dynamic implementation library of the native API was not found.
      */
-    int32_t (*registerNodeEvent)(ArkUI_NodeHandle node, ArkUI_NodeEventType eventType, int32_t eventId);
+    int32_t (*registerNodeEvent)(
+        ArkUI_NodeHandle node, ArkUI_NodeEventType eventType, int32_t eventId, void* extraParam);
 
     /**
      * @brief Unregisters an event for the specified node.
