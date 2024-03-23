@@ -354,6 +354,33 @@ typedef struct OH_Drawing_LineMetrics {
 } OH_Drawing_LineMetrics;
 
 /**
+ * @brief Enumerates text style type.
+ *
+ * @since 12
+ * @version 1.0
+ */
+typedef enum {
+    /** None style */
+    None,
+    /** All attributes style */
+    AllAttributes,
+    /** Font style */
+    Font,
+    /** Foreground style */
+    Foreground,
+    /** Background style */
+    Background,
+    /** Shadow style */
+    Shadow,
+    /** Decorations style */
+    Decorations,
+    /** Letter spacing style */
+    LetterSpacing,
+    /** Word spacing style */
+    WordSpacing
+}OH_Drawing_TextStyleType;
+
+/**
  * @brief Creates an <b>OH_Drawing_TypographyStyle</b> object.
  *
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
@@ -1683,6 +1710,111 @@ float OH_Drawing_TypographyGetIndentsWithIndex(OH_Drawing_Typography*, int);
  * @version 1.0
  */
 void OH_Drawing_DestroyTextShadows(OH_Drawing_TextShadow*);
+
+/**
+ * @brief Gets whether the two TextStyle objects are equal.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param style Indicates source of comparison <b>OH_Drawing_TextStyle</b> object.
+ * @param comparedStyle Indicates comparison <b>OH_Drawing_TextStyle</b> object.
+ * @return Compare result.
+ * @since 12
+ * @version 1.0
+ */
+bool OH_Drawing_TextStyleIsEquals(const OH_Drawing_TextStyle* style, const OH_Drawing_TextStyle* comparedStyle);
+
+/**
+ * @brief Gets whether the font properties of two TextStyle objects are equal.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param style Indicates source of <b>comparison OH_Drawing_TextStyle</b> object.
+ * @param comparedStyle Indicates comparison <b>OH_Drawing_TextStyle</b> object.
+ * @return Compare result.
+ * @since 12
+ * @version 1.0
+ */
+bool OH_Drawing_TextStyleIsEqualsByFonts(const OH_Drawing_TextStyle* style, const OH_Drawing_TextStyle* comparedStyle);
+
+/**
+ * @brief Gets whether two TextStyle objects match attributes
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param textStyleType Indicates enumerates of text style type.
+ * @param style Indicates source of comparison <b>OH_Drawing_TextStyle</b> object.
+ * @param comparedStyle Indicates comparison <b>OH_Drawing_TextStyle</b> object.
+ * @return Match attributes result.
+ * @since 12
+ * @version 1.0
+ */
+bool OH_Drawing_TextStyleIsMatchOneAttribute(OH_Drawing_TextStyleType textStyleType,
+    const OH_Drawing_TextStyle* style, const OH_Drawing_TextStyle* comparedStyle);
+
+/**
+ * @brief Set placeholder of TextStyle.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param OH_Drawing_TextStyle Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+ * @since 12
+ * @version 1.0
+ */
+void OH_Drawing_TextStyleSetPlaceholder(OH_Drawing_TextStyle* style);
+
+/**
+ * @brief Gets placeholder.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param OH_Drawing_TextStyle Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+ * @return Returns placeholder.
+ * @since 12
+ * @version 1.0
+ */
+bool OH_Drawing_TextStyleIsPlaceholder(OH_Drawing_TextStyle* style);
+
+/**
+ * @brief Gets text alignment mode.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param OH_Drawing_TypographyStyle Indicates the pointer to an <b>OH_Drawing_TypographyStyle</b> object.
+ * @return Returns text alignment mode.
+ * @since 12
+ * @version 1.0
+ */
+OH_Drawing_TextAlign OH_Drawing_TypographyStyleGetEffectiveAlignment(OH_Drawing_TypographyStyle* style);
+
+/**
+ * @brief Gets whether the hinting is enabled.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param OH_Drawing_TypographyStyle Indicates the pointer to an <b>OH_Drawing_TypographyStyle</b> object.
+ * @return True, if the hinting takes effect; false if the hinting does not take effect.
+ * @since 12
+ * @version 1.0
+ */
+bool OH_Drawing_TypographyStyleIsHintingEnabled(OH_Drawing_TypographyStyle* style);
+
+/**
+ * @brief Getting all font metrics from target row.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param OH_Drawing_Typography Indicates a pointer to a typesetting object.
+ * @param lineNumber Indicates specifies the number of rows.
+ * @param fontMetricsSize Indicates the return size of font metrics struct from current line.
+ * @return Returns all character measures for the current row.
+ * @since 12
+ * @version 1.0
+ */
+OH_Drawing_Font_Metrics* OH_Drawing_TypographyGetLineFontMetrics(OH_Drawing_Typography*,
+    size_t lineNumber, size_t* fontMetricsSize);
+
+/**
+ * @brief Free up all the space taken up by the lineFontMetric.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param OH_Drawing_Font_Metrics Indicates the first address of the lineFontMetric gather to be destroyed.
+ * @since 12
+ * @version 1.0
+ */
+void OH_Drawing_TypographyDestroyLineFontMetrics(OH_Drawing_Font_Metrics*);
 
 #ifdef __cplusplus
 }
