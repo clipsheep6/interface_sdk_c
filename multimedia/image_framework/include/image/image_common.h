@@ -1531,6 +1531,86 @@ const char *OHOS_IMAGE_PROPERTY_FACE_LEYE_CENTER = "HwMnoteFaceLeyeCenter";
  */
 const char *OHOS_IMAGE_PROPERTY_FACE_MOUTH_CENTER = "HwMnoteFaceMouthCenter";
 
+/**
+ * @brief Face Pointer
+ * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
+ *
+ * @syscap SystemCapability.Multimedia.Image
+ * @since 12
+ * @version 5.0
+ */
+const char *OHOS_IMAGE_PROPERTY_FACE_POINTER = "HwMnoteFacePointer";
+
+/**
+ * @brief Face Rect
+ * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
+ *
+ * @syscap SystemCapability.Multimedia.Image
+ * @since 12
+ * @version 5.0
+ */
+const char *OHOS_IMAGE_PROPERTY_FACE_RECT = "HwMnoteFaceRect";
+
+/**
+ * @brief Face Reye Center
+ * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
+ *
+ * @syscap SystemCapability.Multimedia.Image
+ * @since 12
+ * @version 5.0
+ */
+const char *OHOS_IMAGE_PROPERTY_FACE_REYE_CENTER = "HwMnoteFaceReyeCenter";
+
+/**
+ * @brief Face Smile Score
+ * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
+ *
+ * @syscap SystemCapability.Multimedia.Image
+ * @since 12
+ * @version 5.0
+ */
+const char *OHOS_IMAGE_PROPERTY_FACE_SMILE_SCORE = "HwMnoteFaceSmileScore";
+
+/**
+ * @brief Face Version
+ * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
+ *
+ * @syscap SystemCapability.Multimedia.Image
+ * @since 12
+ * @version 5.0
+ */
+const char *OHOS_IMAGE_PROPERTY_FACE_VERSION = "HwMnoteFaceVersion";
+
+/**
+ * @brief Front Camera
+ * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
+ *
+ * @syscap SystemCapability.Multimedia.Image
+ * @since 12
+ * @version 5.0
+ */
+const char *OHOS_IMAGE_PROPERTY_FRONT_CAMERA = "HwMnoteFrontCamera";
+
+/**
+ * @brief Scene Pointer
+ * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
+ *
+ * @syscap SystemCapability.Multimedia.Image
+ * @since 12
+ * @version 5.0
+ */
+const char *OHOS_IMAGE_PROPERTY_SCENE_POINTER = "HwMnoteScenePointer";
+
+/**
+ * @brief Scene Version
+ * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
+ *
+ * @syscap SystemCapability.Multimedia.Image
+ * @since 12
+ * @version 5.0
+ */
+const char *OHOS_IMAGE_PROPERTY_SCENE_VERSION = "HwMnoteSceneVersion";
+
 #ifdef __cplusplus
 };
 #endif
