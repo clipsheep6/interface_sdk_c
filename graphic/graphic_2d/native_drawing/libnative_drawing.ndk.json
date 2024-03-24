@@ -604,7 +604,7 @@
     },
     {
         "first_introduced": "12",
-        "name": "OH_Drawing_DestroyFamilyName"
+        "name": "OH_Drawing_FontMgrDestroyFamilyName"
     },
     {
         "first_introduced": "12",
