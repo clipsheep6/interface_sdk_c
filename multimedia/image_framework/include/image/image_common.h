@@ -1492,6 +1492,15 @@ const char *OHOS_IMAGE_PROPERTY_SUBFILE_TYPE = "SubfileType";
 const char *OHOS_IMAGE_PROPERTY_GPS_H_POSITIONING_ERROR = "GPSHPositioningError";
 
 /**
+ * This tag indicates the sensitivity of the camera or input device when the image was shot.
+ *
+ * @syscap SystemCapability.Multimedia.Image.Core
+ * @crossplatform
+ * @since 12
+ */
+const char *OHOS_IMAGE_PROPERTY_PHOTOGRAPHIC_SENSITIVITY = 'PhotographicSensitivity',
+
+/**
  * @brief Burst Number
  * It is used in {@link OH_ImageSource_GetImageProperty} and {@link OH_ImageSource_ModifyImageProperty}.
  *
