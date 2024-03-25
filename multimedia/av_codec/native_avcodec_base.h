@@ -198,28 +198,32 @@ extern const char *OH_AVCODEC_MIMETYPE_AUDIO_OPUS;
 extern const char *OH_AVCODEC_MIMETYPE_AUDIO_G711MU;
 
 /**
- * @brief Enumerates the MIME type of audio low bitrate voice codec
+ * @brief Enumerates the MIME type of audio low bitrate voice codec.
+ * 
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 12
  */
 extern const char *OH_AVCODEC_MIMETYPE_AUDIO_LBVC;
 
 /**
- * @brief Enumerates the MIME type of audio ape codec
+ * @brief Enumerates the MIME type of audio ape codec.
+ * 
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 12
  */
 extern const char *OH_AVCODEC_MIMETYPE_AUDIO_APE;
 
 /**
- * @brief Enumerates the MIME type of versatile video coding
+ * @brief Enumerates the MIME type of versatile video coding.
+ * 
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 12
  */
 extern const char *OH_AVCODEC_MIMETYPE_VIDEO_VVC;
 
 /**
- * @brief Enumerates the MIME type of subtitle
+ * @brief Enumerates the MIME type of subtitle.
+ * 
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 12
  */
@@ -356,6 +360,7 @@ extern const char *OH_MD_KEY_AUDIO_VIVID_METADATA;
 
 /**
  * @brief Provides the uniform key for storing the feature preporty.
+ * 
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 12
  */
@@ -367,6 +372,7 @@ extern const char *OH_FEATURE_PROPERTY_KEY_VIDEO_ENCODER_MAX_LTR_FRAME_NUM;
 
 /**
  * @brief Provides the uniform key for storing the media description.
+ * 
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 12
  */
@@ -643,6 +649,7 @@ typedef enum OH_MatrixCoefficient {
 
 /**
  * @brief AVC Level.
+ * 
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 12
  */
@@ -667,6 +674,7 @@ typedef enum OH_AVCLevel {
 
 /**
  * @brief HEVC Level.
+ * 
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 12
  */
@@ -688,6 +696,7 @@ typedef enum OH_HEVCLevel {
 
 /**
  * @brief The reference mode in temporal group of picture.
+ * 
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 12
  */
