@@ -240,7 +240,7 @@ NAPI_EXTERN napi_status napi_serialize(napi_env env,
  *
  * @param env Current running virtual machine context.
  * @param buffer Data to deserialize.
- * @param object JS object obtained by deserialization.
+ * @param object ArkTS object obtained by deserialization.
  * @return Returns the function execution status.
  * @since 12
 */
