@@ -1701,7 +1701,7 @@ OH_Drawing_Font_Metrics* OH_Drawing_TypographyGetLineFontMetrics(OH_Drawing_Typo
 
 /**
  * @brief Free up all the space taken up by the lineFontMetric.
- * 
+ *
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
  * @param OH_Drawing_Font_Metrics Indicates the first address of the lineFontMetric gather to be destroyed.
  * @since 12
