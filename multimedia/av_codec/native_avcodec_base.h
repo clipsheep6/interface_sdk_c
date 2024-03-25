@@ -442,7 +442,7 @@ extern const char *OH_MD_KEY_VIDEO_ENCODER_QP_MAX;
 extern const char *OH_MD_KEY_VIDEO_ENCODER_QP_MIN;
 /* Key for decoding timestamp of the buffer in microseconds, value type is int64_t. */
 extern const char *OH_MD_KEY_DECODING_TIMESTAMP;
-/* Key for duration of the buffer in microseconds, value type is uint64_t. */
+/* Key for duration of the buffer in microseconds, value type is int64_t. */
 extern const char *OH_MD_KEY_BUFFER_DURATION;
 /* Key for sample aspect ratio, value type is double. */
 extern const char *OH_MD_KEY_VIDEO_SAR;
