@@ -207,6 +207,13 @@ extern const char *OH_AVCODEC_MIMETYPE_AUDIO_APE;
 extern const char *OH_AVCODEC_MIMETYPE_VIDEO_VVC;
 
 /**
+ * @brief Enumerates the MIME types of subtitle
+ * @syscap SystemCapability.Multimedia.Media.CodecBase
+ * @since 12
+ */
+extern const char *OH_AVCODEC_MIMETYPE_SUBTITLE_SRT;
+
+/**
  * @brief The extra data's key of surface Buffer
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 9
@@ -433,6 +440,14 @@ extern const char *OH_MD_KEY_VIDEO_ENCODER_QP_MAX;
  * It is used in configure or takes effect immediately with the frame.
  */
 extern const char *OH_MD_KEY_VIDEO_ENCODER_QP_MIN;
+/* Key for decoding timestamp of the buffer in microseconds, value type is int64_t. */
+extern const char *OH_MD_KEY_DECODING_TIMESTAMP;
+/* Key for duration of the buffer in microseconds, value type is int64_t. */
+extern const char *OH_MD_KEY_BUFFER_DURATION;
+/* Key for sample aspect ratio, value type is double. */
+extern const char *OH_MD_KEY_VIDEO_SAR;
+/* Key for start time of file, value type is int64_t. */
+extern const char *OH_MD_KEY_START_TIME;
 
 /**
  * @brief Media type.
