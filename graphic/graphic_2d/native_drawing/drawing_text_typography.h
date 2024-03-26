@@ -1728,7 +1728,6 @@ float OH_Drawing_TypographyGetIndentsWithIndex(OH_Drawing_Typography*, int);
  */
 void OH_Drawing_DestroyTextShadows(OH_Drawing_TextShadow*);
 
-
 /**
  * @brief Sets the text style, including font weight, font width and font slant.
  *
