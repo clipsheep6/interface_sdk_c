@@ -812,18 +812,18 @@
     },
     {
         "first_introduced": "12",
-        "name": "OH_Drawing_SetTypographyTextStrutStyle"
+        "name": "OH_Drawing_SetTypographyStyleTextStrutStyle"
     },
     {
         "first_introduced": "12",
-        "name": "OH_Drawing_TypographyGetStrutStyle"
+        "name": "OH_Drawing_TypographyStyleGetStrutStyle"
     },
     {
         "first_introduced": "12",
-        "name": "OH_Drawing_OverridingStrutStyleEquals"
+        "name": "OH_Drawing_StrutStyleEquals"
     },
     {
         "first_introduced": "12",
-        "name": "OH_Drawing_TurnHintingOff"
+        "name": "OH_Drawing_TypographyStyleSetHintingOn"
     }
 ]
