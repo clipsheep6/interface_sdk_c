@@ -50,11 +50,39 @@ extern "C" {
 struct ArkUI_Node;
 
 /**
+ * @brief Defines the custom dialog box controller of ArkUI on the native side.
+ *
+ * @since 12
+ */
+struct ArkUI_NativeDialog;
+
+/**
+ * @brief Sets the size constraints of a component during component layout.
+ *
+ * @since 12
+ */
+typedef struct ArkUI_LayoutConstraint ArkUI_LayoutConstraint;
+
+/**
+ * @brief Defines the structure of the component drawing context.
+ *
+ * @since 12
+ */
+typedef struct ArkUI_DrawContext ArkUI_DrawContext;
+
+/**
  * @brief Defines the pointer to the ArkUI native component object.
  *
  * @since 12
  */
 typedef struct ArkUI_Node* ArkUI_NodeHandle;
+
+/**
+ * @brief Defines the pointer to the custom dialog box controller of ArkUI on the native side.
+ *
+ * @since 12
+ */
+typedef struct ArkUI_NativeDialog* ArkUI_NativeDialogHandle;
 
 /**
  * @brief Provides the number types of ArkUI in the native code.
@@ -227,6 +255,22 @@ typedef enum {
     /** Number input mode with a decimal point. */
     ARKUI_TEXTINPUT_TYPE_NUMBER_DECIMAL = 12,
 } ArkUI_TextInputType;
+
+/**
+ * @brief Enumerates the text box types.
+ *
+ * @since 12
+ */
+typedef enum {
+    /** Normal input mode. */
+    ARKUI_TEXTAREA_TYPE_NORMAL = 0,
+    /** Number input mode. */
+    ARKUI_TEXTAREA_TYPE_NUMBER = 2,
+    /** Phone number input mode. */
+    ARKUI_TEXTAREA_TYPE_PHONE_NUMBER = 3,
+    /** Email address input mode. */
+    ARKUI_TEXTAREA_TYPE_EMAIL = 5,
+} ArkUI_TextAreaType;
 
 /**
  * @brief Enumerates the styles of the Cancel button.
@@ -571,7 +615,7 @@ typedef enum {
  * @since 12
  */
 typedef enum {
-    /** The value can be changed to yes or no based on the component. */
+     /** Whether the component can be identified by the accessibility service is dependent on the component. */
     ARKUI_ACCESSIBILITY_MODE_AUTO = 0,
     /** The component can be identified by the accessibility service. */
     ARKUI_ACCESSIBILITY_MODE_ENABLED,
@@ -1201,7 +1245,260 @@ typedef enum {
     ARKUI_LINEAR_GRADIENT_DIRECTION_RIGHT_BOTTOM,
     /** No gradient. */
     ARKUI_LINEAR_GRADIENT_DIRECTION_NONE,
+    /** Custom direction. */
+    ARKUI_LINEAR_GRADIENT_DIRECTION_CUSTOM,
 } ArkUI_LinearGradientDirection;
+
+/**
+ * @brief Enumerates the word break rules.
+ *
+ * @since 12
+ */
+typedef enum {
+    /** Word breaks can occur between any two characters for Chinese, Japanese, and Korean (CJK) text, but can occur
+     *  only at a space character for non-CJK text (such as English). */
+    ARKUI_WORD_BREAK_NORMAL = 0,
+    /** Word breaks can occur between any two characters for non-CJK text. CJK text behavior is the same as for
+     *  <b>NORMAL</b>. */
+    ARKUI_WORD_BREAK_BREAK_ALL,
+    /** This option has the same effect as <b>BREAK_ALL</b> for non-CJK text, except that if it preferentially wraps
+     *  lines at appropriate characters (for example, spaces) whenever possible.
+        CJK text behavior is the same as for <b>NORMAL</b>. */
+    ARKUI_WORD_BREAK_BREAK_WORD,
+} ArkUI_WordBreak;
+
+/**
+ * @brief Enumerates the ellipsis positions.
+ *
+ * @since 12
+ */
+typedef enum {
+    /** An ellipsis is used at the start of the line of text. */
+    ARKUI_ELLIPSIS_MODE_START = 0,
+    /** An ellipsis is used at the center of the line of text. */
+    ARKUI_ELLIPSIS_MODE_CENTER,
+    /** An ellipsis is used at the end of the line of text. */
+    ARKUI_ELLIPSIS_MODE_END,
+} ArkUI_EllipsisMode;
+
+/**
+ * @brief Enumerates the image rendering modes.
+ *
+ * @since 12
+ */
+typedef enum {
+    /** Render image pixels as they are in the original source image. */
+    ARKUI_IMAGE_RENDER_MODE_ORIGINAL = 0,
+    /** Render image pixels to create a monochrome template image. */
+    ARKUI_IMAGE_RENDER_MODE_TEMPLATE,
+} ArkUI_ImageRenderMode;
+
+/**
+ * @brief Enumerates the slide-in and slide-out positions of the component from the screen edge during transition.
+ *
+ * @since 12
+ */
+typedef enum {
+    /** Top edge of the window. */
+    ARKUI_TRANSITION_EDGE_TOP = 0,
+    /** Bottom edge of the window. */
+    ARKUI_TRANSITION_EDGE_BOTTOM,
+    /** Left edge of the window. */
+    ARKUI_TRANSITION_EDGE_START,
+    /** Right edge of the window. */
+    ARKUI_TRANSITION_EDGE_END,
+} ArkUI_TransitionEdge;
+
+/**
+ * @brief Defines a mask area.
+ *
+ * @since 12
+ */
+typedef struct {
+    /** X coordinate of the mask area. */
+    float x;
+    /** Y coordinate of the mask area. */
+    float y;
+    /** Width of the mask area. */
+    float width;
+    /** Height of the mask area. */
+    float height;
+} ArkUI_Rect;
+
+/**
+ * @brief Describes the width and height of a component.
+ *
+ * @since 12
+ */
+typedef struct {
+    /** Width, in px. */
+    int32_t width;
+    /** Height, in px. */
+    int32_t height;
+} ArkUI_IntSize;
+
+/**
+ * @brief Describes the position of a component.
+ *
+ * @since 12
+ */
+typedef struct {
+    /** Horizontal coordinate, in px. */
+    int32_t x;
+    /** Vertical coordinate, in px. */
+    int32_t y;
+} ArkUI_IntOffset;
+
+/**
+* @brief Creates a size constraint.
+*
+* @since 12
+*/
+ArkUI_LayoutConstraint* OH_ArkUI_LayoutConstraint_Create();
+
+/**
+* @brief Creates a deep copy of a size constraint.
+*
+* @param Constraint Indicates the pointer to the size constraint.
+* @return Returns the pointer to the new size constraint.
+* @since 12
+*/
+ArkUI_LayoutConstraint* OH_ArkUI_LayoutConstraint_Copy(const ArkUI_LayoutConstraint* Constraint);
+
+/**
+* @brief Destroys the pointer to a size constraint.
+*
+* @param Constraint Indicates the pointer to the size constraint.
+* @since 12
+*/
+void* OH_ArkUI_LayoutConstraint_Dispose(ArkUI_LayoutConstraint* Constraint);
+
+/**
+* @brief Obtains the maximum width for a size constraint, in px.
+*
+* @param Constraint Indicates the pointer to the size constraint.
+* @return Returns the maximum width.
+* @since 12
+*/
+int32_t OH_ArkUI_LayoutConstraint_GetMaxWidth(const ArkUI_LayoutConstraint* Constraint);
+
+/**
+* @brief Obtains the minimum width for a size constraint, in px.
+*
+* @param Constraint Indicates the pointer to the size constraint.
+* @return Returns the minimum width.
+* @since 12
+*/
+int32_t OH_ArkUI_LayoutConstraint_GetMinWidth(const ArkUI_LayoutConstraint* Constraint);
+
+/**
+* @brief Obtains the maximum height for a size constraint, in px.
+*
+* @param Constraint Indicates the pointer to the size constraint.
+* @return Returns the maximum height.
+* @since 12
+*/
+int32_t OH_ArkUI_LayoutConstraint_GetMaxHeight(const ArkUI_LayoutConstraint* Constraint);
+
+/**
+* @brief Obtains the minimum height for a size constraint, in px.
+*
+* @param Constraint Indicates the pointer to the size constraint.
+* @return Returns the minimum height.
+* @since 12
+*/
+int32_t OH_ArkUI_LayoutConstraint_GetMinHeight(const ArkUI_LayoutConstraint* Constraint);
+
+/**
+* @brief Obtains the width percentage reference for a size constraint, in px.
+*
+* @param Constraint Indicates the pointer to the size constraint.
+* @return Returns the width percentage reference.
+* @since 12
+*/
+int32_t OH_ArkUI_LayoutConstraint_GetPercentReferenceWidth(const ArkUI_LayoutConstraint* Constraint);
+
+/**
+* @brief Obtains the height percentage reference for a size constraint, in px.
+*
+* @param Constraint Indicates the pointer to the size constraint.
+* @return Returns the height percentage reference.
+* @since 12
+*/
+int32_t OH_ArkUI_LayoutConstraint_GetPercentReferenceHeight(const ArkUI_LayoutConstraint* Constraint);
+
+/**
+* @brief Sets the maximum width.
+*
+* @param Constraint Indicates the pointer to the size constraint.
+* @param value Indicates the maximum width, in px.
+* @since 12
+*/
+void OH_ArkUI_LayoutConstraint_SetMaxWidth(ArkUI_LayoutConstraint* Constraint, int32_t value);
+
+/**
+* @brief Sets the minimum width.
+*
+* @param Constraint Indicates the pointer to the size constraint.
+* @param value Indicates the minimum width, in px.
+* @since 12
+*/
+void OH_ArkUI_LayoutConstraint_SetMinWidth(ArkUI_LayoutConstraint* Constraint, int32_t value);
+
+/**
+* @brief Sets the maximum height.
+*
+* @param Constraint Indicates the pointer to the size constraint.
+* @param value Indicates the maximum height, in px.
+* @since 12
+*/
+void OH_ArkUI_LayoutConstraint_SetMaxHeight(ArkUI_LayoutConstraint* Constraint, int32_t value);
+
+/**
+* @brief Sets the minimum height.
+*
+* @param Constraint Indicates the pointer to the size constraint.
+* @param value Indicates the minimum height, in px.
+* @since 12
+*/
+void OH_ArkUI_LayoutConstraint_SetMinHeight(ArkUI_LayoutConstraint* Constraint, int32_t value);
+
+/**
+* @brief Sets the width percentage reference.
+*
+* @param Constraint Indicates the pointer to the size constraint.
+* @param value Indicates the width percentage reference, in px.
+* @since 12
+*/
+void OH_ArkUI_LayoutConstraint_SetPercentReferenceWidth(ArkUI_LayoutConstraint* Constraint, int32_t value);
+
+/**
+* @brief Sets the height percentage reference.
+*
+* @param Constraint Indicates the pointer to the size constraint.
+* @param value Indicates the height percentage reference, in px.
+* @since 12
+*/
+void OH_ArkUI_LayoutConstraint_SetPercentReferenceHeight(ArkUI_LayoutConstraint* Constraint, int32_t value);
+
+/**
+* @brief Obtains the pointer to a canvas for drawing, which can be converted into the <b>OH_Drawing_Canvas</b> pointer
+* in the <b>Drawing</b> module.
+*
+* @param context Indicates the pointer to the drawing context.
+* @return Returns the pointer to the canvas for drawing.
+* @since 12
+*/
+void* OH_ArkUI_DrawContext_GetCanvas(ArkUI_DrawContext* context);
+
+/**
+* @brief Obtains the size of a drawing area.
+*
+* @param context Indicates the pointer to the drawing context.
+* @return Returns the size of the drawing area.
+* @since 12
+*/
+ArkUI_IntSize OH_ArkUI_DrawContext_GetSize(ArkUI_DrawContext* context);
 
 #ifdef __cplusplus
 };

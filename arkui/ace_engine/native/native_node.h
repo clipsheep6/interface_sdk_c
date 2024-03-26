@@ -107,6 +107,8 @@ typedef enum {
     ARKUI_NODE_FLEX,
     /** Refresh component. */
     ARKUI_NODE_REFRESH,
+    /** Waterfall container. */
+    ARKUI_NODE_WATER_FLOW,
 } ArkUI_NodeType;
 
 /**
@@ -800,6 +802,18 @@ typedef enum {
      *
      */
     NODE_TRANSLATE_TRANSITION,
+    /**
+     * @brief Defines the slide-in and slide-out of the component from the screen edge during transition.
+     * This attribute can be set, reset, and obtained as required through APIs.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * value[0].i32: The parameter type is {@link ArkUI_TransitionEdge}. \n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * value[0].i32: The parameter type is {@link ArkUI_TransitionEdge}. \n
+     *
+     */
+    NODE_MOVE_TRANSITION,
 
     /**
      * @brief Defines the focus attribute, which can be set, reset, and obtained as required through APIs.
@@ -937,7 +951,7 @@ typedef enum {
      * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute, which supports five types of
      * shapes:\n
      * 1. Rectangle:\n
-     * .value[0].u32: fill color, in 0xARGB format. \n
+     * .value[0].u32 fill color, in 0xARGB format. \n
      * .value[1].u32: stroke color, in 0xARGB format. \n
      * .value[2].f32: stroke width, in vp. \n
      * .value[3].i32: mask type. The parameter type is {@link ArkUI_MaskType}.
@@ -954,12 +968,12 @@ typedef enum {
      * The value is <b>ARKUI_MASK_TYPE_CIRCLE</b> for the circle shape.\n
      * .value[4].f32: width of the circle.\n
      * .value[5].f32: height of the circle.\n
-     * 3.Ellipse:\n
+     * 3. Ellipse:\n
      * .value[0].u32 fill color, in 0xARGB format. \n
      * .value[1].u32: stroke color, in 0xARGB format. \n
      * .value[2].f32: stroke width, in vp. \n
-     * .value[3].i32: mask type. The parameter type is {@link ArkUI_MaskType}.
-     * The value is <b>ARKUI_MASK_TYPE_ELLIPSE</b> for the ellipse shape.\n
+      * .value[3].i32: mask type. The parameter type is {@link ArkUI_MaskType}.
+      * The value is <b>ARKUI_MASK_TYPE_ELLIPSE</b> for the ellipse shape.\n
      * .value[4].f32: width of the ellipse.\n
      * .value[5].f32: height of the ellipse.\n
      * 4. Path:\n
@@ -972,14 +986,11 @@ typedef enum {
      * .value[5].f32: height of the path.\n
      * .string: command for drawing the path.\n
      * 5. Progress:\n
-     * .value[0].u32 fill color, in 0xARGB format. \n
-     * .value[1].u32: stroke color, in 0xARGB format. \n
-     * .value[2].f32: stroke width, in vp. \n
-     * .value[3].i32: mask type. The parameter type is {@link ArkUI_MaskType}.
+     * .value[0].i32: mask type. The parameter type is {@link ArkUI_MaskType}.
      * The value is <b>ARKUI_MASK_TYPE_PROSGRESS</b> for the progress shape.\n
-     * .value[4].f32: current value of the progress indicator.\n
-     * .value[5].f32: maximum value of the progress indicator.\n
-     * .value[6].u32: color of the progress indicator.\n
+     * .value[1].f32: current value of the progress indicator.\n
+     * .value[2].f32: maximum value of the progress indicator.\n
+     * .value[3].u32: color of the progress indicator.\n
      * \n
      * Format of the return value {@link ArkUI_AttributeItem}, which supports five types of shapes:\n
      * 1. Rectangle:\n
@@ -998,14 +1009,14 @@ typedef enum {
      * .value[3].i32: mask type.\n
      * .value[4].f32: width of the circle.\n
      * .value[5].f32: height of the circle.\n
-     * 3.Ellipse:\n
+     * 3. Ellipse:\n
      * .value[0].u32 fill color, in 0xARGB format. \n
      * .value[1].u32: stroke color, in 0xARGB format. \n
      * .value[2].f32: stroke width, in vp. \n
      * .value[3].i32: mask type.\n
      * .value[4].f32: width of the ellipse.\n
      * .value[5].f32: height of the ellipse.\n
-     * 5. Path:\n
+     * 4. Path:\n
      * .value[0].u32 fill color, in 0xARGB format. \n
      * .value[1].u32: stroke color, in 0xARGB format. \n
      * .value[2].f32: stroke width, in vp. \n
@@ -1013,7 +1024,7 @@ typedef enum {
      * .value[4].f32: width of the path.\n
      * .value[5].f32: height of the path.\n
      * .string: command for drawing the path.\n
-     * 4. Progress:\n
+     * 5. Progress:\n
      * .value[0].i32: mask type.\n
      * .value[1].f32: current value of the progress indicator.\n
      * .value[2].f32: maximum value of the progress indicator.\n
@@ -1341,6 +1352,17 @@ typedef enum {
      *
      */
     NODE_FOCUS_STATUS,
+    /**
+     * @brief Defines the aspect ratio attribute, which can be set, reset, and obtained as required through APIs.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .value[0].f32: aspect ratio of the component, in width/height format. \n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .value[0].f32: aspect ratio of the component, in width/height format. \n
+     *
+     */
+    NODE_ASPECT_RATIO,
 
     /**
      * @brief Defines the text content attribute, which can be set, reset, and obtained as required through APIs.
@@ -1606,6 +1628,28 @@ typedef enum {
      */
     NODE_TEXT_INDENT,
     /**
+     * @brief Defines the line break rule. This attribute can be set, reset, and obtained as required through APIs.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .value[0].i32: The parameter type is {@link ArkUI_WordBreak}. \n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .value[0].i32: The parameter type is {@link ArkUI_WordBreak}. \n
+     *
+     */
+    NODE_TEXT_WORD_BREAK,
+    /**
+     * @brief Defines the ellipsis position. This attribute can be set, reset, and obtained as required through APIs.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .value[0].i32: The parameter type is {@link ArkUI_EllipsisMode}. \n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .value[0].i32: The parameter type is {@link ArkUI_EllipsisMode}. \n
+     *
+     */
+    NODE_TEXT_ELLIPSIS_MODE,
+    /**
      * @brief Defines the text content attribute, which can be set, reset, and obtained as required through APIs.
      *
      * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
@@ -1616,6 +1660,28 @@ typedef enum {
      *
      */
     NODE_SPAN_CONTENT = MAX_NODE_SCOPE_NUM * ARKUI_NODE_SPAN,
+    /**
+     * @brief Defines the text background style.
+     * This attribute can be set, reset, and obtained as required through APIs.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .value[0].u32: color of the text background, in 0xARGB format, for example, <b>0xFFFF0000</b> indicating red. \n
+     * The second parameter indicates the rounded corners of the text background. Two setting modes are available: \n
+     * 1: .value[1].f32: radius of the four corners, in vp. \n
+     * 2: .value[1].f32: radius of the upper left corner, in vp. \n
+     * .value[2].f32: radius of the upper right corner, in vp. \n
+     * .value[3].f32: radius of the lower left corner, in vp. \n
+     * .value[4].f32: radius of the lower right corner, in vp. \n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .value[0].u32: color of the text background, in 0xARGB format. \n
+     * .value[1].f32: radius of the upper left corner, in vp. \n
+     * .value[2].f32: radius of the upper right corner, in vp. \n
+     * .value[3].f32: radius of the lower left corner, in vp. \n
+     * .value[4].f32: radius of the lower right corner, in vp. \n
+     *
+     */
+    NODE_SPAN_TEXT_BACKGROUND_STYLE,
     /**
      * @brief Defines the image source of the image span.
      * This attribute can be set, reset, and obtained as required through APIs.
@@ -1695,11 +1761,11 @@ typedef enum {
      * This attribute can be set, reset, and obtained as required through APIs.
      *
      * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
-     * .value[0].i32 to .value[19].i32: filter matrix array. \n
+     * .value[0].f32 to .value[19].f32: filter matrix array. \n
      * .size: 5 x 4 filter array size. \n
      * \n
      * Format of the return value {@link ArkUI_AttributeItem}:\n
-     * .value[0].i32 to .value[19].i32: filter matrix array. \n
+     * .value[0].f32 to .value[19].f32: filter matrix array. \n
      * .size: 5 x 4 filter array size. \n
      *
      */
@@ -1728,6 +1794,29 @@ typedef enum {
      */
     NODE_IMAGE_ALT,
     /**
+     * @brief Defines whether the image is draggable.
+     * This attribute can be set, reset, and obtained as required through APIs.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .value[0].i32: whether the image is draggable. The value <b>true</b> means that the image is draggable. \n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .value[0].i32: whether the image is draggable. \n
+     *
+     */
+    NODE_IMAGE_DRAGGABLE,
+    /**
+     * @brief Defines the image rendering mode. This attribute can be set, reset, and obtained as required through APIs.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .value[0].i32: The parameter type is {@link ArkUI_ImageRenderMode}. \n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .value[0].i32: The parameter type is {@link ArkUI_ImageRenderMode}. \n
+     *
+     */
+    NODE_IMAGE_RENDER_MODE,
+    /**
      * @brief Defines the color of the component when it is selected.
      * This attribute can be set, reset, and obtained as required through APIs.
      *
@@ -1751,6 +1840,17 @@ typedef enum {
      *
      */
     NODE_TOGGLE_SWITCH_POINT_COLOR,
+    /**
+     * @brief Defines the toggle switch value. This attribute can be set, reset, and obtained as required through APIs.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .value[0].i32: whether to enable the toggle. The value <b>true</b> means to enable the toggle. \n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .value[0].i32: whether to enable the toggle. \n
+     *
+     */
+    NODE_TOGGLE_VALUE,
 
     /**
      * @brief Defines the foreground color of the loading progress bar.
@@ -1981,6 +2081,20 @@ typedef enum {
      *
      */
     NODE_TEXT_INPUT_CANCEL_BUTTON,
+    /**
+     * @brief Sets the text selection area, which will be highlighted.
+     * This attribute can be set, reset, and obtained as required through APIs.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .value[0].i32: start position of the text selection. \n
+     * .value[1].i32: end position of the text selection. \n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .value[0].i32: start position of the text selection. \n
+     * .value[1].i32: end position of the text selection. \n
+     *
+     */
+    NODE_TEXT_INPUT_TEXT_SELECTION,
 
     /**
      * @brief Defines the default placeholder text for the multi-line text box.
@@ -2074,6 +2188,38 @@ typedef enum {
      *
      */
     NODE_TEXT_AREA_EDITING,
+    /**
+     * @brief Defines the text box type. This attribute can be set, reset, and obtained as required through APIs.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .value[0].i32: text box type {@link ArkUI_TextAreaType}.
+     * The default value is <b>ARKUI_TEXTAREA_TYPE_NORMAL</b>. \n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .value[0].i32: text box type {@link ArkUI_TextAreaType}. \n
+     *
+     */
+    NODE_TEXT_AREA_TYPE,
+    /**
+     * @brief Defines the counter settings. This attribute can be set, reset, and obtained as required through APIs.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .value[0].i32: whether to show a character counter. The value <b>true</b> means to show a character counter. \n
+     * .value[1]?.f32: threshold percentage for displaying the character counter. The character counter is displayed
+     * when the number of characters that have been entered is greater than the maximum number of characters multiplied
+     * by the threshold percentage value. The value range is 1 to 100. If the value is a decimal, it is rounded down. \n
+     * .value[2]?.i32: whether to highlight the border when the number of entered characters reaches the maximum. \n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .value[0].i32: whether to show a character counter. \n
+     * .value[1].f32: threshold percentage for displaying the character counter. The character counter is displayed
+     * when the number of characters that have been entered is greater than the maximum number of characters multiplied
+     * by the threshold percentage value. The value range is 1 to 100. \n
+     * .value[2].i32: whether to highlight the border when the number of entered characters reaches the maximum.
+     * The default value is <b>true</b>. \n
+     *
+     */
+    NODE_TEXT_AREA_SHOW_COUNTER,
 
     /**
      * @brief Defines the button text content. This attribute can be set, reset, and obtained as required through APIs.
@@ -3321,6 +3467,22 @@ typedef enum {
     NODE_SWIPER_SHOW_DISPLAY_ARROW,
 
     /**
+     * @brief Defines the effect used at the edges of the swiper when the boundary of the scrollable content is reached.
+     * This attribute can be set, reset, and obtained as required through APIs.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .value[0].i32: effect used at the edges of the swiper when the boundary of the scrollable content is reached.
+     * The parameter type is {@link ArkUI_EdgeEffect}.\n
+     * The default value is <b>ARKUI_EDGE_EFFECT_SPRING</b>. \n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .value[0].i32: effect used at the edges of the swiper when the boundary of the scrollable content is reached.
+     * The parameter type is {@link ArkUI_EdgeEffect}. \n
+     *
+     */
+    NODE_SWIPER_EDGE_EFFECT_MODE,
+
+    /**
      * @brief Defines the header of the list item group.
      * This attribute can be set, reset, and obtained as required through APIs.
      *
@@ -3460,6 +3622,28 @@ typedef enum {
      *
      */
     NODE_REFRESH_REFRESHING = MAX_NODE_SCOPE_NUM * ARKUI_NODE_REFRESH,
+    /**
+     * @brief Sets the custom content in the pull-down area.
+     * This attribute can be set, reset, and obtained as required through APIs.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .object: The parameter type is {@Link ArkUI_NodeHandle}.
+     *
+     */
+    NODE_REFRESH_CONTENT,
+
+    /**
+     * @brief Defines the main axis direction of the <b><WaterFlow></b> component layout.
+     * This attribute can be set, reset, and obtained as required through APIs.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .value[0].i32: main axis direction. The parameter type is {@Link ArkUI_FlexDirection}.
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .value[0].i32: main axis direction. The parameter type is {@Link ArkUI_FlexDirection}.
+     *
+     */
+    NODE_WATER_FLOW_LAYOUT_DIRECTION = MAX_NODE_SCOPE_NUM * ARKUI_NODE_WATER_FLOW,
 } ArkUI_NodeAttributeType;
 
 #define MAX_COMPONENT_EVENT_ARG_NUM 12
@@ -3505,6 +3689,15 @@ typedef enum {
      * {@link ArkUI_NodeComponentEvent} does not contain parameters.
      */
     NODE_EVENT_ON_APPEAR,
+    /**
+     * @brief Defines the unmount event.
+     *
+     * This event is triggered when the component is unmounted and hidden. \n
+     * When the event callback occurs, the union type in the {@link ArkUI_NodeEvent} object is
+     * {@link ArkUI_NodeComponentEvent}. \n
+     * {@link ArkUI_NodeComponentEvent} does not contain parameters.
+     */
+    NODE_EVENT_ON_DISAPPEAR,
 
     /**
      * @brief Defines the area change event.
@@ -3681,6 +3874,18 @@ typedef enum {
      */
     NODE_TEXT_INPUT_ON_PASTE,
     /**
+     * @brief Defines the event triggered when the text selection position changes.
+     *
+      \n
+     * When the event callback occurs, the union type in the {@link ArkUI_NodeEvent} object is
+     * {@link ArkUI_NodeComponentEvent}. \n
+     * {@link ArkUI_NodeComponentEvent} contains two parameters:\n
+     * <b>ArkUI_NodeComponentEvent.data[0].i32</b>: start position of the text selection area. \n
+     * <b>ArkUI_NodeComponentEvent.data[1].i32</b>: end position of the text selection area. \n
+     *
+     */
+    NODE_TEXT_INPUT_ON_TEXT_SELECTION_CHANGE,
+    /**
      * @brief Defines the event triggered when the input in the text box changes.
      *
       \n
@@ -3691,6 +3896,30 @@ typedef enum {
      *
      */
     NODE_TEXT_AREA_ON_CHANGE = MAX_NODE_SCOPE_NUM * ARKUI_NODE_TEXT_AREA,
+    /**
+     * @brief Defines the event triggered when the paste button on the pasteboard, which displays when the text box is
+     * long pressed, is clicked.
+     *
+      \n
+     * When the event callback occurs, the union type in the {@link ArkUI_NodeEvent} object is
+     * {@link ArkUI_StringAsyncEvent}. \n
+     * {@link ArkUI_StringAsyncEvent} contains one parameter:\n
+     * <b>ArkUI_StringAsyncEvent.pStr</b>: text that is pasted
+     *
+     */
+    NODE_TEXT_AREA_ON_PASTE,
+    /**
+     * @brief Defines the event triggered when the text selection position changes.
+     *
+      \n
+     * When the event callback occurs, the union type in the {@link ArkUI_NodeEvent} object is
+     * {@link ArkUI_NodeComponentEvent}. \n
+     * {@link ArkUI_NodeComponentEvent} contains two parameters:\n
+     * <b>ArkUI_NodeComponentEvent.data[0].i32</b>: start position of the text selection area. \n
+     * <b>ArkUI_NodeComponentEvent.data[1].i32</b>: end position of the text selection area. \n
+     *
+     */
+    NODE_TEXT_AREA_ON_TEXT_SELECTION_CHANGE,
 
     /**
      * @brief Defines the event triggered when the selected status of the <b>ARKUI_NODE_CHECKBOX</b> component changes.
@@ -3758,6 +3987,58 @@ typedef enum {
      * <b>ArkUI_NodeComponentEvent.data[1].i32</b>: state triggered by the event.\n
      */
     NODE_SLIDER_EVENT_ON_CHANGE = MAX_NODE_SCOPE_NUM * ARKUI_NODE_SLIDER,
+
+    /**
+     * @brief Defines the event triggered when the index of the currently displayed element of this
+     * <b>ARKUI_NODE_SWIPER</b> instance changes.
+     *
+     * When the event callback occurs, the union type in the {@link ArkUI_NodeEvent} object is
+     * {@link ArkUI_NodeComponentEvent}. \n
+     * {@link ArkUI_NodeComponentEvent} contains one parameter:\n
+     * <b>ArkUI_NodeComponentEvent.data[0].i32</b>: index of the currently displayed element. \n
+     */
+    NODE_SWIPER_EVENT_ON_CHANGE = MAX_NODE_SCOPE_NUM * ARKUI_NODE_SWIPER,
+
+    /**
+     * @brief Defines the event triggered when the switching animation of this <b>ARKUI_NODE_SWIPER</b> instance starts.
+     *
+     * When the event callback occurs, the union type in the {@link ArkUI_NodeEvent} object is
+     * {@link ArkUI_NodeComponentEvent}. \n
+     * {@link ArkUI_NodeComponentEvent} contains five parameters: \n
+     * <b>ArkUI_NodeComponentEvent.data[0].i32</b>: index of the currently displayed element. \n
+     * <b>ArkUI_NodeComponentEvent.data[1].i32</b>: index of the target element to switch to. \n
+     * <b>ArkUI_NodeComponentEvent.data[2].f32</b>: offset of the currently displayed element relative to the
+     * start position of the swiper along the main axis. \n
+     * <b>ArkUI_NodeComponentEvent.data[3].f32</b>: offset of the target element relative to the start position
+     * of the swiper along the main axis. \n
+     * <b>ArkUI_NodeComponentEvent.data[4].f32</b>: hands-off velocity. \n
+     */
+    NODE_SWIPER_EVENT_ON_ANIMATION_START,
+
+    /**
+     * @brief Defines the event triggered when the switching animation of this <b>ARKUI_NODE_SWIPER</b> instance ends.
+     *
+     * When the event callback occurs, the union type in the {@link ArkUI_NodeEvent} object is
+     * {@link ArkUI_NodeComponentEvent}. \n
+     * {@link ArkUI_NodeComponentEvent} contains two parameters:\n
+     * <b>ArkUI_NodeComponentEvent.data[0].i32</b>: index of the currently displayed element. \n
+     * <b>ArkUI_NodeComponentEvent.data[1].f32</b>: offset of the currently displayed element relative to the
+     * start position of the swiper along the main axis. \n
+     */
+    NODE_SWIPER_EVENT_ON_ANIMATION_END,
+
+    /**
+     * @brief Defines the event triggered on a frame-by-frame basis when the page is turned by a swipe in this
+     * <b>ARKUI_NODE_SWIPER</b> instance.
+     *
+     * When the event callback occurs, the union type in the {@link ArkUI_NodeEvent} object is
+     * {@link ArkUI_NodeComponentEvent}. \n
+     * {@link ArkUI_NodeComponentEvent} contains two parameters:\n
+     * <b>ArkUI_NodeComponentEvent.data[0].i32</b>: index of the currently displayed element. \n
+     * <b>ArkUI_NodeComponentEvent.data[1].f32</b>: offset of the currently displayed element relative to the
+     * start position of the swiper along the main axis. \n
+     */
+    NODE_SWIPER_EVENT_ON_GESTURE_SWIPE,
 
     /**
      * @brief Defines the event triggered when the <b>ARKUI_NODE_SCROLL</b> component scrolls.
@@ -3909,6 +4190,31 @@ typedef enum {
     /** Re-rendering. */
     NODE_NEED_RENDER,
 } ArkUI_NodeDirtyFlag;
+
+/**
+ * @brief Defines the custom component event type.
+ *
+ * @since 12
+ */
+typedef enum {
+    /** Measure type. */
+    ARKUI_NODE_CUSTOM_EVENT_ON_MEASURE = 1 << 0,
+    /** Layout type. */
+    ARKUI_NODE_CUSTOM_EVENT_ON_LAYOUT = 1 << 1,
+    /** Draw type. */
+    ARKUI_NODE_CUSTOM_EVENT_ON_DRAW = 1 << 2,
+    /** Foreground type. */
+    ARKUI_NODE_CUSTOM_EVENT_ON_FOREGROUND_DRAW = 1 << 3,
+    /** Overlay type. */
+    ARKUI_NODE_CUSTOM_EVENT_ON_OVERLAY_DRAW = 1 << 4,
+} ArkUI_NodeCustomEventType;
+
+/**
+ * @brief Defines the general structure of a custom component event.
+ *
+ * @since 12
+ */
+typedef struct ArkUI_NodeCustomEvent ArkUI_NodeCustomEvent;
 
 /**
  * @brief Declares a collection of native node APIs provided by ArkUI.
@@ -4097,7 +4403,253 @@ typedef struct {
      * @param dirtyFlag Indicates type of dirty area.
      */
     void (*markDirty)(ArkUI_NodeHandle node, ArkUI_NodeDirtyFlag dirtyFlag);
+
+    /**
+     * @brief Obtains the number of subnodes.
+     *
+     * When the component is being displayed, this API must be called in the main thread.
+     *
+     * @param node Indicates the target node.
+     * @return Returns 0 if success.
+     * Returns 401 if a parameter exception occurs.
+     */
+    uint32_t (*getTotalChildCount)(ArkUI_NodeHandle node);
+
+    /**
+     * @brief Obtains a subnode.
+     *
+     * When the component is being displayed, this API must be called in the main thread.
+     *
+     * @param node Indicates the target node.
+     * @param position Indicates the position of the subnode.
+     * @return Returns the pointer to the subnode if the subnode exists; returns <b>NULL</b> otherwise.
+     */
+    ArkUI_NodeHandle (*getChildAt)(ArkUI_NodeHandle node, int32_t position);
+
+    /**
+     * @brief Obtains the first subnode.
+     *
+     * When the component is being displayed, this API must be called in the main thread.
+     *
+     * @param node Indicates the target node.
+     * @return Returns the pointer to the subnode if the subnode exists; returns <b>NULL</b> otherwise.
+     */
+    ArkUI_NodeHandle (*getFirstChild)(ArkUI_NodeHandle node);
+
+    /**
+     * @brief Obtains the last subnode.
+     *
+     * When the component is being displayed, this API must be called in the main thread.
+     *
+     * @param node Indicates the target node.
+     * @return Returns the pointer to the subnode if the subnode exists; returns <b>NULL</b> otherwise.
+     */
+    ArkUI_NodeHandle (*getLastChild)(ArkUI_NodeHandle node);
+
+    /**
+     * @brief Obtains the previous sibling node.
+     *
+     * When the component is being displayed, this API must be called in the main thread.
+     *
+     * @param node Indicates the target node.
+     * @return Returns the pointer to the sibling node if the node exists; returns <b>NULL</b> otherwise.
+     */
+    ArkUI_NodeHandle (*getPreviousSibling)(ArkUI_NodeHandle node);
+
+    /**
+     * @brief Obtains the next sibling node.
+     *
+     * When the component is being displayed, this API must be called in the main thread.
+     *
+     * @param node Indicates the target node.
+     * @return Returns the pointer to the sibling node if the node exists; returns <b>NULL</b> otherwise.
+     */
+    ArkUI_NodeHandle (*getNextSibling)(ArkUI_NodeHandle node);
+
+    /**
+     * @brief Registers a custom event for a node. When the event is triggered, the value is returned through the entry
+     * function registered by <b>registerNodeCustomEventReceiver.</b>
+     *
+     * When the component is being displayed, this API must be called in the main thread.
+     *
+     * @param node Indicates the target node.
+     * @param eventType Indicates the type of event to register.
+     * @param targetId Indicates the custom event ID, which is passed in the callback of <@link ArkUI_NodeCustomEvent>
+     *        when the event is triggered.
+     * @param userData Indicates the custom event parameter, which is passed in the callback of
+     *        <@link ArkUI_NodeCustomEvent> when the event is triggered.
+     * @return Returns 0 if success.
+     * Returns 401 if a parameter exception occurs.
+     * Returns 106102 if the dynamic implementation library of the native API was not found.
+     */
+    int32_t (*registerNodeCustomEvent)(
+        ArkUI_NodeHandle node, ArkUI_NodeCustomEventType eventType, int32_t targetId, void* userData);
+
+    /**
+     * @brief Unregisters a custom event for a node.
+     *
+     * When the component is being displayed, this API must be called in the main thread.
+     *
+     * @param node Indicates the target node.
+     * @param eventType Indicates the type of event to unregister.
+     */
+    void (*unregisterNodeCustomEvent)(ArkUI_NodeHandle node, ArkUI_NodeCustomEventType eventType);
+
+    /**
+     * @brief Registers a unified entry function for custom node event callbacks.
+     *
+     * The ArkUI framework collects custom component events generated during the process and calls back the events
+     * through the registered <b>registerNodeCustomEventReceiver</b>. \n
+     * A new call to this API will overwrite the previously registered event receiver.
+     *
+     * @param eventReceiver Indicates the event receiver to register.
+     */
+    void (*registerNodeCustomEventReceiver)(void (*eventReceiver)(ArkUI_NodeCustomEvent* event));
+
+    /**
+     * @brief Unregisters the unified entry function for custom node event callbacks.
+     *
+     * When the component is being displayed, this API must be called in the main thread.
+     *
+     */
+    void (*unregisterNodeCustomEventReceiver)();
+
+    /**
+     * @brief Sets the width and height for a component after the measurement.
+     *
+     * When the component is being displayed, this API must be called in the main thread.
+     *
+     * @param node Indicates the target node.
+     * @param width Indicates the width.
+     * @param height Indicates the height.
+     * @return Returns 0 if success.
+     * Returns 401 if a parameter exception occurs.
+     */
+    int32_t (*setMeasuredSize)(ArkUI_NodeHandle node, int32_t width, int32_t height);
+
+    /**
+     * @brief Sets the position for a component..
+     *
+     * When the component is being displayed, this API must be called in the main thread.
+     *
+     * @param node Indicates the target node.
+     * @param positionX Indicates the X coordinate.
+     * @param positionY Indicates the Y coordinate.
+     * @return Returns 0 if success.
+     * Returns 401 if a parameter exception occurs.
+     */
+    int32_t (*setLayoutPosition)(ArkUI_NodeHandle node, int32_t positionX, int32_t positionY);
+    
+    /**
+     * @brief Obtains the width and height of a component after measurement.
+     *
+     * When the component is being displayed, this API must be called in the main thread.
+     *
+     * @param node Indicates the target node.
+     * @return Returns the width and height of the component.
+     */
+    ArkUI_IntSize (*getMeasuredSize)(ArkUI_NodeHandle node);
+
+    /**
+     * @brief Obtains the position of a component after the layout is complete.
+     *
+     * When the component is being displayed, this API must be called in the main thread.
+     *
+     * @param node Indicates the target node.
+     * @return Returns the position of the component.
+     */
+    ArkUI_IntOffset (*getLayoutPosition)(ArkUI_NodeHandle node);
+
+    /**
+     * @brief Measures a node. You can use the <b>getMeasuredSize</b> API to obtain the size after the measurement.
+     *
+     * When the component is being displayed, this API must be called in the main thread.
+     *
+     * @param node Indicates the target node.
+     * @param Constraint Indicates the size constraint.
+     * @return Returns 0 if success.
+     * Returns 401 if a parameter exception occurs.
+     */
+    int32_t (*measureNode)(ArkUI_NodeHandle node, ArkUI_LayoutConstraint* Constraint);
+
+    /**
+     * @brief Lays outs a component and passes the expected position of the component relative to its parent component.
+     *
+     * When the component is being displayed, this API must be called in the main thread.
+     *
+     * @param node Indicates the target node.
+     * @param positionX Indicates the X coordinate.
+     * @param positionY Indicates the Y coordinate.
+     * @return Returns 0 if success.
+     * Returns 401 if a parameter exception occurs.
+     */
+    int32_t (*layoutNode)(ArkUI_NodeHandle node, int32_t positionX, int32_t positionY);
 } ArkUI_NativeNodeAPI_1;
+
+
+/**
+* @brief Obtains the size constraint for measurement through a custom component event.
+*
+* @param event Indicates the pointer to the custom component event.
+* @return Returns the pointer to the size constraint.
+* @since 12
+*/
+ArkUI_LayoutConstraint* OH_ArkUI_NodeCustomEvent_GetLayoutConstraintInMeasure(ArkUI_NodeCustomEvent* event);
+
+/**
+* @brief Obtains the expected position of a component relative to its parent component in the layout phase through a
+* custom component event.
+*
+* @param event Indicates the pointer to the custom component event.
+* @return Returns the expected position relative to the parent component.
+* @since 12
+*/
+ArkUI_IntOffset OH_ArkUI_NodeCustomEvent_GetPositionInLayout(ArkUI_NodeCustomEvent* event);
+
+/**
+* @brief Obtains the drawing context through a custom component event.
+*
+* @param event Indicates the pointer to the custom component event.
+* @return Returns the drawing context.
+* @since 12
+*/
+ArkUI_DrawContext* OH_ArkUI_NodeCustomEvent_GetDrawContextInDraw(ArkUI_NodeCustomEvent* event);
+
+/**
+* @brief Obtains the ID of a custom component event.
+*
+* @param event Indicates the pointer to the custom component event.
+* @return Returns the ID of the custom component event.
+* @since 12
+*/
+int32_t OH_ArkUI_NodeCustomEvent_GetEventTargetId(ArkUI_NodeCustomEvent* event);
+
+/**
+* @brief Obtains custom event parameters through a custom component event.
+*
+* @param event Indicates the pointer to the custom component event.
+* @return Returns the custom event parameters.
+* @since 12
+*/
+void* OH_ArkUI_NodeCustomEvent_GetUserData(ArkUI_NodeCustomEvent* event);
+
+/**
+* @brief Obtains a component object through a custom component event.
+*
+* @param event Indicates the pointer to the custom component event.
+* @return Returns the component object.
+* @since 12
+*/
+ArkUI_NodeHandle OH_ArkUI_NodeCustomEvent_GetNodeHandle(ArkUI_NodeCustomEvent* event);
+
+/**
+* @brief Obtains the event type through a custom component event.
+*
+* @param event Indicates the pointer to the custom component event.
+* @return Returns the type of the custom component event.
+* @since 12
+*/
+ArkUI_NodeCustomEventType OH_ArkUI_NodeCustomEvent_GetEventType(ArkUI_NodeCustomEvent* event);
 
 #ifdef __cplusplus
 };
