@@ -25,9 +25,10 @@ extern "C" {
 #endif
 
 /**
- * @brief When OH_AVCodec needs new input parameter during the running process,
- * the function pointer will be called and carry an available OH_AVFormat to fill in the new input parameter.
- * 
+ * @brief When OH_AVCodec needs new input parameter during the running process, the function pointer will be called and
+ * carry an available OH_AVFormat to fill in the new input parameter. This parameter takes effect immediately with the
+ * frame.
+ *
  * @syscap SystemCapability.Multimedia.Media.VideoEncoder
  * @param codec OH_AVCodec instance
  * @param index The index corresponding to the new OH_AVFormat instance
