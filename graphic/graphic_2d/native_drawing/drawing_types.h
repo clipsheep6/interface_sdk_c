@@ -424,6 +424,41 @@ typedef enum {
     TEXT_ENCODING_GLYPH_ID,
 } OH_Drawing_TextEncoding;
 
+/**
+ * @brief Defines rectstyle info struct.
+ *
+ * @since 12
+ * @version 1.0
+ */
+typedef struct {
+    /** color of rectstyle */
+    uint32_t color;
+    /** radius in left top of rectstyle */
+    double leftTopRadius;
+    /** radius in right top of rectstyle */
+    double rightTopRadius;
+    /** radius in right bottom of rectstyle */
+    double rightBottomRadius;
+    /** radius in left bottom of rectstyle */
+    double leftBottomRadius;
+} OH_Drawing_RectStyle_Info;
+
+/**
+ * @brief Defines a OH_Drawing_FontMgr, which is used to manage font family.
+ *
+ * @since 12
+ * @version 1.0
+ */
+typedef struct OH_Drawing_FontMgr OH_Drawing_FontMgr;
+
+/**
+ * @brief Defines a OH_Drawing_FontStyleSet, which is used to manage font style.
+ *
+ * @since 12
+ * @version 1.0
+ */
+typedef struct OH_Drawing_FontStyleSet OH_Drawing_FontStyleSet;
+
 #ifdef __cplusplus
 }
 #endif
