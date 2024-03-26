@@ -274,7 +274,9 @@ extern const char *OH_MD_KEY_PROFILE;
 extern const char *OH_MD_KEY_AUD_CHANNEL_COUNT;
 /* Key for audio sample rate, value type is uint32_t */
 extern const char *OH_MD_KEY_AUD_SAMPLE_RATE;
-/* Key for the interval of key frame. value type is int32_t, the unit is milliseconds. */
+/** Key for the interval of key frame. value type is int32_t, the unit is milliseconds. A negative value means no key
+ * frames are requested after the first frame. A zero value means a stream containing all key frames is requested.
+ */
 extern const char *OH_MD_KEY_I_FRAME_INTERVAL;
 /* Key of the surface rotation angle. value type is int32_t: should be {0, 90, 180, 270}, default is 0. */
 extern const char *OH_MD_KEY_ROTATION;
