@@ -147,6 +147,8 @@ enum OH_Drawing_FontStyle {
     FONT_STYLE_NORMAL,
     /** Italic style */
     FONT_STYLE_ITALIC,
+    /** Oblique style */
+    FONT_STYLE_OBLIQUE,
 };
 
 /**
