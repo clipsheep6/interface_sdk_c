@@ -161,7 +161,7 @@ void OH_Drawing_FontMgrDestroy(OH_Drawing_FontMgr*);
  * @since 12
  * @version 1.0
  */
-int OH_Drawing_FontMgrGetFamiliesCount(OH_Drawing_FontMgr*);
+int OH_Drawing_FontMgrGetFamilyCount(OH_Drawing_FontMgr*);
 
 /**
  * @brief Gets the font family name by the index.
