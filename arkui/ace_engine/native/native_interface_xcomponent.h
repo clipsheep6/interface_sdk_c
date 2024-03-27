@@ -681,6 +681,30 @@ int32_t OH_NativeXComponent_RegisterUIInputEventCallback(
 int32_t OH_NativeXComponent_SetNeedSoftKeyboard(OH_NativeXComponent* component, bool needSoftKeyboard);
 
 /**
+ * @brief Registers a callback for this <b>OH_NativeXComponent</b> instance.
+ *
+ * @param component Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
+ * @param callback Indicates the pointer to a surface show event callback.
+ * @return Returns the status code of the execution.
+ * @since 12
+ * @version 1.0
+ */
+int32_t OH_NativeXComponent_RegisterSurfaceShowCallback(
+    OH_NativeXComponent* component, void (*callback)(OH_NativeXComponent* component, void* window));
+
+/**
+ * @brief Registers a callback for this <b>OH_NativeXComponent</b> instance.
+ *
+ * @param component Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
+ * @param callback Indicates the pointer to a surface hide event callback.
+ * @return Returns the status code of the execution.
+ * @since 12
+ * @version 1.0
+ */
+int32_t OH_NativeXComponent_RegisterSurfaceHideCallback(
+    OH_NativeXComponent* component, void (*callback)(OH_NativeXComponent* component, void* window));
+
+/**
  * @brief Registers a custom event intercept callback for this <b>OH_NativeXComponent</b> and enables the callback
  * during the hit test.
  *
@@ -692,6 +716,21 @@ int32_t OH_NativeXComponent_SetNeedSoftKeyboard(OH_NativeXComponent* component, 
  */
 int32_t OH_NativeXComponent_RegisterOnTouchInterceptCallback(
     OH_NativeXComponent* component, HitTestMode (*callback)(OH_NativeXComponent* component, ArkUI_UIInputEvent* event));
+
+/**
+ * @brief Obtains the touch event's source type dispatched by the ArkUI XComponent.
+ *
+ * @param component Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
+ * @param pointId Indicates the id of the touch point which triggers this touch event.
+ * @param sourceType Indicates the source type of this touch event.
+ * @return Returns OH_NATIVEXCOMPONENT_RESULT_SUCCESS if success.
+ *         Returns OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER if a parameter exception occurs.
+ *         Returns OH_NATIVEXCOMPONENT_RESULT_FAILED if other exceptions occur.
+ * @since 12
+ * @version 1.0
+ */
+int32_t OH_NativeXComponent_GetTouchEventSourceType(
+    OH_NativeXComponent* component, int32_t pointId, OH_NativeXComponent_EventSourceType* sourceType);
 
 #ifdef __cplusplus
 };

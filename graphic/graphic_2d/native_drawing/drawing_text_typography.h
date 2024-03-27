@@ -359,26 +359,26 @@ typedef struct OH_Drawing_LineMetrics {
  * @since 12
  * @version 1.0
  */
-typedef enum {
+enum OH_Drawing_TextStyleType {
     /** None style */
-    None,
+    TextStyle_NONE,
     /** All attributes style */
-    AllAttributes,
+    TextStyle_ALL_ATTRIBUTES,
     /** Font style */
-    Font,
+    TextStyle_FONT,
     /** Foreground style */
-    Foreground,
+    TextStyle_FOREGROUND,
     /** Background style */
-    Background,
+    TextStyle_BACKGROUND,
     /** Shadow style */
-    Shadow,
+    TextStyle_SHADOW,
     /** Decorations style */
-    Decorations,
+    TextStyle_DECORATIONS,
     /** Letter spacing style */
-    LetterSpacing,
+    TextStyle_LETTER_SPACING,
     /** Word spacing style */
-    WordSpacing
-}OH_Drawing_TextStyleType;
+    TextStyle_WORD_SPACING
+};
 
 /**
  * @brief Creates an <b>OH_Drawing_TypographyStyle</b> object.
@@ -1712,6 +1712,151 @@ float OH_Drawing_TypographyGetIndentsWithIndex(OH_Drawing_Typography*, int);
 void OH_Drawing_DestroyTextShadows(OH_Drawing_TextShadow*);
 
 /**
+ * @brief Gets the text color.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param OH_Drawing_TextStyle Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+ * @return Returns the text color.
+ * @since 12
+ * @version 1.0
+ */
+uint32_t OH_Drawing_TextStyleGetColor(OH_Drawing_TextStyle*);
+
+/**
+ * @brief Gets text decoration style.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param OH_Drawing_TextStyle Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+ * @return Returns text decoration style.
+ * @since 12
+ * @version 1.0
+ */
+OH_Drawing_TextDecorationStyle OH_Drawing_TextStyleGetDecorationStyle(OH_Drawing_TextStyle*);
+
+/**
+ * @brief Gets font weight.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param OH_Drawing_TextStyle Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+ * @return Returns font Weight.
+ * @since 12
+ * @version 1.0
+ */
+OH_Drawing_FontWeight OH_Drawing_TextStyleGetFontWeight(OH_Drawing_TextStyle*);
+
+/**
+ * @brief Gets font style.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param OH_Drawing_TextStyle Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+ * @return Returns font style.
+ * @since 12
+ * @version 1.0
+ */
+OH_Drawing_FontStyle OH_Drawing_TextStyleGetFontStyle(OH_Drawing_TextStyle*);
+
+/**
+ * @brief Gets the font baseline.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param OH_Drawing_TextStyle Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+ * @return Returns the font baseline.
+ * @since 12
+ * @version 1.0
+ */
+OH_Drawing_TextBaseline OH_Drawing_TextStyleGetBaseline(OH_Drawing_TextStyle*);
+
+/**
+ * @brief Gets a list of font families.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param OH_Drawing_TextStyle Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+ * @param num Indicates count of font families result.
+ * @return Returns a list of font families.
+ * @since 12
+ * @version 1.0
+ */
+char** OH_Drawing_TextStyleGetFontFamilies(OH_Drawing_TextStyle*, size_t* num);
+
+/**
+ * @brief Releases the memory occupied by a list of font families.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param fontFamilies Indicates the pointer to a list of font families.
+ * @param num Indicates the count of obtained font families.
+ * @since 12
+ * @version 1.0
+ */
+void OH_Drawing_TextStyleDestroyFontFamilies(char** fontFamilies, size_t num);
+
+/**
+ * @brief Gets font size.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param OH_Drawing_TextStyle Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+ * @return Returns font size.
+ * @since 12
+ * @version 1.0
+ */
+double OH_Drawing_TextStyleGetFontSize(OH_Drawing_TextStyle*);
+
+/**
+ * @brief Gets the letter spacing of the text.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param OH_Drawing_TextStyle Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+ * @return Returns the size of the letter spacing.
+ * @since 12
+ * @version 1.0
+ */
+double OH_Drawing_TextStyleGetLetterSpacing(OH_Drawing_TextStyle*);
+
+/**
+ * @brief Gets the word spacing of the text.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param OH_Drawing_TextStyle Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+ * @return Returns word spacing size.
+ * @since 12
+ * @version 1.0
+ */
+double OH_Drawing_TextStyleGetWordSpacing(OH_Drawing_TextStyle*);
+
+/**
+ * @brief Gets font height.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param OH_Drawing_TextStyle Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+ * @return Returns font height.
+ * @since 12
+ * @version 1.0
+ */
+double OH_Drawing_TextStyleGetFontHeight(OH_Drawing_TextStyle*);
+
+/**
+ * @brief Gets whether to set the text to half line spacing.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param OH_Drawing_TextStyle Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+ * @return Returns true indicates that the spacing takes effect, false indicates that the spacing does not take effect.
+ * @since 12
+ * @version 1.0
+ */
+bool OH_Drawing_TextStyleGetHalfLeading(OH_Drawing_TextStyle*);
+
+/**
+ * @brief Gets the locale.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param OH_Drawing_TextStyle Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+ * @return Returns a locale of data type as a pointer to a char. As with the TextStyle lifecycle.
+ * No release is required and the return value is invalidated after the set method is called.
+ * @since 12
+ * @version 1.0
+ */
+const char* OH_Drawing_TextStyleGetLocale(OH_Drawing_TextStyle*);
+
+/**
  * @brief Gets whether the two TextStyle objects are equal.
  *
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
@@ -1746,8 +1891,8 @@ bool OH_Drawing_TextStyleIsEqualsByFonts(const OH_Drawing_TextStyle* style, cons
  * @since 12
  * @version 1.0
  */
-bool OH_Drawing_TextStyleIsMatchOneAttribute(OH_Drawing_TextStyleType textStyleType,
-    const OH_Drawing_TextStyle* style, const OH_Drawing_TextStyle* comparedStyle);
+bool OH_Drawing_TextStyleIsMatchOneAttribute(const OH_Drawing_TextStyle* style,
+    const OH_Drawing_TextStyle* comparedStyle, OH_Drawing_TextStyleType textStyleType);
 
 /**
  * @brief Set placeholder of TextStyle.
@@ -1760,11 +1905,11 @@ bool OH_Drawing_TextStyleIsMatchOneAttribute(OH_Drawing_TextStyleType textStyleT
 void OH_Drawing_TextStyleSetPlaceholder(OH_Drawing_TextStyle* style);
 
 /**
- * @brief Gets placeholder.
+ * @brief Gets whether placeholder is enable.
  *
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
  * @param OH_Drawing_TextStyle Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
- * @return Returns placeholder.
+ * @return Whether placeholder is enable.
  * @since 12
  * @version 1.0
  */
@@ -1786,35 +1931,11 @@ OH_Drawing_TextAlign OH_Drawing_TypographyStyleGetEffectiveAlignment(OH_Drawing_
  *
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
  * @param OH_Drawing_TypographyStyle Indicates the pointer to an <b>OH_Drawing_TypographyStyle</b> object.
- * @return True, if the hinting takes effect; false if the hinting does not take effect.
+ * @return True, if the hinting takes effect; False, if the hinting does not take effect.
  * @since 12
  * @version 1.0
  */
 bool OH_Drawing_TypographyStyleIsHintingEnabled(OH_Drawing_TypographyStyle* style);
-
-/**
- * @brief Getting all font metrics from target row.
- *
- * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
- * @param OH_Drawing_Typography Indicates a pointer to a typesetting object.
- * @param lineNumber Indicates specifies the number of rows.
- * @param fontMetricsSize Indicates the return size of font metrics struct from current line.
- * @return Returns all character measures for the current row.
- * @since 12
- * @version 1.0
- */
-OH_Drawing_Font_Metrics* OH_Drawing_TypographyGetLineFontMetrics(OH_Drawing_Typography*,
-    size_t lineNumber, size_t* fontMetricsSize);
-
-/**
- * @brief Free up all the space taken up by the lineFontMetric.
- *
- * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
- * @param OH_Drawing_Font_Metrics Indicates the first address of the lineFontMetric gather to be destroyed.
- * @since 12
- * @version 1.0
- */
-void OH_Drawing_TypographyDestroyLineFontMetrics(OH_Drawing_Font_Metrics*);
 
 #ifdef __cplusplus
 }
