@@ -820,11 +820,11 @@
     },
     {
         "first_introduced": "12",
-        "name": "OH_Drawing_StrutStyleEquals"
+        "name": "OH_Drawing_TypographyStyleStrutStyleEquals"
     },
     {
         "first_introduced": "12",
-        "name": "OH_Drawing_TypographyStyleSetHintingOn"
+        "name": "OH_Drawing_TypographyStyleSetHintingEnable"
     },
     {
         "first_introduced": "12",
