@@ -365,24 +365,24 @@ extern const char *OH_MD_KEY_AUDIO_OBJECT_NUMBER;
 extern const char *OH_MD_KEY_AUDIO_VIVID_METADATA;
 
 /**
- * @brief Key for querying the maximum long-term reference number of video encoder, value type is int32_t.
- * You should query the number through interface {@link OH_AVCapability_GetFeatureProperties}
+ * @brief Key for querying the maximum long-term reference count of video encoder, value type is int32_t.
+ * You should query the count through interface {@link OH_AVCapability_GetFeatureProperties}
  * with enum {@link VIDEO_ENCODER_LONG_TERM_REFERENCE}.
  * 
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 12
  */
-extern const char *OH_FEATURE_PROPERTY_KEY_VIDEO_ENCODER_MAX_LTR_FRAME_NUM;
+extern const char *OH_FEATURE_PROPERTY_KEY_VIDEO_ENCODER_MAX_LTR_FRAME_COUNT;
 /** 
- * @brief Key for enable the temporal level scale mode, value type is int32_t (0 or 1): 1 is enabled, 0 otherwise.
+ * @brief Key for enable the temporal scalability mode, value type is int32_t (0 or 1): 1 is enabled, 0 otherwise.
  * The default value is 0. To query supported, you should use the interface {@link OH_AVCapability_IsFeatureSupported}
- * with enum {@link VIDEO_ENCODER_TEMPORAL_LEVEL_SCALE}. This is an optional key that applies only to video encoder.
+ * with enum {@link VIDEO_ENCODER_TEMPORAL_SCALABILITY}. This is an optional key that applies only to video encoder.
  * It is used in configure.
  * 
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 12
  */
-extern const char *OH_MD_KEY_VIDEO_ENCODER_ENABLE_TEMPORAL_LEVEL_SCALE;
+extern const char *OH_MD_KEY_VIDEO_ENCODER_ENABLE_TEMPORAL_SCALABILITY;
 /**
  * @brief Key for describing the temporal group of picture size, value type is int32_t. It takes effect only when temporal
  * level scale is enable. This is an optional key that applies only to video encoder. It is used in configure.
@@ -401,7 +401,7 @@ extern const char *OH_MD_KEY_VIDEO_ENCODER_TEMPORAL_GOP_SIZE;
  */
 extern const char *OH_MD_KEY_VIDEO_ENCODER_TEMPORAL_GOP_REFERENCE_MODE;
 /**
- * @brief Key for describing the number of used long-term reference frames, value type is int32_t, must be within the
+ * @brief Key for describing the count of used long-term reference frames, value type is int32_t, must be within the
  * supported range. To get supported range, you should query wthether the capability is supported through the interface
  * {@link OH_AVCapability_GetFeatureProperties} with enum {@link VIDEO_ENCODER_LONG_TERM_REFERENCE}, otherwise, not set
  * the key. This is an optional key that applies only to video encoder. It is used in configure.
@@ -409,10 +409,10 @@ extern const char *OH_MD_KEY_VIDEO_ENCODER_TEMPORAL_GOP_REFERENCE_MODE;
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 12
  */
-extern const char *OH_MD_KEY_VIDEO_ENCODER_LTR_FRAME_NUM;
+extern const char *OH_MD_KEY_VIDEO_ENCODER_LTR_FRAME_COUNT;
 /**
  * @brief Key for describing mark this frame as a long term reference frame, value type is int32_t (0 or 1): 1 is mark, 0
- * otherwise. It takes effect only when the number of used long term reference frames is configured.
+ * otherwise. It takes effect only when the count of used long term reference frames is configured.
  * This is an optional key that applies only to video encoder input loop. It takes effect immediately.
  * 
  * @syscap SystemCapability.Multimedia.Media.CodecBase
@@ -787,9 +787,9 @@ typedef enum OH_HEVCLevel {
  */
 typedef enum OH_TemporalGopReferenceMode {
     /** Refer to latest short-term reference frame. */
-    ADJACENT_REFERENCE_MODE = 0,
+    ADJACENT_REFERENCE = 0,
     /** Refer to latest long-term reference frame. */
-    JUMP_REFERENCE_MODE = 1,
+    JUMP_REFERENCE = 1,
 } OH_TemporalGopReferenceMode;
 
 #ifdef __cplusplus

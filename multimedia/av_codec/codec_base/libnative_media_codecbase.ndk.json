@@ -281,11 +281,11 @@
     },
     {
         "first_introduced": "12",
-        "name": "OH_FEATURE_PROPERTY_KEY_VIDEO_ENCODER_MAX_LTR_FRAME_NUM"
+        "name": "OH_FEATURE_PROPERTY_KEY_VIDEO_ENCODER_MAX_LTR_FRAME_COUNT"
     },
     {
         "first_introduced": "12",
-        "name": "OH_MD_KEY_VIDEO_ENCODER_ENABLE_TEMPORAL_LEVEL_SCALE"
+        "name": "OH_MD_KEY_VIDEO_ENCODER_ENABLE_TEMPORAL_SCALABILITY"
     },
     {
         "first_introduced": "12",
@@ -297,7 +297,7 @@
     },
     {
         "first_introduced": "12",
-        "name": "OH_MD_KEY_VIDEO_ENCODER_LTR_FRAME_NUM"
+        "name": "OH_MD_KEY_VIDEO_ENCODER_LTR_FRAME_COUNT"
     },
     {
         "first_introduced": "12",
