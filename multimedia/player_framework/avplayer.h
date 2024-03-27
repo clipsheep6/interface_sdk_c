@@ -98,6 +98,21 @@ OH_AVErrCode OH_AVPlayer_SetFDSource(OH_AVPlayer *player, int32_t fd, int64_t of
 OH_AVErrCode OH_AVPlayer_Prepare(OH_AVPlayer *player);
 
 /**
+ * @brief Prepares the playback environment and buffers media data asynchronous, at specific timestamp.
+ *
+ * This function must be called after {@link SetSource}.
+ *
+ * @syscap SystemCapability.Multimedia.Media.AVPlayer
+ * @param player Pointer to an OH_AVPlayer instance.
+ * @param mSeconds Timestamp to be prepared at.
+ * @return Returns {@link AV_ERR_OK} if {@link Prepare} is successfully added to the task queue;
+ * returns an error code defined in {@link native_averrors.h} otherwise.
+ * @since 12
+ * @version 1.0
+ */
+OH_AVErrCode OH_AVPlayer_PrepareAt(OH_AVPlayer *player, int32_t mSeconds);
+
+/**
  * @brief Start playback.
  *
  * This function must be called after {@link Prepare}. If the player state is <b>Prepared</b>,
