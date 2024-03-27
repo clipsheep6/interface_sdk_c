@@ -13,6 +13,26 @@
  * limitations under the License.
  */
 
+/**
+ * @addtogroup ArkUI_NativeModule
+ * @{
+ *
+ * @brief Provides UI capabilities of ArkUI on the native side, such as UI component creation and destruction,
+ * tree node operations, attribute setting, and event listening.
+ *
+ * @since 12
+ */
+
+/**
+ * @file native_dialog.h
+ *
+ * @brief Defines a set of custom dialog box APIs of the ArkUI on the native side.
+ *
+ * @library libace_ndk.z.so
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 12
+ */
+
 #ifndef ARKUI_NATIVE_DIALOG_H
 #define ARKUI_NATIVE_DIALOG_H
 
@@ -189,7 +209,7 @@ typedef struct {
     *
     * @note This method must be called before the <b>show</b> method.
     * @param handle Indicates the pointer to the custom dialog box controller.
-    * @param eventHandler Indicates the callback to register. The parameter type is {@link ArkUI_OnWillDismissEvent}.
+    * @param eventHandler Indicates the callback to register. The parameter type is {@link OnWillDismissEvent}.
     * @return Returns <b>0</b> if the operation is successful; returns <b>401</b> if a parameter error occurs.
     */
     int32_t (*registerOnWillDismiss)(ArkUI_NativeDialogHandle handle, ArkUI_OnWillDismissEvent eventHandler);
@@ -215,3 +235,4 @@ typedef struct {
 #endif
 
 #endif // ARKUI_NATIVE_DIALOG_H
+/** @} */
