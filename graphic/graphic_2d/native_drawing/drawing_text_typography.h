@@ -1725,6 +1725,16 @@ void OH_Drawing_DestroyTextShadows(OH_Drawing_TextShadow*);
 void OH_Drawing_SetTypographyStyleTextStrutStyle(OH_Drawing_TypographyStyle*, OH_Drawing_StrutStyle*);
 
 /**
+ * @brief Releases the memory occupied by an <b>OH_Drawing_StrutStyle</b> object.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param OH_Drawing_StrutStyle Indicates the pointer of <b>OH_Drawing_StrutStyle</b> object.
+ * @since 12
+ * @version 1.0
+ */
+void OH_Drawing_TypographyStyleDestroyStrutStyle(OH_Drawing_StrutStyle*);
+
+/**
  * @brief Gets the strut style for text typography.
  *
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
