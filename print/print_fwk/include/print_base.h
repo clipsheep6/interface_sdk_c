@@ -48,7 +48,7 @@ extern "C" {
 
 /**
  * @brief Defines error codes.
- * 
+ *
  * @since 12
  * @version 1.0
  */
@@ -79,7 +79,7 @@ typedef enum {
 
 /**
  * @brief Indicates printer states.
- * 
+ *
  * @since 12
  */
 typedef enum {
@@ -93,7 +93,7 @@ typedef enum {
 
 /**
  * @brief Indicate printer discovery events.
- * 
+ *
  * @since 12
  */
 typedef enum {
@@ -109,7 +109,7 @@ typedef enum {
 
 /**
  * @brief Indicate printer change events.
- * 
+ *
  * @since 12
  */
 typedef enum {
@@ -124,8 +124,70 @@ typedef enum {
 } Print_PrinterEvent;
 
 /**
+ * @brief Indicates string list.
+ *
+ * @since 12
+ */
+typedef struct {
+    /** Number of strings. */
+    uint32_t count;
+    /** String pointer array */
+    char **list;
+} Print_StringList;
+
+/**
+ * @brief Indicates printer property.
+ *
+ * @since 12
+ */
+typedef struct {
+    /** Property keyword */
+    char *key;
+    /** Property value. */
+    char *value;
+} Print_Property;
+
+/**
+ * @brief List of printer properties.
+ *
+ * @since 12
+ */
+typedef struct {
+    /** Number of properties. */
+    uint32_t count;
+    /** Property pointer array. */
+    Print_Property *list;
+} Print_PropertyList;
+
+/**
+ * @brief Indicates print resolution in dpi unit.
+ *
+ * @since 12
+ */
+typedef struct {
+    uint32_t horizontalDpi;
+    uint32_t verticalDpi;
+} Print_Resolution;
+
+/**
+ * @brief Indicates printing margin
+ *
+ * @since 12
+ */
+typedef struct {
+    /** Left margin. */
+    uint32_t leftMargin;
+    /** Top margin. */
+    uint32_t topMargin;
+    /** Right margin. */
+    uint32_t rightMargin;
+    /** Bottom margin. */
+    uint32_t bottomMargin;
+} Print_Margin;
+
+/**
  * @brief Indicates paper size info.
- * 
+ *
  * @since 12
  */
 typedef struct {
@@ -137,97 +199,159 @@ typedef struct {
     uint32_t width;
     /** Paper height. */
     uint32_t height;
-    /** Paper left margin. */
-    uint32_t leftMargin;
-    /** Paper top margin. */
-    uint32_t topMargin;
-    /** Paper right margin. */
-    uint32_t rightMargin;
-    /** Paper bottom margin. */
-    uint32_t bottomMargin;
 } Print_PageSize;
 
 /**
- * @brief Indicates string list.
- * 
+ * @brief Indicates DuplexMode
+ *
  * @since 12
  */
-typedef struct {
-    /** Number of strings. */
-    uint32_t count;
-    /** String pointer array */
-    char **list;
-} Print_StringList;
+typedef enum {
+    /** One sided duplex mode. */
+    DUPLEX_MODE_ONE_SIDED = 0,
+    /** Long edge two sided duplex mode. */
+    DUPLEX_MODE_TWO_SIDED_LONG_EDGE = 1,
+    /** Short edge two sided duplex mode. */
+    DUPLEX_MODE_TWO_SIDED_SHORT_EDGE = 2,
+} Print_DuplexMode;
+
+/**
+ * @brief Indicates ColorMode
+ *
+ * @since 12
+ */
+typedef enum {
+    /** Monochrome mode. */
+    COLOR_MODE_MONOCHROME = 0,
+    /** Color mode. */
+    COLOR_MODE_COLOR = 1,
+    /** Auto mode. */
+    COLOR_MODE_AUTO = 2,
+} Print_ColorMode;
+
+/**
+ * @brief Indicates OrientationMode
+ *
+ * @since 12
+ */
+typedef enum {
+    /** Portrait mode. */
+    ORIENTATION_MODE_PORTRAIT = 0,
+    /** Landscape mode. */
+    ORIENTATION_MODE_LANDSCAPE = 1,
+    /** Reverse landscape mode. */
+    ORIENTATION_MODE_REVERSE_LANDSCAPE = 2,
+    /** Reverse portrait mode. */
+    ORIENTATION_MODE_REVERSE_PORTRAIT = 3,
+    /** Not specified. */
+    ORIENTATION_MODE_NONE = 4,
+} Print_OrientationMode;
+
+/**
+ * @brief Indicates printing qulity
+ *
+ * @since 12
+ */
+typedef enum {
+    /** Draft quality mode */
+    PRINT_QUALITY_DRAFT = 3,
+    /** Normal quality mode */
+    PRINT_QUALITY_NORMAL = 4,
+    /** High quality mode */
+    PRINT_QUALITY_HIGH = 5
+} Print_Quality;
+
+/**
+ * @brief Indicates the MIME media type of the document.
+ *
+ * @since 12
+ */
+typedef enum {
+    /** MIME: application/octet-stream. */
+    DOCUMENT_FORMAT_AUTO,
+    /** MIME: image/jpeg. */
+    DOCUMENT_FORMAT_JPEG,
+    /** MIME: application/pdf. */
+    DOCUMENT_FORMAT_PDF,
+    /** MIME: application/postscript. */
+    DOCUMENT_FORMAT_POSTSCRIPT,
+    /** MIME: text/plain. */
+    DOCUMENT_FORMAT_TEXT,
+} Print_DocumentFormat;
 
 /**
  * @brief Indicates printer capabilities.
- * 
+ *
  * @since 12
  */
 typedef struct {
-    /** Support for color printing. */
-    bool supportedColorMode;
+    /** Array of supported color mode. */
+    Print_ColorMode *supportedColorModes;
+    /** Number of supported color mode. */
+    uint32_t supportedColorModesCount;
     /** Array of supported duplex printing modes. */
-    uint32_t *supportedDuplexModes;
+    Print_DuplexMode *supportedDuplexModes;
     /** Number of supported duplex printing mode. */
     uint32_t supportedDuplexModesCount;
     /** Array of supported print paper sizes. */
     Print_PageSize *supportedPageSizes;
     /** Number of supported print paper sizes. */
     uint32_t supportedPageSizesCount;
-    /** Array of supported print media types. */
-    uint32_t *supportedMediaTypes;
-    /** Number of supported print media types. */
-    uint32_t supportedMediaTypesCount;
+    /** Supported print media types in json string array format. */
+    char *supportedMediaTypes;
     /** Array of supported print qulities. */
-    uint32_t *supportedQualities;
+    Print_Quality *supportedQualities;
     /** Number of supported print qulities. */
     uint32_t supportedQualitiesCount;
-    /** Supported document handling in json format. */
-    char *supportedDocumentHandling;
-    /** Supported media source in json format. */
-    char *supportedMediaSource;
+    /** Supported paper sources in json string array format. */
+    char *supportedPaperSources;
     /** Supported copies. */
     uint32_t supportedCopies;
-    /** Default printer resolution. */
-    char *supportedResolution;
+    /** Array of supported printer resolutions. */
+    Print_Resolution *supportedResolutions;
+    /** Number of supported printer resolutions. */
+    uint32_t supportedResolutionsCount;
     /** Array of supported orientation. */
-    uint32_t *supportedOrientation;
+    Print_OrientationMode *supportedOrientations;
     /** Number of supported orientation. */
-    uint32_t supportedOrientationCount;
-    /** advanced capability in json format. */
-    char *advanceCapability;
+    uint32_t supportedOrientationsCount;
+    /** Advanced capability in json format. */
+    char *advancedCapability;
 } Print_PrinterCapability;
 
 /**
  * @brief Indicates current properties
- * 
+ *
  * @since 12
  */
 typedef struct {
     /** Default color mode. */
-    uint32_t defaultColorMode;
-    /** Default sides. */
-    uint32_t defaultSides;
+    Print_ColorMode defaultColorMode;
+    /** Default duplex mode. */
+    Print_DuplexMode defaultDuplexMode;
     /** Default media type. */
     char *defaultMediaType;
-    /** Default media source. */
-    char *defaultMediaSource;
+    /** Default page size id. */
+    char *defaultPageSizeId;
+    /** Default margin. */
+    Print_Margin defaultMargin;
+    /** Default paper source. */
+    char *defaultPaperSource;
     /** Default print quality */
-    uint32_t defaultPrintQuality;
+    Print_Quality defaultPrintQuality;
     /** Default copies. */
     uint32_t defaultCopies;
     /** Default printer resolution. */
-    char *defaultPrinterResolution;
+    Print_Resolution defaultResolution;
     /** Default orientation. */
-    uint32_t defaultOrientation;
+    Print_OrientationMode defaultOrientation;
     /** Other default values in json format. */
     char *otherDefaultValues;
 } Print_DefaultValue;
 
 /**
  * @brief Indicates printer infomation.
- * 
+ *
  * @since 12
  */
 typedef struct {
@@ -256,216 +380,50 @@ typedef struct {
 } Print_PrinterInfo;
 
 /**
- * @brief Indicates printer property.
- * 
- * @since 12
- */
-typedef struct {
-    /** Property keyword */
-    char *key;
-    /** Property value. */
-    char *value;
-} Print_Property;
-
-/**
- * @brief List of printer properties.
- * 
- * @since 12
- */
-typedef struct {
-    /** Number of properties. */
-    uint32_t count;
-    /** Property pointer array. */
-    Print_Property *list;
-} Print_PropertyList;
-
-/**
- * @brief Indicates PaperSource Mode.
- * 
- * @since 12
- */
-typedef enum {
-    /** Auto paper source mode. */
-    PAPER_SOURCE_MODE_AUTO = 6,
-    /** Cassette paper source mode. */
-    PAPER_SOURCE_MODE_CASSETTE = 11,
-    /** Envelope paper source mode. */
-    PAPER_SOURCE_MODE_ENVELOPE = 4,
-    /** Manual envelope paper source mode. */
-    PAPER_SOURCE_MODE_ENVELOPE_MANUAL = 5,
-    /** Form source mode. */
-    PAPER_SOURCE_MODE_FORM_SOURCE = 12,
-    /** Large capacity paper source mode. */
-    PAPER_SOURCE_MODE_LARGE_CAPACITY = 10,
-    /** Large format paper source mode. */
-    PAPER_SOURCE_MODE_LARGE_FORMAT = 9,
-    /** Lower paper source mode. */
-    PAPER_SOURCE_MODE_LOWER = 1,
-    /** Last paper source mode. */
-    PAPER_SOURCE_MODE_LAST_PAPER_SOURCE = 13,
-    /** Middle paper source mode. */
-    PAPER_SOURCE_MODE_MIDDLE = 2,
-    /** Manual paper source mode. */
-    PAPER_SOURCE_MODE_MANUAL = 3,
-    /** Only one paper source mode. */
-    PAPER_SOURCE_MODE_ONLY_ONE = 0,
-    /** Tractor paper source mode. */
-    PAPER_SOURCE_MODE_TRACTOR = 7,
-    /** Smarll format paper source mode. */
-    PAPER_SOURCE_MODE_SMALL_FORMAT = 8,
-    /** Custom paper source mode. */
-    PAPER_SOURCE_MODE_CUSTOM_SOURCE = 14,
-} PrintJob_PaperSource;
-
-/**
- * @brief Indicates DuplexMode
- * 
- * @since 12
- */
-typedef enum {
-    /** One sided duplex mode. */
-    DUPLEX_MODE_ONE_SIDED = 0,
-    /** Long edge two sided duplex mode. */
-    DUPLEX_MODE_TWO_SIDED_LONG_EDGE = 1,
-    /** Short edge two sided duplex mode. */
-    DUPLEX_MODE_TWO_SIDED_SHORT_EDGE = 2,
-} PrintJob_DuplexMode;
-
-/**
- * @brief Indicates ColorMode
- * 
- * @since 12
- */
-typedef enum {
-    /** Monochrome mode. */
-    COLOR_MODE_MONOCHROME = 0,
-    /** Color mode. */
-    COLOR_MODE_COLOR = 1,
-    /** Auto mode. */
-    COLOR_MODE_AUTO = 2,
-} PrintJob_ColorMode;
-
-/**
- * @brief Indicates OrientationMode
- * 
- * @since 12
- */
-typedef enum {
-    /** Portrait mode. */
-    ORIENTATION_MODE_PORTRAIT = 0,
-    /** Landscape mode. */
-    ORIENTATION_MODE_LANDSCAPE = 1,
-} PrintJob_OrientationMode;
-
-/**
- * @brief Indicates PageSize
- * 
- * @since 12
- */
-typedef struct {
-    /** Paper id. */
-    char *id;
-    /** Paper name. */
-    char *name;
-    /** Paper width. */
-    uint32_t width;
-    /** Paper height. */
-    uint32_t height;
-} PrintJob_PageSize;
-
-/**
- * @brief Indicates PageRange
- * 
- * @since 12
- */
-typedef struct {
-    /** Start page. */
-    uint32_t startPage;
-    /** End page. */
-    uint32_t endPage;
-    /** Array of pages. */
-    uint32_t *pages;
-    /** Number of pages. */
-    uint32_t pagesCount;
-} PrintJob_PageRange;
-
-/**
- * @brief Indicates PrintMargin
- * 
- * @since 12
- */
-typedef struct {
-    /** top margin. */
-    uint32_t topMargin;
-    /** bottom margin. */
-    uint32_t bottomMargin;
-    /** left margin. */
-    uint32_t leftMargin;
-    /** right margin. */
-    uint32_t rightMargin;
-} PrintJob_PrintMargin;
-
-/**
- * @brief Indicates PrintJob OptionObject.
- * 
+ * @brief Indicates PrintJob Structure.
+ *
  * @since 12
  */
 typedef struct {
     /** Job name. */
     char *jobName;
-    /** Media type. */
-    char *mediaType;
-    /** Document category. */
-    uint32_t documentCategory;
-    /** Print quality. */
-    char *printQuality;
-    /** Printer name. */
-    char *printerName;
-    /** Printer Uri. */
-    char *printerUri;
-    /** Document format. */
-    char *documentFormat;
-    /** Advanced options in json format. */
-    char *advanceOptions;
-} PrintJob_OptionObject;
-
-/**
- * @brief Indicates PrintJob Structure.
- * 
- * @since 12
- */
-typedef struct {
     /** Array of file descriptors to print. */
     uint32_t *fdList;
     /** Number of file descriptors to print. */
     uint32_t fdListCount;
     /** Printer id. */
     char *printerId;
-    /** Print resolution in dpi. */
-    uint32_t dpi;
     /** Number of copies printed. */
     uint32_t copyNumber;
     /** Paper source. */
-    PrintJob_PaperSource paperSource;
-    /** Paper size. */
-    PrintJob_PageSize pageSize;
+    char *paperSource;
+    /** Media type. */
+    char *mediaType;
+    /** Paper size id. */
+    char *pageSizeId;
     /** Color mode. */
-    PrintJob_ColorMode colorMode;
+    Print_ColorMode colorMode;
     /** Duplex source. */
-    PrintJob_DuplexMode duplexMode;
-    /** Page range. */
-    PrintJob_PageRange pageRange;
+    Print_DuplexMode duplexMode;
+    /** Print resolution in dpi. */
+    Print_Resolution resolution;
     /** Print margin. */
-    PrintJob_PrintMargin printMargin;
+    Print_Margin printMargin;
+    /** Borderless. */
+    bool borderless;
     /** Orientation mode. */
-    PrintJob_OrientationMode orientationMode;
-    /** Print option. */
-    PrintJob_OptionObject printOption;
+    Print_OrientationMode orientationMode;
+    /** Print quality. */
+    Print_Quality printQuality;
+    /** Document format. */
+    Print_DocumentFormat documentFormat;
+    /** Advanced options in json format. */
+    char *advancedOptions;
 } Print_PrintJob;
 
 /**
  * @brief Printer change callback.
- * 
+ *
  * @since 12
  */
 typedef void (*Print_PrinterChangeCallback)(uint32_t event, const Print_PrinterInfo *printerInfo);
