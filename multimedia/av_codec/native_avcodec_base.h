@@ -508,16 +508,16 @@ extern const char *OH_MD_KEY_VIDEO_SLICE_HEIGHT;
  */
 extern const char *OH_MD_KEY_VIDEO_ENABLE_LOW_LATENCY;
 /**
- * @brief Key for describing the maximum Quantization Parameter allowed for video encoder, value type is int32_t.
- * It is used in configure or takes effect immediately with the frame.
+ * @brief Key for describing the maximum quantization parameter allowed for video encoder, value type is int32_t.
+ * It is used in configure/setparameter or takes effect immediately with the frame.
  * 
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 12
  */
 extern const char *OH_MD_KEY_VIDEO_ENCODER_QP_MAX;
 /**
- * @brief Key for describing the minimum Quantization Parameter allowed for video encoder, value type is int32_t.
- * It is used in configure or takes effect immediately with the frame.
+ * @brief Key for describing the minimum quantization parameter allowed for video encoder, value type is int32_t.
+ * It is used in configure/setparameter or takes effect immediately with the frame.
  * 
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 12
