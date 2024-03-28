@@ -936,6 +936,10 @@
     },
     {
         "first_introduced": "12",
+        "name": "OH_Drawing_FontStyleSetFreeStyleName"
+    },
+    {
+        "first_introduced": "12",
         "name": "OH_Drawing_FontStyleSetMatchStyle"
     },
     {
