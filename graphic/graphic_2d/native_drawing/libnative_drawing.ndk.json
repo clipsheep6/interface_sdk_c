@@ -932,7 +932,7 @@
     },
     {
         "first_introduced": "12",
-        "name": "OH_Drawing_TypographyStyleSetHintingEnable"
+        "name": "OH_Drawing_TypographyStyleSetHintsEnabled"
     },
     {
         "first_introduced": "12",
