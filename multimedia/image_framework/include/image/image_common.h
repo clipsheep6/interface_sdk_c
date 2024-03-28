@@ -720,7 +720,7 @@ const char *OHOS_IMAGE_PROPERTY_COMPONENTS_CONFIGURATION = "ComponentsConfigurat
  * @since 12
  * @version 5.0
  */
-const char *OHOS_IMAGE_PROPERTY_SHUTTER_SPEED_VALUE = "ShutterSpeedValue";
+const char *OHOS_IMAGE_PROPERTY_SHUTTER_SPEED = "ShutterSpeedValue";
 
 /**
  * @brief The brightness value of the image, in APEX units.
@@ -1359,7 +1359,7 @@ const char *OHOS_IMAGE_PROPERTY_GAMMA = "Gamma";
  * @since 12
  * @version 5.0
  */
-const char *OHOS_IMAGE_PROPERTY_ISO_SPEED_LATITUDEYYY = "ISOSpeedLatitudeyyy";
+const char *OHOS_IMAGE_PROPERTY_ISO_SPEED_LATITUDE_YYY = "ISOSpeedLatitudeyyy";
 
 /**
  * @brief The tag indicate the ISO speed latitude zzz value of the camera or input device that is defined in ISO 12232.
@@ -1369,7 +1369,7 @@ const char *OHOS_IMAGE_PROPERTY_ISO_SPEED_LATITUDEYYY = "ISOSpeedLatitudeyyy";
  * @since 12
  * @version 5.0
  */
-const char *OHOS_IMAGE_PROPERTY_ISO_SPEED_LATITUDEZZZ = "ISOSpeedLatitudezzz";
+const char *OHOS_IMAGE_PROPERTY_ISO_SPEED_LATITUDE_ZZZ = "ISOSpeedLatitudezzz";
 
 /**
  * @brief The manufacturer of the lens.
