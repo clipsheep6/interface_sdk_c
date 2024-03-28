@@ -161,6 +161,10 @@
     },
     {
         "first_introduced": "12",
+        "name": "OH_ArkUI_LongPress_GetRepeatCount"
+    },
+    {
+        "first_introduced": "12",
         "name": "OH_ArkUI_PanGesture_GetVelocity"
     },
     {
@@ -246,6 +250,14 @@
     {
         "first_introduced": "12",
         "name": "OH_ArkUI_LayoutConstraint_GetMaxWidth"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_ArkUI_LayoutConstraint_GetMinWidth"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_ArkUI_LayoutConstraint_GetMaxHeight"
     },
     {
         "first_introduced": "12",
