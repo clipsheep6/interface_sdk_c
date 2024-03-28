@@ -38,4 +38,5 @@ ohos_ndk_library("libffrt_ndk") {
     "ffrt/task.h",
     "ffrt/type_def.h",
   ]
+  output_extension = "so"
 }
