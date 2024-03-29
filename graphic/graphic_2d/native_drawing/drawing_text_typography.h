@@ -2068,7 +2068,7 @@ const char* OH_Drawing_TextStyleGetLocale(OH_Drawing_TextStyle*);
  * @since 12
  * @version 1.0
  */
-bool OH_Drawing_TextStyleIsEquals(const OH_Drawing_TextStyle* style, const OH_Drawing_TextStyle* comparedStyle);
+bool OH_Drawing_TextStyleIsEqual(const OH_Drawing_TextStyle* style, const OH_Drawing_TextStyle* comparedStyle);
 
 /**
  * @brief Gets whether the font properties of two TextStyle objects are equal.
@@ -2080,7 +2080,7 @@ bool OH_Drawing_TextStyleIsEquals(const OH_Drawing_TextStyle* style, const OH_Dr
  * @since 12
  * @version 1.0
  */
-bool OH_Drawing_TextStyleIsEqualsByFonts(const OH_Drawing_TextStyle* style, const OH_Drawing_TextStyle* comparedStyle);
+bool OH_Drawing_TextStyleIsEqualByFont(const OH_Drawing_TextStyle* style, const OH_Drawing_TextStyle* comparedStyle);
 
 /**
  * @brief Gets whether two TextStyle objects match attributes
@@ -2093,7 +2093,7 @@ bool OH_Drawing_TextStyleIsEqualsByFonts(const OH_Drawing_TextStyle* style, cons
  * @since 12
  * @version 1.0
  */
-bool OH_Drawing_TextStyleIsMatchOneAttribute(const OH_Drawing_TextStyle* style,
+bool OH_Drawing_TextStyleIsAttributeMatched(const OH_Drawing_TextStyle* style,
     const OH_Drawing_TextStyle* comparedStyle, OH_Drawing_TextStyleType textStyleType);
 
 /**
@@ -2137,7 +2137,7 @@ OH_Drawing_TextAlign OH_Drawing_TypographyStyleGetEffectiveAlignment(OH_Drawing_
  * @since 12
  * @version 1.0
  */
-bool OH_Drawing_TypographyStyleIsHintingEnabled(OH_Drawing_TypographyStyle* style);
+bool OH_Drawing_TypographyStyleIsHintEnabled(OH_Drawing_TypographyStyle* style);
 
 #ifdef __cplusplus
 }

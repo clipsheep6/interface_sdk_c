@@ -956,15 +956,15 @@
     },
     {
         "first_introduced": "12",
-        "name": "OH_Drawing_TextStyleIsEquals"
+        "name": "OH_Drawing_TextStyleIsEqual"
     },
     {
         "first_introduced": "12",
-        "name": "OH_Drawing_TextStyleIsEqualsByFonts"
+        "name": "OH_Drawing_TextStyleIsEqualByFont"
     },
     {
         "first_introduced": "12",
-        "name": "OH_Drawing_TextStyleIsMatchOneAttribute"
+        "name": "OH_Drawing_TextStyleIsAttributeMatched"
     },
     {
         "first_introduced": "12",
@@ -980,7 +980,7 @@
     },
     {
         "first_introduced": "12",
-        "name": "OH_Drawing_TypographyStyleIsHintingEnabled"
+        "name": "OH_Drawing_TypographyStyleIsHintEnabled"
     },
     {
         "first_introduced": "12",
