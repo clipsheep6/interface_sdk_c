@@ -66,7 +66,7 @@ typedef struct OH_Image OH_Image;
  * returns {@link Image_ErrorCode} IMAGE_ERRORCODE_MEDIA_DEAD_OBJECT - if media object dead.
  * @since 12
  */
-Image_ErrorCode OH_Image2_GetImageSize(OH_Image* image, Image_Size* size);
+Image_ErrorCode OH_ImageNative_GetImageSize(OH_Image* image, Image_Size* size);
 
 /**
  * @brief Obtains the image format of an {@link OH_Image} object.
@@ -78,7 +78,7 @@ Image_ErrorCode OH_Image2_GetImageSize(OH_Image* image, Image_Size* size);
  * returns {@link Image_ErrorCode} IMAGE_ERRORCODE_MEDIA_DEAD_OBJECT - if media object dead.
  * @since 12
  */
-Image_ErrorCode OH_Image2_GetFormat(OH_Image* image, uint32_t* format);
+Image_ErrorCode OH_ImageNative_GetFormat(OH_Image* image, uint32_t* format);
 
 /**
  * @brief Get type arry from an {@link OH_Image} object.
@@ -90,7 +90,7 @@ Image_ErrorCode OH_Image2_GetFormat(OH_Image* image, uint32_t* format);
  * returns {@link Image_ErrorCode} IMAGE_ERRORCODE_INVALID_PARAMETER - if invalid parameter.
  * @since 12
  */
-Image_ErrorCode OH_Image2_GetComponentTypes(OH_Image* image, uint32_t** types, size_t* typeSize);
+Image_ErrorCode OH_ImageNative_GetComponentTypes(OH_Image* image, uint32_t** types, size_t* typeSize);
 
 /**
  * @brief Get byte buffer from an {@link OH_Image} object by the component type.
@@ -102,7 +102,7 @@ Image_ErrorCode OH_Image2_GetComponentTypes(OH_Image* image, uint32_t** types, s
  * returns {@link Image_ErrorCode} IMAGE_ERRORCODE_INVALID_PARAMETER - if invalid parameter.
  * @since 12
  */
-Image_ErrorCode OH_Image2_GetByteBuffer(OH_Image* image, uint32_t componentType, OH_NativeBuffer** nativeBuffer);
+Image_ErrorCode OH_ImageNative_GetByteBuffer(OH_Image* image, uint32_t componentType, OH_NativeBuffer** nativeBuffer);
 
 /**
  * @brief Get size of buffer from an {@link OH_Image} object by the component type.
@@ -114,7 +114,7 @@ Image_ErrorCode OH_Image2_GetByteBuffer(OH_Image* image, uint32_t componentType,
  * returns {@link Image_ErrorCode} IMAGE_ERRORCODE_INVALID_PARAMETER - if invalid parameter.
  * @since 12
  */
-Image_ErrorCode OH_Image2_GetBufferSize(OH_Image* image, uint32_t componentType, size_t* size);
+Image_ErrorCode OH_ImageNative_GetBufferSize(OH_Image* image, uint32_t componentType, size_t* size);
 
 /**
  * @brief Get row stride from an {@link OH_Image} object by the component type.
@@ -126,7 +126,7 @@ Image_ErrorCode OH_Image2_GetBufferSize(OH_Image* image, uint32_t componentType,
  * returns {@link Image_ErrorCode} IMAGE_ERRORCODE_INVALID_PARAMETER - if invalid parameter.
  * @since 12
  */
-Image_ErrorCode OH_Image2_GetRowStride(OH_Image* image, uint32_t componentType, int32_t* rowStride);
+Image_ErrorCode OH_ImageNative_GetRowStride(OH_Image* image, uint32_t componentType, int32_t* rowStride);
 
 /**
  * @brief Get pixel stride from an {@link OH_Image} object by the component type.
@@ -138,7 +138,7 @@ Image_ErrorCode OH_Image2_GetRowStride(OH_Image* image, uint32_t componentType, 
  * returns {@link Image_ErrorCode} IMAGE_ERRORCODE_INVALID_PARAMETER - if invalid parameter.
  * @since 12
  */
-Image_ErrorCode OH_Image2_GetPixelStride(OH_Image* image, uint32_t componentType, int32_t* pixelStride);
+Image_ErrorCode OH_ImageNative_GetPixelStride(OH_Image* image, uint32_t componentType, int32_t* pixelStride);
 
 /**
  * @brief Releases an {@link OH_Image} object.
@@ -149,7 +149,7 @@ Image_ErrorCode OH_Image2_GetPixelStride(OH_Image* image, uint32_t componentType
  * returns {@link Image_ErrorCode} IMAGE_ERRORCODE_INVALID_PARAMETER - if invalid parameter.
  * @since 12
  */
-Image_ErrorCode OH_Image2_Release(OH_Image* image);
+Image_ErrorCode OH_ImageNative_Release(OH_Image* image);
 
 #ifdef __cplusplus
 };

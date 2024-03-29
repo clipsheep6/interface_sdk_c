@@ -84,7 +84,7 @@ typedef void (*OH_Image_Receiver_On_Callback)(OH_ImageReceiver* receiver);
  * returns {@link Image_ErrorCode} IMAGE_ERRORCODE_MALLOC_ABNORMAL - if malloc failed.
  * @since 12
  */
-Image_ErrorCode OH_ImageReceiver2_CreateImageReceiverOptions(OH_ImageReceiverOptions** options);
+Image_ErrorCode OH_ImageReceiverOptions_Create(OH_ImageReceiverOptions** options);
 
 /**
  * @brief Get size of an {@link OH_ImageReceiverOptions} object.
@@ -95,7 +95,7 @@ Image_ErrorCode OH_ImageReceiver2_CreateImageReceiverOptions(OH_ImageReceiverOpt
  * returns {@link Image_ErrorCode} IMAGE_ERRORCODE_INVALID_PARAMETER - if invalid parameter.
  * @since 12
  */
-Image_ErrorCode OH_ImageReceiver2_ImageReceiverOptionsGetSize(OH_ImageReceiverOptions* options, Image_Size* size);
+Image_ErrorCode OH_ImageReceiverOptions_GetSize(OH_ImageReceiverOptions* options, Image_Size* size);
 
 /**
  * @brief Set size of an {@link OH_ImageReceiverOptions} object.
@@ -106,7 +106,7 @@ Image_ErrorCode OH_ImageReceiver2_ImageReceiverOptionsGetSize(OH_ImageReceiverOp
  * returns {@link Image_ErrorCode} IMAGE_ERRORCODE_INVALID_PARAMETER - if invalid parameter.
  * @since 12
  */
-Image_ErrorCode OH_ImageReceiver2_ImageReceiverOptionsSetSize(OH_ImageReceiverOptions* options, Image_Size size);
+Image_ErrorCode OH_ImageReceiverOptions_SetSize(OH_ImageReceiverOptions* options, Image_Size size);
 
 /**
  * @brief Get format from an {@link OH_ImageReceiverOptions} object.
@@ -117,7 +117,7 @@ Image_ErrorCode OH_ImageReceiver2_ImageReceiverOptionsSetSize(OH_ImageReceiverOp
  * returns {@link Image_ErrorCode} IMAGE_ERRORCODE_INVALID_PARAMETER - if invalid parameter.
  * @since 12
  */
-Image_ErrorCode OH_ImageReceiver2_ImageReceiverOptionsGetFormat(OH_ImageReceiverOptions* options, int32_t* format);
+Image_ErrorCode OH_ImageReceiverOptions_GetFormat(OH_ImageReceiverOptions* options, int32_t* format);
 
 /**
  * @brief Set format of an {@link OH_ImageReceiverOptions} object.
@@ -128,7 +128,7 @@ Image_ErrorCode OH_ImageReceiver2_ImageReceiverOptionsGetFormat(OH_ImageReceiver
  * returns {@link Image_ErrorCode} IMAGE_ERRORCODE_INVALID_PARAMETER - if invalid parameter.
  * @since 12
  */
-Image_ErrorCode OH_ImageReceiver2_ImageReceiverOptionsSetFormat(OH_ImageReceiverOptions* options, int32_t format);
+Image_ErrorCode OH_ImageReceiverOptions_SetFormat(OH_ImageReceiverOptions* options, int32_t format);
 
 /**
  * @brief Get capacity from an {@link OH_ImageReceiverOptions} object.
@@ -139,7 +139,7 @@ Image_ErrorCode OH_ImageReceiver2_ImageReceiverOptionsSetFormat(OH_ImageReceiver
  * returns {@link Image_ErrorCode} IMAGE_ERRORCODE_INVALID_PARAMETER - if invalid parameter.
  * @since 12
  */
-Image_ErrorCode OH_ImageReceiver2_ImageReceiverOptionsGetCapacity(OH_ImageReceiverOptions* options, int32_t* capacity);
+Image_ErrorCode OH_ImageReceiverOptions_GetCapacity(OH_ImageReceiverOptions* options, int32_t* capacity);
 
 /**
  * @brief Set capacity of an {@link OH_ImageReceiverOptions} object.
@@ -150,7 +150,7 @@ Image_ErrorCode OH_ImageReceiver2_ImageReceiverOptionsGetCapacity(OH_ImageReceiv
  * returns {@link Image_ErrorCode} IMAGE_ERRORCODE_INVALID_PARAMETER - if invalid parameter.
  * @since 12
  */
-Image_ErrorCode OH_ImageReceiver2_ImageReceiverOptionsSetCapacity(OH_ImageReceiverOptions* options, int32_t capacity);
+Image_ErrorCode OH_ImageReceiverOptions_SetCapacity(OH_ImageReceiverOptions* options, int32_t capacity);
 
 /**
  * @brief Releases an {@link OH_ImageReceiverOptions} object.
@@ -162,7 +162,7 @@ Image_ErrorCode OH_ImageReceiver2_ImageReceiverOptionsSetCapacity(OH_ImageReceiv
  * @see OH_ImageReceiverOptions
  * @since 12
  */
-Image_ErrorCode OH_ImageReceiver2_ReleaseImageReceiverOptions(OH_ImageReceiverOptions* options);
+Image_ErrorCode OH_ImageReceiverOptions_Release(OH_ImageReceiverOptions* options);
 
 /**
  * @brief Creates an <b>OH_ImageReceiver</b> object at the application layer.
@@ -175,7 +175,7 @@ Image_ErrorCode OH_ImageReceiver2_ReleaseImageReceiverOptions(OH_ImageReceiverOp
  * returns {@link Image_ErrorCode} IMAGE_ERRORCODE_GET_DATA_ABNORMAL - if get data failed.
  * @since 12
  */
-Image_ErrorCode OH_ImageReceiver2_Create(OH_ImageReceiverOptions* options, OH_ImageReceiver** receiver);
+Image_ErrorCode OH_ImageReceiverNative_Create(OH_ImageReceiverOptions* options, OH_ImageReceiver** receiver);
 
 /**
  * @brief Obtains the receiver ID through an {@link OH_ImageReceiver} object.
@@ -188,7 +188,7 @@ Image_ErrorCode OH_ImageReceiver2_Create(OH_ImageReceiverOptions* options, OH_Im
  * @see OH_ImageReceiver
  * @since 12
  */
-Image_ErrorCode OH_ImageReceiver2_GetReceivingSurfaceId(OH_ImageReceiver* receiver, uint64_t* surfaceId);
+Image_ErrorCode OH_ImageReceiverNative_GetReceivingSurfaceId(OH_ImageReceiver* receiver, uint64_t* surfaceId);
 
 /**
  * @brief Obtains the latest image through an {@link OH_ImageReceiver} object.
@@ -202,7 +202,7 @@ Image_ErrorCode OH_ImageReceiver2_GetReceivingSurfaceId(OH_ImageReceiver* receiv
  * @see OH_ImageReceiver, OH_Image
  * @since 12
  */
-Image_ErrorCode OH_ImageReceiver2_ReadLatestImage(OH_ImageReceiver* receiver, OH_Image** image);
+Image_ErrorCode OH_ImageReceiverNative_ReadLatestImage(OH_ImageReceiver* receiver, OH_Image** image);
 
 /**
  * @brief Obtains the next image through an {@link OH_ImageReceiver} object.
@@ -216,7 +216,7 @@ Image_ErrorCode OH_ImageReceiver2_ReadLatestImage(OH_ImageReceiver* receiver, OH
  * @see OH_ImageReceiver, OH_Image
  * @since 12
  */
-Image_ErrorCode OH_ImageReceiver2_ReadNextImage(OH_ImageReceiver* receiver, OH_Image** image);
+Image_ErrorCode OH_ImageReceiverNative_ReadNextImage(OH_ImageReceiver* receiver, OH_Image** image);
 
 /**
  * @brief Registers an {@link OH_Image_Receiver_On_Callback} callback event.
@@ -230,7 +230,7 @@ Image_ErrorCode OH_ImageReceiver2_ReadNextImage(OH_ImageReceiver* receiver, OH_I
  * @see OH_ImageReceiver, OH_Image_Receiver_On_Callback
  * @since 12
  */
-Image_ErrorCode OH_ImageReceiver2_On(OH_ImageReceiver* receiver, OH_Image_Receiver_On_Callback callback);
+Image_ErrorCode OH_ImageReceiverNative_On(OH_ImageReceiver* receiver, OH_Image_Receiver_On_Callback callback);
 
 /**
  * @brief Unregisters the {@link OH_Image_Receiver_On_Callback} callback event.
@@ -240,10 +240,10 @@ Image_ErrorCode OH_ImageReceiver2_On(OH_ImageReceiver* receiver, OH_Image_Receiv
  * @param receiver Indicates the pointer to an {@link OH_ImageReceiver} object.
  * @return Returns {@link Image_ErrorCode} IMAGE_ERRORCODE_SUCCESS - if the operation is successful.
  * returns {@link Image_ErrorCode} IMAGE_ERRORCODE_INVALID_PARAMETER - if invalid parameter.
- * @see OH_ImageReceiver, OH_ImageReceiver2_On
+ * @see OH_ImageReceiver, OH_ImageReceiverNative_On
  * @since 12
  */
-Image_ErrorCode OH_ImageReceiver2_Off(OH_ImageReceiver* receiver);
+Image_ErrorCode OH_ImageReceiverNative_Off(OH_ImageReceiver* receiver);
 
 /**
  * @brief Obtains the size of the image receiver through an {@link OH_ImageReceiver} object.
@@ -255,7 +255,7 @@ Image_ErrorCode OH_ImageReceiver2_Off(OH_ImageReceiver* receiver);
  * @see OH_ImageReceiver, Image_Size
  * @since 12
  */
-Image_ErrorCode OH_ImageReceiver2_GetSize(OH_ImageReceiver* receiver, Image_Size* size);
+Image_ErrorCode OH_ImageReceiverNative_GetSize(OH_ImageReceiver* receiver, Image_Size* size);
 
 /**
  * @brief Obtains the capacity of the image receiver through an {@link OH_ImageReceiver} object.
@@ -267,7 +267,7 @@ Image_ErrorCode OH_ImageReceiver2_GetSize(OH_ImageReceiver* receiver, Image_Size
  * @see OH_ImageReceiver
  * @since 12
  */
-Image_ErrorCode OH_ImageReceiver2_GetCapacity(OH_ImageReceiver* receiver, int32_t* capacity);
+Image_ErrorCode OH_ImageReceiverNative_GetCapacity(OH_ImageReceiver* receiver, int32_t* capacity);
 
 /**
  * @brief Obtains the format of the image receiver through an {@link OH_ImageReceiver} object.
@@ -279,7 +279,7 @@ Image_ErrorCode OH_ImageReceiver2_GetCapacity(OH_ImageReceiver* receiver, int32_
  * @see OH_ImageReceiver
  * @since 12
  */
-Image_ErrorCode OH_ImageReceiver2_GetFormat(OH_ImageReceiver* receiver, int32_t* format);
+Image_ErrorCode OH_ImageReceiverNative_GetFormat(OH_ImageReceiver* receiver, int32_t* format);
 
 /**
  * @brief Releases an {@link OH_ImageReceiver} object.
@@ -292,7 +292,7 @@ Image_ErrorCode OH_ImageReceiver2_GetFormat(OH_ImageReceiver* receiver, int32_t*
  * @see OH_ImageReceiver
  * @since 12
  */
-Image_ErrorCode OH_ImageReceiver2_Release(OH_ImageReceiver* receiver);
+Image_ErrorCode OH_ImageReceiverNative_Release(OH_ImageReceiver* receiver);
 
 #ifdef __cplusplus
 };

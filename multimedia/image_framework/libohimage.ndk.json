@@ -1,34 +1,34 @@
 [
     {
         "first_introduced": "12",
-        "name": "OH_Image2_GetImageSize"
+        "name": "OH_ImageNative_GetImageSize"
     },
     {
         "first_introduced": "12",
-        "name": "OH_Image2_GetFormat"
+        "name": "OH_ImageNative_GetFormat"
     },
     {
         "first_introduced": "12",
-        "name": "OH_Image2_GetComponentTypes"
+        "name": "OH_ImageNative_GetComponentTypes"
     },
     {
         "first_introduced": "12",
-        "name": "OH_Image2_GetByteBuffer"
+        "name": "OH_ImageNative_GetByteBuffer"
     },
     {
         "first_introduced": "12",
-        "name": "OH_Image2_GetBufferSize"
+        "name": "OH_ImageNative_GetBufferSize"
     },
     {
         "first_introduced": "12",
-        "name": "OH_Image2_GetRowStride"
+        "name": "OH_ImageNative_GetRowStride"
     },
     {
         "first_introduced": "12",
-        "name": "OH_Image2_GetPixelStride"
+        "name": "OH_ImageNative_GetPixelStride"
     },
     {
         "first_introduced": "12",
-        "name": "OH_Image2_Release"
+        "name": "OH_ImageNative_Release"
     }
 ]
