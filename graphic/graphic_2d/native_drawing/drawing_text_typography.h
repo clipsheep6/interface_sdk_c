@@ -2203,7 +2203,7 @@ bool OH_Drawing_TypographyStyleStrutStyleEquals(OH_Drawing_StrutStyle* from, OH_
  *
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
  * @param OH_Drawing_TypographyStyle Indicates the pointer to an <b>OH_Drawing_TypographyStyle</b> object.
- * @param hintsEnabled Indicates the hinting of text typography..
+ * @param hintsEnabled Indicates the hinting of text typography.
  * @since 12
  * @version 1.0
  */
@@ -2224,7 +2224,7 @@ OH_Drawing_Font_Metrics* OH_Drawing_TypographyGetLineFontMetrics(OH_Drawing_Typo
 
 /**
  * @brief Free up all the space taken up by the lineFontMetric.
- * 
+ *
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
  * @param OH_Drawing_Font_Metrics Indicates the first address of the lineFontMetric gather to be destroyed.
  * @since 12
