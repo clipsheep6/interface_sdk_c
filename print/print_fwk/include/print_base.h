@@ -422,7 +422,7 @@ typedef struct {
 } Print_PrintJob;
 
 /**
- * @brief Printer disconvery callback.
+ * @brief Printer discovery callback.
  *
  * @since 12
  */
