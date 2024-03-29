@@ -363,23 +363,23 @@ typedef struct OH_Drawing_LineMetrics {
  */
 enum OH_Drawing_TextStyleType {
     /** None style */
-    TextStyle_NONE,
+    TEXT_STYLE_NONE,
     /** All attributes style */
-    TextStyle_ALL_ATTRIBUTES,
+    TEXT_STYLE_ALL_ATTRIBUTES,
     /** Font style */
-    TextStyle_FONT,
+    TEXT_STYLE_FONT,
     /** Foreground style */
-    TextStyle_FOREGROUND,
+    TEXT_STYLE_FOREGROUND,
     /** Background style */
-    TextStyle_BACKGROUND,
+    TEXT_STYLE_BACKGROUND,
     /** Shadow style */
-    TextStyle_SHADOW,
+    TEXT_STYLE_SHADOW,
     /** Decorations style */
-    TextStyle_DECORATIONS,
+    TEXT_STYLE_DECORATIONS,
     /** Letter spacing style */
-    TextStyle_LETTER_SPACING,
+    TEXT_STYLE_LETTER_SPACING,
     /** Word spacing style */
-    TextStyle_WORD_SPACING
+    TEXT_STYLE_WORD_SPACING
 };
 
 /**
