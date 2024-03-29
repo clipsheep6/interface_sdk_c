@@ -72,3 +72,25 @@ ohos_ndk_headers("image_packer_ndk_header") {
   dest_dir = "$ndk_headers_out_dir/multimedia/image_framework"
   sources = [ "./include/image_packer_mdk.h" ]
 }
+
+ohos_ndk_library("libimage2") {
+  ndk_description_file = "./libimage2.ndk.json"
+  min_compact_version = "12"
+  output_name = "image2"
+}
+
+ohos_ndk_headers("image2_header") {
+  dest_dir = "$ndk_headers_out_dir/multimedia/image_framework/image"
+  sources = [ "./include/image/image2.h" ]
+}
+
+ohos_ndk_library("libimageReceiver2") {
+  ndk_description_file = "./libimageReceiver2.ndk.json"
+  min_compact_version = "12"
+  output_name = "imageReceiver2"
+}
+
+ohos_ndk_headers("imageReceiver2_header") {
+  dest_dir = "$ndk_headers_out_dir/multimedia/image_framework/image"
+  sources = [ "./include/image/imageReceiver2.h" ]
+}

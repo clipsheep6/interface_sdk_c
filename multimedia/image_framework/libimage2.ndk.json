@@ -1,0 +1,54 @@
+[
+    {
+        "first_introduced": "12",
+        "name": "OH_Image2_CreateComponent"
+    },
+    {
+        "name": "OH_Image2_SetByteBuffer"
+    },
+    {
+        "name": "OH_Image2_GetByteBuffer"
+    },
+    {
+        "name": "OH_Image2_SetSize"
+    },
+    {
+        "name": "OH_Image2_GetSize"
+    },
+    {
+        "name": "OH_Image2_SetComponentType"
+    },
+    {
+        "name": "OH_Image2_GetComponentType"
+    },
+    {
+        "name": "OH_Image2_SetRowStride"
+    },
+    {
+        "name": "OH_Image2_GetRowStride"
+    },
+    {
+        "name": "OH_Image2_SetPixelStride"
+    },
+    {
+        "name": "OH_Image2_GetPixelStride"
+    },
+    {
+        "name": "OH_Image2_ReleaseComponent"
+    },
+    {
+        "name": "OH_Image2_ClipRect"
+    },
+    {
+        "name": "OH_Image2_Size"
+    },
+    {
+        "name": "OH_Image2_Format"
+    },
+    {
+        "name": "OH_Image2_GetComponent"
+    },
+    {
+        "name": "OH_Image2_Release"
+    }
+]
