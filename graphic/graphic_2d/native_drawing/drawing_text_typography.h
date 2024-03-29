@@ -2203,7 +2203,7 @@ bool OH_Drawing_TypographyStyleStrutStyleEquals(OH_Drawing_StrutStyle* from, OH_
  *
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
  * @param OH_Drawing_TypographyStyle Indicates the pointer to an <b>OH_Drawing_TypographyStyle</b> object.
- * @param hintsEnabled Indicates the hinting of text typography.
+ * @param hintsEnabled Indicates the hinting of text typography..
  * @since 12
  * @version 1.0
  */
