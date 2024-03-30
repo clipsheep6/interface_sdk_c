@@ -897,5 +897,53 @@
     {
         "first_introduced": "12",
         "name": "OH_Drawing_TextStyleGetLocale"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_TextStyleIsEquals"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_TextStyleIsEqualsByFonts"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_TextStyleIsMatchOneAttribute"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_TextStyleSetPlaceholder"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_TextStyleIsPlaceholder"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_TypographyStyleGetEffectiveAlignment"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_TypographyStyleIsHintingEnabled"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_FontStyleSetCreateTypeface"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_FontStyleSetGetStyle"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_FontStyleSetFreeStyleName"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_FontStyleSetMatchStyle"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_FontStyleSetCount"
     }
 ]

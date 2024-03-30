@@ -367,6 +367,33 @@ typedef struct {
 } OH_Drawing_FontFeature;
 
 /**
+ * @brief Enumerates text style type.
+ *
+ * @since 12
+ * @version 1.0
+ */
+enum OH_Drawing_TextStyleType {
+    /** None style */
+    TextStyle_NONE,
+    /** All attributes style */
+    TextStyle_ALL_ATTRIBUTES,
+    /** Font style */
+    TextStyle_FONT,
+    /** Foreground style */
+    TextStyle_FOREGROUND,
+    /** Background style */
+    TextStyle_BACKGROUND,
+    /** Shadow style */
+    TextStyle_SHADOW,
+    /** Decorations style */
+    TextStyle_DECORATIONS,
+    /** Letter spacing style */
+    TextStyle_LETTER_SPACING,
+    /** Word spacing style */
+    TextStyle_WORD_SPACING
+};
+
+/**
  * @brief Creates an <b>OH_Drawing_TypographyStyle</b> object.
  *
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
@@ -1942,6 +1969,87 @@ bool OH_Drawing_TextStyleGetHalfLeading(OH_Drawing_TextStyle*);
  * @version 1.0
  */
 const char* OH_Drawing_TextStyleGetLocale(OH_Drawing_TextStyle*);
+
+/**
+ * @brief Gets whether the two TextStyle objects are equal.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param style Indicates source of comparison <b>OH_Drawing_TextStyle</b> object.
+ * @param comparedStyle Indicates comparison <b>OH_Drawing_TextStyle</b> object.
+ * @return Compare result.
+ * @since 12
+ * @version 1.0
+ */
+bool OH_Drawing_TextStyleIsEquals(const OH_Drawing_TextStyle* style, const OH_Drawing_TextStyle* comparedStyle);
+
+/**
+ * @brief Gets whether the font properties of two TextStyle objects are equal.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param style Indicates source of <b>comparison OH_Drawing_TextStyle</b> object.
+ * @param comparedStyle Indicates comparison <b>OH_Drawing_TextStyle</b> object.
+ * @return Compare result.
+ * @since 12
+ * @version 1.0
+ */
+bool OH_Drawing_TextStyleIsEqualsByFonts(const OH_Drawing_TextStyle* style, const OH_Drawing_TextStyle* comparedStyle);
+
+/**
+ * @brief Gets whether two TextStyle objects match attributes
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param textStyleType Indicates enumerates of text style type.
+ * @param style Indicates source of comparison <b>OH_Drawing_TextStyle</b> object.
+ * @param comparedStyle Indicates comparison <b>OH_Drawing_TextStyle</b> object.
+ * @return Match attributes result.
+ * @since 12
+ * @version 1.0
+ */
+bool OH_Drawing_TextStyleIsMatchOneAttribute(const OH_Drawing_TextStyle* style,
+    const OH_Drawing_TextStyle* comparedStyle, OH_Drawing_TextStyleType textStyleType);
+
+/**
+ * @brief Set placeholder of TextStyle.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param OH_Drawing_TextStyle Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+ * @since 12
+ * @version 1.0
+ */
+void OH_Drawing_TextStyleSetPlaceholder(OH_Drawing_TextStyle* style);
+
+/**
+ * @brief Gets whether placeholder is enable.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param OH_Drawing_TextStyle Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+ * @return Whether placeholder is enable.
+ * @since 12
+ * @version 1.0
+ */
+bool OH_Drawing_TextStyleIsPlaceholder(OH_Drawing_TextStyle* style);
+
+/**
+ * @brief Gets text alignment mode.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param OH_Drawing_TypographyStyle Indicates the pointer to an <b>OH_Drawing_TypographyStyle</b> object.
+ * @return Returns text alignment mode.
+ * @since 12
+ * @version 1.0
+ */
+OH_Drawing_TextAlign OH_Drawing_TypographyStyleGetEffectiveAlignment(OH_Drawing_TypographyStyle* style);
+
+/**
+ * @brief Gets whether the hinting is enabled.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param OH_Drawing_TypographyStyle Indicates the pointer to an <b>OH_Drawing_TypographyStyle</b> object.
+ * @return True, if the hinting takes effect; False, if the hinting does not take effect.
+ * @since 12
+ * @version 1.0
+ */
+bool OH_Drawing_TypographyStyleIsHintingEnabled(OH_Drawing_TypographyStyle* style);
 
 #ifdef __cplusplus
 }
