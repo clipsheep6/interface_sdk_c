@@ -548,6 +548,22 @@ int32_t OH_PixelMap_Crop(const NativePixelMap* native, int32_t x, int32_t y, int
 int32_t OH_PixelMap_GetImageInfo(const NativePixelMap* native, OhosPixelMapInfos *info);
 
 /**
+ * @brief Obtains the image encodedformat of a <b>PixelMap</b> object.
+ *
+ * @param native Indicates the pointer to a <b>NativePixelMap</b> object.
+ * @param format Indicates a pointer to the string of image encodedformat obtained.
+ * @return Returns {@link IRNdkErrCode} IMAGE_RESULT_SUCCESS - if the operation is successful.
+ * returns {@link IRNdkErrCode} IMAGE_RESULT_BAD_PARAMETER - if bad parameter.
+ * returns {@link IRNdkErrCode} IMAGE_RESULT_JNI_ENV_ABNORMAL - if Abnormal JNI environment.
+ * returns {@link IRNdkErrCode} IMAGE_RESULT_INVALID_PARAMETER - if invalid parameter.
+ * returns {@link IRNdkErrCode} IMAGE_RESULT_DECODE_FAILED - if decode fail.
+ * returns {@link IRNdkErrCode} IMAGE_RESULT_CHECK_FORMAT_ERROR - if decode fail.
+ * @since 12
+ * @version 5.0
+ */
+int32_t OH_PixelMap_GetEncodedFormat(const NativePixelMap* native, char* format);
+
+/**
  * @brief Obtains the memory address of a <b>NativePixelMap</b> object and locks the memory.
  *
  * @param native Indicates the pointer to a <b>NativePixelMap</b> object.

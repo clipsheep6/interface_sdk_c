@@ -62,5 +62,9 @@
   },
   {
     "name": "OH_PixelMap_UnAccessPixels"
+  },
+  {
+    "first_introduced": "12",
+    "name": "OH_PixelMap_GetEncodedFormat"
   }
 ]
