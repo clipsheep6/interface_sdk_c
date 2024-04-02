@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -62,6 +62,14 @@ typedef struct OH_Drawing_Canvas OH_Drawing_Canvas;
 typedef struct OH_Drawing_Pen OH_Drawing_Pen;
 
 /**
+ * @brief Defines a region, which is used to represent an enclosed area on the canvas layer.
+ *
+ * @since 12
+ * @version 1.0
+ */
+typedef struct OH_Drawing_Region OH_Drawing_Region;
+
+/**
  * @brief Defines as a brush, which is used to describe the style and color to fill in a shape.
  *
  * @since 8
@@ -92,6 +100,22 @@ typedef struct OH_Drawing_Bitmap OH_Drawing_Bitmap;
  * @version 1.0
  */
 typedef struct OH_Drawing_Point OH_Drawing_Point;
+
+/**
+ * @brief Define color space to determine color information.
+ *
+ * @since 12
+ * @version 1.0
+ */
+typedef struct OH_Drawing_ColorSpace OH_Drawing_ColorSpace;
+
+/**
+ * @brief Defines a pixelmap, which is used to wrap real pixelmap supported by image framework.
+ *
+ * @since 12
+ * @version 1.0
+ */
+typedef struct OH_Drawing_PixelMap OH_Drawing_PixelMap;
 
 /**
  * @brief Defines a point of 2d.
@@ -236,6 +260,22 @@ typedef struct OH_Drawing_SamplingOptions OH_Drawing_SamplingOptions;
  * @version 1.0
  */
 typedef struct OH_Drawing_TextBlobBuilder OH_Drawing_TextBlobBuilder;
+
+/**
+ * @brief Defines a GPU context, which is used to describe the GPU backend context.
+ *
+ * @since 12
+ * @version 1.0
+ */
+typedef struct OH_Drawing_GpuContext OH_Drawing_GpuContext;
+
+/**
+ * @brief Defines a surface, which is used to manage the pixels that a canvas draws into.
+ *
+ * @since 12
+ * @version 1.0
+ */
+typedef struct OH_Drawing_Surface OH_Drawing_Surface;
 
 /**
  * @brief Enumerates storage formats of bitmap pixels.
@@ -385,6 +425,25 @@ typedef struct {
 } OH_Drawing_Image_Info;
 
 /**
+ * @brief Defines rectstyle info struct.
+ *
+ * @since 12
+ * @version 1.0
+ */
+typedef struct {
+    /** color of rectstyle */
+    uint32_t color;
+    /** radius in left top of rectstyle */
+    double leftTopRadius;
+    /** radius in right top of rectstyle */
+    double rightTopRadius;
+    /** radius in right bottom of rectstyle */
+    double rightBottomRadius;
+    /** radius in left bottom of rectstyle */
+    double leftBottomRadius;
+} OH_Drawing_RectStyle_Info;
+
+/**
  * @brief Enumerates text encoding types.
  * @since 12
  * @version 1.0
@@ -399,6 +458,22 @@ typedef enum {
     /** uses two byte words to represent glyph indices */
     TEXT_ENCODING_GLYPH_ID,
 } OH_Drawing_TextEncoding;
+
+/**
+ * @brief Defines a OH_Drawing_FontMgr, which is used to manage font family.
+ *
+ * @since 12
+ * @version 1.0
+ */
+typedef struct OH_Drawing_FontMgr OH_Drawing_FontMgr;
+
+/**
+ * @brief Defines a OH_Drawing_FontStyleSet, which is used to manage font style.
+ *
+ * @since 12
+ * @version 1.0
+ */
+typedef struct OH_Drawing_FontStyleSet OH_Drawing_FontStyleSet;
 
 #ifdef __cplusplus
 }

@@ -38,6 +38,7 @@
 
 #include "native_event.h"
 #include "native_type.h"
+#include "ui_input_event.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -109,6 +110,8 @@ typedef enum {
     ARKUI_NODE_REFRESH,
     /** Waterfall container. */
     ARKUI_NODE_WATER_FLOW,
+    /** Waterfall item container. */
+    ARKUI_NODE_FLOW_ITEM,
 } ArkUI_NodeType;
 
 /**
@@ -951,7 +954,7 @@ typedef enum {
      * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute, which supports five types of
      * shapes:\n
      * 1. Rectangle:\n
-     * .value[0].u32: fill color, in 0xARGB format. \n
+     * .value[0].u32 fill color, in 0xARGB format. \n
      * .value[1].u32: stroke color, in 0xARGB format. \n
      * .value[2].f32: stroke width, in vp. \n
      * .value[3].i32: mask type. The parameter type is {@link ArkUI_MaskType}.
@@ -968,12 +971,12 @@ typedef enum {
      * The value is <b>ARKUI_MASK_TYPE_CIRCLE</b> for the circle shape.\n
      * .value[4].f32: width of the circle.\n
      * .value[5].f32: height of the circle.\n
-     * 3.Ellipse:\n
+     * 3. Ellipse:\n
      * .value[0].u32 fill color, in 0xARGB format. \n
      * .value[1].u32: stroke color, in 0xARGB format. \n
      * .value[2].f32: stroke width, in vp. \n
-     * .value[3].i32: mask type. The parameter type is {@link ArkUI_MaskType}.
-     * The value is <b>ARKUI_MASK_TYPE_ELLIPSE</b> for the ellipse shape.\n
+      * .value[3].i32: mask type. The parameter type is {@link ArkUI_MaskType}.
+      * The value is <b>ARKUI_MASK_TYPE_ELLIPSE</b> for the ellipse shape.\n
      * .value[4].f32: width of the ellipse.\n
      * .value[5].f32: height of the ellipse.\n
      * 4. Path:\n
@@ -986,14 +989,11 @@ typedef enum {
      * .value[5].f32: height of the path.\n
      * .string: command for drawing the path.\n
      * 5. Progress:\n
-     * .value[0].u32 fill color, in 0xARGB format. \n
-     * .value[1].u32: stroke color, in 0xARGB format. \n
-     * .value[2].f32: stroke width, in vp. \n
-     * .value[3].i32: mask type. The parameter type is {@link ArkUI_MaskType}.
+     * .value[0].i32: mask type. The parameter type is {@link ArkUI_MaskType}.
      * The value is <b>ARKUI_MASK_TYPE_PROSGRESS</b> for the progress shape.\n
-     * .value[4].f32: current value of the progress indicator.\n
-     * .value[5].f32: maximum value of the progress indicator.\n
-     * .value[6].u32: color of the progress indicator.\n
+     * .value[1].f32: current value of the progress indicator.\n
+     * .value[2].f32: maximum value of the progress indicator.\n
+     * .value[3].u32: color of the progress indicator.\n
      * \n
      * Format of the return value {@link ArkUI_AttributeItem}, which supports five types of shapes:\n
      * 1. Rectangle:\n
@@ -1012,14 +1012,14 @@ typedef enum {
      * .value[3].i32: mask type.\n
      * .value[4].f32: width of the circle.\n
      * .value[5].f32: height of the circle.\n
-     * 3.Ellipse:\n
+     * 3. Ellipse:\n
      * .value[0].u32 fill color, in 0xARGB format. \n
      * .value[1].u32: stroke color, in 0xARGB format. \n
      * .value[2].f32: stroke width, in vp. \n
      * .value[3].i32: mask type.\n
      * .value[4].f32: width of the ellipse.\n
      * .value[5].f32: height of the ellipse.\n
-     * 5. Path:\n
+     * 4. Path:\n
      * .value[0].u32 fill color, in 0xARGB format. \n
      * .value[1].u32: stroke color, in 0xARGB format. \n
      * .value[2].f32: stroke width, in vp. \n
@@ -1027,7 +1027,7 @@ typedef enum {
      * .value[4].f32: width of the path.\n
      * .value[5].f32: height of the path.\n
      * .string: command for drawing the path.\n
-     * 4. Progress:\n
+     * 5. Progress:\n
      * .value[0].i32: mask type.\n
      * .value[1].f32: current value of the progress indicator.\n
      * .value[2].f32: maximum value of the progress indicator.\n
@@ -1764,11 +1764,11 @@ typedef enum {
      * This attribute can be set, reset, and obtained as required through APIs.
      *
      * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
-     * .value[0].i32 to .value[19].i32: filter matrix array. \n
+     * .value[0].f32 to .value[19].f32: filter matrix array. \n
      * .size: 5 x 4 filter array size. \n
      * \n
      * Format of the return value {@link ArkUI_AttributeItem}:\n
-     * .value[0].i32 to .value[19].i32: filter matrix array. \n
+     * .value[0].f32 to .value[19].f32: filter matrix array. \n
      * .size: 5 x 4 filter array size. \n
      *
      */
@@ -3647,6 +3647,83 @@ typedef enum {
      *
      */
     NODE_WATER_FLOW_LAYOUT_DIRECTION = MAX_NODE_SCOPE_NUM * ARKUI_NODE_WATER_FLOW,
+    /**
+     * @brief Sets the number of columns in the layout. If this parameter is not set, one column is used by default.
+     * This attribute can be set, reset, and obtained as required through APIs.
+     * For example, <b>'1fr 1fr 2fr'</b> indicates three columns, with the first column taking up 1/4 of the parent
+     * component's full width, the second column 1/4, and the third column 2/4.
+     * You can use <b>columnsTemplate('repeat(auto-fill,track-size)')</b> to automatically calculate the number of
+     * columns based on the specified column width <b>track-size</b>.
+     * <b>repeat</b> and <b>auto-fill</b> are keywords. The units for <b>track-size</b> can be px, vp (default), %, or
+     * a valid number.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .string: number of columns in the layout.\n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .string: number of columns in the layout.\n
+     *
+     */
+    NODE_WATER_FLOW_COLUMN_TEMPLATE,
+
+    /**
+     * @brief Sets the number of rows in the layout. If this parameter is not set, one row is used by default.
+     * This attribute can be set, reset, and obtained as required through APIs.
+     * For example, <b>'1fr 1fr 2fr'</b> indicates three rows,
+     * with the first row taking up 1/4 of the parent component's
+     * full height, the second row 1/4, and the third row 2/4.
+     * You can use <b>rowsTemplate('repeat(auto-fill,track-size)')</b> to automatically calculate the number of rows
+     * based on the specified row height <b>track-size</b>.
+     * <b>repeat</b> and <b>auto-fill</b> are keywords. The units for <b>track-size</b> can be px, vp (default), %,
+     * or a valid number.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .string: number of rows in the layout. \n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .string: number of rows in the layout. \n
+     *
+     */
+    NODE_WATER_FLOW_ROW_TEMPLATE,
+
+    /**
+     * @brief Sets the gap between columns.
+     * This attribute can be set, reset, and obtained as required through APIs.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .value[0].f32: gap between columns, in vp.\n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .value[0].f32: gap between columns, in vp.\n
+     *
+     */
+    NODE_WATER_FLOW_COLUMN_GAP,
+
+    /**
+     * @brief Sets the gap between rows.
+     * This attribute can be set, reset, and obtained as required through APIs.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .value[0].f32: gap between lines, in vp.\n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .value[0].f32: gap between lines, in vp.\n
+     *
+     */
+    NODE_WATER_FLOW_ROW_GAP,
+
+    /**
+     * @brief Defines the water flow section configuration.
+     * This attribute can be set, reset, and obtained as required through APIs.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .object: {@ArkUI_WaterFlowSectionOption} object.\n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .object: {@ArkUI_WaterFlowSectionOption} object.\n
+     *
+     */
+    NODE_WATER_FLOW_SECTION_OPTION,
 } ArkUI_NodeAttributeType;
 
 #define MAX_COMPONENT_EVENT_ARG_NUM 12
@@ -3679,7 +3756,7 @@ typedef enum {
     /**
      * @brief Defines the gesture event type.
      *
-     * When the event callback occurs, the union type in the {@link ArkUI_NodeEvent} object is {@link ArkUI_TouchEvent}.
+     * When the event callback occurs, the union type in the {@link ArkUI_NodeEvent} object is {@link ArkUI_UIInputEvent}.
      */
     NODE_TOUCH_EVENT = 0,
 
@@ -4133,6 +4210,23 @@ typedef enum {
      * {@link ArkUI_NodeComponentEvent} does not contain parameters:\n
      */
     NODE_REFRESH_ON_REFRESH,
+
+    /**
+     * @brief Defines the event triggered when the <b>ARKUI_NODE_SCROLL</b> component is about to scroll.
+     *
+     * Notes for triggering the event:\n
+     * 1. This event is triggered when scrolling by the <b>ARKUI_NODE_SCROLL</b> component or other input settings,
+     * such as keyboard and mouse operations, is about to start. \n
+     * 2. Scrolling can be initiated by calling the controller API. \n
+     * 3. The out-of-bounds bounce effect is supported. \n
+     * When the event callback occurs, the union type in the {@link ArkUI_NodeEvent} object is
+     * {@link ArkUI_NodeComponentEvent}. \n
+     * {@link ArkUI_NodeComponentEvent} contains two parameters: \n
+     * <b>ArkUI_NodeComponentEvent.data[0].f32</b>: scroll offset of each frame. The offset is positive when the
+     * component is scrolled up and negative when the component is scrolled down. \n
+     * <b>ArkUI_NodeComponentEvent.data[1].f32</b>: current scroll state. \n
+     */
+    NODE_ON_WILL_SCROLL = MAX_NODE_SCOPE_NUM * ARKUI_NODE_WATER_FLOW,
 } ArkUI_NodeEventType;
 
 /**
@@ -4140,40 +4234,76 @@ typedef enum {
  *
  * @since 12
  */
-typedef struct {
-    /**
-     * @brief Enumerates the event types.
-     *
-     * @see ArkUI_NodeEventType
-     */
-    int32_t kind;
+typedef struct ArkUI_NodeEvent ArkUI_NodeEvent;
 
-    /**
-     * @brief Defines the custom ID of the event.
-     *
-     * The event ID is passed as a parameter in {@link registerNodeEvent} and can be applied to the dispatch logic
-     * of the same event entry function {@link registerNodeEventReceiver}.
-     */
-    int32_t eventId;
+/**
+ * @brief Obtains the type of a component event.
+ *
+ * @param event Indicates the pointer to the component event.
+ * @return Returns the type of the component event.
+ * @since 12
+ */
+ArkUI_NodeEventType OH_ArkUI_NodeEvent_GetEventType(ArkUI_NodeEvent* event);
 
-    /** Component object that triggers the event. */
-    ArkUI_NodeHandle node;
-    union {
-        /** Callback parameter of the touch event type. */
-        ArkUI_NodeTouchEvent touchEvent;
-        /** The universal component event uses callback parameters of the number type. */
-        ArkUI_NodeComponentEvent componentEvent;
-        /** The universal component event uses callback parameters of the string type. */
-        ArkUI_StringAsyncEvent stringEvent;
-    };
-    /**
-     * @brief Defines the custom parameter of the event.
-     *
-     * This parameter is passed in {@link registerNodeEvent} and can be applied to the service logic when the event
-     * is triggered.
-     */
-    void* extraParam;
-} ArkUI_NodeEvent;
+/**
+ * @brief Obtains the custom ID of a component event.
+ *
+ * The event ID is passed in as a parameter when the {@link registerNodeEvent} function is called and can be applied
+ * to the dispatch logic of the same event entry function {@link registerNodeEventReceiver}.
+ *
+ * @param event Indicates the pointer to the component event.
+ * @return Returns the custom ID of the component event.
+ * @since 12
+ */
+int32_t OH_ArkUI_NodeEvent_GetTargetId(ArkUI_NodeEvent* event);
+
+/**
+ * @brief Obtains the component object that triggers a component event.
+ *
+ * @param event Indicates the pointer to the component event.
+ * @return Returns the component object that triggers the component event.
+ * @since 12
+ */
+ArkUI_NodeHandle OH_ArkUI_NodeEvent_GetNodeHandle(ArkUI_NodeEvent* event);
+
+/**
+ * @brief Obtains input event (for example, touch event) data for a component event.
+ *
+ * @param event Indicates the pointer to the component event.
+ * @return Returns the pointer to the input event data.
+ * @since 12
+ */
+ArkUI_UIInputEvent* OH_ArkUI_NodeEvent_GetInputEvent(ArkUI_NodeEvent* event);
+
+/**
+ * @brief Obtains the numerical data in a component event.
+ *
+ * @param event Indicates the pointer to the component event.
+ * @return Returns the pointer to the numerical data.
+ * @since 12
+ */
+ArkUI_NodeComponentEvent* OH_ArkUI_NodeEvent_GetNodeComponentEvent(ArkUI_NodeEvent* event);
+
+/**
+ * @brief Obtains the string data in a component event.
+ * 
+ * @param event Indicates the pointer to the component event.
+ * @return Returns the pointer to the string data.
+ * @since 12
+ */
+ArkUI_StringAsyncEvent* OH_ArkUI_NodeEvent_GetStringAsyncEvent(ArkUI_NodeEvent* event);
+
+/**
+ * @brief Obtains the custom data in a component event.
+ *
+ * This parameter is passed in {@link registerNodeEvent} and can be applied to the service logic when the event
+ * is triggered.
+ *
+ * @param event Indicates the pointer to the component event.
+ * @return Returns the pointer to the custom data.
+ * @since 12
+ */
+void* OH_ArkUI_NodeEvent_GetUserData(ArkUI_NodeEvent* event);
 
 /**
  * @brief Defines the dirty area flag passed in the <b>::markDirty</b> API.
@@ -4195,7 +4325,34 @@ typedef enum {
 } ArkUI_NodeDirtyFlag;
 
 /**
+ * @brief Defines the custom component event type.
+ *
+ * @since 12
+ */
+typedef enum {
+    /** Measure type. */
+    ARKUI_NODE_CUSTOM_EVENT_ON_MEASURE = 1 << 0,
+    /** Layout type. */
+    ARKUI_NODE_CUSTOM_EVENT_ON_LAYOUT = 1 << 1,
+    /** Draw type. */
+    ARKUI_NODE_CUSTOM_EVENT_ON_DRAW = 1 << 2,
+    /** Foreground type. */
+    ARKUI_NODE_CUSTOM_EVENT_ON_FOREGROUND_DRAW = 1 << 3,
+    /** Overlay type. */
+    ARKUI_NODE_CUSTOM_EVENT_ON_OVERLAY_DRAW = 1 << 4,
+} ArkUI_NodeCustomEventType;
+
+/**
+ * @brief Defines the general structure of a custom component event.
+ *
+ * @since 12
+ */
+typedef struct ArkUI_NodeCustomEvent ArkUI_NodeCustomEvent;
+
+/**
  * @brief Declares a collection of native node APIs provided by ArkUI.
+ *
+ * The APIs related to the native node must be called in the main thread.
  *
  * @version 1
  * @since 12
@@ -4215,8 +4372,6 @@ typedef struct {
     /**
      * @brief Destroys the component to which the specified pointer points.
      *
-     * When the component is being displayed, this API must be called in the main thread.
-     *
      * @param node Indicates the pointer.
      */
     void (*disposeNode)(ArkUI_NodeHandle node);
@@ -4224,31 +4379,29 @@ typedef struct {
     /**
      * @brief Adds a component to a parent node.
      *
-     * When the component is being displayed, this API must be called in the main thread.
-     *
      * @param parent Indicates the pointer to the parent node.
      * @param child Indicates the pointer to the child node.
      * @return Returns 0 if success.
      * Returns 401 if a parameter exception occurs.
+     * Returns 106103 if the following operations are not allowed on BuilderNode generated nodes: setting or resetting
+     * attributes, setting events, or adding or editing subnodes.
      */
     int32_t (*addChild)(ArkUI_NodeHandle parent, ArkUI_NodeHandle child);
 
     /**
      * @brief Removes a component from its parent node.
      *
-     * When the component is being displayed, this API must be called in the main thread.
-     *
      * @param parent Indicates the pointer to the parent node.
      * @param child Indicates the pointer to the child node.
      * @return Returns 0 if success.
      * Returns 401 if a parameter exception occurs.
+     * Returns 106103 if the following operations are not allowed on BuilderNode generated nodes: setting or resetting
+     * attributes, setting events, or adding or editing subnodes.
      */
     int32_t (*removeChild)(ArkUI_NodeHandle parent, ArkUI_NodeHandle child);
 
     /**
      * @brief Inserts a component to a parent node after the specified <b>sibling</b> node.
-     *
-     * When the component is being displayed, this API must be called in the main thread.
      *
      * @param parent Indicates the pointer to the parent node.
      * @param child Indicates the pointer to the child node.
@@ -4256,13 +4409,13 @@ typedef struct {
      * If the value is null, the node is inserted at the start of the parent node.
      * @return Returns 0 if success.
      * Returns 401 if a parameter exception occurs.
+     * Returns 106103 if the following operations are not allowed on BuilderNode generated nodes: setting or resetting
+     * attributes, setting events, or adding or editing subnodes.
      */
     int32_t (*insertChildAfter)(ArkUI_NodeHandle parent, ArkUI_NodeHandle child, ArkUI_NodeHandle sibling);
 
     /**
      * @brief Inserts a component to a parent node before the specified <b>sibling</b> node.
-     *
-     * When the component is being displayed, this API must be called in the main thread.
      *
      * @param parent Indicates the pointer to the parent node.
      * @param child Indicates the pointer to the child node.
@@ -4270,13 +4423,13 @@ typedef struct {
      * If the value is null, the node is inserted at the end of the parent node.
      * @return Returns 0 if success.
      * Returns 401 if a parameter exception occurs.
+     * Returns 106103 if the following operations are not allowed on BuilderNode generated nodes: setting or resetting
+     * attributes, setting events, or adding or editing subnodes.
      */
     int32_t (*insertChildBefore)(ArkUI_NodeHandle parent, ArkUI_NodeHandle child, ArkUI_NodeHandle sibling);
 
     /**
      * @brief Inserts a component to the specified position in a parent node.
-     *
-     * When the component is being displayed, this API must be called in the main thread.
      *
      * @param parent Indicates the pointer to the parent node.
      * @param child Indicates the pointer to the child node.
@@ -4284,13 +4437,13 @@ typedef struct {
      * negative number or invalid, the node is inserted at the end of the parent node.
      * @return Returns 0 if success.
      * Returns 401 if a parameter exception occurs.
+     * Returns 106103 if the following operations are not allowed on BuilderNode generated nodes: setting or resetting
+     * attributes, setting events, or adding or editing subnodes.
      */
     int32_t (*insertChildAt)(ArkUI_NodeHandle parent, ArkUI_NodeHandle child, int32_t position);
 
     /**
      * @brief Sets the attribute of a node.
-     *
-     * When the component is being displayed, this API must be called in the main thread.
      *
      * @param node Indicates the node whose attribute needs to be set.
      * @param attribute Indicates the type of attribute to set.
@@ -4298,6 +4451,8 @@ typedef struct {
      * @return Returns 0 if success.
      * Returns 401 if a parameter exception occurs.
      * Returns 106102 if the dynamic implementation library of the native API was not found.
+     * Returns 106103 if the following operations are not allowed on BuilderNode generated nodes: setting or resetting
+     * attributes, setting events, or adding or editing subnodes.
      */
     int32_t (*setAttribute)(ArkUI_NodeHandle node, ArkUI_NodeAttributeType attribute, const ArkUI_AttributeItem* item);
 
@@ -4307,8 +4462,6 @@ typedef struct {
      * The pointer returned by this API is an internal buffer pointer of the ArkUI framework. As such, you do not need
      * to call <b>delete</b> to release the memory. However, the pointer must be used before this API is called next
      * time. Otherwise, the pointer may be overwritten by other values.
-     * When the component is being displayed, this API must be called in the main thread.
-     *
      * @param node Indicates the node whose attribute needs to be obtained.
      * @param attribute Indicates the type of attribute to obtain.
      * @return Returns the attribute value. If the operation fails, a null pointer is returned.
@@ -4318,13 +4471,13 @@ typedef struct {
     /**
      * @brief Resets an attribute.
      *
-     * When the component is being displayed, this API must be called in the main thread.
-     *
      * @param node Indicates the node whose attribute needs to be reset.
      * @param attribute Indicates the type of attribute to reset.
      * @return Returns 0 if success.
      * Returns 401 if a parameter exception occurs.
      * Returns 106102 if the dynamic implementation library of the native API was not found.
+     * Returns 106103 if the following operations are not allowed on BuilderNode generated nodes: setting or resetting
+     * attributes, setting events, or adding or editing subnodes.
      */
     int32_t (*resetAttribute)(ArkUI_NodeHandle node, ArkUI_NodeAttributeType attribute);
 
@@ -4335,13 +4488,17 @@ typedef struct {
      *
      * @param node Indicates the target node.
      * @param eventType Indicates the type of event to register.
-     * @param eventId Indicates the custom event ID, which is passed in the callback of {@link ArkUI_NodeEvent}
+     * @param targetId Indicates the custom event ID, which is passed in the callback of {@link ArkUI_NodeEvent}
      * when the event is triggered.
+     * @param userData Indicates the custom event parameter, which is passed in the callback of {@link ArkUI_NodeEvent}
      * @return Returns 0 if success.
      * Returns 401 if a parameter exception occurs.
      * Returns 106102 if the dynamic implementation library of the native API was not found.
+     * Returns 106103 if the following operations are not allowed on BuilderNode generated nodes: setting or resetting
+     * attributes, setting events, or adding or editing subnodes.
      */
-    int32_t (*registerNodeEvent)(ArkUI_NodeHandle node, ArkUI_NodeEventType eventType, int32_t eventId);
+    int32_t (*registerNodeEvent)(ArkUI_NodeHandle node, ArkUI_NodeEventType eventType,
+        int32_t targetId, void* userData);
 
     /**
      * @brief Unregisters an event for the specified node.
@@ -4356,9 +4513,12 @@ typedef struct {
     /**
      * @brief Registers an event receiver.
      *
-     * The ArkUI framework collects component events generated during the process and calls back the events through the
-     * registered event receiver. \n
-     * A new call to this API will overwrite the previously registered event receiver.
+     * The ArkUI framework collects component events generated during the process and calls back the events through
+     * the registered event receiver. \n
+     * A new call to this API will overwrite the previously registered event receiver. \n
+     * Do not directly save the <b>ArkUI_NodeEvent</b> object pointer. The data will be destroyed after the
+     * callback is complete. \n
+     * To bind with a component instance, you can use the <b>addNodeEventReceiver</b> function. \n
      *
      * @param eventReceiver Indicates the event receiver to register.
      */
@@ -4375,13 +4535,289 @@ typedef struct {
      *
      * Regarding updates to system attributes, the ArkUI framework automatically marks the dirty area and performs
      * measuring, layout, or rendering again. In this case, you do not need to call this API.
-     * When the component is being displayed, this API must be called in the main thread.
-     *
      * @param node Indicates the node for which you want to mark as dirty area.
      * @param dirtyFlag Indicates type of dirty area.
      */
     void (*markDirty)(ArkUI_NodeHandle node, ArkUI_NodeDirtyFlag dirtyFlag);
+
+    /**
+     * @brief Obtains the number of subnodes.
+     *
+     * @param node Indicates the target node.
+     * @return Returns 0 if success.
+     * Returns 401 if a parameter exception occurs.
+     */
+    uint32_t (*getTotalChildCount)(ArkUI_NodeHandle node);
+
+    /**
+     * @brief Obtains a subnode.
+     *
+     * @param node Indicates the target node.
+     * @param position Indicates the position of the subnode.
+     * @return Returns the pointer to the subnode if the subnode exists; returns <b>NULL</b> otherwise.
+     */
+    ArkUI_NodeHandle (*getChildAt)(ArkUI_NodeHandle node, int32_t position);
+
+    /**
+     * @brief Obtains the first subnode.
+     *
+     * @param node Indicates the target node.
+     * @return Returns the pointer to the subnode if the subnode exists; returns <b>NULL</b> otherwise.
+     */
+    ArkUI_NodeHandle (*getFirstChild)(ArkUI_NodeHandle node);
+
+    /**
+     * @brief Obtains the last subnode.
+     *
+     * @param node Indicates the target node.
+     * @return Returns the pointer to the subnode if the subnode exists; returns <b>NULL</b> otherwise.
+     */
+    ArkUI_NodeHandle (*getLastChild)(ArkUI_NodeHandle node);
+
+    /**
+     * @brief Obtains the previous sibling node.
+     *
+     * @param node Indicates the target node.
+     * @return Returns the pointer to the subnode if the subnode exists; returns <b>NULL</b> otherwise.
+     */
+    ArkUI_NodeHandle (*getPreviousSibling)(ArkUI_NodeHandle node);
+
+    /**
+     * @brief Obtains the next sibling node.
+     *
+     * @param node Indicates the target node.
+     * @return Returns the pointer to the subnode if the subnode exists; returns <b>NULL</b> otherwise.
+     */
+    ArkUI_NodeHandle (*getNextSibling)(ArkUI_NodeHandle node);
+
+    /**
+     * @brief Registers a custom event for a node. When the event is triggered, the value is returned through the entry
+     * point function registered by <b>registerNodeCustomEventReceiver</b>.
+     *
+     * @param node Indicates the target node.
+     * @param eventType Indicates the type of event to register.
+     * @param targetId Indicates the custom event ID, which is passed in the callback of {@link ArkUI_NodeCustomEvent}
+     * when the event is triggered.
+     * @param userData Indicates the custom event parameter, which is passed in the callback of
+     * {@link ArkUI_NodeCustomEvent} when the event is triggered.
+     * @return Returns 0 if success.
+     * Returns 401 if a parameter exception occurs.
+     * Returns 106102 if the dynamic implementation library of the native API was not found.
+     */
+    int32_t (*registerNodeCustomEvent)(
+        ArkUI_NodeHandle node, ArkUI_NodeCustomEventType eventType, int32_t targetId, void* userData);
+
+    /**
+     * @brief Unregisters a custom event for a node.
+     *
+     * @param node Indicates the target node.
+     * @param eventType Indicates the type of event to unregister.
+     */
+    void (*unregisterNodeCustomEvent)(ArkUI_NodeHandle node, ArkUI_NodeCustomEventType eventType);
+
+    /**
+     * @brief Registers a unified entry point function for custom node event callbacks.
+     *
+     * The ArkUI framework collects custom component events generated during the process and calls back the events
+     * through the registered <b>registerNodeCustomEventReceiver</b>. \n
+     * A new call to this API will overwrite the previously registered event receiver.
+     * Do not directly save the <b>ArkUI_NodeCustomEvent</b> object pointer.
+     * The data will be destroyed after the callback is complete. \n
+     * To bind with a component instance, you can use the <b>addNodeCustomEventReceiver</b> function. \n
+     *
+     * @param eventReceiver Indicates the event receiver to register.
+     */
+    void (*registerNodeCustomEventReceiver)(void (*eventReceiver)(ArkUI_NodeCustomEvent* event));
+
+    /**
+     * @brief Unregisters the unified entry point function for custom node event callbacks.
+     *
+     */
+    void (*unregisterNodeCustomEventReceiver)();
+
+    /**
+     * @brief Sets the width and height for a component after the measurement.
+     *
+     * @param node Indicates the target node.
+     * @param width Indicates the width.
+     * @param height Indicates the height.
+     * @return Returns 0 if success.
+     * Returns 401 if a parameter exception occurs.
+     */
+    int32_t (*setMeasuredSize)(ArkUI_NodeHandle node, int32_t width, int32_t height);
+
+    /**
+     * @brief Sets the position for a component.
+     *
+     * @param node Indicates the target node.
+     * @param positionX Indicates the X coordinate.
+     * @param positionY Indicates the Y coordinate.
+     * @return Returns 0 if success.
+     * Returns 401 if a parameter exception occurs.
+     */
+    int32_t (*setLayoutPosition)(ArkUI_NodeHandle node, int32_t positionX, int32_t positionY);
+    
+    /**
+     * @brief Obtains the width and height of a component after measurement.
+     *
+     * @param node Indicates the target node.
+     * @return Returns the width and height of the component.
+     */
+    ArkUI_IntSize (*getMeasuredSize)(ArkUI_NodeHandle node);
+
+    /**
+     * @brief Obtains the position of a component after the layout is complete.
+     *
+     * @param node Indicates the target node.
+     * @return Returns the position of the component.
+     */
+    ArkUI_IntOffset (*getLayoutPosition)(ArkUI_NodeHandle node);
+
+    /**
+     * @brief Measures a node. You can use the <b>getMeasuredSize</b> API to obtain the size after the measurement.
+     *
+     * @param node Indicates the target node.
+     * @param Constraint Indicates the size constraint.
+     * @return Returns 0 if success.
+     * Returns 401 if a parameter exception occurs.
+     */
+    int32_t (*measureNode)(ArkUI_NodeHandle node, ArkUI_LayoutConstraint* Constraint);
+
+    /**
+     * @brief Lays outs a component and passes the expected position of the component relative to its parent component.
+     *
+     * When the component is being displayed, this API must be called in the main thread.
+     *
+     * @param node Indicates the target node.
+     * @param positionX Indicates the X coordinate.
+     * @param positionY Indicates the Y coordinate.
+     * @return Returns 0 if success.
+     * Returns 401 if a parameter exception occurs.
+     */
+    int32_t (*layoutNode)(ArkUI_NodeHandle node, int32_t positionX, int32_t positionY);
+
+    /**
+     * @brief Adds a component event callback function to a component to receive component events generated
+     * by the component.
+     *
+     * Unlike the global registration function <b>registerNodeEventReceiver</b>, this API allows multiple event
+     * receivers to be added to the same component. \n
+     * The callback added by this API is triggered before the global callback registered by
+     * <b>registerNodeEventReceiver</b>. \n
+     * Do not directly save the <b>ArkUI_NodeEvent</b> object pointer.
+     * The data will be destroyed after the callback is complete. \n
+     *
+     * @param node Indicates the component for which you want to add the event callback function.
+     * @param eventReceiver Indicates the component event callback function to add.
+     * @return Returns 0 if success.
+     * Returns 401 if a parameter exception occurs.
+     */
+    int32_t (*addNodeEventReceiver)(ArkUI_NodeHandle node, void (*eventReceiver)(ArkUI_NodeEvent* event));
+
+    /**
+     * @brief Removes the registered component event callback function from a component.
+     *
+     * @param node Indicates the component from which you want to remove the event callback function.
+     * @param eventReceiver Indicates the component event callback function to remove.
+     * @return Returns 0 if success.
+     * Returns 401 if a parameter exception occurs.
+     */
+    int32_t (*removeNodeEventReceiver)(ArkUI_NodeHandle node, void (*eventReceiver)(ArkUI_NodeEvent* event));
+
+    /**
+     * @brief Adds a custom event callback function to a component to receive custom events
+     * (such as layout and drawing events) generated by the component.
+     *
+     * Unlike the global registration function <b>registerNodeCustomEventReceiver</b>, this API allows
+     * multiple event receivers to be added to the same component. \n
+     * The callback added by this API is triggered before the global callback registered by
+     * <b>registerNodeCustomEventReceiver</b>. \n
+     * Do not directly save the <b>ArkUI_NodeCustomEvent</b> object pointer.
+     * The data will be destroyed after the callback is complete. \n
+     *
+     * @param node Indicates the component for which you want to add the custom event callback function.
+     * @param eventReceiver Indicates the custom event callback function to add.
+     * @return Returns 0 if success.
+     * Returns 401 if a parameter exception occurs.     
+     */
+    int32_t (*addNodeCustomEventReceiver)(ArkUI_NodeHandle node, void (*eventReceiver)(ArkUI_NodeCustomEvent* event));
+
+    /**
+     * @brief Removes a registered custom event callback function from a component.
+     *
+     * @param node Indicates the component from which you want to remove the custom event callback function.
+     * @param eventReceiver Indicates the custom event callback function to remove.
+     * @return Returns 0 if success.
+     * Returns 401 if a parameter exception occurs.     
+     */
+    int32_t (*removeNodeCustomEventReceiver)(ArkUI_NodeHandle node,
+        void (*eventReceiver)(ArkUI_NodeCustomEvent* event));
 } ArkUI_NativeNodeAPI_1;
+
+
+/**
+* @brief Obtains the size constraint for measurement through a custom component event.
+*
+* @param event Indicates the pointer to the custom component event.
+* @return Returns the pointer to the size constraint.
+* @since 12
+*/
+ArkUI_LayoutConstraint* OH_ArkUI_NodeCustomEvent_GetLayoutConstraintInMeasure(ArkUI_NodeCustomEvent* event);
+
+/**
+* @brief Obtains the expected position of a component relative to its parent component in the layout phase through a
+* custom component event.
+*
+* @param event Indicates the pointer to the custom component event.
+* @return Returns the expected position relative to the parent component.
+* @since 12
+*/
+ArkUI_IntOffset OH_ArkUI_NodeCustomEvent_GetPositionInLayout(ArkUI_NodeCustomEvent* event);
+
+/**
+* @brief Obtains the drawing context through a custom component event.
+*
+* @param event Indicates the pointer to the custom component event.
+* @return Returns the drawing context.
+* @since 12
+*/
+ArkUI_DrawContext* OH_ArkUI_NodeCustomEvent_GetDrawContextInDraw(ArkUI_NodeCustomEvent* event);
+
+/**
+* @brief Obtains the ID of a custom component event.
+*
+* @param event Indicates the pointer to the custom component event.
+* @return Returns the ID of the custom component event.
+* @since 12
+*/
+int32_t OH_ArkUI_NodeCustomEvent_GetEventTargetId(ArkUI_NodeCustomEvent* event);
+
+/**
+* @brief Obtains custom event parameters through a custom component event.
+*
+* @param event Indicates the pointer to the custom component event.
+* @return Returns the custom event parameters.
+* @since 12
+*/
+void* OH_ArkUI_NodeCustomEvent_GetUserData(ArkUI_NodeCustomEvent* event);
+
+/**
+* @brief Obtains a component object through a custom component event.
+*
+* @param event Indicates the pointer to the custom component event.
+* @return Returns the component object.
+* @since 12
+*/
+ArkUI_NodeHandle OH_ArkUI_NodeCustomEvent_GetNodeHandle(ArkUI_NodeCustomEvent* event);
+
+/**
+* @brief Obtains the event type through a custom component event.
+*
+* @param event Indicates the pointer to the custom component event.
+* @return Returns the type of the custom component event.
+* @since 12
+*/
+ArkUI_NodeCustomEventType OH_ArkUI_NodeCustomEvent_GetEventType(ArkUI_NodeCustomEvent* event);
 
 #ifdef __cplusplus
 };
