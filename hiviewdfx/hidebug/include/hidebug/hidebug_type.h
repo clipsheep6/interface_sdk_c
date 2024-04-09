@@ -58,8 +58,8 @@ typedef enum HiDebug_ErrorCode {
     HIDEBUG_NO_PERMISSION = 11400103,
     /** The status of the trace is abnormal */
     HIDEBUG_TRACE_ABNORMAL = 11400104,
-    /** No trace captured running */
-    HIDEBUG_NO_TRACE_CAPTURED_RUNNING = 11400105
+    /** No trace running */
+    HIDEBUG_NO_TRACE_RUNNING = 11400105
 } HiDebug_ErrorCode;
 
 /**
