@@ -352,12 +352,12 @@ Image_ErrorCode OH_ImageSourceNative_CreatePixelmap(OH_ImageSourceNative *source
  * For details, see {@link OH_DecodingOptions}.
  * @param resVecPixMap Indicates a pointer array to the <b>Pixelmap</b> objects obtained at the C++ native layer.
  * It cannot be a null pointer.
- * @param outSize Indicates a size of resVecPixMap. User can get size from {@link OH_ImageSourceNative_GetFrameCount}.
+ * @param size Indicates a size of resVecPixMap. User can get size from {@link OH_ImageSourceNative_GetFrameCount}.
  * @return Returns {@link Image_ErrorCode}
  * @since 12
  */
 Image_ErrorCode OH_ImageSourceNative_CreatePixelmapList(OH_ImageSourceNative *source, OH_DecodingOptions *options,
-    OH_Pixelmap *resVecPixMap[], size_t *outSize);
+    OH_Pixelmap *resVecPixMap[], size_t size);
 
 /**
  * @brief Obtains the delay time list from some <b>ImageSource</b> objects (such as GIF image sources).
@@ -368,7 +368,7 @@ Image_ErrorCode OH_ImageSourceNative_CreatePixelmapList(OH_ImageSourceNative *so
  * @return Returns {@link Image_ErrorCode}
  * @since 12
  */
-Image_ErrorCode OH_ImageSourceNative_GetDelayTimeList(OH_ImageSourceNative *source, int32_t *delayTimeList, size_t *size);
+Image_ErrorCode OH_ImageSourceNative_GetDelayTimeList(OH_ImageSourceNative *source, int32_t *delayTimeList, size_t size);
 
 /**
  * @brief Obtains image source information from an <b>ImageSource</b> object by index.
