@@ -178,7 +178,7 @@ Image_ErrorCode OH_ImagePackerNative_Create(OH_ImagePackerNative **imagePacker);
  * @since 12
  */
 Image_ErrorCode OH_ImagePackerNative_PackToDataFromImageSource(OH_ImagePackerNative *imagePacker,
-    OH_PackingOptions *options, OH_ImageSource *imageSource, uint8_t *outData, size_t *size);
+    OH_PackingOptions *options, OH_ImageSourceNative *imageSource, uint8_t *outData, size_t *size);
 
 /**
  * @brief Encoding a <b>Pixelmap</b> into the data with required format.
@@ -192,7 +192,7 @@ Image_ErrorCode OH_ImagePackerNative_PackToDataFromImageSource(OH_ImagePackerNat
  * @since 12
  */
 Image_ErrorCode OH_ImagePackerNative_PackToDataFromPixelmap(OH_ImagePackerNative *imagePacker,
-    OH_PackingOptions *options, OH_Pixelmap *pixelmap, uint8_t *outData, size_t *size);
+    OH_PackingOptions *options, OH_PixelmapNative *pixelmap, uint8_t *outData, size_t *size);
 
 /**
  * @brief Encoding an <b>ImageSource</b> into the a file with fd with required format.
@@ -205,7 +205,7 @@ Image_ErrorCode OH_ImagePackerNative_PackToDataFromPixelmap(OH_ImagePackerNative
  * @since 12
  */
 Image_ErrorCode OH_ImagePackerNative_PackToFileFromImageSource(OH_ImagePackerNative *imagePacker,
-    OH_PackingOptions *options, OH_ImageSource *imageSource, int32_t fd);
+    OH_PackingOptions *options, OH_ImageSourceNative *imageSource, int32_t fd);
 
 /**
   * @brief Encoding a <b>Pixelmap</b> into the a file with fd with required format
@@ -218,7 +218,7 @@ Image_ErrorCode OH_ImagePackerNative_PackToFileFromImageSource(OH_ImagePackerNat
   * @since 12
  */
 Image_ErrorCode OH_ImagePackerNative_PackToFileFromPixelmap(OH_ImagePackerNative *imagePacker,
-    OH_PackingOptions *options, OH_Pixelmap *pixelmap, int32_t fd);
+    OH_PackingOptions *options, OH_PixelmapNative *pixelmap, int32_t fd);
 
 /**
   * @brief Releases an imagePacker object.
