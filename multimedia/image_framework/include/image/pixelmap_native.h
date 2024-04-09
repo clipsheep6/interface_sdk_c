@@ -320,7 +320,6 @@ Image_ErrorCode OH_PixelmapImageInfo_Release(OH_Pixelmap_ImageInfo *info);
  * @param options IPixel properties, including the alpha type, size, pixel format, and editable.
  * @param pixelmap Pixelmap pointer for created.
  * @return Returns {@link Image_ErrorCode}
- * @see OH_Pixelmap_InitializationOptions OH_Pixelmap
  * @since 12
  */
 Image_ErrorCode OH_PixelmapNative_CreatePixelmap(uint8_t *data, size_t dataLength,
@@ -334,7 +333,6 @@ Image_ErrorCode OH_PixelmapNative_CreatePixelmap(uint8_t *data, size_t dataLengt
  * @param destination Buffer to which the image pixel map data will be written.
  * @param bufferSize Buffer size to which the image pixel map data will be written.
  * @return Returns {@link Image_ErrorCode}
- * @see OH_Pixelmap
  * @since 12
  */
 Image_ErrorCode OH_PixelmapNative_ReadPixels(OH_PixelmapNative *pixelmap, uint8_t *destination, size_t *bufferSize);
@@ -346,7 +344,6 @@ Image_ErrorCode OH_PixelmapNative_ReadPixels(OH_PixelmapNative *pixelmap, uint8_
  * @param source Buffer from which the image data will be read.
  * @param bufferSize Buffer size from which the image data will be read.
  * @return Returns {@link Image_ErrorCode}
- * @see OH_Pixelmap
  * @since 12
  */
 Image_ErrorCode OH_PixelmapNative_WritePixels(OH_PixelmapNative *pixelmap, uint8_t *source, size_t bufferSize);
@@ -357,7 +354,6 @@ Image_ErrorCode OH_PixelmapNative_WritePixels(OH_PixelmapNative *pixelmap, uint8
  * @param pixelmap The Pixelmap pointer will be operated.
  * @param imageInfo Indicates the pointer to the image information.
  * @return Returns {@link Image_ErrorCode}
- * @see OH_Pixelmap OH_Pixelmap_ImageInfo
  * @since 12
  */
 Image_ErrorCode OH_PixelmapNative_GetImageInfo(OH_PixelmapNative *pixelmap, OH_Pixelmap_ImageInfo *imageInfo);
@@ -368,7 +364,6 @@ Image_ErrorCode OH_PixelmapNative_GetImageInfo(OH_PixelmapNative *pixelmap, OH_P
  * @param pixelmap The Pixelmap pointer will be operated.
  * @param rate Opacity rate to set. The value ranges from 0 to 1.
  * @return Returns {@link Image_ErrorCode}
- * @see OH_Pixelmap
  * @since 12
  */
 Image_ErrorCode OH_PixelmapNative_Opacity(OH_PixelmapNative *pixelmap, float rate);
@@ -380,7 +375,6 @@ Image_ErrorCode OH_PixelmapNative_Opacity(OH_PixelmapNative *pixelmap, float rat
  * @param scaleX Scaling ratio of the width.
  * @param scaleY Scaling ratio of the height.
  * @return Returns {@link Image_ErrorCode}
- * @see OH_Pixelmap
  * @since 12
  */
 Image_ErrorCode OH_PixelmapNative_Scale(OH_PixelmapNative *pixelmap, float scaleX, float scaleY);
@@ -392,7 +386,6 @@ Image_ErrorCode OH_PixelmapNative_Scale(OH_PixelmapNative *pixelmap, float scale
  * @param x The distance to be translate in the X direction.
  * @param y The distance to be translate in the Y direction.
  * @return Returns {@link Image_ErrorCode}
- * @see OH_Pixelmap
  * @since 12
  */
 Image_ErrorCode OH_PixelmapNative_Translate(OH_PixelmapNative *pixelmap, float x, float y);
@@ -403,7 +396,6 @@ Image_ErrorCode OH_PixelmapNative_Translate(OH_PixelmapNative *pixelmap, float x
  * @param pixelmap The Pixelmap pointer will be operated.
  * @param angle Angle to rotate.
  * @return Returns {@link Image_ErrorCode}
- * @see OH_Pixelmap
  * @since 12
  */
 Image_ErrorCode OH_PixelmapNative_Rotate(OH_PixelmapNative *pixelmap, float angle);
@@ -415,7 +407,6 @@ Image_ErrorCode OH_PixelmapNative_Rotate(OH_PixelmapNative *pixelmap, float angl
  * @param shouldFilpHorizontally Whether to flip the image horizontally.
  * @param shouldFilpVertically Whether to flip the image vertically.
  * @return Returns {@link Image_ErrorCode}
- * @see OH_Pixelmap
  * @since 12
  */
 Image_ErrorCode OH_PixelmapNative_Flip(OH_PixelmapNative *pixelmap, bool shouldFilpHorizontally, bool shouldFilpVertically);
@@ -426,7 +417,6 @@ Image_ErrorCode OH_PixelmapNative_Flip(OH_PixelmapNative *pixelmap, bool shouldF
  * @param pixelmap The Pixelmap pointer will be operated.
  * @param region Area size, read according to area.
  * @return Returns {@link Image_ErrorCode}
- * @see OH_Pixelmap
  * @since 12
  */
 Image_ErrorCode OH_PixelmapNative_Crop(OH_PixelmapNative *pixelmap, Image_Region *region);
@@ -436,7 +426,6 @@ Image_ErrorCode OH_PixelmapNative_Crop(OH_PixelmapNative *pixelmap, Image_Region
  *
  * @param pixelmap The Pixelmap pointer will be operated.
  * @return Returns {@link Image_ErrorCode}
- * @see OH_Pixelmap
  * @since 12
  */
 Image_ErrorCode OH_PixelmapNative_Release(OH_PixelmapNative *pixelmap);
