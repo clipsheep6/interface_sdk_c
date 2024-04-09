@@ -60,6 +60,28 @@ typedef struct OH_ImageSourceNative OH_ImageSourceNative;
 struct OH_ImageSource_Info;
 typedef struct OH_ImageSource_Info OH_ImageSource_Info;
 
+
+/**
+ * @brief Enumerates decoding dynamic range..
+ *
+ * @since 12
+ */
+typedef enum {
+    /*
+    * Dynamic range depends on the image.
+    */
+    IMAGE_DYNAMIC_RANGE_AUTO = 0,
+    /*
+    * Standard dynamic range.
+    */
+    IMAGE_DYNAMIC_RANGE_SDR = 1,
+    /*
+    * High dynamic range.
+    */
+    IMAGE_DYNAMIC_RANGE_HDR = 2,
+} IMAGE_DYNAMIC_RANGE;
+
+
 /**
  * @brief Create a pointer for OH_ImageSource_Info struct.
  *
@@ -72,7 +94,7 @@ Image_ErrorCode OH_ImageSourceInfo_Create(OH_ImageSource_Info **info);
 /**
  * @brief Get width number for OH_ImageSource_Info struct.
  *
- * @param info The DecodingOptions pointer will be operated.
+ * @param info The OH_ImageSource_Info pointer will be operated.
  * @param width the number of image width.
  * @return Returns {@link Image_ErrorCode}
  * @since 12
@@ -82,12 +104,23 @@ Image_ErrorCode OH_ImageSourceInfo_GetWidth(OH_ImageSource_Info *info, uint32_t 
 /**
  * @brief Get height number for OH_ImageSource_Info struct.
  *
- * @param info The DecodingOptions pointer will be operated.
+ * @param info The OH_ImageSource_Info pointer will be operated.
  * @param height the number of image height.
  * @return Returns {@link Image_ErrorCode}
  * @since 12
  */
 Image_ErrorCode OH_ImageSourceInfo_GetHeight(OH_ImageSource_Info *info, uint32_t *height);
+
+
+/**
+ * @brief Get isHdr for OH_ImageSource_Info struct.
+ *
+ * @param info The OH_ImageSource_Info pointer will be operated.
+ * @param isHdr Whether the image has a high dynamic range.
+ * @return Returns {@link Image_ErrorCode}
+ * @since 12
+ */
+Image_ErrorCode OH_ImageSourceInfo_GetDynamicRange(OH_ImageSource_Info *info, bool *isHdr);
 
 /**
  * @brief delete OH_ImageSource_Info pointer.
@@ -108,18 +141,18 @@ struct OH_DecodingOptions;
 typedef struct OH_DecodingOptions OH_DecodingOptions;
 
 /**
- * @brief Create a pointer for InitializationOtions struct.
+ * @brief Create a pointer for OH_DecodingOptions struct.
  *
- * @param  options The DecodingOptions pointer will be operated.
+ * @param  options The OH_DecodingOptions pointer will be operated.
  * @return Returns {@link Image_ErrorCode}
  * @since 12
  */
 Image_ErrorCode OH_DecodingOptions_Create(OH_DecodingOptions **options);
 
 /**
- * @brief Get pixelFormat number for DecodingOptions struct.
+ * @brief Get pixelFormat number for OH_DecodingOptions struct.
  *
- * @param  options The DecodingOptions pointer will be operated.
+ * @param  options The OH_DecodingOptions pointer will be operated.
  * @param pixelFormat the number of image pixelFormat.
  * @return Returns {@link Image_ErrorCode}
  * @since 12
@@ -128,9 +161,9 @@ Image_ErrorCode OH_DecodingOptions_GetPixelFormat(OH_DecodingOptions *options,
     int32_t *pixelFormat);
 
 /**
- * @brief Set pixelFormat number for DecodingOptions struct.
+ * @brief Set pixelFormat number for OH_DecodingOptions struct.
  *
- * @param  options The DecodingOptions pointer will be operated.
+ * @param  options The OH_DecodingOptions pointer will be operated.
  * @param pixelFormat the number of image pixelFormat.
  * @return Returns {@link Image_ErrorCode}
  * @since 12
@@ -139,9 +172,9 @@ Image_ErrorCode OH_DecodingOptions_SetPixelFormat(OH_DecodingOptions *options,
     int32_t pixelFormat);
 
 /**
- * @brief Get index number for DecodingOptions struct.
+ * @brief Get index number for OH_DecodingOptions struct.
  *
- * @param  options The DecodingOptions pointer will be operated.
+ * @param  options The OH_DecodingOptions pointer will be operated.
  * @param index the number of image index.
  * @return Returns {@link Image_ErrorCode}
  * @since 12
@@ -149,9 +182,9 @@ Image_ErrorCode OH_DecodingOptions_SetPixelFormat(OH_DecodingOptions *options,
 Image_ErrorCode OH_DecodingOptions_GetIndex(OH_DecodingOptions *options, uint32_t *index);
 
 /**
- * @brief Set index number for DecodingOptions struct.
+ * @brief Set index number for OH_DecodingOptions struct.
  *
- * @param  options The DecodingOptions pointer will be operated.
+ * @param  options The OH_DecodingOptions pointer will be operated.
  * @param index the number of image index.
  * @return Returns {@link Image_ErrorCode}
  * @since 12
@@ -159,9 +192,9 @@ Image_ErrorCode OH_DecodingOptions_GetIndex(OH_DecodingOptions *options, uint32_
 Image_ErrorCode OH_DecodingOptions_SetIndex(OH_DecodingOptions *options, uint32_t index);
 
 /**
- * @brief Get rotate number for DecodingOptions struct.
+ * @brief Get rotate number for OH_DecodingOptions struct.
  *
- * @param  options The DecodingOptions pointer will be operated.
+ * @param  options The OH_DecodingOptions pointer will be operated.
  * @param rotate the number of image rotate.
  * @return Returns {@link Image_ErrorCode}
  * @since 12
@@ -169,9 +202,9 @@ Image_ErrorCode OH_DecodingOptions_SetIndex(OH_DecodingOptions *options, uint32_
 Image_ErrorCode OH_DecodingOptions_GetRotate(OH_DecodingOptions *options, float *rotate);
 
 /**
- * @brief Set rotate number for DecodingOptions struct.
+ * @brief Set rotate number for OH_DecodingOptions struct.
  *
- * @param  options The DecodingOptions pointer will be operated.
+ * @param  options The OH_DecodingOptions pointer will be operated.
  * @param rotate the number of image rotate.
  * @return Returns {@link Image_ErrorCode}
  * @since 12
@@ -179,9 +212,9 @@ Image_ErrorCode OH_DecodingOptions_GetRotate(OH_DecodingOptions *options, float 
 Image_ErrorCode OH_DecodingOptions_SetRotate(OH_DecodingOptions *options, float rotate);
 
 /**
- * @brief Get desiredSize number for DecodingOptions struct.
+ * @brief Get desiredSize number for OH_DecodingOptions struct.
  *
- * @param  options The DecodingOptions pointer will be operated.
+ * @param  options The OH_DecodingOptions pointer will be operated.
  * @param desiredSize the number of image desiredSize.
  * @return Returns {@link Image_ErrorCode}
  * @since 12
@@ -190,9 +223,9 @@ Image_ErrorCode OH_DecodingOptions_GetDesiredSize(OH_DecodingOptions *options,
     Image_Size *desiredSize);
 
 /**
- * @brief Set desiredSize number for DecodingOptions struct.
+ * @brief Set desiredSize number for OH_DecodingOptions struct.
  *
- * @param  options The DecodingOptions pointer will be operated.
+ * @param  options The OH_DecodingOptions pointer will be operated.
  * @param desiredSize the number of image desiredSize.
  * @return Returns {@link Image_ErrorCode}
  * @since 12
@@ -201,9 +234,9 @@ Image_ErrorCode OH_DecodingOptions_SetDesiredSize(OH_DecodingOptions *options,
     Image_Size *desiredSize);
 
 /**
- * @brief Set desiredRegion number for DecodingOptions struct.
+ * @brief Set desiredRegion number for OH_DecodingOptions struct.
  *
- * @param  options The DecodingOptions pointer will be operated.
+ * @param  options The OH_DecodingOptions pointer will be operated.
  * @param desiredRegion the number of image desiredRegion.
  * @return Returns {@link Image_ErrorCode}
  * @since 12
@@ -212,9 +245,9 @@ Image_ErrorCode OH_DecodingOptions_GetDesiredRegion(OH_DecodingOptions *options,
     Image_Region *desiredRegion);
 
 /**
- * @brief Set desiredRegion number for DecodingOptions struct.
+ * @brief Set desiredRegion number for OH_DecodingOptions struct.
  *
- * @param  options The DecodingOptions pointer will be operated.
+ * @param  options The OH_DecodingOptions pointer will be operated.
  * @param desiredRegion the number of image desiredRegion.
  * @return Returns {@link Image_ErrorCode}
  * @since 12
@@ -223,9 +256,31 @@ Image_ErrorCode OH_DecodingOptions_SetDesiredRegion(OH_DecodingOptions *options,
     Image_Region *desiredRegion);
 
 /**
- * @brief delete DecodingOptions pointer.
+ * @brief Set desiredDynamicRange number for OH_DecodingOptions struct.
  *
- * @param  options The DecodingOptions pointer will be operated.
+ * @param options The OH_DecodingOptions pointer will be operated.
+ * @param desiredDynamicRange the number of desired dynamic range {@link IMAGE_DYNAMIC_RANGE}.
+ * @return Returns {@link Image_ErrorCode}
+ * @since 12
+ */
+Image_ErrorCode OH_DecodingOptions_GetDesiredDynamicRange(OH_DecodingOptions *options,
+    int32_t *desiredDynamicRange);
+
+/**
+ * @brief Set desiredDynamicRange number for OH_DecodingOptions struct.
+ *
+ * @param options The OH_DecodingOptions pointer will be operated.
+ * @param desiredDynamicRange the number of desired dynamic range {@link IMAGE_DYNAMIC_RANGE}.
+ * @return Returns {@link Image_ErrorCode}
+ * @since 12
+ */
+Image_ErrorCode OH_DecodingOptions_SetDesiredDynamicRange(OH_DecodingOptions *options,
+    int32_t desiredDynamicRange);
+
+/**
+ * @brief delete OH_DecodingOptions pointer.
+ *
+ * @param  options The OH_DecodingOptions pointer will be operated.
  * @return Returns {@link Image_ErrorCode}
  * @since 12
  */

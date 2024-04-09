@@ -59,6 +59,22 @@ struct OH_PackingOptions;
 typedef struct OH_PackingOptions OH_PackingOptions;
 
 /**
+ * @brief Enumerates packing dynamic range.
+ *
+ * @since 12
+ */
+typedef enum {
+    /*
+    * Packing according to the content of the image.
+    */
+    IMAGE_PACKER_DYNAMIC_RANGE_AUTO = 0,
+    /*
+    * Packing to standard dynamic range.
+    */
+    IMAGE_PACKER_DYNAMIC_RANGE_SDR = 1,
+} IMAGE_PACKER_DYNAMIC_RANGE;
+
+/**
  * @brief Create a pointer for PackingOptions struct.
  *
  * @param options The PackingOptions pointer will be operated.
@@ -68,9 +84,9 @@ typedef struct OH_PackingOptions OH_PackingOptions;
 Image_ErrorCode OH_PackingOptions_Create(OH_PackingOptions **options);
 
 /**
- * @brief Get mime type for DecodingOptions struct.
+ * @brief Get mime type for OH_PackingOptions struct.
  *
- * @param options The DecodingOptions pointer will be operated.
+ * @param options The OH_PackingOptions pointer will be operated.
  * @param format the number of image format.The user can pass in a null pointer and zero size, we will allocate memory,
  * but user must free memory after use.
  * @return Returns {@link Image_ErrorCode}
@@ -80,9 +96,9 @@ Image_ErrorCode OH_PackingOptions_GetMimeType(OH_PackingOptions *options,
     Image_MimeType *format);
 
 /**
- * @brief Set format number for DecodingOptions struct.
+ * @brief Set format number for OH_PackingOptions struct.
  *
- * @param options The DecodingOptions pointer will be operated.
+ * @param options The OH_PackingOptions pointer will be operated.
  * @param format the number of image format.
  * @return Returns {@link Image_ErrorCode}
  * @since 12
@@ -91,9 +107,9 @@ Image_ErrorCode OH_PackingOptions_SetMimeType(OH_PackingOptions *options,
     Image_MimeType *format);
 
 /**
- * @brief Get quality for DecodingOptions struct.
+ * @brief Get quality for OH_PackingOptions struct.
  *
- * @param options The DecodingOptions pointer will be operated.
+ * @param options The OH_PackingOptions pointer will be operated.
  * @param quality the number of image quality.
  * @return Returns {@link Image_ErrorCode}
  * @since 12
@@ -102,9 +118,9 @@ Image_ErrorCode OH_PackingOptions_GetQuality(OH_PackingOptions *options,
     uint32_t *quality);
 
 /**
- * @brief Set quality number for DecodingOptions struct.
+ * @brief Set quality number for OH_PackingOptions struct.
  *
- * @param options The DecodingOptions pointer will be operated.
+ * @param options The OH_PackingOptions pointer will be operated.
  * @param quality the number of image quality.
  * @return Returns {@link Image_ErrorCode}
  * @since 12
@@ -113,9 +129,29 @@ Image_ErrorCode OH_PackingOptions_SetQuality(OH_PackingOptions *options,
     uint32_t quality);
 
 /**
- * @brief delete DecodingOptions pointer.
+ * @brief Get desiredDynamicRange for PackingOptions struct.
  *
- * @param options The DecodingOptions pointer will be operated.
+ * @param options The PackingOptions pointer will be operated.
+ * @param  desiredDynamicRange The number of dynamic range {@link IMAGE_PACKER_DYNAMIC_RANGE}.
+ * @return Returns {@link Image_ErrorCode}
+ * @since 12
+ */
+Image_ErrorCode OH_PackingOptions_GetDesiredDynamicRange(OH_PackingOptions *options, int32_t* desiredDynamicRange);
+
+/**
+ * @brief Set desiredDynamicRange number for PackingOptions struct.
+ *
+ * @param options The PackingOptions pointer will be operated.
+ * @param  desiredDynamicRange The number of dynamic range {@link IMAGE_PACKER_DYNAMIC_RANGE}.
+ * @return Returns {@link Image_ErrorCode}
+ * @since 12
+ */
+Image_ErrorCode OH_PackingOptions_SetDesiredDynamicRange(OH_PackingOptions *options, int32_t desiredDynamicRange);
+
+/**
+ * @brief delete OH_PackingOptions pointer.
+ *
+ * @param options The OH_PackingOptions pointer will be operated.
  * @return Returns {@link Image_ErrorCode}
  * @since 12
  */
