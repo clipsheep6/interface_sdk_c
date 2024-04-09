@@ -47,6 +47,7 @@ extern "C" {
  *
  * @since 12
  */
+struct OH_ImagePackerNative;
 typedef struct OH_ImagePackerNative OH_ImagePackerNative;
 
 /**
@@ -54,6 +55,7 @@ typedef struct OH_ImagePackerNative OH_ImagePackerNative;
  *
  * @since 12
  */
+struct OH_PackingOptions;
 typedef struct OH_PackingOptions OH_PackingOptions;
 
 /**

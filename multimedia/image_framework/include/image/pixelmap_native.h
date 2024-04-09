@@ -46,6 +46,7 @@ extern "C" {
  *
  * @since 12
  */
+struct OH_PixelmapNative;
 typedef struct OH_PixelmapNative OH_PixelmapNative;
 
 /**
@@ -116,6 +117,7 @@ typedef enum {
  *
  * @since 12
  */
+struct OH_Pixelmap_InitializationOptions;
 typedef struct OH_Pixelmap_InitializationOptions OH_Pixelmap_InitializationOptions;
 
 /**
@@ -229,6 +231,7 @@ Image_ErrorCode OH_PixelmapInitializationOptions_Release(OH_Pixelmap_Initializat
  *
  * @since 12
  */
+struct OH_Pixelmap_ImageInfo;
 typedef struct OH_Pixelmap_ImageInfo OH_Pixelmap_ImageInfo;
 
 /**

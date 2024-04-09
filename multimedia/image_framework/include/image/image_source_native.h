@@ -48,6 +48,7 @@ extern "C" {
  *
  * @since 12
  */
+struct OH_ImageSourceNative;
 typedef struct OH_ImageSourceNative OH_ImageSourceNative;
 
 /**
@@ -56,6 +57,7 @@ typedef struct OH_ImageSourceNative OH_ImageSourceNative;
  *
  * @since 12
  */
+struct OH_ImageSource_Info;
 typedef struct OH_ImageSource_Info OH_ImageSource_Info;
 
 /**
@@ -102,6 +104,7 @@ Image_ErrorCode OH_ImageSourceInfo_Release(OH_ImageSource_Info *info);
  *
  * @since 12
  */
+struct OH_DecodingOptions;
 typedef struct OH_DecodingOptions OH_DecodingOptions;
 
 /**
