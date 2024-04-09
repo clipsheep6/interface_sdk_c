@@ -28,7 +28,7 @@
  *
  * @brief Declares the APIs that can access a pixel map.
  *
- * @library libohpixelmap.z.so
+ * @library libpixelmap.so
  * @Syscap SystemCapability.Multimedia.Image.Core
  * @since 12
  */
@@ -121,118 +121,108 @@ typedef struct OH_Pixelmap_InitializationOptions OH_Pixelmap_InitializationOptio
 /**
  * @brief Create a for InitializationOtions struct.
  *
- * @param ops The InitializationOtions pointer will be operated.
+ * @param options The InitializationOtions pointer will be operated.
  * @return Returns {@link Image_ErrorCode}
- * @see OH_Pixelmap_InitializationOptions
  * @since 12
  */
-Image_ErrorCode OH_PixelmapInitializationOptions_Create(OH_Pixelmap_InitializationOptions **ops);
+Image_ErrorCode OH_PixelmapInitializationOptions_Create(OH_Pixelmap_InitializationOptions **options);
 
 /**
  * @brief Get width number for InitializationOtions struct.
  *
- * @param ops The InitializationOtions pointer will be operated.
+ * @param options The InitializationOtions pointer will be operated.
  * @param width the number of image width.
  * @return Returns {@link Image_ErrorCode}
- * @see OH_Pixelmap_InitializationOptions
  * @since 12
  */
-Image_ErrorCode OH_PixelmapInitializationOptions_GetWidth(OH_Pixelmap_InitializationOptions *ops,
+Image_ErrorCode OH_PixelmapInitializationOptions_GetWidth(OH_Pixelmap_InitializationOptions *options,
     uint32_t *width);
 
 /**
  * @brief Set width number for InitializationOtions struct.
  *
- * @param ops The InitializationOtions pointer will be operated.
+ * @param options The InitializationOtions pointer will be operated.
  * @param width the number of image width.
  * @return Returns {@link Image_ErrorCode}
- * @see OH_Pixelmap_InitializationOptions
  * @since 12
  */
-Image_ErrorCode OH_PixelmapInitializationOptions_SetWidth(OH_Pixelmap_InitializationOptions *ops,
+Image_ErrorCode OH_PixelmapInitializationOptions_SetWidth(OH_Pixelmap_InitializationOptions *options,
     uint32_t width);
 
 /**
  * @brief Get height number for InitializationOtions struct.
  *
- * @param ops The InitializationOtions pointer will be operated.
+ * @param options The InitializationOtions pointer will be operated.
  * @param height the number of image height.
  * @return Returns {@link Image_ErrorCode}
- * @see OH_Pixelmap_InitializationOptions
  * @since 12
  */
-Image_ErrorCode OH_PixelmapInitializationOptions_GetHeight(OH_Pixelmap_InitializationOptions *ops,
+Image_ErrorCode OH_PixelmapInitializationOptions_GetHeight(OH_Pixelmap_InitializationOptions *options,
     uint32_t *height);
 
 /**
  * @brief Set height number for InitializationOtions struct.
  *
- * @param ops The InitializationOtions pointer will be operated.
+ * @param options The InitializationOtions pointer will be operated.
  * @param height the number of image height.
  * @return Returns {@link Image_ErrorCode}
- * @see OH_Pixelmap_InitializationOptions
  * @since 12
  */
-Image_ErrorCode OH_PixelmapInitializationOptions_SetHeight(OH_Pixelmap_InitializationOptions *ops,
+Image_ErrorCode OH_PixelmapInitializationOptions_SetHeight(OH_Pixelmap_InitializationOptions *options,
     uint32_t height);
 
 /**
  * @brief Get pixelFormat number for InitializationOtions struct.
  *
- * @param ops The InitializationOtions pointer will be operated.
+ * @param options The InitializationOtions pointer will be operated.
  * @param pixelFormat the number of image pixelFormat.
  * @return Returns {@link Image_ErrorCode}
- * @see OH_Pixelmap_InitializationOptions
  * @since 12
  */
-Image_ErrorCode OH_PixelmapInitializationOptions_GetPixelFormat(OH_Pixelmap_InitializationOptions *ops,
+Image_ErrorCode OH_PixelmapInitializationOptions_GetPixelFormat(OH_Pixelmap_InitializationOptions *options,
     int32_t *pixelFormat);
 
 /**
  * @brief Set pixelFormat number for InitializationOtions struct.
  *
- * @param ops The InitializationOtions pointer will be operated.
+ * @param options The InitializationOtions pointer will be operated.
  * @param pixelFormat the number of image pixelFormat.
  * @return Returns {@link Image_ErrorCode}
- * @see OH_Pixelmap_InitializationOptions
  * @since 12
  */
-Image_ErrorCode OH_PixelmapInitializationOptions_SetPixelFormat(OH_Pixelmap_InitializationOptions *ops,
+Image_ErrorCode OH_PixelmapInitializationOptions_SetPixelFormat(OH_Pixelmap_InitializationOptions *options,
     int32_t pixelFormat);
 
 /**
  * @brief Get alphaType number for InitializationOtions struct.
  *
- * @param ops The InitializationOtions pointer will be operated.
+ * @param options The InitializationOtions pointer will be operated.
  * @param alphaType the number of image alphaType.
  * @return Returns {@link Image_ErrorCode}
- * @see OH_Pixelmap_InitializationOptions
  * @since 12
  */
-Image_ErrorCode OH_PixelmapInitializationOptions_GetAlphaType(OH_Pixelmap_InitializationOptions *ops,
+Image_ErrorCode OH_PixelmapInitializationOptions_GetAlphaType(OH_Pixelmap_InitializationOptions *options,
     int32_t *alphaType);
 
 /**
  * @brief Set alphaType number for InitializationOtions struct.
  *
- * @param ops The InitializationOtions pointer will be operated.
+ * @param options The InitializationOtions pointer will be operated.
  * @param alphaType the number of image alphaType.
  * @return Returns {@link Image_ErrorCode}
- * @see OH_Pixelmap_InitializationOptions
  * @since 12
  */
-Image_ErrorCode OH_PixelmapInitializationOptions_SetAlphaType(OH_Pixelmap_InitializationOptions *ops,
+Image_ErrorCode OH_PixelmapInitializationOptions_SetAlphaType(OH_Pixelmap_InitializationOptions *options,
     int32_t alphaType);
 
 /**
  * @brief delete InitializationOtions pointer.
  *
- * @param ops The InitializationOtions pointer will be operated.
+ * @param options The InitializationOtions pointer will be operated.
  * @return Returns {@link Image_ErrorCode}
- * @see OH_Pixelmap_InitializationOptions
  * @since 12
  */
-Image_ErrorCode OH_PixelmapInitializationOptions_Release(OH_Pixelmap_InitializationOptions *ops);
+Image_ErrorCode OH_PixelmapInitializationOptions_Release(OH_Pixelmap_InitializationOptions *options);
 
 /**
  * @brief Defines the pixel map information.
@@ -246,7 +236,6 @@ typedef struct OH_Pixelmap_ImageInfo OH_Pixelmap_ImageInfo;
  *
  * @param info The imageinfo pointer will be operated.
  * @return Returns {@link Image_ErrorCode}
- * @see OH_Pixelmap_ImageInfo
  * @since 12
  */
 Image_ErrorCode OH_PixelmapImageInfo_Create(OH_Pixelmap_ImageInfo **info);
@@ -257,7 +246,6 @@ Image_ErrorCode OH_PixelmapImageInfo_Create(OH_Pixelmap_ImageInfo **info);
  * @param info The imageinfo pointer will be operated.
  * @param width The number of imageinfo width.
  * @return Returns {@link Image_ErrorCode}
- * @see OH_Pixelmap_ImageInfo
  * @since 12
  */
 Image_ErrorCode OH_PixelmapImageInfo_GetWidth(OH_Pixelmap_ImageInfo *info, uint32_t *width);
@@ -268,7 +256,6 @@ Image_ErrorCode OH_PixelmapImageInfo_GetWidth(OH_Pixelmap_ImageInfo *info, uint3
  * @param info The imageinfo pointer will be operated.
  * @param height The number of imageinfo height.
  * @return Returns {@link Image_ErrorCode}
- * @see OH_Pixelmap_ImageInfo
  * @since 12
  */
 Image_ErrorCode OH_PixelmapImageInfo_GetHeight(OH_Pixelmap_ImageInfo *info, uint32_t *height);
@@ -279,7 +266,6 @@ Image_ErrorCode OH_PixelmapImageInfo_GetHeight(OH_Pixelmap_ImageInfo *info, uint
  * @param info The imageinfo pointer will be operated.
  * @param rowStride The number of imageinfo rowStride.
  * @return Returns {@link Image_ErrorCode}
- * @see OH_Pixelmap_ImageInfo
  * @since 12
  */
 Image_ErrorCode OH_PixelmapImageInfo_GetRowStride(OH_Pixelmap_ImageInfo *info, uint32_t *rowStride);
@@ -290,7 +276,6 @@ Image_ErrorCode OH_PixelmapImageInfo_GetRowStride(OH_Pixelmap_ImageInfo *info, u
  * @param info The imageinfo pointer will be operated.
  * @param pixelFormat The number of imageinfo pixelFormat.
  * @return Returns {@link Image_ErrorCode}
- * @see OH_Pixelmap_ImageInfo
  * @since 12
  */
 Image_ErrorCode OH_PixelmapImageInfo_GetPixelFormat(OH_Pixelmap_ImageInfo *info, int32_t *pixelFormat);
@@ -301,7 +286,6 @@ Image_ErrorCode OH_PixelmapImageInfo_GetPixelFormat(OH_Pixelmap_ImageInfo *info,
  * @param info The imageinfo pointer will be operated.
  * @param density The number of imageinfo density.
  * @return Returns {@link Image_ErrorCode}
- * @see OH_Pixelmap_ImageInfo
  * @since 12
  */
 Image_ErrorCode OH_PixelmapImageInfo_GetAlphaType(OH_Pixelmap_ImageInfo *info, int32_t *alphaType);
@@ -311,7 +295,6 @@ Image_ErrorCode OH_PixelmapImageInfo_GetAlphaType(OH_Pixelmap_ImageInfo *info, i
  *
  * @param info The imageinfo pointer will be operated.
  * @return Returns {@link Image_ErrorCode}
- * @see OH_Pixelmap_ImageInfo
  * @since 12
  */
 Image_ErrorCode OH_PixelmapImageInfo_Release(OH_Pixelmap_ImageInfo *info);

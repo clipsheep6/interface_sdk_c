@@ -27,7 +27,7 @@
  *
  * @brief Declares APIs for decoding an image source into a pixel map.
  *
- * @library libohimagesource.so
+ * @library libimage_source.so
  * @syscap SystemCapability.Multimedia.Image.ImageSource
  * @since 12
  */
@@ -52,7 +52,7 @@ typedef struct OH_ImageSourceNative OH_ImageSourceNative;
 
 /**
  * @brief Defines image source infomation
- * {@link OH_ImageSourceNative_CreateImageInfo}.
+ * {@link OH_ImageSourceInfo_Create}.
  *
  * @since 12
  */
@@ -98,7 +98,7 @@ Image_ErrorCode OH_ImageSourceInfo_Release(OH_ImageSource_Info *info);
 
 /**
  * @brief Defines the options for decoding the image source.
- * It is used in {@link OH_ImageSourceNative_Create}.
+ * It is used in {@link OH_ImageSourceNative_CreatePixelmap}.
  *
  * @since 12
  */
@@ -272,11 +272,11 @@ Image_ErrorCode OH_ImageSourceNative_CreateFromRawFile(RawFileDescriptor *rawFil
 
 /**
  * @brief Decodes an void pointer
- * based on the specified {@link OH_ImageSource_DecodingOptions} struct.
+ * based on the specified {@link OH_DecodingOptions} struct.
  *
  * @param source Indicates a void pointer(from ImageSource pointer convert).
  * @param  options Indicates a pointer to the options for decoding the image source.
- * For details, see {@link OH_ImageSource_DecodingOptions}.
+ * For details, see {@link OH_DecodingOptions}.
  * @param resPixMap Indicates a void pointer to the <b>Pixelmap</b> object obtained at the C++ native layer.
  * @return Returns {@link Image_ErrorCode}
  * @since 12
@@ -287,11 +287,11 @@ Image_ErrorCode OH_ImageSourceNative_CreatePixelmap(OH_ImageSourceNative *source
 /**
  * @brief Decodes an void pointer
  * the <b>Pixelmap</b> objects at the C++ native layer
- * based on the specified {@link OH_ImageSource_DecodingOptions} struct.
+ * based on the specified {@link OH_DecodingOptions} struct.
  *
  * @param source Indicates a void pointer(from ImageSource pointer convert).
  * @param  options Indicates a pointer to the options for decoding the image source.
- * For details, see {@link OH_ImageSource_DecodingOptions}.
+ * For details, see {@link OH_DecodingOptions}.
  * @param resVecPixMap Indicates a pointer array to the <b>Pixelmap</b> objects obtained at the C++ native layer.
  * It cannot be a null pointer.
  * @param outSize Indicates a size of resVecPixMap. User can get size from {@link OH_ImageSourceNative_GetFrameCount}.
