@@ -26,7 +26,6 @@
  * @file image_receiver.h
  *
  * @brief Declares the APIs for obtaining image data.
- * 
  * @library libohimagereceiver.so
  * @syscap SystemCapability.Multimedia.Image.ImageReceiver
  * @since 12
@@ -159,7 +158,7 @@ Image_ErrorCode OH_ImageReceiverNative_Create(OH_ImageReceiverOptions* options, 
  * @brief Obtains the receiver ID through an {@link OH_ImageReceiver} object.
  *
  * @param receiver Indicates the pointer to an {@link OH_ImageReceiver} object.
- * @param surfaceId Indicates the pointer to the surface ID will be obtained.
+ * @param surfaceId Indicates the pointer to the surfaceID will be obtained.
  * @return Returns {@link Image_ErrorCode} IMAGE_SUCCESS - if the operation is successful.
  * returns {@link Image_ErrorCode} IMAGE_BAD_PARAMETER - if bad parameter.
  * returns {@link Image_ErrorCode} IMAGE_UNKNOWN_ERROR - inner unknown error.

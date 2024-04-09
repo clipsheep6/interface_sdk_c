@@ -86,8 +86,8 @@ ohos_ndk_library("libohimage") {
 ohos_ndk_headers("ohimage_header") {
   dest_dir = "$ndk_headers_out_dir/multimedia/image_framework/image"
   sources = [
-    "./include/image/image_native.h",
     "./include/image/image_common.h",
+    "./include/image/image_native.h",
   ]
 }
 
