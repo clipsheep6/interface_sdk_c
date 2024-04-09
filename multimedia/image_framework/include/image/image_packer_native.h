@@ -110,7 +110,7 @@ Image_ErrorCode OH_PackingOptions_SetMimeType(OH_PackingOptions *options,
  * @brief Get quality for OH_PackingOptions struct.
  *
  * @param options The OH_PackingOptions pointer will be operated.
- * @param quality the number of image quality.
+ * @param quality The number of image quality.
  * @return Returns {@link Image_ErrorCode}
  * @since 12
  */
@@ -121,7 +121,7 @@ Image_ErrorCode OH_PackingOptions_GetQuality(OH_PackingOptions *options,
  * @brief Set quality number for OH_PackingOptions struct.
  *
  * @param options The OH_PackingOptions pointer will be operated.
- * @param quality the number of image quality.
+ * @param quality The number of image quality.
  * @return Returns {@link Image_ErrorCode}
  * @since 12
  */
@@ -132,7 +132,7 @@ Image_ErrorCode OH_PackingOptions_SetQuality(OH_PackingOptions *options,
  * @brief Get desiredDynamicRange for PackingOptions struct.
  *
  * @param options The PackingOptions pointer will be operated.
- * @param  desiredDynamicRange The number of dynamic range {@link IMAGE_PACKER_DYNAMIC_RANGE}.
+ * @param desiredDynamicRange The number of dynamic range {@link IMAGE_PACKER_DYNAMIC_RANGE}.
  * @return Returns {@link Image_ErrorCode}
  * @since 12
  */
@@ -142,7 +142,7 @@ Image_ErrorCode OH_PackingOptions_GetDesiredDynamicRange(OH_PackingOptions *opti
  * @brief Set desiredDynamicRange number for PackingOptions struct.
  *
  * @param options The PackingOptions pointer will be operated.
- * @param  desiredDynamicRange The number of dynamic range {@link IMAGE_PACKER_DYNAMIC_RANGE}.
+ * @param desiredDynamicRange The number of dynamic range {@link IMAGE_PACKER_DYNAMIC_RANGE}.
  * @return Returns {@link Image_ErrorCode}
  * @since 12
  */
