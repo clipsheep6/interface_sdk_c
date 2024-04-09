@@ -340,7 +340,7 @@ Image_ErrorCode OH_ImageSourceNative_CreateFromRawFile(RawFileDescriptor *rawFil
  * @since 12
  */
 Image_ErrorCode OH_ImageSourceNative_CreatePixelmap(OH_ImageSourceNative *source, OH_DecodingOptions *options,
-    OH_Pixelmap **pixepmap);
+    OH_PixelmapNative **pixepmap);
 
 /**
  * @brief Decodes an void pointer
@@ -357,7 +357,7 @@ Image_ErrorCode OH_ImageSourceNative_CreatePixelmap(OH_ImageSourceNative *source
  * @since 12
  */
 Image_ErrorCode OH_ImageSourceNative_CreatePixelmapList(OH_ImageSourceNative *source, OH_DecodingOptions *options,
-    OH_Pixelmap *resVecPixMap[], size_t size);
+    OH_PixelmapNative *resVecPixMap[], size_t size);
 
 /**
  * @brief Obtains the delay time list from some <b>ImageSource</b> objects (such as GIF image sources).
