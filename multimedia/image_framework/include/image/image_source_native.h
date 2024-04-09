@@ -18,7 +18,7 @@
  * @{
  *
  * @brief Provides APIs for access to the image interface.
- * 
+ *
  * @since 12
  */
 
@@ -283,7 +283,7 @@ Image_ErrorCode OH_ImageSourceNative_CreateFromRawFile(RawFileDescriptor *rawFil
  * @param resPixMap Indicates a void pointer to the <b>Pixelmap</b> object obtained at the C++ native layer.
  * @return Returns {@link Image_ErrorCode}
  * @since 12
- */ 
+ */
 Image_ErrorCode OH_ImageSourceNative_CreatePixelmap(OH_ImageSourceNative *source, OH_DecodingOptions *options,
     OH_Pixelmap **pixepmap);
 
