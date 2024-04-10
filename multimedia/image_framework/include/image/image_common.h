@@ -121,7 +121,7 @@ typedef enum {
     /** unsupported mime type */
     IMAGE_UNSUPPORTED_MIMETYPE = 7600101,
     /** unknown mime type */
-    IMAGE_UNKNOWN_MIMETYPE = 7600102,
+    IMAGE_UNKNOWN_MIME_TYPE = 7600102,
     /** too large data or image */
     IMAGE_TOO_LARGE = 7600103,
     /** unsupported operations */

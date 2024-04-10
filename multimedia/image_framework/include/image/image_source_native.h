@@ -340,7 +340,7 @@ Image_ErrorCode OH_ImageSourceNative_CreateFromRawFile(RawFileDescriptor *rawFil
  * @since 12
  */
 Image_ErrorCode OH_ImageSourceNative_CreatePixelmap(OH_ImageSourceNative *source, OH_DecodingOptions *options,
-    OH_PixelmapNative **pixepmap);
+    OH_PixelmapNative **pixelmap);
 
 /**
  * @brief Decodes an void pointer
