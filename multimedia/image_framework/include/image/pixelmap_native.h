@@ -67,10 +67,6 @@ typedef enum {
     * Premultiplied format
     */
     PIXELMAP_ALPHA_TYPE_PREMULTIPLIED = 2,
-     /*
-    * Unpremultiplied format
-    */
-    PIXELMAP_ALPHA_TYPE_UNPREMULTIPLIED = 3,
 }PIXELMAP_ALPHA_TYPE;
 
 typedef enum {
