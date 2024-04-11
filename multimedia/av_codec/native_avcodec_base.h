@@ -525,6 +525,7 @@ typedef enum OH_AVOutputFormat {
     AV_OUTPUT_FORMAT_DEFAULT = 0,
     AV_OUTPUT_FORMAT_MPEG_4 = 2,
     AV_OUTPUT_FORMAT_M4A = 6,
+    AV_OUTPUT_FORMAT_MP3 = 9,
 } OH_AVOutputFormat;
 
 /**
