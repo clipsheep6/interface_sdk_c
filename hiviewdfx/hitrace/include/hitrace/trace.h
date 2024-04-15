@@ -61,6 +61,84 @@
 extern "C" {
 #endif
 
+typedef enum HiTraceId_Valid {
+    HITRACE_ID_INVALID = 0,
+    HITRACE_ID_VALID = 1,
+} HiTraceId_Valid;
+
+typedef enum HiTrace_Version {
+    HITRACE_VER_1 = 0,
+} HiTrace_Version;
+
+typedef enum HiTrace_Flag {
+    HITRACE_FLAG_DEFAULT = 0,
+    HITRACE_FLAG_INCLUDE_ASYNC = 1 << 0,
+    HITRACE_FLAG_DONOT_CREATE_SPAN = 1 << 1,
+    HITRACE_FLAG_TP_INFO = 1 << 2,
+    HITRACE_FLAG_NO_BE_INFO = 1 << 3,
+    HITRACE_FLAG_DONOT_ENABLE_LOG = 1 << 4,
+    HITRACE_FLAG_FAULT_TRIGGER = 1 << 5,
+    HITRACE_FLAG_D2D_TP_INFO = 1 << 6,
+} HiTrace_Flag;
+
+typedef enum HiTrace_Tracepoint_Type {
+    HITRACE_TP_CS = 0,
+    HITRACE_TP_CR = 1,
+    HITRACE_TP_SS = 2,
+    HITRACE_TP_SR = 3,
+    HITRACE_TP_GENERAL = 4,
+} HiTrace_Tracepoint_Type;
+
+typedef enum HiTrace_Communication_Mode {
+    HITRACE_CM_DEFAULT = 0,
+    HITRACE_CM_THREAD = 1,
+    HITRACE_CM_PROCESS = 2,
+    HITRACE_CM_DEVICE = 3,
+} HiTrace_Communication_Mode;
+
+typedef struct HiTraceId {
+#if __BYTE_ORDER == __LITTLE_ENDIAN
+    uint64_t valid : 1;
+    uint64_t ver : 3;
+    uint64_t chainId : 60;
+    uint64_t flags : 12;
+    uint64_t spanId : 26;
+    uint64_t parentSpanId : 26;
+#elif __BYTE_ORDER == __BIG_ENDIAN
+    uint64_t chainId : 60;
+    uint64_t ver : 3;
+    uint64_t valid : 1;
+    uint64_t parentSpanId : 26;
+    uint64_t spanId : 26;
+    uint64_t flags : 12;
+#else
+#error "ERROR: No BIG_LITTLE_ENDIAN defines."
+#endif
+} HiTraceId;
+
+HiTraceId OH_HiTrace_BeginChain(const char* name, int flags);
+void OH_HiTrace_EndChain();
+HiTraceId OH_HiTrace_GetId();
+void OH_HiTrace_SetId(const HiTraceId* id);
+void OH_HiTrace_ClearId(void);
+HiTraceId OH_HiTrace_CreateSpan(void);
+void OH_HiTrace_Tracepoint(HiTrace_Communication_Mode mode, HiTrace_Tracepoint_Type type,
+                           const HiTraceId* id, const char* fmt, ...);
+void OH_HiTrace_InitId(HiTraceId* id);
+void OH_HiTrace_IdFromBytes(HiTraceId *id, const uint8_t* pIdArray, int len);
+bool OH_HiTrace_IsIdValid(const HiTraceId* id);
+bool OH_HiTrace_IsFlagEnabled(const HiTraceId* id, HiTrace_Flag flag);
+void OH_HiTrace_EnableFlag(const HiTraceId* id, HiTrace_Flag flag);
+int OH_HiTrace_GetFlags(const HiTraceId* id);
+void OH_HiTrace_SetFlags(HiTraceId* id, int flags);
+uint64_t OH_HiTrace_GetChainId(const HiTraceId* id);
+void OH_HiTrace_SetChainId(HiTraceId* id, uint64_t chainId);
+uint64_t OH_HiTrace_GetSpanId(const HiTraceId* id);
+void OH_HiTrace_SetSpanId(HiTraceId* id, uint64_t spanId);
+uint64_t OH_HiTrace_GetParentSpanId(const HiTraceId* id);
+void OH_HiTrace_SetParentSpanId(HiTraceId* id, uint64_t parentSpanId);
+int OH_HiTrace_IdToBytes(const HiTraceId* id, uint8_t* pIdArray, int len);
+
 /**
  * @brief Marks the start of a synchronous trace task.
  *
