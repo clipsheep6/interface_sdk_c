@@ -50,7 +50,16 @@ extern "C" {
 
 typedef struct MediaKeySession MediaKeySession;
 typedef struct DRM_MediaKeySystemInfo DRM_MediaKeySystemInfo;
-typedef void (*DRM_MediaKeySystemInfoCallback)(DRM_MediaKeySystemInfo* mediaKeySystemInfo);
+
+/**
+ * @brief Call back will be invoked when updating DRM information.
+ * @param player Player instance.
+ * @param mediaKeySystemInfo DRM information.
+ * @return DRM_ERR_INVALID_VAL when the params checked failure, return DRM_ERR_OK when function called successfully.
+ * @since 12
+ * @version 1.0
+ */
+typedef void (*Player_MediaKeySystemInfoCallback)(OH_AVPlayer *player, DRM_MediaKeySystemInfo* mediaKeySystemInfo);
 
 /**
  * @brief Create a player
@@ -442,7 +451,7 @@ OH_AVErrCode OH_AVPlayer_GetCurrentTrack(OH_AVPlayer *player, int32_t trackType,
  * @version 1.0
  */
 OH_AVErrCode OH_AVPlayer_SetMediaKeySystemInfoCallback(OH_AVPlayer *player,
-    DRM_MediaKeySystemInfoCallback callback);
+    Player_MediaKeySystemInfoCallback callback);
 
 /**
  * @brief Obtains media key system info to create media key session.
