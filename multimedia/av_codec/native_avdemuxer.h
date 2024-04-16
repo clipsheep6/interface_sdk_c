@@ -26,7 +26,24 @@ extern "C" {
 
 typedef struct OH_AVDemuxer OH_AVDemuxer;
 typedef struct DRM_MediaKeySystemInfo DRM_MediaKeySystemInfo;
+
+/**
+ * @brief Call back will be invoked when updating DRM information.
+ * @param mediaKeySystemInfo DRM information.
+ * @return DRM_ERR_INVALID_VAL when the params checked failure, return DRM_ERR_OK when function called successfully.
+ * @since 11
+ * @version 1.0
+ */
 typedef void (*DRM_MediaKeySystemInfoCallback)(DRM_MediaKeySystemInfo* mediaKeySystemInfo);
+
+/**
+ * @brief Call back will be invoked when updating DRM information.
+ * @param demuxer Player OH_AVDemuxer.
+ * @param mediaKeySystemInfo DRM information.
+ * @return DRM_ERR_INVALID_VAL when the params checked failure, return DRM_ERR_OK when function called successfully.
+ * @since 12
+ * @version 1.0
+ */
 typedef void (*Demuxer_MediaKeySystemInfoCallback)(OH_AVDemuxer *demuxer, DRM_MediaKeySystemInfo *mediaKeySystemInfo);
 
 /**
