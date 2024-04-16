@@ -88,7 +88,7 @@ Drm_ErrCode OH_MediaKeySystem_SetCallback(MediaKeySystem *mediaKeySystem, OH_Med
 /**
  * @brief Acquire supported media key systems' name and uuid.
  * @param descs Array used to save media key systems' name and uuid.
- * @param count Used to indicate count of struct DRM_MediaKeySystemMapInfo.
+ * @param count Used to indicate count of struct DRM_MediaKeySystemDescription.
  * @return DRM_ERR_INVALID_VAL when the params checked failure, return DRM_ERR_OK when function called successfully.
  * @since 12
  * @version 1.0
