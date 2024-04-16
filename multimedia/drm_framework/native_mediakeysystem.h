@@ -63,6 +63,19 @@ typedef  Drm_ErrCode (*MediaKeySystem_Callback)(DRM_EventType eventType, uint8_t
     int32_t infoLen, char *extra);
 
 /**
+ * @brief Call back will be invoked when event triggers.
+ * @param mediaKeySystem MediaKeySystem instance.
+ * @param eventType Event type.
+ * @param info Event info gotten from media key system.
+ * @param infoLen Event info len.
+ * @param extra Extra info gotten from media key system.
+ * @return DRM_ERR_INVALID_VAL when the params checked failure, return DRM_ERR_OK when function called successfully.
+ * @since 12
+ * @version 1.0
+ */
+typedef Drm_ErrCode (*OH_MediaKeySystem_Callback)(MediaKeySystem *mediaKeySystem, DRM_EventType eventType, uint8_t *info, int32_t infoLen, char *extra);
+
+/**
  * @brief Acquire supported media key systems' name and uuid.
  * @param infos Array used to save media key systems' name and uuid.
  * @param count Used to indicate count of struct DRM_MediaKeySystemMapInfo.
