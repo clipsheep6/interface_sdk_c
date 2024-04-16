@@ -522,12 +522,12 @@ typedef struct MediaKeySession MediaKeySession;
  * @since 12
  * @version 1.0
  */
-typedef struct DRM_MediaKeySystemMapInfo {
+typedef struct DRM_MediaKeySystemDescription {
     /* Name of DRM plugin. */
     char name[MAX_MEDIA_KEY_SYSTEM_NAME_LEN];
     /* uuid. */
     uint8_t uuid[DRM_UUID_LEN];
-} DRM_MediaKeySystemMapInfo;
+} DRM_MediaKeySystemDescription;
 
 #ifdef __cplusplus
 }
