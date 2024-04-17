@@ -150,7 +150,6 @@ typedef enum {
  * @brief Enumerates the resolution quality that may be used by the interface.
  *
  * @since 12
- * @version 2.0
  */
 typedef enum {
     /** resolution quality super */

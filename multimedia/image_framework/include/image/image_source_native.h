@@ -228,7 +228,7 @@ Image_ErrorCode OH_DecodingOptions_SetDesiredRegion(OH_DecodingOptions *options,
  * @param options The DecodingOptions pointer will be operated.
  * @param resolutionQuality the pointer of image resolution quality.
  * @return Returns {@link Image_ErrorCode}
- * @see OH_ImageSource2_DecodingOptionsGetResolutionQuality
+ * @see OH_DecodingOptions_GetResolutionQuality
  * @since 12
  */
 Image_ErrorCode OH_DecodingOptions_GetResolutionQuality(OH_DecodingOptions *options,
@@ -240,7 +240,7 @@ Image_ErrorCode OH_DecodingOptions_GetResolutionQuality(OH_DecodingOptions *opti
  * @param options The DecodingOptions pointer will be operated.
  * @param resolutionQuality the number of image resolutionQuality.
  * @return Returns {@link Image_ErrorCode}
- * @see OH_ImageSource2_DecodingOptionsSetResolutionQuality
+ * @see OH_DecodingOptions_SetResolutionQuality
  * @since 12
  */
 Image_ErrorCode OH_DecodingOptions_SetResolutionQuality(OH_DecodingOptions *options,
