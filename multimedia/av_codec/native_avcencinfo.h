@@ -93,12 +93,12 @@ typedef enum DrmCencInfoMode {
  * @since 12
  * @version 1.0
  */
-typedef struct DrmSubSample {
+typedef struct DrmSubsample {
     /* Clear header len. */
     uint32_t clearHeaderLen;
     /* Payload Len. */
     uint32_t payLoadLen;
-} DrmSubSample;
+} DrmSubsample;
 
 /**
  * @brief Creates an OH_AVCencInfo instance for setting cencinfo.
@@ -134,7 +134,7 @@ OH_AVErrCode OH_AVCencInfo_Destroy(OH_AVCencInfo *cencInfo);
  * @since 12
  * @version 1.0
  */
-OH_AVErrCode OH_AVCencInfo_SetAlgo(OH_AVCencInfo *cencInfo, enum DrmCencAlgorithm algo);
+OH_AVErrCode OH_AVCencInfo_SetAlgorithm(OH_AVCencInfo *cencInfo, enum DrmCencAlgorithm algo);
 
 /**
  * @brief Method to set key id and iv of cencinfo.
@@ -156,18 +156,18 @@ OH_AVErrCode OH_AVCencInfo_SetKeyIdAndIv(OH_AVCencInfo *cencInfo, uint8_t *keyId
  * @brief Method to set subsample info of cencinfo.
  * @syscap SystemCapability.Multimedia.Media.Spliter
  * @param cencInfo Pointer to an OH_AVCencInfo instance.
- * @param encryptBlocks Number of encrypted blocks.
- * @param skipBlocks Number of skip(clear) blocks.
- * @param firstEncryptOffset Offset of first encrypted payload.
- * @param subsampleNum Subsample num.
- * @param subSamples Subsample info
+ * @param encryptedBlockCount Number of encrypted blocks.
+ * @param skippedBlockCount Number of skip(clear) blocks.
+ * @param firstEncryptedOffset Offset of first encrypted payload.
+ * @param subsampleCount Subsample num.
+ * @param subsamples Subsample info
  * @return Returns {@link AV_ERR_OK} if the subsample info is set; returns an error code defined
  * in {@link native_averrors.h} otherwise.
  * @since 12
  * @version 1.0
  */
-OH_AVErrCode OH_AVCencInfo_SetSubsampleInfo(OH_AVCencInfo *cencInfo, uint32_t encryptBlocks,
-    uint32_t skipBlocks, uint32_t firstEncryptOffset, uint32_t subsampleNum, DrmSubSample *subSamples);
+OH_AVErrCode OH_AVCencInfo_SetSubsampleInfo(OH_AVCencInfo *cencInfo, uint32_t encryptedBlockCount,
+    uint32_t skippedBlockCount, uint32_t firstEncryptedOffset, uint32_t subsampleCount, DrmSubSample *subsamples);
 
 /**
  * @brief Method to set mode of cencinfo.
