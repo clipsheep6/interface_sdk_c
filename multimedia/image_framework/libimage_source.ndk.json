@@ -61,6 +61,14 @@
     },
     {
         "first_introduced": "12",
+        "name": "OH_DecodingOptions_GetResolutionQuality"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_DecodingOptions_SetResolutionQuality"
+    },
+    {
+        "first_introduced": "12",
         "name": "OH_DecodingOptions_Release"
     },
     {
