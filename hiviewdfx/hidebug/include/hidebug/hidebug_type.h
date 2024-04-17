@@ -50,7 +50,12 @@ extern "C" {
 typedef enum HiDebug_ErrorCode {
     /** Success */
     HIDEBUG_SUCCESS = 0,
-    /** Invalid argument */
+    /**
+     * Invalid argument
+     * 1.The parameter is not within the enumeration type
+     * 2.The limitsize is too small
+     * 3.The file name is a null pointer
+     */
     HIDEBUG_INVALID_ARGUMENT = 401,
     /** Have already capture trace */
     HIDEBUG_TRACE_CAPTURED_ALREADY = 11400102,
