@@ -97,7 +97,8 @@ typedef struct MediaKeySession_Callback {
  * @since 12
  * @version 1.0
  */
-typedef Drm_ErrCode (*OH_MediaKeySession_EventCallback)(MediaKeySession *mediaKeySessoin, DRM_EventType eventType, uint8_t *info, int32_t infoLen, char *extra);
+typedef Drm_ErrCode (*OH_MediaKeySession_EventCallback)(MediaKeySession *mediaKeySessoin, DRM_EventType eventType,
+    uint8_t *info, int32_t infoLen, char *extra);
 
 /**
  * @brief Call back will be invoked when key changes.
@@ -108,7 +109,8 @@ typedef Drm_ErrCode (*OH_MediaKeySession_EventCallback)(MediaKeySession *mediaKe
  * @since 12
  * @version 1.0
  */
-typedef Drm_ErrCode (*OH_MediaKeySession_KeyChangeCallback)(MediaKeySession *mediaKeySessoin, DRM_KeysInfo *keysInfo, bool newKeysAvailable);
+typedef Drm_ErrCode (*OH_MediaKeySession_KeyChangeCallback)(MediaKeySession *mediaKeySessoin, DRM_KeysInfo *keysInfo,
+    bool newKeysAvailable);
 
 /**
  * @brief OH_MediaKeySession_Callback struct, used to listen event like key expired and key change etc..
@@ -257,7 +259,7 @@ Drm_ErrCode OH_MediaKeySession_SetMediaKeySessionCallback(MediaKeySession *media
  * @since 12
  * @version 1.0
  */
-Drm_ErrCode OH_MediaKeySession_SetMediaKeySessionCallback(MediaKeySession *mediaKeySessoin,
+Drm_ErrCode OH_MediaKeySession_SetCallback(MediaKeySession *mediaKeySessoin,
     OH_MediaKeySession_Callback *callback);
 
 /**
