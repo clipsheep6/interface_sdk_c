@@ -199,6 +199,34 @@ enum NativeWindowOperation {
      * @since 12
      */
     GET_BUFFERQUEUE_SIZE,
+    /**
+     * set surface source type,
+     * variable parameter in function is
+     * [in] int32_t sourceType.
+     * @since 12
+     */
+    SET_SOURCE_TYPE,
+    /**
+     * get surface source type,
+     * variable parameter in function is
+     * [out] int32_t *sourceType.
+     * @since 12
+     */
+    GET_SOURCE_TYPE,
+    /**
+     * set app framework type,
+     * variable parameter in function is
+     * [in] char* frameworkType.
+     * @since 12
+     */
+    SET_APP_FRAMEWORK_TYPE,
+    /**
+     * get app framework type,
+     * variable parameter in function is
+     * [out] char** frameworkType.
+     * @since 12
+     */
+    GET_APP_FRAMEWORK_TYPE,
 };
 
 /**
@@ -273,6 +301,18 @@ typedef struct OHExtDataHandle {
     /**< the reserved data */
     int32_t reserve[0];
 } OHExtDataHandle;
+
+/**
+ * @brief Indicates the source type of surface.
+ * @since 12
+ */
+typedef enum {
+    OH_SURFACE_SOURCE_DEFAULT = 0,
+    OH_SURFACE_SOURCE_UI,
+    OH_SURFACE_SOURCE_GAME,
+    OH_SURFACE_SOURCE_CAMERA,
+    OH_SURFACE_SOURCE_VIDEO,
+} OHSurfaceSource;
 
 /**
  * @brief Creates an <b>OHNativeWindow</b> instance.
