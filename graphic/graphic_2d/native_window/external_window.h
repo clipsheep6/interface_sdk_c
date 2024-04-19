@@ -606,7 +606,6 @@ int32_t OH_NativeWindow_WriteToParcel(OHNativeWindow *window, OHIPCParcel *parce
  */
 OHNativeWindow *OH_NativeWindow_ReadFromParcel(OHIPCParcel *parcel);
 
-
 #ifdef __cplusplus
 }
 #endif
