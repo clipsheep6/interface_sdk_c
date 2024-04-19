@@ -73,8 +73,8 @@ typedef  Drm_ErrCode (*MediaKeySystem_Callback)(DRM_EventType eventType, uint8_t
  * @since 12
  * @version 1.0
  */
-typedef Drm_ErrCode (*OH_MediaKeySystem_Callback)(MediaKeySystem *mediaKeySystem, DRM_EventType eventType, uint8_t *info,
-    int32_t infoLen, char *extra);
+typedef Drm_ErrCode (*OH_MediaKeySystem_Callback)(MediaKeySystem *mediaKeySystem, DRM_EventType eventType,
+    uint8_t *info, int32_t infoLen, char *extra);
 
 /**
  * @brief Set media key system event callback.
