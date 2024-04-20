@@ -152,13 +152,13 @@ typedef enum {
  * @since 12
  */
 typedef enum {
-    /** resolution quality super */
+    /** Highest quality images, longer decoding time */
     IMAGE_RESOLUTION_QUALITY_SUPER = 0,
-    /** resolution quality high */
+    /** High quality images, shorter decoding time than SUPER, longer than MEDIUM */
     IMAGE_RESOLUTION_QUALITY_HIGH = 1,
-    /** resolution quality medium */
+    /** Medium quality images, moderate decoding time */
     IMAGE_RESOLUTION_QUALITY_MEDIUM = 2,
-    /** resolution quality low */
+    /** Low quality images, short decoding time */
     IMAGE_RESOLUTION_QUALITY_LOW = 3,
  } Image_ResolutionQuality;
 

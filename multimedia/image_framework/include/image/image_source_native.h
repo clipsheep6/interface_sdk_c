@@ -232,7 +232,7 @@ Image_ErrorCode OH_DecodingOptions_SetDesiredRegion(OH_DecodingOptions *options,
  * @since 12
  */
 Image_ErrorCode OH_DecodingOptions_GetResolutionQuality(OH_DecodingOptions *options,
-    Image_ResolutionQuality *resolutionQuality);
+    int32_t *resolutionQuality);
 
 /**
  * @brief Set Resolution Quality for DecodingOptions struct.
@@ -244,7 +244,7 @@ Image_ErrorCode OH_DecodingOptions_GetResolutionQuality(OH_DecodingOptions *opti
  * @since 12
  */
 Image_ErrorCode OH_DecodingOptions_SetResolutionQuality(OH_DecodingOptions *options,
-    Image_ResolutionQuality resolutionQuality);
+    int32_t resolutionQuality);
 
 /**
  * @brief delete OH_DecodingOptions pointer.
