@@ -4420,6 +4420,25 @@ typedef enum {
 typedef struct ArkUI_NodeCustomEvent ArkUI_NodeCustomEvent;
 
 /**
+ * @brief Defines the node content event type.
+ *
+ * @since 12
+ */
+typedef enum {
+    /** Defines the mount event. */
+    NODE_CONTENT_EVENT_ON_ATTACH_TO_WINDOW = 0,
+    /** Defines the unmount event. */
+    NODE_CONTENT_EVENT_ON_DETACH_FROM_WINDOW = 1,
+} ArkUI_NodeContentEventType;
+
+/**
+ * @brief Defines the general structure of a node content event.
+ *
+ * @since 12
+ */
+typedef struct ArkUI_NodeContentEvent ArkUI_NodeContentEvent;
+
+/**
  * @brief Defines the component adapter, which is used for lazy loading of elements of scrollable components.
  *
  * @since 12
@@ -5145,6 +5164,67 @@ ArkUI_NodeHandle OH_ArkUI_NodeCustomEvent_GetNodeHandle(ArkUI_NodeCustomEvent* e
 * @since 12
 */
 ArkUI_NodeCustomEventType OH_ArkUI_NodeCustomEvent_GetEventType(ArkUI_NodeCustomEvent* event);
+
+/**
+ * @brief Obtains the type through a node content event.
+ *
+ * @param event Indicates the pointer to the node content.
+ * @return Returns the type of the node content event.
+ * @since 12
+ */
+ArkUI_NodeContentEventType OH_ArkUI_NodeContentEvent_GetEventType(ArkUI_NodeContentEvent* event);
+
+/**
+ * @brief Adds a component to a node content.
+ *
+ * @param handle Indicates the pointer to the node content instance.
+ * @param node Indicates the pointer to the node.
+ * @return Returns 0 if success.
+ *         Returns 401 if a parameter exception occurs.
+ * @since 12
+ */
+int32_t OH_ArkUI_NodeContent_AddNode(ArkUI_NodeContentHandle handle, ArkUI_NodeHandle node);
+
+/**
+ * @brief Removes a component from a node content.
+ *
+ * @param handle Indicates the pointer to the node content.
+ * @param node Indicates the pointer to the node.
+ * @return Returns 0 if success.
+ *         Returns 401 if a parameter exception occurs.
+ * @since 12
+ */
+int32_t OH_ArkUI_NodeContent_RemoveNode(ArkUI_NodeContentHandle handle, ArkUI_NodeHandle node);
+
+/**
+ * @brief Inserts a component to a node content based on position.
+ *
+ * @param handle Indicates the pointer to the node content.
+ * @param node Indicates the pointer to the node.
+ * @param position Indicates the position to the node.
+ * @return Returns 0 if success.
+ *         Returns 401 if a parameter exception occurs.
+ * @since 12
+ */
+int32_t OH_ArkUI_NodeContent_InsertNode(ArkUI_NodeContentHandle handle, ArkUI_NodeHandle node, int32_t position);
+
+/**
+ * @brief Defines the node content event callback function.
+ *
+ * @since 12
+ */
+typedef void (*ArkUI_NodeContentCallback)(ArkUI_NodeContentEvent* event);
+
+/**
+ * @brief Registers a callback function to a node content.
+ *
+ * @param handle Indicates the pointer to the node content.
+ * @param callback Indicates the callback function.
+ * @return Returns 0 if success.
+ *         Returns 401 if a parameter exception occurs.
+ * @since 12
+ */
+int32_t OH_ArkUI_NodeContent_RegisterCallback(ArkUI_NodeContentHandle handle, ArkUI_NodeContentCallback callback);
 
 #ifdef __cplusplus
 };
