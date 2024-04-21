@@ -61,7 +61,7 @@ typedef struct OH_AVCencInfo OH_AVCencInfo;
  */
 typedef enum DrmCencAlgorithm {
     /**
-     * Uncrypted.
+     * Unencrypted.
      */
     DRM_ALG_CENC_UNENCRYPTED = 0x0,
     /**
