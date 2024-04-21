@@ -113,7 +113,7 @@ typedef Drm_ErrCode (*OH_MediaKeySession_KeyChangeCallback)(MediaKeySession *med
     bool newKeysAvailable);
 
 /**
- * @brief OH_MediaKeySession_Callback struct, used to listen event like key expired and key change etc..
+ * @brief MediaKeySession_Callback struct, used to listen event like key expired and key change etc..
  * @since 12
  * @version 1.0
  */
