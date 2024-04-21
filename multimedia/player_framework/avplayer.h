@@ -48,7 +48,17 @@
 extern "C" {
 #endif
 
+/**
+ * @brief MediaKeySession field.
+ * @since 12
+ * @version 1.0
+ */
 typedef struct MediaKeySession MediaKeySession;
+/**
+ * @brief DRM_MediaKeySystemInfo field.
+ * @since 12
+ * @version 1.0
+ */
 typedef struct DRM_MediaKeySystemInfo DRM_MediaKeySystemInfo;
 
 /**
