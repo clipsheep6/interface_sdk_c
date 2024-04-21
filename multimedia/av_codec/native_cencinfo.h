@@ -24,13 +24,13 @@ extern "C" {
 #endif
 
 /**
- * @brief AVCencInfo Structure.
+ * @brief AVBuffer Structure.
  * @since 12
  * @version 1.0
  */
 typedef struct OH_AVBuffer OH_AVBuffer;
 /**
- * @brief AVBuffer Structure.
+ * @brief AVCencInfo Structure.
  * @since 12
  * @version 1.0
  */
