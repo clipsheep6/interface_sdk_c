@@ -472,8 +472,8 @@ OH_AVErrCode OH_AVPlayer_GetMediaKeySystemInfo(OH_AVPlayer *player, DRM_MediaKey
  * @param player Pointer to an OH_AVPlayer instance
  * @param mediaKeySession A media key session instance with decryption function.
  * @param secureVideoPath Require secure decoder or not.
- * @return Returns AV_ERR_OK if the execution is successful,
- * otherwise returns a specific error code, refer to {@link OH_AVErrCode}
+ * @return Returns {@link AV_ERR_OK} if set successfully; returns an error code defined
+ * in {@link native_averrors.h} otherwise.
  * @since 12
  * @version 1.0
 */
