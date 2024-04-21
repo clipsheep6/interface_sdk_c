@@ -24,6 +24,11 @@
 extern "C" {
 #endif
 
+/**
+ * @brief MediaKeySession field.
+ * @since 12
+ * @version 1.0
+ */
 typedef struct MediaKeySession MediaKeySession;
 
 /**
