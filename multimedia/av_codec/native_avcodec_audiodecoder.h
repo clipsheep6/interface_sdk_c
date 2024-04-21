@@ -258,14 +258,14 @@ OH_AVErrCode OH_AudioDecoder_IsValid(OH_AVCodec *codec, bool *isValid);
  * @syscap SystemCapability.Multimedia.Media.AudioDecoder
  * @param codec Pointer to an OH_AVCodec instance
  * @param mediaKeySession A media key session instance with decryption function.
- * @param secureAudio Require secure decoder or not.
+ * @param secureVideoPath Require secure decoder or not.
  * @return Returns AV_ERR_OK if the execution is successful,
  * otherwise returns a specific error code, refer to {@link OH_AVErrCode}
  * @since 12
  * @version 1.0
 */
 OH_AVErrCode OH_AudioDecoder_SetDecryptionConfig(OH_AVCodec *codec, MediaKeySession *mediaKeySession,
-    bool secureAudio);
+    bool secureVideoPath);
 
 #ifdef __cplusplus
 }
