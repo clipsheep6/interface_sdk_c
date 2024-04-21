@@ -254,7 +254,6 @@ OH_AVErrCode OH_AudioDecoder_IsValid(OH_AVCodec *codec, bool *isValid);
 
 /**
  * @brief Set decryption info.
- *
  * @syscap SystemCapability.Multimedia.Media.AudioDecoder
  * @param codec Pointer to an OH_AVCodec instance
  * @param mediaKeySession A media key session instance with decryption function.
