@@ -26,5 +26,5 @@ ohos_ndk_library("libnative_media_avcencinfo") {
 
   system_capability = "SystemCapability.Multimedia.Media.Spliter"
   system_capability_headers =
-      [ "multimedia/player_framework/native_avcencinfo.h" ]
+      [ "multimedia/player_framework/native_cencinfo.h" ]
 }
