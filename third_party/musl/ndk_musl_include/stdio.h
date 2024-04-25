@@ -153,7 +153,6 @@ int putchar_unlocked(int);
 ssize_t getdelim(char **__restrict, size_t *__restrict, int, FILE *__restrict);
 ssize_t getline(char **__restrict, size_t *__restrict, FILE *__restrict);
 int renameat(int, const char *, int, const char *);
-int renameat2(int, const char *, int, const char *, unsigned int);
 char *ctermid(char *);
 #define L_ctermid 20
 #endif
@@ -199,7 +198,7 @@ typedef struct _IO_cookie_io_functions_t {
 	cookie_seek_function_t *seek;
 	cookie_close_function_t *close;
 } cookie_io_functions_t;
-FILE *fopencookie(void *, const char *, cookie_io_functions_t);
+
 #endif
 
 #if defined(_LARGEFILE64_SOURCE) || defined(_GNU_SOURCE)
