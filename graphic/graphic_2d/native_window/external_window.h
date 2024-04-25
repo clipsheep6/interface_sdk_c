@@ -39,7 +39,7 @@
 
 #include <stdint.h>
 #include "buffer_handle.h"
-#include "ipc/ipc_kit.h"
+#include "IPCKit/ipc_kit.h"
 
 #ifdef __cplusplus
 extern "C" {
