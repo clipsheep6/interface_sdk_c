@@ -42,5 +42,7 @@
     { "name": "eglGetPlatformDisplay" },
     { "name": "eglCreatePlatformWindowSurface" },
     { "name": "eglCreatePlatformPixmapSurface" },
-    { "name": "eglWaitSync" }
+    { "name": "eglWaitSync" },
+    { "name": "eglPresentationTimeANDROID" },
+    { "name": "eglGetNativeClientBufferANDROID" }
 ]
