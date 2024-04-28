@@ -1369,7 +1369,48 @@ typedef enum {
      *
      */
     NODE_ASPECT_RATIO,
-
+    /**
+     * @brief Defines the weight of the component within its row, column, or flex container for proportional
+     * distribution of available space within the container.
+     * This attribute can be set, reset, and obtained as required through APIs.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .value[0].u32: weight of the component along the main axis. \n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .value[0].u32: weight of the component along the main axis. \n
+     *
+     */
+    NODE_LAYOUT_WEIGHT,
+    /**
+     * @brief Sets the display priority for the component in the row, column, or flex  (single-line) container.
+     * This attribute can be set, reset, and obtained as required through APIs.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .value[0].u32: display priority of the component in the container. \n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .value[0].u32: display priority of the component in the container. \n
+     *
+     */
+    NODE_DISPLAY_PRIORITY,
+    /**
+     * @brief Sets the thickness of an element's outline.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .value[0].f32: thickness of the left outline. \n
+     * .value[1].f32: thickness of the top outline. \n
+     * .value[2].f32: thickness of the right outline. \n
+     * .value[3].f32: thickness of the bottom outline. \n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .value[0].f32: thickness of the left outline. \n
+     * .value[1].f32: thickness of the top outline. \n
+     * .value[2].f32: thickness of the right outline. \n
+     * .value[3].f32: thickness of the bottom outline. \n
+     *
+     */
+    NODE_OUTLINE_WIDTH,
     /**
      * @brief Defines the text content attribute, which can be set, reset, and obtained as required through APIs.
      *
@@ -1441,13 +1482,15 @@ typedef enum {
      * This attribute can be set, reset, and obtained as required through APIs.
      *
      * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
-     * .value[0].i32: text decoration style {@link ArkUI_TextDecorationType}.
+     * .value[0].i32: text decoration type {@link ArkUI_TextDecorationType}.
      * The default value is <b>ARKUI_TEXT_DECORATION_TYPE_NONE</b>.\n
      * .value[1]?.u32: text decoration color, in 0xARGB format. For example, 0xFFFF0000 indicates red. Optional.\n
+     * .value[2]?.i32: text decoration style {@link ArkUI_TextDecorationStyle}. \n
      * \n
      * Format of the return value {@link ArkUI_AttributeItem}:\n
-     * .value[0].i32: text decoration style {@link ArkUI_TextDecorationType}.\n
+     * .value[0].i32: text decoration type {@link ArkUI_TextDecorationType}.\n
      * .value[1].u32: text decoration color, in 0xARGB format. \n
+     * .value[2].i32: text decoration style {@link ArkUI_TextDecorationStyle}. \n
      *
      */
     NODE_TEXT_DECORATION,
@@ -1788,6 +1831,23 @@ typedef enum {
      */
     NODE_IMAGE_COLOR_FILTER,
     /**
+     * @brief Sets the resizable image options.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .value[0].f32: width of the left edge. The unit is vp. \n
+     * .value[1].f32: width of the top edge. The unit is vp. \n
+     * .value[2].f32: width of the right edge. The unit is vp. \n
+     * .value[3].f32: width of the bottom edge. The unit is vp. \n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .value[0].f32: width of the left edge. The unit is vp. \n
+     * .value[1].f32: width of the top edge. The unit is vp. \n
+     * .value[2].f32: width of the right edge. The unit is vp. \n
+     * .value[3].f32: width of the bottom edge. The unit is vp. \n
+     *
+     */
+    NODE_IMAGE_RESIZABLE,
+    /**
      * @brief Defines the auto resize attribute, which can be set, reset, and obtained as required through APIs.
      *
      * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
@@ -2112,7 +2172,17 @@ typedef enum {
      *
      */
     NODE_TEXT_INPUT_TEXT_SELECTION,
-
+    /**
+     * @brief Sets whether the text box loses focus after the Enter key is pressed to submit information.
+     * 
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .value[0].i32: whether the text box loses focus. \n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .value[0].i32: whether the text box loses focus. \n
+     *
+     */
+    NODE_TEXT_INPUT_BLUR_ON_SUBMIT,
     /**
      * @brief Defines the default placeholder text for the multi-line text box.
      * This attribute can be set, reset, and obtained as required through APIs.
@@ -2237,7 +2307,17 @@ typedef enum {
      *
      */
     NODE_TEXT_AREA_SHOW_COUNTER,
-
+    /**
+     * @brief Sets whether the multi-line text box loses focus after the Enter key is pressed to submit information.
+     * 
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .value[0].i32: whether the text box loses focus. \n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .value[0].i32: whether the text box loses focus. \n
+     *
+     */
+    NODE_TEXT_AREA_BLUR_ON_SUBMIT,
     /**
      * @brief Defines the button text content. This attribute can be set, reset, and obtained as required through APIs.
      *
