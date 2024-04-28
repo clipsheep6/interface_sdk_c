@@ -538,6 +538,18 @@ extern const char *OH_MD_KEY_VIDEO_ENCODER_QP_MAX;
 extern const char *OH_MD_KEY_VIDEO_ENCODER_QP_MIN;
 
 /**
+ * @brief Key for color space conversion when decoding video.
+ * When configuring decoder, set the value of the key to point the output color space. \n
+ * See OH_NativeBuffer_ColorSpace. Supported values: \n
+ * OH_COLORSPACE_BT709_LIMIT. Only if the input of decoder is HDR Vivid video, the output of the decoder is SDR video
+ * with color space BT709. Otherwise, the decoder reports an error through decoder's callback.
+ *
+ * @syscap SystemCapability.Multimedia.Media.CodecBase
+ * @since 12
+ */
+extern const char *OH_MD_KEY_VIDEO_DECODER_OUTPUT_COLORSPACE;
+
+/**
  * @brief Media type.
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 9
