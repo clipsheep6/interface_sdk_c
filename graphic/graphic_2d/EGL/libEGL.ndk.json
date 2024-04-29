@@ -42,5 +42,19 @@
     { "name": "eglGetPlatformDisplay" },
     { "name": "eglCreatePlatformWindowSurface" },
     { "name": "eglCreatePlatformPixmapSurface" },
-    { "name": "eglWaitSync" }
+    { "name": "eglWaitSync" },
+    { "name": "eglCompositorSetContextListEXT" },
+    { "name": "eglCompositorSetContextAttributesEXT" },
+    { "name": "eglCompositorSetWindowListEXT" },
+    { "name": "eglCompositorSetWindowAttributesEXT" },
+    { "name": "eglCompositorBindTexWindowEXT" },
+    { "name": "eglCompositorSetSizeEXT" },
+    { "name": "eglCompositorSwapPolicyEXT" },
+    { "name": "eglQueryDeviceAttribEXT" },
+    { "name": "eglQueryDeviceStringEXT" },
+    { "name": "eglQueryDevicesEXT" },
+    { "name": "eglQueryDisplayAttribEXT" },
+    { "name": "eglQueryDeviceBinaryEXT" },
+    { "name": "eglCreatePlatformWindowSurfaceEXT" },
+    { "name": "eglCreatePlatformPixmapSurfaceEXT" }
 ]
