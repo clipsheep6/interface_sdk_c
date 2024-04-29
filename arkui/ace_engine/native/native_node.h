@@ -87,6 +87,8 @@ typedef enum {
     ARKUI_NODE_CALENDAR_PICKER = 16,
     /** Slider. */
     ARKUI_NODE_SLIDER = 17,
+    /** Radio */
+    ARKUI_NODE_RADIO = 18,
     /** Stack container. */
     ARKUI_NODE_STACK = MAX_NODE_SCOPE_NUM,
     /** Swiper. */
@@ -553,10 +555,10 @@ typedef enum {
      * This attribute can be set, reset, and obtained as required through APIs.
      *
      * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
-     * .data[0...15].f32: 16 floating-point numbers. \n
+     * .value[0...15].f32: 16 floating-point numbers. \n
      * \n
      * Format of the return value {@link ArkUI_AttributeItem}:\n
-     * .data[0...15].f32: 16 floating-point numbers. \n
+     * .value[0...15].f32: 16 floating-point numbers. \n
      *
      */
     NODE_TRANSFORM,
@@ -1247,12 +1249,12 @@ typedef enum {
      * This attribute can be set, reset, and obtained as required through APIs.
      *
      * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
-     * .value[0].f32: alignment mode of the child components along the cross axis of the parent container.\n
-     * The parameter type is {@link ArkUI_ItemAlign}. The default value is <b>ARKUI_ITEM_ALIGN_AUTO</b>. \n
+     * .value[0].i32: alignment mode of the child components along the cross axis of the parent container.\n
+     * The parameter type is {@link ArkUI_ItemAlignment}. The default value is <b>ARKUI_ITEM_ALIGNMENT_AUTO</b>. \n
      * \n
      * Format of the return value {@link ArkUI_AttributeItem}:\n
-     * .value[0].f32: alignment mode of the child components along the cross axis of the parent container.\n
-     * The parameter type is {@link ArkUI_ItemAlign}. The default value is <b>ARKUI_ITEM_ALIGN_AUTO</b>. \n
+     * .value[0].i32: alignment mode of the child components along the cross axis of the parent container.\n
+     * The parameter type is {@link ArkUI_ItemAlignment}. The default value is <b>ARKUI_ITEM_ALIGNMENT_AUTO</b>. \n
      *
      */
     NODE_ALIGN_SELF,
@@ -1369,6 +1371,68 @@ typedef enum {
      *
      */
     NODE_ASPECT_RATIO,
+    /**
+     * @brief Defines the width attribute, which can be set, reset, and obtained as required through APIs.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .value[0].f32: width, in percentage.\n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .value[0].f32: width, in percentage.\n
+     *
+     */
+    NODE_WIDTH_PERCENT,
+    /**
+     * @brief Defines the height attribute, which can be set, reset, and obtained as required through APIs.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .value[0].f32: height, in percentage.\n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .value[0].f32: height, in percentage.\n
+     *
+     */
+    NODE_HEIGHT_PERCENT,
+    /**
+     * @brief Defines the padding attribute, which can be set, reset, and obtained as required through APIs.
+     *
+     * There are two formats of {@link ArkUI_AttributeItem} for setting the attribute value:\n
+     * 1: Specify the same padding for the four directions. \n
+     * .value[0].f32: padding, in percentage.\n
+     * 2: Specify different paddings for different directions. \n
+     * .value[0].f32: top padding, in percentage.\n
+     * .value[1].f32: right padding, in percentage.\n
+     * .value[2].f32: bottom padding, in percentage.\n
+     * .value[3].f32: left padding, in percentage.\n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .value[0].f32: top padding, in percentage.\n
+     * .value[1].f32: right padding, in percentage.\n
+     * .value[2].f32: bottom padding, in percentage.\n
+     * .value[3].f32: left padding, in percentage.\n
+     *
+     */
+    NODE_PADDING_PERCENT,
+    /**
+     * @brief Defines the margin attribute, which can be set, reset, and obtained as required through APIs.
+     *
+     * There are two formats of {@link ArkUI_AttributeItem} for setting the attribute value:\n
+     * 1: Specify the same margin for the four directions. \n
+     * .value[0].f32: margin, in percentage.\n
+     * 2: Specify different margins for different directions. \n
+     * .value[0].f32: top margin, in percentage.\n
+     * .value[1].f32: right margin, in percentage.\n
+     * .value[2].f32: bottom margin, in percentage.\n
+     * .value[3].f32: left margin, in percentage.\n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .value[0].f32: top margin, in percentage.\n
+     * .value[1].f32: right margin, in percentage.\n
+     * .value[2].f32: bottom margin, in percentage.\n
+     * .value[3].f32: left margin, in percentage.\n
+     *
+     */
+    NODE_MARGIN_PERCENT,
 
     /**
      * @brief Defines the text content attribute, which can be set, reset, and obtained as required through APIs.
@@ -1666,6 +1730,22 @@ typedef enum {
      *
      */
     NODE_TEXT_LINE_SPACING,
+    /**
+     * @brief  Set the text feature effect and the NODE_FONT_FEATURE attribute,
+     * NODE_FONT_FEATURE is the advanced typesetting capability of OpenType
+     * Features such as ligatures and equal-width digits are generally used in customized fonts. \n
+     * The capabilities need to be supported by the fonts, \n
+     * Interfaces for setting, resetting, and obtaining attributes are supported. \n
+     * Attribute setting method parameter {@Link ArkUI_AttributeItem} format: \n
+     * .string: complies with the text feature format. The format is normal | \n
+     * is in the format of [ | on | off],\n.
+     * There can be multiple values separated by commas (,). For example, the input format of a number with the same width is ss01 on. \n
+     * \n
+     * Attribute obtaining method return value {@Link ArkUI_AttributeItem} format:\n
+     * .string indicates the content of the text feature. Multiple text features are separated by commas (,). \n
+     */
+    NODE_FONT_FEATURE,
+    
     /**
      * @brief Defines the text content attribute, which can be set, reset, and obtained as required through APIs.
      *
@@ -3068,6 +3148,29 @@ typedef enum {
     NODE_SLIDER_STYLE,
 
     /**
+     * @brief Set the selection status of an option button. Attribute setting,
+     * attribute resetting, and attribute obtaining are supported.
+     * Attribute setting method {@Link ArkUI_AttributeItem} Parameter format:\n
+     * .value[0].i32: check status of an option button. The default value is false.
+     * Attribute obtaining method return value {@Link ArkUI_AttributeItem} format:\n
+     * .value[0].i32: selection status of an option button.
+     */
+    NODE_RADIO_CHECKED = MAX_NODE_SCOPE_NUM * ARKUI_NODE_RADIO,
+    /**
+     * @brief Set the styles of the selected and deselected states of the option button.
+     * The attribute setting, attribute resetting, and attribute obtaining are supported.
+     * Attribute setting method {@Link ArkUI_AttributeItem} Parameter format:\n
+     * .value[0]?. u32: color of the mother board in enabled state. The type is 0xARGB, and the default value is 0xFF007DFF. \n
+     * .value[1]?. u32: stroke color in the close state. The type is 0xARGB, and the default value is 0xFF182431. \n
+     * .value[2]?. u32: color of the internal round pie in the enabled state. The type is 0xARGB, and the default value is 0xFFFFFFFF. \n
+     * Attribute obtaining method return value {@Link ArkUI_AttributeItem} format:\n
+     * .value[0]. u32: color of the mother board in enabled state. The type is 0xARGB, and the default value is 0xFF007DFF. \n
+     * .value[1]. u32: stroke color in the close state. The type is 0xARGB, and the default value is 0xFF182431. \n
+     * .value[2]. u32: color of the internal round pie in the enabled state. The type is 0xARGB, and the default value is 0xFFFFFFF. \n
+     */
+    NODE_RADIO_STYLE,
+
+    /**
      * @brief Defines the alignment mode of the child components in the container. This attribute can be set, reset,
      * and obtained as required through APIs.
      *
@@ -3762,6 +3865,8 @@ typedef enum {
      * This attribute can be set, reset, and obtained as required through APIs.
      *
      * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .value[0].i32: An index calculated from 0 is converted to an integer,
+     * indicating that you want to start changing the position of the group.
      * .object: {@ArkUI_WaterFlowSectionOption} object.\n
      * \n
      * Format of the return value {@link ArkUI_AttributeItem}:\n
@@ -3786,6 +3891,15 @@ typedef enum {
     * .value[0].i32: number of cached items in the water flowadapter. \n
     */
     NODE_WATER_FLOW_CACHED_COUNT,
+    
+    /**
+     * @brief Set the custom display component at the end of the waterfall flow component.
+     *
+     * Attribute setting method {@link ArkUI_AttributeItem} parameter format: \n
+     * .object: Parameter type {@link ArkUI_NodeHandle}.
+     *
+     */
+    NODE_WATER_FLOW_FOOTER,
 } ArkUI_NodeAttributeType;
 
 #define MAX_COMPONENT_EVENT_ARG_NUM 12
@@ -3924,6 +4038,45 @@ typedef enum {
      * {@link ArkUI_UIInputEvent}. \n
      */
     NODE_ON_TOUCH_INTERCEPT,
+    /**
+     * @brief Defines the visible area change event.
+     *
+     * This event is triggered when the ratio of the component's visible area to its total area is greater than or less
+     * than the threshold. \n
+     * The format of the input parameter {@link ArkUI_AttributeItem} is as follows:\n
+     * .value[0...].f32: threshold array. Each threshold represents a ratio of the component's visible area to the
+     * component's total area. The value range of the threshold is [0.0, 1.0]. \n
+     * When the event callback occurs, the union type in the {@link ArkUI_NodeEvent} object is
+     * {@link ArkUI_NodeComponentEvent}. \n
+     * {@link ArkUI_NodeComponentEvent} contains two parameters:\n
+     * <b>ArkUI_NodeComponentEvent.data[0].i32</b>: how the ratio of the component's visible area to its total area
+     * changes compared to the previous one. The value <b>1</b> indicates an increase, and <b>0</b> indicates a
+     * decrease. \n
+     * <b>ArkUI_NodeComponentEvent.data[1].f32</b>: ratio of the component's visible area to its total area when this
+     * callback is invoked. \n
+     */
+    NODE_EVENT_ON_VISIBLE_AREA_CHANGE,
+    /**
+     * @brief Defines the event triggered when the mouse pointer is moved over or away from the component.
+     *
+      \n
+     * When the event callback occurs, the union type in the {@link ArkUI_NodeEvent} object is
+     * {@link ArkUI_NodeComponentEvent}. \n
+     * {@link ArkUI_NodeComponentEvent} contains one parameter:\n
+     * <b>ArkUI_NodeComponentEvent.data[0].i32</b>: whether the mouse pointer is hovered over the component.
+     * The value <b>1</b> indicates that the mouse pointer is hovered over the component, and <b>0</b> indicates that
+     * the mouse pointer is moved away from the component. \n
+     */
+    NODE_ON_HOVER,
+    /**
+     * @brief Defines the click event.
+     *
+     * This event is triggered when the component is clicked by a mouse device button or when the mouse pointer moves
+     * within the component. \n
+     * When the event callback occurs, the union type in the {@link ArkUI_NodeEvent} object is
+     * {@link ArkUI_UIInputEvent}. \n
+     */
+    NODE_ON_MOUSE,
     /**
      * @brief Defines the image loading success event.
      *
@@ -4139,6 +4292,15 @@ typedef enum {
     NODE_SLIDER_EVENT_ON_CHANGE = MAX_NODE_SCOPE_NUM * ARKUI_NODE_SLIDER,
 
     /**
+     * @brief Defines the event callback function triggered when an object is dragged or clicked by ARKUI_NODE_RADIO.
+     * When the event callback occurs, the union type in the {@Link ArkUI_NodeEvent} object is \n
+     * {@Link ArkUI_NodeComponentEvent}. \n
+     * {@Link ArkUI_NodeComponentEvent} contains one parameter:\n
+     * ArkUI_NodeComponentEvent.data[0].i32: option button status. \n
+     */
+    NODE_RADIO_EVENT_ON_CHANGE = MAX_NODE_SCOPE_NUM * ARKUI_NODE_RADIO,    
+
+    /**
      * @brief Defines the event triggered when the index of the currently displayed element of this
      * <b>ARKUI_NODE_SWIPER</b> instance changes.
      *
@@ -4262,6 +4424,65 @@ typedef enum {
      * <b>ArkUI_NodeComponentEvent.data[0].i32</b>: edge (top, bottom, left, or right) that the scrolling reaches. \n
      */
     NODE_SCROLL_EVENT_ON_SCROLL_EDGE,
+    /**
+     * @brief Define that a callback is triggered when the scrolling container component reaches the start position.
+     * Condition for triggering the event: \n
+     * Triggered when the component reaches the start position. \n
+     * When the event callback occurs, the union type in the {@Link ArkUI_NodeEvent} object is 
+     * {@Link ArkUI_NodeComponentEvent}. \n
+     * {@Link ArkUI_NodeComponentEvent} contains no parameters. \n
+     */
+    NODE_SCROLL_EVENT_ON_REACH_START,
+    /**
+     * @brief Define that a callback is triggered when the scrolling container component ends. \n
+     * Condition for triggering the event: \n
+     * Triggered when the component reaches the end. \n
+     * When the event callback occurs, the union type in the {@Link ArkUI_NodeEvent} object is \n
+     * {@Link ArkUI_NodeComponentEvent}. \n
+     * {@Link ArkUI_NodeComponentEvent} contains no parameters. \n
+     */
+    NODE_SCROLL_EVENT_ON_REACH_END,
+    /**
+     * @brief Defines the enumerated values of the event triggered, \n
+     * when a subcomponent of ARKUI_NODE_LIST is moved into or out of the list display area. \n
+     * Condition for triggering the event: \n
+     * This method is triggered once during list initialization. \n
+     * It is triggered when the index value of the first or last subcomponent in the list display area changes. \n
+     * When the event callback occurs, the union type in the {@Link ArkUI_NodeEvent} object is {@Link ArkUI_NodeComponentEvent}. \n
+     * {@Link ArkUI_NodeComponentEvent} contains three parameters: \n
+     * ArkUI_NodeComponentEvent.data[0].i32: List Displays the index value of the first child component in the region. \n
+     * ArkUI_NodeComponentEvent.data[1].i32: List Displays the index value of the last child component in the region. \n
+     * ArkUI_NodeComponentEvent.data[2].i32: List Displays the index value of the subcomponent in the middle of the area. \n
+     */
+    NODE_LIST_ON_SCROLL_INDEX = MAX_NODE_SCOPE_NUM * ARKUI_NODE_LIST,
+    /**
+     * @brief Defines the enumerated values of the event triggered before the sliding of the ARKUI_NODE_LIST component. \n
+     * Condition for triggering the event: \n
+     * This event is triggered when the scrolling component triggers scrolling. \n
+     * Other inputs that trigger scrolling, such as keyboard and mouse operations, can be set. \n
+     * Called through the scroll controller API. \n
+     * Out-of-bounds rebound. \n
+     * When the event callback occurs, the union type in the {@Link ArkUI_NodeEvent} object is {@Link ArkUI_NodeComponentEvent}. \n
+     * {@Link ArkUI_NodeComponentEvent} contains two parameters:\n
+     * ArkUI_NodeComponentEvent.data[0].f32: offset of each frame scrolling. \n
+     * The offset is positive when the list content is scrolled up and is negative when the list content is scrolled down. \n
+     * ArkUI_NodeComponentEvent.data[1].i32: Current sliding state. \n
+     */
+    NODE_LIST_ON_WILL_SCROLL,
+    /**
+     * @brief Define the enumerated values of the event triggered when the ARKUI_NODE_LIST component is flicked.
+     * Condition for triggering the event: \n
+     * This event is triggered when the scrolling component triggers scrolling. \n
+     * Other inputs that trigger scrolling, such as keyboard and mouse operations, can be set. \n
+     * Called through the scroll controller API. \n
+     * Out-of-bounds rebound. \n
+     * When the event callback occurs, the union type in the {@Link ArkUI_NodeEvent} object is {@Link ArkUI_NodeComponentEvent}. \n
+     * {@Link ArkUI_NodeComponentEvent} contains two parameters:\n
+     * ArkUI_NodeComponentEvent.data[0].f32: offset of each frame scrolling. 
+     * The offset is positive when the list content is scrolled up and is negative when the list content is scrolled down. \n
+     * ArkUI_NodeComponentEvent.data[1].i32: Current sliding state. \n
+     */
+    NODE_LIST_ON_DID_SCROLL,
 
     /**
      * @brief Defines the event triggered when the refresh state of the <b>ARKUI_NODE_REFRESH</b> object changes.
@@ -4297,6 +4518,33 @@ typedef enum {
      * <b>ArkUI_NodeComponentEvent.data[1].i32</b>: current scroll state. \n
      */
     NODE_ON_WILL_SCROLL = MAX_NODE_SCOPE_NUM * ARKUI_NODE_WATER_FLOW,
+    /**
+     * @brief Define the enumerated values of the event triggered when the ARKUI_NODE_WATER_FLOW component slides.
+     * Condition for triggering the event: \n
+     * This event is triggered when the scrolling component triggers scrolling.
+     * Other inputs that trigger scrolling, such as keyboard and mouse operations, can be set. \n
+     * Called through the scroll controller API. \n
+     * Out-of-bounds rebound. \n
+     * When the event callback occurs, the union type in the {@Link ArkUI_NodeEvent} object is \n
+     * {@Link ArkUI_NodeComponentEvent}. \n
+     * {@Link ArkUI_NodeComponentEvent} contains two parameters:\n
+     * ArkUI_NodeComponentEvent.data[0].f32: offset of each frame scrolling. 
+     * The offset is positive when the content is scrolled up and is negative when the content is scrolled down. \n
+     * ArkUI_NodeComponentEvent.data[1].i32: Current sliding state. \n
+     */
+    NODE_WATER_FLOW_ON_DID_SCROLL,
+    /**
+     * @brief Defines the enumerated values of the event triggered,
+     * when the subcomponent of the start position or end position displayed in the current waterfall changes.
+     * Condition for triggering the event: \n
+     * This event is triggered when the index value of the first or last subcomponent in the waterfall display area changes. \n
+     * When the event callback occurs, the union type in the {@Link ArkUI_NodeEvent} object is \n
+     * {@Link ArkUI_NodeComponentEvent}. \n
+     * {@Link ArkUI_NodeComponentEvent} contains three parameters: \n
+     * ArkUI_NodeComponentEvent.data[0].i32: The index value of the start position of the currently displayed WaterFlow. \n
+     * ArkUI_NodeComponentEvent.data[1].i32: The index value of the end position of the currently displayed waterfall. \n
+     */
+    NODE_WATER_FLOW_ON_SCROLL_INDEX,
 } ArkUI_NodeEventType;
 
 /**
