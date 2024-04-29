@@ -51,6 +51,16 @@ extern "C" {
  * @since 12
  */
 struct OH_VideoProcessing;
+
+/**
+ * @brief Define the video processing object.
+ *
+ * Define a null pointer of OH_VideoProcessing and call {@link OH_VideoProcessing_Create} to create a video processing
+ * instance. The pointer should be null before creating instance.
+ * User can create multiple video processing instances for different processing types.
+ *
+ * @since 12
+ */
 typedef struct OH_VideoProcessing OH_VideoProcessing;
 
 /**
@@ -144,6 +154,16 @@ typedef enum VideoProcessing_State {
  * @since 12
  */
 struct VideoProcessing_Callback;
+
+/**
+ * @brief Video processing asynchronous callback object type.
+ *
+ * Define a null pointer of VideoProcessing_Callback and call {@link OH_VideoProcessingCallback_Create} to create a
+ * callback object. The pointer should be null before creating the callback object.
+ * Register the callback to a video processing instance by calling {@link OH_VideoProcessing_RegisterCallback}.
+ *
+ * @since 12
+ */
 typedef struct VideoProcessing_Callback VideoProcessing_Callback;
 
 /**
@@ -164,7 +184,7 @@ typedef struct VideoProcessing_Callback VideoProcessing_Callback;
  * @since 12
  */
 typedef void (*OH_VideoProcessingCallback_OnError)(OH_VideoProcessing* instance, VideoProcessing_ErrorCode error,
-                                                    void* userData);
+    void* userData);
 
 /**
  * @brief The callback function pointer definition for reporting video processing state.
@@ -180,7 +200,7 @@ typedef void (*OH_VideoProcessingCallback_OnError)(OH_VideoProcessing* instance,
  * @since 12
  */
 typedef void (*OH_VideoProcessingCallback_OnState)(OH_VideoProcessing* instance, VideoProcessing_State state,
-                                                    void* userData);
+    void* userData);
 
 /**
  * @brief The callback function pointer definition for reporting a new output buffer is filled with processed data.
@@ -196,7 +216,7 @@ typedef void (*OH_VideoProcessingCallback_OnState)(OH_VideoProcessing* instance,
  * @since 12
  */
 typedef void (*OH_VideoProcessingCallback_OnNewOutputBuffer)(OH_VideoProcessing* instance, uint32_t index,
-                                                                void* userData);
+    void* userData);
 
 #ifdef __cplusplus
 }
