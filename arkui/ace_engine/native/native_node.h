@@ -174,11 +174,13 @@ typedef enum {
      * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
      * .string: image address;\n
      * .value[0]?.i32: whether to repeat the image. Optional. The parameter type is {@link ArkUI_ImageRepeat}.
+     * .objcet: The parameter type is {@link ArkUI_DrawableDescriptor}. Either .string or .object must be set.\n
      * The default value is <b>ARKUI_IMAGE_REPEAT_NONE</b>.\n
      * \n
      * Format of the return value {@link ArkUI_AttributeItem}:\n
      * .string: image address;\n
      * .value[0].i32: whether to repeat the image. The parameter type is {@link ArkUI_ImageRepeat}.\n
+     * .objcet: The parameter type is {@link ArkUI_DrawableDescriptor}.\n
      *
      */
     NODE_BACKGROUND_IMAGE,
@@ -1705,9 +1707,11 @@ typedef enum {
      *
      * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
      * .string: image address of the image span.\n
+     * .objcet: The parameter type is {@link ArkUI_DrawableDescriptor}. Either .string or .object must be set.\n
      * \n
      * Format of the return value {@link ArkUI_AttributeItem}:\n
      * .string: image address of the image span.\n
+     * .objcet: The parameter type is {@link ArkUI_DrawableDescriptor}.\n
      *
      */
     NODE_IMAGE_SPAN_SRC = MAX_NODE_SCOPE_NUM * ARKUI_NODE_IMAGE_SPAN,
@@ -1731,9 +1735,11 @@ typedef enum {
      *
      * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
      * .string: image source.\n
+     * .objcet: The parameter type is {@link ArkUI_DrawableDescriptor}. Either .string or .object must be set.\n
      * \n
      * Format of the return value {@link ArkUI_AttributeItem}:\n
      * .string: image source.\n
+     * .objcet: The parameter type is {@link ArkUI_DrawableDescriptor}.\n
      *
      */
     NODE_IMAGE_SRC = MAX_NODE_SCOPE_NUM * ARKUI_NODE_IMAGE,
@@ -1833,6 +1839,30 @@ typedef enum {
      *
      */
     NODE_IMAGE_RENDER_MODE,
+    /**
+     * @brief Defines whether the image display size follows the image source size.
+     * This attribute can be set, reset, and obtained as required through APIs.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .value[0].i32: wheter to follow, true means to follow.\n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .value[0].i32: wheter to follow, true means to follow.\n
+     *
+     */
+    NODE_IMAGE_FIT_ORIGINAL_SIZE,
+    /**
+     * @brief Defines the fill color of the swiper.
+     * This attribute can be set, reset, and obtained as required through APIs.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .value[0].u32: fill color, in 0xARGB format. For example, 0xFFFF0000 indicates red. \n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .value[0].u32: fill color, in 0xARGB format. \n
+     *
+     */
+    NODE_IMAGE_FILL_COLOR,    
     /**
      * @brief Defines the color of the component when it is selected.
      * This attribute can be set, reset, and obtained as required through APIs.
@@ -3531,6 +3561,45 @@ typedef enum {
     * .value[0].i32: number of cached items in the swiper adapter. \n
     */
     NODE_SWIPER_CACHED_COUNT,
+
+    /**
+     * @brief Defines the front margin of the wiper.
+     * The attribute can be set, reset, and obtained as required through APIs.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .value[0].f32: the front margin. The unit is vp. The default value is <b>0.0</b>\n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .value[0].f32: the front margin, the unit is vp. \n
+     *
+     */
+    NODE_SWIPER_PREV_MARGIN,
+
+    /**
+     * @brief Defines the back margin of the wiper.
+     * The attribute can be set, reset, and obtained as required through APIs.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .value[0].f32: the back margin. The unit is vp. The default value is <b>0.0</b>\n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .value[0].f32: the back margin, the unit is vp. \n
+     */
+    NODE_SWIPER_NEXT_MARGIN,
+
+    /**
+     * @brief Defines the navigation indicator type of the swiper.
+     * The attribute can be set, reset, and obtained as required through APIs.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .value[0].i32: navigation indicator type, the parameter type is {@link ArkUI_SwiperIndicatorType}.\n
+     * .object: The parameter type is {@link ArkUI_SwiperIndicator}.\n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .value[0].i32: navigation indicator type, the parameter type is {@link ArkUI_SwiperIndicatorType}.\n
+     * .object: The parameter type is {@link ArkUI_SwiperIndicator}.\n
+     *
+     */
+    NODE_SWIPER_INDICATOR,
 
     /**
      * @brief Defines the header of the list item group.
