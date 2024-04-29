@@ -101,7 +101,7 @@ typedef struct VideoProcessing_ColorSpaceInformation {
 } VideoProcessing_ColorSpaceInformation;
 
 /**
- * @brief Video processing error codes.
+ * @brief Video processing error code.
  *
  * @since 12
  */

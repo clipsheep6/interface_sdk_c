@@ -108,8 +108,6 @@ typedef struct ImageProcessing_ColorSpaceInformation {
 /**
  * @brief Image processing error code.
  *
- * All error types returned in image processing for quick localization of analysis problems.
- *
  * @since 12
  */
 typedef enum ImageProcessing_ErrorCode {
