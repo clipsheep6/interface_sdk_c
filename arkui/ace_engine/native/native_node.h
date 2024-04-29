@@ -1371,6 +1371,95 @@ typedef enum {
     NODE_ASPECT_RATIO,
 
     /**
+     * @brief Set the component content filling method in the process of width and height animation, support property setting, property reset, property acquisition interface.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .value[0].i32 Content filling mode {@link ArkUI_RenderFit}.\n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .value[0].i32 Content filling mode {@link ArkUI_RenderFit}.\n
+     *
+     */
+    NODE_RENDER_FIT,
+
+    /**
+     * @brief External stroke color properties, support property setting, property reset and property acquisition interface.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * 1: .value[0].u32: Set the border color of the four sides uniformly, using 0xargb, such as 0xFFFF11FF. \n
+     * 2: .value[0].u32: Set the top border color, represented by 0xargb, such as 0xFFFF11FF. \n
+     * .value[1].u32: Set the right border color, represented by 0xargb, such as 0xFFFF11FF. \n
+     * .value[2].u32: Set the lower side box color, denoted by 0xargb, such as 0xFFFF11FF. \n
+     * .value[3].u32: Set the left border color, denoted by 0xargb, such as 0xFFFF11FF. \n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .value[0].u32: Set the top border color, represented by 0xargb, such as 0xFFFF11FF. \n
+     * .value[1].u32: Set the right border color, represented by 0xargb, such as 0xFFFF11FF. \n
+     * .value[2].u32: Set the lower side box color, denoted by 0xargb, such as 0xFFFF11FF. \n
+     * .value[3].u32: Set the left border color, denoted by 0xargb, such as 0xFFFF11FF. \n
+     *
+     */
+    NODE_OUTLINE_COLOR,
+
+    /**
+     * @brief Set the height and width dimensions, support property setting, property reset and property acquisition interface.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .value[0].f32: Width value, unit is vp;\n
+     * .value[1].f32: Height value, unit is vp;\n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .value[0].f32: Width value, unit is vp;\n
+     * .value[1].f32: Height value, unit is vp;\n
+     *
+     */
+    NODE_SIZE,
+
+    /**
+     * @brief Set whether the current component and child component are rendered off the screen first and then fused with the parent control, supporting property setting, property reset and property acquisition.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .value[0].i32: The parameter type is 1 or 0.
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .value[0].i32: The parameter type is 1 or 0.
+     *
+     */
+    NODE_RENDER_GROUP,
+
+    /**
+     * @brief Add color overlay effect to components, support property setting, property reset and property acquisition interface.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .value[0].u32: The color of the overlay is represented by 0xargb, such as 0xFFFF11FF. \n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .value[0].u32: The color of the overlay is represented by 0xargb, such as 0xFFFF11FF. \n
+     *
+     */
+    NODE_COLOR_BLEND,
+
+    /**
+     * @brief Provide content ambiguity capability for the current component, support property setting, property reset, property acquisition interface.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .value[0].i32 Represents the content blurring style, and uses the {@link ArkUI_BlurStyle} enumeration value.\n
+     * .value[1]?.i32 Represents the dark and light mode used by the content blur effect, with the {@link ArkUI_ThemeColorMode} enumeration value.\n
+     * .value[2]?.i32 The color extraction mode used to represent the content blur effect takes the {@link ArkUI_AdaptiveColor} enumeration value.\n
+     * .value[3]?.i32 It is a gray-level fuzzy parameter. The value range is [0,127].\n
+     * .value[4]?.i32 It is a gray-level fuzzy parameter. The value range is [0,127].\n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .value[0].i32 Represents the content blurring style, and uses the {@link ArkUI_BlurStyle} enumeration value.\n
+     * .value[1].i32 Represents the dark and light mode used by the content blur effect, with the {@link ArkUI_ThemeColorMode} enumeration value.\n
+     * .value[2].i32 The color extraction mode used to represent the content blur effect takes the {@link ArkUI_AdaptiveColor} enumeration value.\n
+     * .value[3].i32 It is a gray-level fuzzy parameter. The value range is [0,127].\n
+     * .value[4].i32 It is a gray-level fuzzy parameter. The value range is [0,127].\n
+     *
+     */
+    NODE_FOREGROUND_BLUR_STYLE,
+
+    /**
      * @brief Defines the text content attribute, which can be set, reset, and obtained as required through APIs.
      *
      * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
@@ -1436,6 +1525,7 @@ typedef enum {
      *
      */
     NODE_TEXT_LINE_HEIGHT,
+
     /**
      * @brief Defines the text decoration style and color.
      * This attribute can be set, reset, and obtained as required through APIs.

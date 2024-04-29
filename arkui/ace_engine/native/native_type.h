@@ -1446,6 +1446,50 @@ typedef enum {
     ARKUI_LENGTH_METRIC_UNIT_FP
 } ArkUI_LengthMetricUnit;
 
+typedef enum {
+    /** Maintains the content size of the animation's final state, and the content is always centered with the component.*/
+    ARKUI_RENDER_FIT_CENTER = 0,
+    /** Maintains the content size of the animation's final state, and the content is always aligned with the top center of the component. */
+    ARKUI_RENDER_FIT_TOP,
+    /** Maintains the content size of the animation's final state, and the content is always aligned with the bottom center of the component. */
+    ARKUI_RENDER_FIT_BOTTOM,
+    /** Maintains the content size of the animation's final state, and the content is always aligned to the left of the component. */
+    ARKUI_RENDER_FIT_LEFT,
+    /** Maintains the content size of the animation's final state, and the content is always right-aligned with the component. */
+    ARKUI_RENDER_FIT_RIGHT,
+    /** Maintains the content size of the animation's final state, and the content is always aligned with the top left corner of the component. */
+    ARKUI_RENDER_FIT_TOP_LEFT,
+    /** Keep the content size of the animation final state, and the content is always aligned with the upper right corner of the component. */
+    ARKUI_RENDER_FIT_TOP_RIGHT,
+    /** Keep the content size of the animation final state, and the content always aligns with the lower-left corner of the component. */
+    ARKUI_RENDER_FIT_BOTTOM_LEFT,
+    /** Keep the content size of the animation final state, and the content always aligns with the lower-right corner of the component. */
+    ARKUI_RENDER_FIT_BOTTOM_RIGHT,
+    /** The aspect ratio of the animation's final state content is not considered, and the content is always scaled to the size of the component. */
+    ARKUI_RENDER_FIT_RESIZE_FILL,
+    /** Reduce or enlarge the aspect ratio of the animation final state content, so that the content is fully displayed in the component, and keep the center aligned with the component. */
+    ARKUI_RENDER_FIT_RESIZE_CONTAIN,
+    /** Keep the aspect ratio of the animation final state content to reduce or enlarge, so that the content is fully displayed in the component. When there is left over in the broad direction of the component, the content is aligned to the left of the component, and when there is left over in the high direction of the component, the content is aligned to the top of the component. */
+    ARKUI_RENDER_FIT_RESIZE_CONTAIN_TOP_LEFT,
+    /** Keep the aspect ratio of the animation final state content to reduce or enlarge, so that the content is fully displayed in the component. When there is left in the wide direction of the component, the content is aligned with the component on the right. When there is left in the high direction of the component, the content is aligned with the component on the bottom. */
+    ARKUI_RENDER_FIT_RESIZE_CONTAIN_BOTTOM_RIGHT,
+    /** Keep the aspect ratio of the animation final state content reduced or enlarged, so that both sides of the content are greater than or equal to both sides of the component, and keep the center aligned with the component to display the middle part of the content. */
+    ARKUI_RENDER_FIT_RESIZE_COVER,
+    /** Keep the aspect ratio of the final content of the animation reduced or enlarged so that both sides of the content are exactly greater than or equal to both sides of the component. When the content width is left, the content is aligned to the left of the component, and the left portion of the content is displayed. When the content is left in the high direction, the content and the component remain top aligned, showing the top side of the content. */
+    ARKUI_RENDER_FIT_RESIZE_COVER_TOP_LEFT,
+    /** Keep the aspect ratio of the final content of the animation reduced or enlarged so that both sides of the content are exactly greater than or equal to both sides of the component. When the content width is left, the content and the component remain right aligned, and the right part of the content is displayed. When the content is left in the high direction, the content and the component remain aligned at the bottom, and the bottom part of the content is displayed. */
+    ARKUI_RENDER_FIT_RESIZE_COVER_BOTTOM_RIGHT
+} ArkUI_RenderFit;
+
+typedef enum {
+    /** Follow the system dark light mode. */
+    ARKUI_THEME_COLOR_MODE_SYSTEM = 0,
+    /** Fixed use light color mode. */
+    ARKUI_THEME_COLOR_MODE_LIGHT,
+    /** Fixed use dark mode. */
+    ARKUI_THEME_COLOR_MODE_DARK
+} ArkUI_ThemeColorMode;
+
 /**
 * @brief Creates a size constraint.
 *
