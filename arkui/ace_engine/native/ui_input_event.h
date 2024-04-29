@@ -629,6 +629,26 @@ double OH_ArkUI_AxisEvent_GetPinchAxisScaleValue(const ArkUI_UIInputEvent* event
  */
 int32_t OH_ArkUI_PointerEvent_SetInterceptHitTestMode(const ArkUI_UIInputEvent* event, HitTestMode mode);
 
+/**
+ * @brief Get the value of the button type for mouse events.
+ *
+ * @param event Represents a pointer to the current UI input event.
+ * @return Return to the mouse button type, where <b>1</b> is the left button, <b>2</b> is the right button,
+ * <b>4</b> is the middle button, <b>8</b> is the back button, and <b>16</b> is the forward button.
+ * @since 12
+ */
+int32_t OH_ArkUI_MouseEvent_GetMouseButton(const ArkUI_UIInputEvent* event);
+
+/**
+ * @brief Get the value of the mouse action type for mouse events.
+ *
+ * @param event Represents a pointer to the current UI input event.
+ * @return Returns the type of mouse action, where <b>1</b> represents button pressed,
+ * <b>2</b> represents button released, and <b>3</b> represents mouse movement.
+ * @since 12
+ */
+int32_t OH_ArkUI_MouseEvent_GetMouseAction(const ArkUI_UIInputEvent* event);
+
 #ifdef __cplusplus
 };
 #endif
