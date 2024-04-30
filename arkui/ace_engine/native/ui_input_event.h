@@ -57,6 +57,7 @@ typedef enum {
     ARKUI_UIINPUTEVENT_TYPE_UNKNOWN = 0,
     ARKUI_UIINPUTEVENT_TYPE_TOUCH = 1,
     ARKUI_UIINPUTEVENT_TYPE_AXIS = 2,
+    ARKUI_UIINPUTEVENT_TYPE_MOUSE = 3,
 } ArkUI_UIInputEvent_Type;
 
 /**
@@ -140,6 +141,42 @@ typedef enum {
      */
     HTM_NONE,
 } HitTestMode;
+
+/**
+ * @brief Define the Action Code for mouse events.
+ *
+ * @since 12
+ */
+enum {
+    /** Invalid. */
+    UI_MOUSE_EVENT_ACTION_UNKNOW = 0,
+    /** Press. */
+    UI_MOUSE_EVENT_ACTION_PRESS = 1,
+    /** Release. */
+    UI_MOUSE_EVENT_ACTION_RELEASE = 2,
+    /** Move. */
+    UI_MOUSE_EVENT_ACTION_MOVE = 3,
+};
+
+/**
+ * @brief Define the button type for mouse events.
+ *
+ * @since 12
+ */
+enum {
+    /** None. */
+    UI_MOUSE_EVENT_BUTTON_NONE = 0,
+    /** Left. */
+    UI_MOUSE_EVENT_BUTTON_LEFT = 1,
+    /** Right. */
+    UI_MOUSE_EVENT_BUTTON_RIGHT = 2,
+    /** Middle. */
+    UI_MOUSE_EVENT_BUTTON_MIDDLE = 3,
+    /** Back. */
+    UI_MOUSE_EVENT_BUTTON_BACK = 4,
+    /** Forward. */
+    UI_MOUSE_EVENT_BUTTON_FORWARD = 5,
+};
 
 /**
  * @brief Obtains the type of this UI input event.
