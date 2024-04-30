@@ -1656,6 +1656,28 @@ typedef enum {
      */
     NODE_TEXT_ELLIPSIS_MODE,
     /**
+     * @brief Setting Enable Text Recognition.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .value[0].i32:Enable text recognition, default value false.\n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .value[0].i32：Enable Text Recognition\n
+     *
+     */
+    NODE_TEXT_ENABLE_DATA_DETECTOR,
+    /**
+     * @brief Set the text recognition configuration.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .value[0...].i32: Array of entity types, parameter types{@link ArkUI_TextDataDetectorType}。\n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .value[0...].i32：Array of entity types, parameter types{@link ArkUI_TextDataDetectorType}。\n
+     *
+     */
+    NODE_TEXT_ENABLE_DATA_DETECTOR_CONFIG,
+    /**
      * @brief Defines the text line spacing attribute, which can be set, reset, and obtained as required through APIs.
      *
      * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
@@ -2112,7 +2134,173 @@ typedef enum {
      *
      */
     NODE_TEXT_INPUT_TEXT_SELECTION,
-
+    /**
+    * @brief Sets the color of the text underline when it is enabled.
+    *
+    * The default underline color configured for the theme is <b>'0x33182431'</b>.
+    *
+    * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+    * .value[0].u32: color of the underline applied to the text being typed in.
+    * The value is in 0xARGB format. \n
+    * .value[1].u32: color of the underline applied to the text in the normal state.
+    * The value is in 0xARGB format. \n
+    * .value[2].u32: color of the underline applied to the text when an error is detected.
+    * The value is in 0xARGB format. \n
+    * .value[3].u32: color of the underline applied to the text when it is disabled.
+    * The value is in 0xARGB format. \n
+    * \n
+    * Format of the return value {@link ArkUI_AttributeItem}:\n
+    * .value[0].u32: color of the underline applied to the text being typed in. The value is in 0xARGB format. \n
+    * .value[1].u32: color of the underline applied to the text in the normal state. The value is in 0xARGB format. \n
+    * .value[2].u32: color of the underline applied to the text when an error is detected.
+    * The value is in 0xARGB format. \n
+    * .value[3].u32: color of the underline applied to the text when it is disabled. The value is in 0xARGB format. \n
+    *
+    */
+    NODE_TEXT_INPUT_UNDERLINE_COLOR,
+    /**
+    * @brief Sets whether to enable autofill.
+    *
+    * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+    * .value[0].i32: whether to enable autofill. The default value is <b>true</b>. \n
+    * \n
+    * Format of the return value {@link ArkUI_AttributeItem}:\n
+    * .value[0].i32: whether to enable autofill. \n
+    *
+    */
+    NODE_TEXT_INPUT_ENABLE_AUTO_FILL,
+    /**
+    * @brief Sets the autofill type.
+    *
+    * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+    * .value[0].i32: autofill type. The parameter type is {@link ArkUI_TextInputContentType}. \n
+    * \n
+    * Format of the return value {@link ArkUI_AttributeItem}:\n
+    * .value[0].i32: autofill type. The parameter type is {@link ArkUI_TextInputContentType}. \n
+    *
+    */
+    NODE_TEXT_INPUT_CONTENT_TYPE,
+    /**
+    * @brief Defines the rules for generating passwords. When autofill is used, these rules are transparently
+    * transmitted to Password Vault for generating a new password.
+    *
+    * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+    * .string: rules for generating passwords. \n
+    * \n
+    * Format of the return value {@link ArkUI_AttributeItem}:\n
+    * .string: rules for generating passwords. \n
+    *
+    */
+    NODE_TEXT_INPUT_PASSWORD_RULES,
+    /**
+    * @brief Sets whether to select all text in the initial state. The inline mode is not supported.
+    *
+    * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+    * .value[0].i32: whether to select all text in the initial state. The default value is b>false</b>. \n
+    * \n
+    * Format of the return value {@link ArkUI_AttributeItem}:\n
+    * .value[0].i32: whether to select all text in the initial state. \n
+    *
+    */
+    NODE_TEXT_INPUT_SELECT_ALL,
+    /**
+    * @brief Sets the regular expression for input filtering. Only inputs that comply with the regular expression can be
+    * displayed. Other inputs are filtered out. The specified regular expression can match single characters,
+    * but not strings.
+    *
+    * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+    * .string: regular expression. \n
+    * \n
+    * Format of the return value {@link ArkUI_AttributeItem}:\n
+    * .string: regular expression. \n
+    *
+    */
+    NODE_TEXT_INPUT_INPUT_FILTER,
+    /**
+    * @brief Sets the text box to the default style or inline input style.
+    *
+    * For the inline input style, only <b>InputType.Normal</b> is supported.
+    *
+    * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+    * .value[0].i32: text input style. The parameter type is {@link ArkUI_TextInputStyle}. \n
+    * \n
+    * Format of the return value {@link ArkUI_AttributeItem}:\n
+    * .value[0].i32: text input style. The parameter type is {@link ArkUI_TextInputStyle}. \n
+    *
+    */
+    NODE_TEXT_INPUT_STYLE,
+    /**
+    * @brief Sets or obtains the caret position.
+    *
+    * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+    * In the case of setting the caret position:
+    * .value[0].i32: character count from the beginning of a string to the caret position. \n
+    * 
+    * Format of the return value {@link ArkUI_AttributeItem}:\n
+    * In the case of obtaining the caret position: If this API is called when the caret position is updated in the
+    * current frame, it will not take effect.
+    * .value[0].i32: index of the caret position. \n
+    * .value[1].f32: X coordinate of the caret relative to the text box. \n
+    * .value[2].f32: Y coordinate of the caret relative to the text box. \n
+    */
+    NODE_TEXT_INPUT_CARET_OFFSET,
+    /**
+    * @brief Obtains the position of the edited text area relative to the component and its size.
+    * 
+    * Format of the return value {@link ArkUI_AttributeItem}:\n
+    * .value[0].f32: horizontal coordinate. \n
+    * .value[1].f32: vertical coordinate. \n
+    * .value[2].f32: content width. \n
+    * .value[3].f32: content height. \n
+    *
+    */
+    NODE_TEXT_INPUT_CONTENT_RECT,
+    /**
+    * @brief Obtains the number of lines of the edited text.
+    * 
+    * Format of the return value {@link ArkUI_AttributeItem}:\n
+    * .value[0].i32: number of lines of the edited text. \n
+    *
+    */
+    NODE_TEXT_INPUT_CONTENT_LINE_COUNT,
+    /**
+     * @brief Sets whether to hide the text selection menu when the text box is long-pressed, double-click, or
+     * right-clicked. This attribute can be set, reset, and obtained as required through APIs.
+     * 
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .value[0].i32: whether to hide the text selection menu when the text box is long-pressed, double-click, or
+     * right-clicked. The default value is <b>false</b>. \n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .value[0].i32: whether to hide the text selection menu when the text box is long-pressed, double-click, or
+     * right-clicked. \n
+     *
+     */
+    NODE_TEXT_INPUT_SELECTION_MENU_HIDDEN,
+    /**
+     * @brief Set up a custom keyboard.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .object：custom keyboard,The parameter type is{@Link ArkUI_NodeHandle}。\n
+     * .value[0]?.i32：Sets whether the custom keyboard supports the avoidance feature, default value false.\n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .object:custom keyboard,The parameter type is{@Link ArkUI_NodeHandle}。\n
+     * .value[0].i32：Set whether the custom keyboard supports the avoidance function.\n
+     *
+     */
+    NODE_TEXT_INPUT_CUSTOM_KEYBOARD,
+    /**
+     * @brief Defines the line break rule. This attribute can be set, reset, and obtained as required through APIs.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .value[0].i32: The parameter type is {@link ArkUI_WordBreak}. \n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .value[0].i32: The parameter type is {@link ArkUI_WordBreak}. \n
+     *
+     */
+    NODE_TEXT_INPUT_WORD_BREAK,
     /**
      * @brief Defines the default placeholder text for the multi-line text box.
      * This attribute can be set, reset, and obtained as required through APIs.
@@ -2238,6 +2426,126 @@ typedef enum {
      */
     NODE_TEXT_AREA_SHOW_COUNTER,
 
+    /**
+    * @brief Sets the regular expression for input filtering. Only inputs that comply with the regular expression can be
+    * displayed. Other inputs are filtered out. The specified regular expression can match single characters,
+    * but not strings.
+    *
+    * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+    * .string: regular expression. \n
+    * \n
+    * Format of the return value {@link ArkUI_AttributeItem}:\n
+    * .string: regular expression. \n
+    *
+    */
+    NODE_TEXT_AREA_INPUT_FILTER,
+   /**
+     * @brief Defines the background color of the selected text.
+     * This attribute can be set, reset, and obtained as required through APIs.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .value[0].u32: color value, in 0xARGB format. For example, 0xFFFF0000 indicates red. \n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .value[0].u32: color value, in 0xARGB format. \n
+     *
+     */
+    NODE_TEXT_AREA_SELECTED_BACKGROUND_COLOR,
+    /**
+     * @brief Defines the type of the Enter key.
+     * This attribute can be set, reset, and obtained as required through APIs.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .value[0].i32: type of the Enter key{@link ArkUI_EnterKeyType}. The default value is <b>ARKUI_ENTER_KEY_TYPE_DONE</b>. \n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .value[0].i32: type of the Enter key{@link ArkUI_EnterKeyType}. \n
+     *
+     */
+    NODE_TEXT_AREA_ENTER_KEY_TYPE,
+   /**
+     * @brief Defines whether to enable the input method when the component obtains focus.
+     * This attribute can be set, reset, and obtained as required through APIs.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .value[0].i32: whether to enable the input method when the component obtains focus.
+     * The value <b>true</b> means to enable the input method, and <b>false</b> means the opposite.\n \n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+      * .value[0].i32: The value <b>1</b> means to enable the input method when the component obtains focus,
+      * and <b>0</b> means the opposite. \n
+     *
+     */
+    NODE_TEXT_AREA_ENABLE_KEYBOARD_ON_FOCUS,
+    /**
+     * @brief Defines whether to enable the input method when the component obtains focus.
+     * This attribute can be set, reset, and obtained as required through APIs.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .value[0].i32: whether to enable the input method when the component obtains focus.
+     * The value <b>true</b> means to enable the input method, and <b>false</b> means the opposite.\n \n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+      * .value[0].i32: The value <b>1</b> means to enable the input method when the component obtains focus,
+      * and <b>0</b> means the opposite. \n
+     *
+     */
+    NODE_TEXT_AREA_CARET_OFFSET,
+    /**
+    * @brief Obtains the position of the edited text area relative to the component and its size.
+    * 
+    * Format of the return value {@link ArkUI_AttributeItem}:\n
+    * .value[0].f32: horizontal coordinate. \n
+    * .value[1].f32: vertical coordinate. \n
+    * .value[2].f32: content width. \n
+    * .value[3].f32: content height. \n
+    *
+    */
+    NODE_TEXT_AREA_CONTENT_RECT,
+    /**
+    * @brief Obtains the number of lines of the edited text.
+    * 
+    * Format of the return value {@link ArkUI_AttributeItem}:\n
+    * .value[0].i32: number of lines of the edited text. \n
+    *
+    */
+    NODE_TEXT_AREA_CONTENT_LINE_COUNT,
+    /**
+     * @brief Sets the text selection area, which will be highlighted.
+     * This attribute can be set, reset, and obtained as required through APIs.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .value[0].i32: start position of the text selection. \n
+     * .value[1].i32: end position of the text selection. \n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .value[0].i32: start position of the text selection. \n
+     * .value[1].i32: end position of the text selection. \n
+     *
+     */
+    NODE_TEXT_AREA_TEXT_SELECTION,
+    /**
+    * @brief Sets whether to enable autofill.
+    *
+    * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+    * .value[0].i32: whether to enable autofill. The default value is <b>true</b>. \n
+    * \n
+    * Format of the return value {@link ArkUI_AttributeItem}:\n
+    * .value[0].i32: whether to enable autofill. \n
+    *
+    */
+    NODE_TEXT_AREA_ENABLE_AUTO_FILL,
+    /**
+    * @brief Sets the autofill type.
+    *
+    * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+    * .value[0].i32: autofill type. The parameter type is {@link ArkUI_TextInputContentType}. \n
+    * \n
+    * Format of the return value {@link ArkUI_AttributeItem}:\n
+    * .value[0].i32: autofill type. The parameter type is {@link ArkUI_TextInputContentType}. \n
+    *
+    */
+    NODE_TEXT_AREA_CONTENT_TYPE,
     /**
      * @brief Defines the button text content. This attribute can be set, reset, and obtained as required through APIs.
      *
@@ -3925,6 +4233,16 @@ typedef enum {
      */
     NODE_ON_TOUCH_INTERCEPT,
     /**
+     * @brief Triggers onDetectResultUpdate callback when the text is set to TextDataDetectorConfig and recognized successfully.
+     *
+     * Trigger this event when TextDataDetectorConfig is set and recognized successfully.\n
+     * When the event callback occurs, the event parameter{@link ArkUI_NodeEvent}The union type in the object is{@link ArkUI_StringAsyncEvent}.\n
+     * {@link ArkUI_StringAsyncEvent}contains 1 parameter\n
+     * <b>ArkUI_StringAsyncEvent.pStr</b>：Indicates the result of text recognition, in Json format.\n
+     *
+     */
+    NODE_TEXT_ON_DETECT_RESULT_UPDATE = MAX_NODE_SCOPE_NUM * ARKUI_NODE_TEXT,
+    /**
      * @brief Defines the image loading success event.
      *
      * This event is triggered when an image is successfully loaded or decoded. \n
@@ -4036,6 +4354,30 @@ typedef enum {
      */
     NODE_TEXT_INPUT_ON_TEXT_SELECTION_CHANGE,
     /**
+     * @brief Defines the event triggered when matching with the regular expression specified by
+     * <b>NODE_TEXT_INPUT_INPUT_FILTER</b> fails.
+     *
+      \n
+     * When the event callback occurs, the union type in the {@link ArkUI_NodeEvent} object is
+     * {@link ArkUI_StringAsyncEvent}. \n
+     * {@link ArkUI_StringAsyncEvent} contains one parameter:\n
+     * <b>ArkUI_StringAsyncEvent.pStr</b>: content that is filtered out when regular expression matching fails. \n
+     *
+     */
+    NODE_TEXT_INPUT_ON_INPUT_FILTER_ERROR,
+    /**
+     * @brief This callback is triggered when the text content is scrolled.
+     *
+      \n
+     * When the event callback occurs, the union type in the {@link ArkUI_NodeEvent} object is
+     * {@link ArkUI_NodeComponentEvent}. \n
+     * {@link ArkUI_NodeComponentEvent} contains two parameters:\n
+     * <b>ArkUI_NodeComponentEvent.data[0].i32</b>: Indicates the horizontal offset of the text in the content area. \n
+     * <b>ArkUI_NodeComponentEvent.data[1].i32</b>: Indicates the vertical coordinate offset of the text in the content area. \n
+     *
+     */
+    NODE_TEXT_INPUT_ON_CONTENT_SCROLL,
+    /**
      * @brief Defines the event triggered when the input in the text box changes.
      *
       \n
@@ -4070,6 +4412,30 @@ typedef enum {
      *
      */
     NODE_TEXT_AREA_ON_TEXT_SELECTION_CHANGE,
+    /**
+     * @brief Defines the event triggered when matching with the regular expression specified by
+     * <b>NODE_TEXT_AREA_INPUT_FILTER</b> fails.
+     *
+      \n
+     * When the event callback occurs, the union type in the {@link ArkUI_NodeEvent} object is
+     * {@link ArkUI_StringAsyncEvent}. \n
+     * {@link ArkUI_StringAsyncEvent} contains one parameter:\n
+     * <b>ArkUI_StringAsyncEvent.pStr</b>: content that is filtered out when regular expression matching fails. \n
+     *
+     */
+    NODE_TEXT_AREA_ON_INPUT_FILTER_ERROR,
+    /**
+     * @brief This callback is triggered when the text content is scrolled.
+     *
+      \n
+     * When the event callback occurs, the union type in the {@link ArkUI_NodeEvent} object is
+     * {@link ArkUI_NodeComponentEvent}. \n
+     * {@link ArkUI_NodeComponentEvent} contains two parameters:\n
+     * <b>ArkUI_NodeComponentEvent.data[0].i32</b>: Indicates the horizontal offset of the text in the content area. \n
+     * <b>ArkUI_NodeComponentEvent.data[1].i32</b>: Indicates the vertical coordinate offset of the text in the content area. \n
+     *
+     */
+    NODE_TEXT_AREA_ON_CONTENT_SCROLL,
 
     /**
      * @brief Defines the event triggered when the selected status of the <b>ARKUI_NODE_CHECKBOX</b> component changes.
