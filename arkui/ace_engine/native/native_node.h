@@ -111,6 +111,8 @@ typedef enum {
     ARKUI_NODE_WATER_FLOW,
     /** Water flow item. */
     ARKUI_NODE_FLOW_ITEM,
+    /** Relative layout component. */
+    ARKUI_NODE_RELATIVE_CONTAINER,
 } ArkUI_NodeType;
 
 /**
@@ -1195,50 +1197,10 @@ typedef enum {
      * This attribute can be set, reset, and obtained as required through APIs.
      *
      * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
-     * .value[0]?.i32: ID of the component that functions as the anchor point for left alignment. \n
-     * .value[1]?.i32: alignment mode relative to the anchor component for left alignment.
-     * The value is an enum of {@link ArkUI_HorizontalAlignment}. \n
-     * .value[2]?.i32: ID of the component that functions as the anchor point for center alignment. \n
-     * .value[3]?.i32: alignment mode relative to the anchor component for center alignment.
-     * The value is an enum of {@link ArkUI_HorizontalAlignment}. \n
-     * .value[4]?.i32: ID of the component that functions as the anchor point for right alignment. \n
-     * .value[5]?.i32: alignment mode relative to the anchor component for right alignment.
-     * The value is an enum of {@link ArkUI_HorizontalAlignment}. \n
-     * .value[6]?.i32: ID of the component that functions as the anchor point for top alignment. \n
-     * .value[7]?.i32: alignment mode relative to the anchor component for top alignment.
-     * The value is an enum of {@link ArkUI_VerticalAlignment}. \n
-     * .value[8]?.i32: ID of the component that functions as the anchor point for center alignment in the
-     * vertical direction. \n
-     * .value[9]?.i32: alignment mode relative to the anchor component forcenter alignment in the vertical direction.
-     * The value is an enum of {@link ArkUI_VerticalAlignment}. \n
-     * .value[10]?.i32: ID of the component that functions as the anchor point for bottom alignment. \n
-     * .value[11]?.i32: alignment mode relative to the anchor component for bottom alignment.
-     * The value is an enum of {@link ArkUI_VerticalAlignment}. \n
-     * .value[12]?.f32: bias value in the horizontal direction. \n
-     * .value[13]?.f32: bias value in the vertical direction. \n
+     * .object: Use the {@link ArkUI_AlignRuleOption} object as the component’s alignment rule. \n
      * \n
      * Format of the return value {@link ArkUI_AttributeItem}:\n
-     * .value[0].i32: ID of the component that functions as the anchor point for left alignment. \n
-     * .value[1].i32: alignment mode relative to the anchor component for left alignment.
-     * The value is an enum of {@link ArkUI_HorizontalAlignment}. \n
-     * .value[2].i32: ID of the component that functions as the anchor point for center alignment. \n
-     * .value[3].i32: alignment mode relative to the anchor component for center alignment.
-     * The value is an enum of {@link ArkUI_HorizontalAlignment}. \n
-     * .value[4].i32: ID of the component that functions as the anchor point for right alignment. \n
-     * .value[5].i32: alignment mode relative to the anchor component for right alignment.
-     * The value is an enum of {@link ArkUI_HorizontalAlignment}. \n
-     * .value[6].i32: ID of the component that functions as the anchor point for top alignment. \n
-     * .value[7].i32: alignment mode relative to the anchor component for top alignment.
-     * The value is an enum of {@link ArkUI_VerticalAlignment}. \n
-     * .value[8].i32: ID of the component that functions as the anchor point for center alignment in the
-     * vertical direction. \n
-     * .value[9].i32: alignment mode relative to the anchor component forcenter alignment in the vertical direction.
-     * The value is an enum of {@link ArkUI_VerticalAlignment}. \n
-     * .value[10].i32: ID of the component that functions as the anchor point for bottom alignment. \n
-     * .value[11].i32: alignment mode relative to the anchor component for bottom alignment.
-     * The value is an enum of {@link ArkUI_VerticalAlignment}. \n
-     * .value[12].f32: bias value in the horizontal direction. \n
-     * .value[13].f32: bias value in the vertical direction. \n
+     * .object: Use the {@link ArkUI_AlignRuleOption} object as the component’s alignment rule. \n
      *
      */
     NODE_ALIGN_RULES,
@@ -1369,6 +1331,44 @@ typedef enum {
      *
      */
     NODE_ASPECT_RATIO,
+
+    /**
+      * @brief The implicit shared element transition within the component supports attribute setting, 
+      * attribute reset, and attribute acquisition interfaces.
+      *
+      * Attribute setting method parameter {@link ArkUI_AttributeItem} format: \n
+      * .value[0].i32: The parameter type is 1 or 0. 2 components that share element bindings,
+      * Whether to continue to participate in the shared element animation when the appearance element is not deleted, 
+      * the default is false, and the original position will remain unchanged if not involved. \n
+      * .string is used to set the binding relationship. Set the id to "" to clear the binding relationship to avoid participating in sharing behavior.
+      * The id can be changed and the binding relationship re-established. 
+      * The same ID can only be bound to two components and they are in/out roles of different types.
+      * Multiple components cannot be bound to the same id. \n
+      *\n
+      * Attribute acquisition method return value {@link ArkUI_AttributeItem} format: \n
+      * .value[0].i32: The parameter type is 1 or 0. 2 components that share element bindings,
+      * Whether to continue to participate in the shared element animation when the appearance element is not deleted, 
+      * the default is not false, if not involved, the original position will remain unchanged. \n
+      * .string is used to set the binding relationship. Set the id to "" to clear the binding relationship to avoid participating in sharing behavior.
+      * The id can be changed and the binding relationship re-established. 
+      * The same ID can only be bound to two components and they are in/out roles of different types.
+      * Multiple components cannot be bound to the same id. \n
+      */
+     NODE_GEOMETRY_TRANSITION,
+
+    /**
+      * @brief specifies the parameters of the chain formed by this component as the chain head, and supports attribute setting, attribute reset and attribute acquisition interfaces.
+      *
+      * Only takes effect when the parent container is RelativeContainer
+      *
+      * Attribute setting method parameter {@link ArkUI_AttributeItem} format: \n
+      * .value[0].i32: The direction of the chain. Enum {@link ArkUI_Axis}. \n
+      * .value[1].i32: Chain style. Enum {@link ArkUI_RelativeLayoutChainStyle}. \n
+      *\n
+      * .value[0].i32: The direction of the chain. Enum {@link ArkUI_Axis}. \n
+      * .value[1].i32: Chain style. Enum {@link ArkUI_RelativeLayoutChainStyle}. \n
+      */
+     NODE_RELATIVE_LAYOUT_CHAIN_MODE,
 
     /**
      * @brief Defines the text content attribute, which can be set, reset, and obtained as required through APIs.
@@ -2114,6 +2114,21 @@ typedef enum {
     NODE_TEXT_INPUT_TEXT_SELECTION,
 
     /**
+     * @brief Sets whether to hide the text selection menu when the text box is long-pressed, double-click, or
+     * right-clicked. This attribute can be set, reset, and obtained as required through APIs.
+     * 
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .value[0].i32: whether to hide the text selection menu when the text box is long-pressed, double-click, or
+     * right-clicked. The default value is <b>false</b>. \n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .value[0].i32: whether to hide the text selection menu when the text box is long-pressed, double-click, or
+     * right-clicked. \n
+     *
+     */
+    NODE_TEXT_INPUT_SELECTION_MENU_HIDDEN,
+
+    /**
      * @brief Defines the default placeholder text for the multi-line text box.
      * This attribute can be set, reset, and obtained as required through APIs.
      *
@@ -2237,6 +2252,21 @@ typedef enum {
      *
      */
     NODE_TEXT_AREA_SHOW_COUNTER,
+
+    /**
+     * @brief Sets whether to hide the text selection menu when the text box is long-pressed, double-click,
+     * or right-clicked. This attribute can be set, reset, and obtained as required through APIs.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .value[0].i32: whether to hide the text selection menu when the text box is long-pressed, double-click,
+     * or right-clicked. The default value is <b>false</b>. \n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .value[0].i32: whether to hide the text selection menu when the text box is long-pressed, double-click,
+     * or right-clicked. \n
+     *
+     */
+    NODE_TEXT_AREA_SELECTION_MENU_HIDDEN,
 
     /**
      * @brief Defines the button text content. This attribute can be set, reset, and obtained as required through APIs.
@@ -3330,6 +3360,21 @@ typedef enum {
     NODE_LIST_CACHED_COUNT,
 
     /**
+    * @brief Sets the alignment mode of list items along the cross axis when the cross-axis width of the list is
+    * greater than the cross-axis width of list items multiplied by the value of lanes.
+    * This attribute can be set, reset, and obtained as required through APIs.
+    *
+    * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .value[0].i32: alignment mode of list items along the cross axis.
+     * The parameter type is {@link ArkUI_ListItemAlignment}. \n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .value[0].i32: alignment mode of list items along the cross axis.
+     * The parameter type is {@link ArkUI_ListItemAlignment}. \n
+    */
+    NODE_LIST_ALIGN_LIST_ITEM,
+
+    /**
      * @brief Defines whether to enable loop playback for the swiper.
      * This attribute can be set, reset, and obtained as required through APIs.
      *
@@ -3786,6 +3831,32 @@ typedef enum {
     * .value[0].i32: number of cached items in the water flowadapter. \n
     */
     NODE_WATER_FLOW_CACHED_COUNT,
+
+    /**
+      * @brief Set the auxiliary line in the RelativeContaine container, supporting property setting,
+      * property reset and property acquisition interfaces.
+      *
+      * Attribute setting method parameter {@link ArkUI_AttributeItem} format: \n
+      * .object: Auxiliary lines within the RelativeContaine container: \n
+      *\n
+      * Attribute acquisition method return value {@link ArkUI_AttributeItem} format: \n
+      * .object: Auxiliary lines within the RelativeContaine container: \n
+      *
+      */
+     NODE_RELATIVE_CONTAINER_GUIDE_LINE = MAX_NODE_SCOPE_NUM * ARKUI_NODE_RELATIVE_CONTAINER,
+
+     /**
+      * @brief Sets the barrier within the RelativeContaine container and supports property setting,
+      * property reset and property acquisition interfaces.
+      *
+      * Attribute setting method parameter {@link ArkUI_AttributeItem} format: \n
+      * .object: Auxiliary lines within the RelativeContaine container: \n
+      *\n
+      * Attribute acquisition method return value {@link ArkUI_AttributeItem} format: \n
+      * .object: Barrier within the RelativeContaine container: \n
+      *
+      */
+     NODE_RELATIVE_CONTAINER_BARRIER,
 } ArkUI_NodeAttributeType;
 
 #define MAX_COMPONENT_EVENT_ARG_NUM 12
@@ -4035,6 +4106,32 @@ typedef enum {
      *
      */
     NODE_TEXT_INPUT_ON_TEXT_SELECTION_CHANGE,
+
+    /**
+     * @brief Defines the event triggered when the input status changes.
+     *
+      \n
+     * When the event callback occurs, the union type in the {@link ArkUI_NodeEvent} object is
+     * {@link ArkUI_NodeComponentEvent}. \n
+     * {@link ArkUI_NodeComponentEvent} contains one parameter:\n
+     * <b>ArkUI_NodeComponentEvent.data[0].i32</b>: <b>true</b> indicates that text input is in progress. \n
+     *
+     */
+    NODE_TEXT_INPUT_ON_EDIT_CHANGE,
+
+    /**
+      * @brief textInput This event is triggered when the input content changes.
+      *
+      * Conditions for triggering this event: When the input content changes. \n
+      * When the event callback occurs, the union type in the event parameter 
+      * {@link ArkUI_NodeEvent} object is {@link ArkUI_NodeComponentEvent}. \n
+      * {@link ArkUI_NodeComponentEvent} contains 2 parameters:\n
+      * <b>ArkUI_NodeComponentEvent.data[0].f32</b>: Indicates the width of the text. \n
+      * <b>ArkUI_NodeComponentEvent.data[1].f32</b>: Indicates the height of the text. \n
+      *
+      */
+     NODE_TEXT_INPUT_ON_CONTENT_SIZE_CHANGE,
+
     /**
      * @brief Defines the event triggered when the input in the text box changes.
      *
@@ -4070,6 +4167,40 @@ typedef enum {
      *
      */
     NODE_TEXT_AREA_ON_TEXT_SELECTION_CHANGE,
+
+    /**
+     * @brief Defines the event triggered when the input status changes.
+     *
+      \n
+     * When the event callback occurs, the union type in the {@link ArkUI_NodeEvent} object is {@link ArkUI_NodeComponentEvent}. \n
+     * {@link ArkUI_NodeComponentEvent} contains one parameter:\n
+     * <b>ArkUI_NodeComponentEvent.data[0].i32</b>: <b>true</b> indicates that text input is in progress. \n
+     *
+     */
+    NODE_TEXT_AREA_ON_EDIT_CHANGE,
+
+    /**
+     * @brief Defines the event triggered when the Enter key on the keyboard is pressed for the multi-line text box.
+     *
+     * This event is not triggered when <b>keyType</b> is <b>ARKUI_ENTER_KEY_TYPE_NEW_LINE</b>. \n
+     * When the event callback occurs, the union type in the {@link ArkUI_NodeEvent} object is {@link ArkUI_NodeComponentEvent}. \n
+     * {@link ArkUI_NodeComponentEvent} contains one parameter:\n
+     * <b>ArkUI_NodeComponentEvent.data[0].i32</b>: type of the Enter key.
+     *
+     */
+    NODE_TEXT_AREA_ON_SUBMIT,
+
+    /**
+      * @brief textArea This event is triggered when the input content changes.
+      *
+      * Conditions for triggering this event: When the input content changes. \n
+      * When the event callback occurs, the union type in the event parameter {@link ArkUI_NodeEvent} object is {@link ArkUI_NodeComponentEvent}. \n
+      * {@link ArkUI_NodeComponentEvent} contains 2 parameters:\n
+      * <b>ArkUI_NodeComponentEvent.data[0].f32</b>: Indicates the width of the text. \n
+      * <b>ArkUI_NodeComponentEvent.data[1].f32</b>: Indicates the height of the text. \n
+      *
+      */
+     NODE_TEXT_AREA_ON_CONTENT_SIZE_CHANGE,
 
     /**
      * @brief Defines the event triggered when the selected status of the <b>ARKUI_NODE_CHECKBOX</b> component changes.
@@ -5079,6 +5210,14 @@ typedef struct {
      * @return Returns <b>0</b> if the operation is successful; returns <b>401</b> if a parameter error occurs.
      */
     int32_t (*setLengthMetricUnit)(ArkUI_NodeHandle node, ArkUI_LengthMetricUnit unit);
+
+    /**
+      * @brief Get the parent node.
+      *
+      * @param node target node object.
+      * @return Returns the pointer of the component, if not return NULL
+      */
+     ArkUI_NodeHandle (*getParent)(ArkUI_NodeHandle node);
 } ArkUI_NativeNodeAPI_1;
 
 
