@@ -17,7 +17,7 @@
  * @addtogroup ImageProcessing
  * @{
  *
- * @brief Provide image processing including colorspace conversion and metadata generation.
+ * @brief Provide image processing including color space conversion and metadata generation.
  *
  * @since 12
  */
@@ -39,7 +39,7 @@
 
 #include <stdint.h>
 
-#include "pixelmap_native.h"
+#include "image_framework/include/image/pixelmap_native.h"
 #include "image_processing_types.h"
 
 #ifdef __cplusplus
@@ -79,10 +79,10 @@ ImageProcessing_ErrorCode OH_ImageProcessing_DeinitializeEnvironment();
 /**
  * @brief Query whether the image color space conversion is supported.
  *
- * @param sourceImageInformation is input image color space information pointer.
- * @param destinationImageInformation is output image color space information pointer.
- * @return true if the color space conversion is supported. \n
- * false if the the color space conversion is unsupported.
+ * @param sourceImageInformation Input image color space information pointer.
+ * @param destinationImageInformation Output image color space information pointer.
+ * @return <b>true</b> if the color space conversion is supported. \n
+ * <b>false</b> if the the color space conversion is unsupported.
  * @since 12
  */
 bool OH_ImageProcessing_IsColorSpaceConversionSupported(
@@ -95,8 +95,8 @@ bool OH_ImageProcessing_IsColorSpaceConversionSupported(
  * @param sourceImageInformation Input image color space information pointer.
  * @param sourceGainmapInformation Input gainmap color space information pointer.
  * @param destinationImageInformation Output image color space information pointer.
- * @return true if the image composition is supported. \n
- * false if the image composition is unsupported.
+ * @return <b>true</b> if the image composition is supported. \n
+ * <b>false</b> if the image composition is unsupported.
  * @since 12
  */
 bool OH_ImageProcessing_IsCompositionSupported(
@@ -110,8 +110,8 @@ bool OH_ImageProcessing_IsCompositionSupported(
  * @param sourceImageInformation Input image color space information pointer.
  * @param destinationImageInformation Output image color space information pointer.
  * @param destinationGainmapInformation Output gainmap information pointer.
- * @return true if the image decomposition is supported. \n
- * false if the image decomposition is unsupported.
+ * @return <b>true</b> if the image decomposition is supported. \n
+ * <b>false</b> if the image decomposition is unsupported.
  * @since 12
  */
 bool OH_ImageProcessing_IsDecompositionSupported(
@@ -160,7 +160,7 @@ ImageProcessing_ErrorCode OH_ImageProcessing_Destroy(OH_ImageProcessing* instanc
  * @return {@link IMAGE_PROCESSING_SUCCESS} if processing image is successful. \n
  * {@link IMAGE_PROCESSING_ERROR_INVALID_INSTANCE} if instance is null or not an image processing instance. \n
  * {@link IMAGE_PROCESSING_ERROR_INVALID_PARAMETER} if the image is null. \n
- * {@link IMAGE_PROCESSING_ERRORCODE_INVALID_VALUE} if some property of image is invalid. For example, the color space
+ * {@link IMAGE_PROCESSING_ERROR_INVALID_VALUE} if some property of image is invalid. For example, the color space
  * of the image is unsupported. \n
  * {@link IMAGE_PROCESSING_ERROR_UNSUPPORTED_PROCESSING} if the processing is not supported. \n
  * {@link IMAGE_PROCESSING_ERROR_PROCESS_FAILED} if processing error occurs. \n

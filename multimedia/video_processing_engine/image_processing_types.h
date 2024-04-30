@@ -17,7 +17,7 @@
  * @addtogroup ImageProcessing
  * @{
  *
- * @brief Provide image processing including colorspace conversion and metadata generation.
+ * @brief Provide image processing including color space conversion and metadata generation.
  *
  * @since 12
  */
@@ -62,15 +62,15 @@ struct OH_ImageProcessing;
 typedef struct OH_ImageProcessing OH_ImageProcessing;
 
 /**
- * @brief Used to create an image processing instance for colorspace conversion.
+ * @brief Used to create an image processing instance for color space conversion.
  *
  * Color space conversion includes the conversion between dual-layer HDR images and single-layer HDR images,
  * as well as the color space conversion of SDR images, and the conversion of SDR images to HDR images. Some
  * capabilities are supported by vendor. Use {@link OH_ImageProcessing_IsColorSpaceConversionSupported} to query if
  * the conversion is supported between single-layer images. Use {@link OH_ImageProcessing_IsCompositionSupported} to
  * query if the composition is supported from dual-layer HDR image to single-layer HDR image. Use
- * {@link OH_ImageProcessing_IsDecompositionSupported} to query if the decomposition is supported for single-layer image
- * to dual-layer HDR image.
+ * {@link OH_ImageProcessing_IsDecompositionSupported} to query if the decomposition is supported from single-layer
+ * image to dual-layer HDR image.
  *
  * @see OH_ImageProcessing_Create
  * @since 12
@@ -122,7 +122,7 @@ typedef enum ImageProcessing_ErrorCode {
     /** Process image failed */
     IMAGE_PROCESSING_ERROR_PROCESS_FAILED,
     /** Processing is not supported */
-    IMAGE_PROCESSING_ERRORCODE_UNSUPPORTED_PROCESSING,
+    IMAGE_PROCESSING_ERROR_UNSUPPORTED_PROCESSING,
     /** Operation is not permitted */
     IMAGE_PROCESSING_ERROR_OPERATION_NOT_PERMITTED,
     /** Out of memory */
