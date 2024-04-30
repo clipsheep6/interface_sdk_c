@@ -23,7 +23,7 @@
  */
 
 /**
- * @file image_processing_type.h
+ * @file image_processing_types.h
  *
  * @brief Type definitions for image processing.
  *
