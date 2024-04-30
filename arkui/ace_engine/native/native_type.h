@@ -37,6 +37,7 @@
 #define ARKUI_NATIVE_TYPE_H
 
 #include <stdint.h>
+#include <<multimedia/image_framework/image_pixel_map_mdk.h>>
 
 #ifdef __cplusplus
 extern "C" {
@@ -111,6 +112,20 @@ struct ArkUI_Context;
   * @since 12
   */
 typedef struct ArkUI_Context* ArkUI_ContextHandle;
+
+/**
+ * @brief Defines the navigation indicator style for the swiper.
+ *
+ * @since 12
+ */
+typedef struct ArkUI_SwiperIndicator ArkUI_SwiperIndicator;
+
+/**
+ * @brief Defines the PixelMap operation capability supported by the swiper.
+ *
+ * @since 12
+ */
+typedef struct ArkUI_DrawableDescriptor ArkUI_DrawableDescriptor;
 
 /**
  * @brief Defines the event callback type.
@@ -1447,6 +1462,18 @@ typedef enum {
 } ArkUI_LengthMetricUnit;
 
 /**
+ * @brief Define the navigation indicator type of the swiper.
+ *
+ * @since 12
+ */
+typedef enum {
+    /** dot type. */
+    ARKUI_SWIPER_INDICATOR_TYPE_DOT,
+    /** digit type. */
+    ARKUI_SWIPER_INDICATOR_TYPE_DIGIT,
+} ArkUI_SwiperIndicatorType;
+
+/**
 * @brief Creates a size constraint.
 *
 * @since 12
@@ -1731,6 +1758,319 @@ ArkUI_Margin OH_ArkUI_WaterFlowSectionOption_GetMargin(ArkUI_WaterFlowSectionOpt
 * @since 12
 */
 int32_t OH_ArkUI_WaterFlowSectionOption_GetItemCount(ArkUI_WaterFlowSectionOption* option, int32_t index);
+
+/**
+ * @brief Creates a navigation indicator.
+ *
+ * @param type Indicates the type of the indicator.
+ * @return Returns the pointer to the new indicator.
+ * @since 12
+*/
+ArkUI_SwiperIndicator* OH_ArkUI_SwiperIndicator_Create(ArkUI_SwiperIndicatorType type);
+
+/**
+ * @brief Destroys the pointer to the indicator.
+ *
+ * @param indicator Indicates the pointer to the indicator.
+ * @since 12
+*/
+void OH_ArkUI_SwiperIndicator_Dispose(ArkUI_SwiperIndicator* indicator);
+
+/**
+ * @brief Sets the distance between the navigation point and the left of the swiper.
+ *
+ * @param indicator Indicates the pointer to the indicator.
+ * @param value Indicates the distance between the navigation point and the left of the swiper.
+ * @since 12
+*/
+void OH_ArkUI_SwiperIndicator_SetLeftPosition(ArkUI_SwiperIndicator* indicator, float value);
+
+/**
+ * @brief Obtains the distance between the navigation point and the left of the swiper.
+ *
+ * @param indicator Indicates the pointer to the indicator.
+ * @return Returns the distance between the navigation point and the left of the swiper.
+ * @since 12
+*/
+float OH_ArkUI_SwiperIndicator_GetLeftPosition(ArkUI_SwiperIndicator* indicator);
+
+/**
+ * @brief Sets the distance between the navigation point and the top of the swiper.
+ *
+ * @param indicator Indicates the pointer to the indicator.
+ * @param value Indicates the distance between the navigation point and the top of the swiper.
+ * @since 12
+*/
+void OH_ArkUI_SwiperIndicator_SetTopPosition(ArkUI_SwiperIndicator* indicator, float value);
+
+/**
+ * @brief Obtains the distance between the navigation point and the top of the swiper.
+ *
+ * @param indicator Indicates the pointer to the indicator.
+ * @return Returns the distance between the navigation point and the top of the swiper.
+ * @since 12
+*/
+float OH_ArkUI_SwiperIndicator_GetTopPosition(ArkUI_SwiperIndicator* indicator);
+
+/**
+ * @brief Sets the distance between the navigation point and the right of the swiper.
+ *
+ * @param indicator Indicates the pointer to the indicator.
+ * @param value Indicates the distance between the navigation point and the right of the swiper.
+ * @since 12
+*/
+void OH_ArkUI_SwiperIndicator_SetRightPosition(ArkUI_SwiperIndicator* indicator, float value);
+
+/**
+ * @brief Obtains the distance between the navigation point and the right of the swiper.
+ *
+ * @param indicator Indicates the pointer to the indicator.
+ * @return Returns the distance between the navigation point and the right of the swiper.
+ * @since 12
+*/
+float OH_ArkUI_SwiperIndicator_GetRightPosition(ArkUI_SwiperIndicator* indicator);
+
+/**
+ * @brief Sets the distance between the navigation point and the bottom of the swiper.
+ *
+ * @param indicator Indicates the pointer to the indicator.
+ * @param value Indicates the distance between the navigation point and the bottom of the swiper.
+ * @since 12
+*/
+void OH_ArkUI_SwiperIndicator_SetBottomPosition(ArkUI_SwiperIndicator* indicator, float value);
+
+/**
+ * @brief Obtains the distance between the navigation point and the bottom of the swiper.
+ *
+ * @param indicator Indicates the pointer to the indicator.
+ * @return Returns the distance between the navigation point and the bottom of the swiper.
+ * @since 12
+*/
+float OH_ArkUI_SwiperIndicator_GetBottomPosition(ArkUI_SwiperIndicator* indicator);
+
+/**
+ * @brief Sets the width of the dot for the dot indicator.
+ *
+ * @param indicator Indicates the pointer to the indicator.
+ * @param value Indicates the width of the dot for the dot indicator.
+ * @since 12
+*/
+void OH_ArkUI_SwiperIndicator_SetItemWidth(ArkUI_SwiperIndicator* indicator, float value);
+
+/**
+ * @brief Obtains the width of the dot for the dot indicator.
+ *
+ * @param indicator Indicates the pointer to the indicator.
+ * @return Returns the width of the dot for the dot indicator.
+ * @since 12
+*/
+float OH_ArkUI_SwiperIndicator_GetItemWidth(ArkUI_SwiperIndicator* indicator);
+
+/**
+ * @brief Sets the height of the dot for the dot indicator.
+ *
+ * @param indicator Indicates the pointer to the indicator.
+ * @param value Indicates the height of the dot for the dot indicator.
+ * @since 12
+*/
+void OH_ArkUI_SwiperIndicator_SetItemHeight(ArkUI_SwiperIndicator* indicator, float value);
+
+/**
+ * @brief  Obtains the height of the dot for the dot indicator.
+ *
+ * @param indicator Indicates the pointer to the indicator.
+ * @return Returns the height of the dot for the dot indicator.
+ * @since 12
+*/
+float OH_ArkUI_SwiperIndicator_GetItemHeight(ArkUI_SwiperIndicator* indicator);
+
+/**
+ * @brief Sets the width of the selected dot for the dot indicator.
+ *
+ * @param indicator Indicates the pointer to the indicator.
+ * @param value Indicates the width of the selected dot for the dot indicator.
+ * @since 12
+*/
+void OH_ArkUI_SwiperIndicator_SetSelectedItemWidth(ArkUI_SwiperIndicator* indicator, float value);
+
+/**
+ * @brief  Obtains the width of the selected dot for the dot indicator.
+ *
+ * @param indicator Indicates the pointer to the indicator.
+ * @return Returns the width of the selected dot for the dot indicator.
+ * @since 12
+*/
+float OH_ArkUI_SwiperIndicator_GetSelectedItemWidth(ArkUI_SwiperIndicator* indicator);
+
+/**
+ * @brief Sets the height of the selected dot for the dot indicator.
+ *
+ * @param indicator Indicates the pointer to the indicator.
+ * @param value Indicates the height of the selected dot for the dot indicator.
+ * @since 12
+*/
+void OH_ArkUI_SwiperIndicator_SetSelectedItemHeight(ArkUI_SwiperIndicator* indicator, float value);
+
+/**
+ * @brief  Obtains the height of the selected dot for the dot indicator.
+ *
+ * @param indicator Indicates the pointer to the indicator.
+ * @return Returns the height of the selected dot for the dot indicator.
+ * @since 12
+*/
+float OH_ArkUI_SwiperIndicator_GetSelectedItemHeight(ArkUI_SwiperIndicator* indicator);
+
+/**
+ * @brief Sets whether to display the mask style of the dot navigation indicator.
+ *
+ * @param indicator Indicates the pointer to the indicator.
+ * @param mask Whether to display the mask style. True means to display.
+ * @since 12
+*/
+void OH_ArkUI_SwiperIndicator_SetMask(ArkUI_SwiperIndicator* indicator, int32_t mask);
+
+/**
+ * @brief Obtains whether to display the mask style of the dot navigation indicator.
+ *
+ * @param indicator Indicates the pointer to the indicator.
+ * @return Returns whether to display the mask style. True means to display.
+ * @since 12
+*/
+int32_t OH_ArkUI_SwiperIndicator_GetMask(ArkUI_SwiperIndicator* indicator);
+
+/**
+ * @brief Sets the color of the dot navigation indicator.
+ *
+ * @param indicator Indicates the pointer to the indicator.
+ * @param color the color of the dot navigation indicator, in 0xARGB format.
+ * @since 12
+*/
+void OH_ArkUI_SwiperIndicator_SetColor(ArkUI_SwiperIndicator* indicator, uint32_t color);
+
+/**
+ * @brief Obtains the color of the dot navigation indicator.
+ *
+ * @param indicator Indicates the pointer to the indicator.
+ * @return Returns the color of the dot navigation indicator, in 0xARGB format.
+ * @since 12
+*/
+uint32_t OH_ArkUI_SwiperIndicator_GetColor(ArkUI_SwiperIndicator* indicator);
+
+/**
+ * @brief Sets the color of the selected dot for the navigation indicator.
+ *
+ * @param indicator Indicates the pointer to the indicator.
+ * @param color the color of the selected dot, in 0xARGB format.
+ * @since 12
+*/
+void OH_ArkUI_SwiperIndicator_SetSelectedColor(ArkUI_SwiperIndicator* indicator, uint32_t selectedColor);
+
+/**
+ * @brief Obtains the color of the selected dot for the dot navigation indicator.
+ *
+ * @param indicator Indicates the pointer to the indicator.
+ * @return Returns the color of the selected dot, in 0xARGB format.
+ * @since 12
+*/
+uint32_t OH_ArkUI_SwiperIndicator_GetSelectedColor(ArkUI_SwiperIndicator* indicator);
+
+/**
+ * @brief Creates a DrawableDescriptor.
+ *
+ * @since 12
+*/
+ArkUI_DrawableDescriptor* OH_ArkUI_DrawableDescriptor_Create();
+
+/**
+ * @brief Destroys the pointer to the drawableDescriptor.
+ *
+ * @param drawableDescriptor Indicates the pointer to the drawableDescriptor.
+ * @since 12
+*/
+void OH_ArkUI_DrawableDescriptor_Dispose(ArkUI_DrawableDescriptor* drawableDescriptor);
+
+/**
+ * @brief Sets the PixelMap for the drawableDescriptor.
+ *
+ * @param drawableDescriptor Indicates the pointer to the drawableDescriptor.
+ * @param map Indicates the pointer to the PixelMap.
+ * @since 12
+*/
+void OH_ArkUI_DrawableDescriptor_SetPixelMap(ArkUI_DrawableDescriptor* drawableDescriptor, NativePixelMap* map);
+
+/**
+ * @brief Obtains the PixelMap for the drawableDescriptor.
+ *
+ * @param drawableDescriptor Indicates the pointer to the drawableDescriptor.
+ * @return Returns the pointer to the PixelMap.
+ * @since 12
+*/
+NativePixelMap* OH_ArkUI_DrawableDescriptor_GetPixelMap(ArkUI_DrawableDescriptor* drawableDescriptor);
+
+/**
+ * @brief Sets the PixelMap array used to play the animation.
+ *
+ * @param drawableDescriptor Indicates the pointer to the drawableDescriptor.
+ * @param array Indicates the PixelMap array.
+ * @param size Indicates the size of the PixelMap array.
+ * @since 12
+*/
+void OH_ArkUI_DrawableDescriptor_SetAnimatedPixelMapArray(
+    ArkUI_DrawableDescriptor* drawableDescriptor, NativePixelMap** array, int32_t size);
+
+/**
+ * @brief Obtains the PixelMap array used to play the animation.
+ *
+ * @param drawableDescriptor Indicates the pointer to the drawableDescriptor.
+ * @return Returns the PixelMap array.
+ * @since 12
+*/
+NativePixelMap** OH_ArkUI_DrawableDescriptor_GetAnimatedPixelMapArray(ArkUI_DrawableDescriptor* drawableDescriptor);
+
+/**
+ * @brief Obtains the size of the PixelMap array used to play the animation.
+ *
+ * @param drawableDescriptor Indicates the pointer to the drawableDescriptor.
+ * @return Returns the size of the PixelMap array.
+ * @since 12
+*/
+int32_t OH_ArkUI_DrawableDescriptor_GetAnimatedPixelMapArraySize(ArkUI_DrawableDescriptor* drawableDescriptor);
+
+/**
+ * @brief Sets the total playback duration.
+ *
+ * @param drawableDescriptor Indicates the pointer to the drawableDescriptor.
+ * @param duration Indicates the total playback duration. The unit is millisecond.
+ * @since 12
+*/
+void OH_ArkUI_DrawableDescriptor_SetAnimationDuration(ArkUI_DrawableDescriptor* drawableDescriptor, int32_t duration);
+
+/**
+ * @brief Obtains the total playback duration.
+ *
+ * @param drawableDescriptor Indicates the pointer to the drawableDescriptor.
+ * @return Return the total playback duration. The unit is millisecond.
+ * @since 12
+*/
+int32_t OH_ArkUI_DrawableDescriptor_GetAnimationDuration(ArkUI_DrawableDescriptor* drawableDescriptor);
+
+/**
+ * @brief Sets the number of playback times.
+ *
+ * @param drawableDescriptor Indicates the pointer to the drawableDescriptor.
+ * @param iterations Indicates the number of playback times.
+ * @since 12
+*/
+void OH_ArkUI_DrawableDescriptor_SetAnimationIteration(ArkUI_DrawableDescriptor* drawableDescriptor, int32_t iteration);
+
+/**
+ * @brief Obtains the number of playback times.
+ *
+ * @param drawableDescriptor Indicates the pointer to the drawableDescriptor.
+ * @return Returns the number of playback times.
+ * @since 12
+*/
+int32_t OH_ArkUI_DrawableDescriptor_GetAnimationIteration(ArkUI_DrawableDescriptor* drawableDescriptor);
 #ifdef __cplusplus
 };
 #endif
