@@ -13,25 +13,41 @@
 
 import("//build/ohos.gni")
 
-ohos_ndk_headers("video_processing_engine_ndk_headers") {
+ohos_ndk_headers("image_processing_ndk_headers") {
   dest_dir = "$ndk_headers_out_dir/multimedia/video_processing_engine"
   sources = [
     "./image_processing.h",
     "./image_processing_types.h",
-    "./video_processing.h",
-    "./video_processing_types.h",
   ]
 }
 
-ohos_ndk_library("libvideo_processing_engine_ndk") {
-  ndk_description_file = "./video_processing_engine.ndk.json"
-  output_name = "video_processing_engine"
+ohos_ndk_library("libimage_processing_ndk") {
+  ndk_description_file = "./libimage_processing.ndk.json"
+  output_name = "image_processing"
   output_extension = "so"
   min_compact_version = "12"
   system_capability = "SystemCapability.Multimedia.VideoProcessingEngine"
   system_capability_headers = [
     "multimedia/video_processing_engine/image_processing_types.h",
     "multimedia/video_processing_engine/image_processing.h",
+  ]
+}
+
+ohos_ndk_headers("video_processing_ndk_headers") {
+  dest_dir = "$ndk_headers_out_dir/multimedia/video_processing_engine"
+  sources = [
+    "./video_processing.h",
+    "./video_processing_types.h",
+  ]
+}
+
+ohos_ndk_library("libvideo_processing_ndk") {
+  ndk_description_file = "./libvideo_processing.ndk.json"
+  output_name = "video_processing"
+  output_extension = "so"
+  min_compact_version = "12"
+  system_capability = "SystemCapability.Multimedia.VideoProcessingEngine"
+  system_capability_headers = [
     "multimedia/video_processing_engine/video_processing_types.h",
     "multimedia/video_processing_engine/video_processing.h",
   ]

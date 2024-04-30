@@ -27,7 +27,7 @@
  *
  * @brief Type definitions for video processing.
  *
- * @library libvideo_processing_engine.so
+ * @library libvideo_processing.so
  * @syscap SystemCapability.Multimedia.VideoProcessingEngine
  * @since 12
  */
@@ -50,18 +50,14 @@ extern "C" {
  *
  * @since 12
  */
-struct OH_VideoProcessing;
+typedef struct OH_VideoProcessing OH_VideoProcessing;
 
 /**
- * @brief Define the video processing object.
- *
- * Define a null pointer of OH_VideoProcessing and call {@link OH_VideoProcessing_Create} to create a video processing
- * instance. The pointer should be null before creating instance.
- * User can create multiple video processing instances for different processing types.
+ * @brief Forward declaration of NativeWindow.
  *
  * @since 12
  */
-typedef struct OH_VideoProcessing OH_VideoProcessing;
+typedef struct NativeWindow OHNativeWindow;
 
 /**
  * @brief Used to create a video processing instance for color space conversion.
@@ -72,7 +68,7 @@ typedef struct OH_VideoProcessing OH_VideoProcessing;
  * @see OH_VideoProcessing_Create
  * @since 12
  */
-const int VIDEO_PROCESSING_TYPE_COLORSPACE_CONVERSION = 0x10000;
+extern const int32_t VIDEO_PROCESSING_TYPE_COLORSPACE_CONVERSION;
 
 /**
  * @brief Used to create a video processing instance for metadata generation.
@@ -83,7 +79,7 @@ const int VIDEO_PROCESSING_TYPE_COLORSPACE_CONVERSION = 0x10000;
  * @see OH_VideoProcessing_Create
  * @since 12
  */
-const int VIDEO_PROCESSING_TYPE_METADATA_GENERATION = 0x20000;
+extern const int32_t VIDEO_PROCESSING_TYPE_METADATA_GENERATION;
 
 /**
  * @brief Video color space information structure of querying if video color space conversion is supported.
@@ -93,11 +89,11 @@ const int VIDEO_PROCESSING_TYPE_METADATA_GENERATION = 0x20000;
  */
 typedef struct VideoProcessing_ColorSpaceInformation {
     /** The metadata type of the video */
-    int metadataType;
+    int32_t metadataType;
     /** The color space type of the video, see {@link enum OH_NativeBuffer_ColorSpace} */
-    int colorSpace;
+    int32_t colorSpace;
     /** The pixel format of the video, see {@link enum OH_NativeBuffer_Format} */
-    int pixelFormat;
+    int32_t pixelFormat;
 } VideoProcessing_ColorSpaceInformation;
 
 /**

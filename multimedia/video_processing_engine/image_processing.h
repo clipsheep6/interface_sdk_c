@@ -29,7 +29,7 @@
  *
  * Provides SDR content processing for images, including color space conversion and metadata generation.
  *
- * @library libvideo_processing_engine.so
+ * @library libimage_processing.so
  * @syscap SystemCapability.Multimedia.VideoProcessingEngine
  * @since
  */
@@ -39,7 +39,6 @@
 
 #include <stdint.h>
 
-#include "image_framework/include/image/pixelmap_native.h"
 #include "image_processing_types.h"
 
 #ifdef __cplusplus
@@ -134,7 +133,7 @@ bool OH_ImageProcessing_IsDecompositionSupported(
  * {@link IMAGE_PROCESSING_ERROR_INVALID_PARAMETER} if type is invalid. \n
  * @since 12
  */
-ImageProcessing_ErrorCode OH_ImageProcessing_Create(OH_ImageProcessing** instance, int type);
+ImageProcessing_ErrorCode OH_ImageProcessing_Create(OH_ImageProcessing** instance, int32_t type);
 
 /**
  * @brief Destroy the image processing instance.

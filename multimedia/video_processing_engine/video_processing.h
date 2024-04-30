@@ -27,7 +27,7 @@
  *
  * @brief Declare video processing functions.
  *
- * @library libvideo_processing_engine.so
+ * @library libvideo_processing.so
  * @syscap SystemCapability.Multimedia.VideoProcessingEngine
  * @since 12
  */
@@ -36,7 +36,6 @@
 #define VIDEO_PROCESSING_ENGINE_C_API_VIDEO_PROCESSING_H
 
 #include <stdint.h>
-#include "native_window/external_window.h"
 #include "video_processing_types.h"
 
 #ifdef __cplusplus

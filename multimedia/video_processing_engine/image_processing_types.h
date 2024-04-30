@@ -27,13 +27,15 @@
  *
  * @brief Type definitions for image processing.
  *
- * @library libvideo_processing_engine.so
+ * @library libimage_processing.so
  * @syscap SystemCapability.Multimedia.VideoProcessingEngine
  * @since 12
  */
 
 #ifndef VIDEO_PROCESSING_ENGINE_C_API_IMAGE_PROCESSING_TYPES_H
 #define VIDEO_PROCESSING_ENGINE_C_API_IMAGE_PROCESSING_TYPES_H
+
+#include <stdint.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -48,18 +50,14 @@ extern "C" {
  *
  * @since 12
  */
-struct OH_ImageProcessing;
+typedef struct OH_ImageProcessing OH_ImageProcessing;
 
 /**
- * @brief Define the object for image processing.
- *
- * Define a null pointer of OH_ImageProcessing and call {@link OH_ImageProcessing_Create} to create an image processing
- * instance. The pointer should be null before creating instance.
- * User can create multiple image processing instances for different processing types.
+ * @brief Forward declaration of OH_PixelmapNative.
  *
  * @since 12
  */
-typedef struct OH_ImageProcessing OH_ImageProcessing;
+typedef struct OH_PixelmapNative OH_PixelmapNative;
 
 /**
  * @brief Used to create an image processing instance for color space conversion.
@@ -75,7 +73,7 @@ typedef struct OH_ImageProcessing OH_ImageProcessing;
  * @see OH_ImageProcessing_Create
  * @since 12
  */
-const int IMAGE_PROCESSING_TYPE_COLORSPACE_CONVERSION = 0x1;
+extern const int32_t IMAGE_PROCESSING_TYPE_COLORSPACE_CONVERSION;
 
 /**
  * @brief Used to create an image processing instance for metadata generation.
@@ -86,7 +84,7 @@ const int IMAGE_PROCESSING_TYPE_COLORSPACE_CONVERSION = 0x1;
  * @see OH_ImageProcessing_Create
  * @since 12
  */
-const int IMAGE_PROCESSING_TYPE_METADATA_GENERATION = 0x2;
+extern const int32_t IMAGE_PROCESSING_TYPE_METADATA_GENERATION;
 
 /**
  * @brief The color space information is used for color space conversion capability query.
@@ -98,11 +96,11 @@ const int IMAGE_PROCESSING_TYPE_METADATA_GENERATION = 0x2;
  */
 typedef struct ImageProcessing_ColorSpaceInformation {
     /** define metadata type */
-    int metadataType;
+    int32_t metadataType;
     /** define color space, {@link enum OH_NativeBuffer_ColorSpace} */
-    int colorSpace;
+    int32_t colorSpace;
     /** define pixel format, {@link enum OH_NativeBuffer_Format} */
-    int pixelFormat;
+    int32_t pixelFormat;
 } ImageProcessing_ColorSpaceInformation;
 
 /**

@@ -1,38 +1,6 @@
 [
     {
         "first_introduced": "12",
-        "name": "OH_ImageProcessing_InitializeEnvironment"
-    },
-    {
-        "first_introduced": "12",
-        "name": "OH_ImageProcessing_DeinitializeEnvironment"
-    },
-    {
-        "first_introduced": "12",
-        "name": "OH_ImageProcessing_IsColorSpaceConversionSupported"
-    },
-    {
-        "first_introduced": "12",
-        "name": "OH_ImageProcessing_IsCompositionSupported"
-    },
-    {
-        "first_introduced": "12",
-        "name": "OH_ImageProcessing_IsDecompositionSupported"
-    },
-    {
-        "first_introduced": "12",
-        "name": "OH_ImageProcessing_Create"
-    },
-    {
-        "first_introduced": "12",
-        "name": "OH_ImageProcessing_Destroy"
-    },
-    {
-        "first_introduced": "12",
-        "name": "OH_ImageProcessing_Process"
-    },
-    {
-        "first_introduced": "12",
         "name": "OH_VideoProcessing_InitializeEnvironment"
     },
     {
@@ -94,16 +62,6 @@
     {
         "first_introduced": "12",
         "name": "OH_VideoProcessingCallback_BindOnNewOutputBuffer"
-    },
-    {
-        "first_introduced": "12",
-        "name": "IMAGE_PROCESSING_TYPE_COLORSPACE_CONVERSION",
-        "type": "variable"
-    },
-    {
-        "first_introduced": "12",
-        "name": "IMAGE_PROCESSING_TYPE_METADATA_GENERATION",
-        "type": "variable"
     },
     {
         "first_introduced": "12",
