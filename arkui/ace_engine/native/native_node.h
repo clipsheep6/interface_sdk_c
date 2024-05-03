@@ -3234,6 +3234,7 @@ typedef enum {
      * The default value is <b>ARKUI_CURVE_EASE</b>. \n
      * .value[4]?.i32: whether to enable the default spring animation. Optional. The default value <b>0</b> means not
      * to enable the default spring animation. \n
+     * .value[5]?.i32: Optional value, sets whether scrolling can cross the boundary. \n
      * \n
      * Format of the return value {@link ArkUI_AttributeItem}:\n
      * .value[0].f32: horizontal scrolling offset, in vp. \n
