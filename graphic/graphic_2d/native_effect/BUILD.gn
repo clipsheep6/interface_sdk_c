@@ -1,4 +1,4 @@
-# Copyright (c) 2023 Huawei Device Co., Ltd.
+# Copyright (c) 2024 Huawei Device Co., Ltd.
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -12,24 +12,23 @@
 # limitations under the License.
 
 import("//build/ohos.gni")
+import("//build/ohos/ndk/ndk.gni")
 
-ohos_ndk_headers("usb_header") {
-  dest_dir = "$ndk_headers_out_dir/usb/"
+ohos_ndk_headers("native_effect_header") {
+  dest_dir = "$ndk_headers_out_dir/native_effect"
   sources = [
-    "../base/ddk_types.h",
-    "usb_ddk_api.h",
-    "usb_ddk_types.h",
+    "./effect_filter.h",
+    "./effect_types.h",
   ]
 }
 
-ohos_ndk_library("libusb_ndk") {
-  ndk_description_file = "./libusb.ndk.json"
-  min_compact_version = "9"
-  output_name = "usb_ndk"
-  system_capability = "SystemCapability.Driver.USB.Extension"
+ohos_ndk_library("libnative_effect_ndk") {
+  output_name = "native_effect"
+  output_extension = "so"
+  ndk_description_file = "./libnative_effect.ndk.json"
+  system_capability = "SystemCapability.Multimedia.Image.Core"
   system_capability_headers = [
-    "usb/usb_ddk_api.h",
-    "usb/usb_ddk_types.h",
-    "base/ddk_types.h",
+    "native_effect/effect_filter.h",
+    "native_effect/effect_types.h",
   ]
 }
