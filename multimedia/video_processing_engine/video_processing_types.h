@@ -149,17 +149,6 @@ typedef enum VideoProcessing_State {
  *
  * @since 12
  */
-struct VideoProcessing_Callback;
-
-/**
- * @brief Video processing asynchronous callback object type.
- *
- * Define a null pointer of VideoProcessing_Callback and call {@link OH_VideoProcessingCallback_Create} to create a
- * callback object. The pointer should be null before creating the callback object.
- * Register the callback to a video processing instance by calling {@link OH_VideoProcessing_RegisterCallback}.
- *
- * @since 12
- */
 typedef struct VideoProcessing_Callback VideoProcessing_Callback;
 
 /**
