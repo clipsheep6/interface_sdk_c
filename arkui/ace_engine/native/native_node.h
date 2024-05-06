@@ -1585,6 +1585,23 @@ typedef enum {
      */
     NODE_FOREGROUND_BLUR_STYLE,
     /**
+     * @brief Defines layout rect attribute, which can be set, reset, and obtained as required through APIs.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .value[0].f32: x position of the component, in px.
+     * .value[1].f32: y position of the component, in px.
+     * .value[2].f32: width of the component, in px.
+     * .value[3].f32: height of the component, in px.
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .value[0].f32: x position of the component, in px.
+     * .value[1].f32: y position of the component, in px.
+     * .value[2].f32: width of the component, in px.
+     * .value[3].f32: height of the component, in px.
+     *
+     */
+    NODE_LAYOUT_RECT,
+    /**
      * @brief Defines the text content attribute, which can be set, reset, and obtained as required through APIs.
      *
      * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
