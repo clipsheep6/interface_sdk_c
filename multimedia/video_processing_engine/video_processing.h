@@ -165,8 +165,8 @@ VideoProcessing_ErrorCode OH_VideoProcessing_GetSurface(OH_VideoProcessing* inst
 /**
  * @brief Start video processing instance.
  *
- * After successfully calling this function, the {@link VIDEO_PROCESSING_STATE_RUNNING} is reported by callback function
- * {@link OH_VideoProcessingCallback_OnState}.
+ * After successfully calling this function, the state {@link VIDEO_PROCESSING_STATE_RUNNING} is reported by callback
+ * function {@link OH_VideoProcessingCallback_OnState}.
  *
  * @param instance A video processing instance pointer.
  * @return {@link VIDEO_PROCESSING_SUCCESS} if the operation is successful. \n
