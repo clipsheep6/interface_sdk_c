@@ -163,7 +163,7 @@ VideoProcessing_ErrorCode OH_VideoProcessing_SetSurface(OH_VideoProcessing* inst
 VideoProcessing_ErrorCode OH_VideoProcessing_GetSurface(OH_VideoProcessing* instance, OHNativeWindow** window);
 
 /**
- * @brief Start video processing.
+ * @brief Start video processing instance.
  *
  * After successfully calling this function, the {@link VIDEO_PROCESSING_STATE_RUNNING} is reported by callback function
  * {@link OH_VideoProcessingCallback_OnState}.
@@ -178,10 +178,10 @@ VideoProcessing_ErrorCode OH_VideoProcessing_GetSurface(OH_VideoProcessing* inst
 VideoProcessing_ErrorCode OH_VideoProcessing_Start(OH_VideoProcessing* instance);
 
 /**
- * @brief Stop video processing.
+ * @brief To stop video processing instance.
  *
- * After all the cached buffers before this function is called are processed, the
- * {@link VIDEO_PROCESSING_STATE_STOPPED} is reported by callback function {@link OH_VideoProcessing_OnState}.
+ * After the video processing instance is stopped successfully, the state {@link VIDEO_PROCESSING_STATE_STOPPED} is
+ * reported by callback function {@link OH_VideoProcessing_OnState}.
  *
  * @param instance A video processing instance pointer.
  * @return {@link VIDEO_PROCESSING_SUCCESS} if the operation is successful. \n
