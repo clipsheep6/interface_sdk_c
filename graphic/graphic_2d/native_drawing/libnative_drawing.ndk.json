@@ -23,6 +23,10 @@
         "name": "OH_Drawing_BitmapReadPixels"
     },
     { "name": "OH_Drawing_BrushCreate" },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_BrushCopy"
+    },
     { "name": "OH_Drawing_BrushDestroy" },
     { "name": "OH_Drawing_BrushGetAlpha" },
     { "name": "OH_Drawing_BrushSetAlpha" },
@@ -134,6 +138,10 @@
         "first_introduced": "12",
         "name": "OH_Drawing_FilterGetColorFilter"
     },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_FilterSetImageFilter"
+    },
     { "name": "OH_Drawing_FilterSetMaskFilter" },
     { "name": "OH_Drawing_FilterDestroy" },
     { "name": "OH_Drawing_FontCreate" },
@@ -233,6 +241,18 @@
     {
         "first_introduced": "12",
         "name": "OH_Drawing_GpuContextDestroy"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_ImageFilterCreateBlur"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_ImageFilterCreateFromColorFilter"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_ImageFilterDestroy"
     },
     { "name": "OH_Drawing_MaskFilterCreateBlur" },
     { "name": "OH_Drawing_MaskFilterDestroy" },
@@ -364,6 +384,10 @@
     },
     { "name": "OH_Drawing_PathReset" },
     { "name": "OH_Drawing_PenCreate" },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_PenCopy"
+    },
     { "name": "OH_Drawing_PenDestroy" },
     { "name": "OH_Drawing_PenGetAlpha" },
     { "name": "OH_Drawing_PenSetAlpha" },
@@ -380,6 +404,10 @@
     { "name": "OH_Drawing_PenSetCap" },
     { "name": "OH_Drawing_PenGetJoin" },
     { "name": "OH_Drawing_PenSetJoin" },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_PenGetFillPath"
+    },
     { "name": "OH_Drawing_PenSetFilter" },
     {
         "first_introduced": "12",
@@ -492,8 +520,20 @@
     { "name": "OH_Drawing_SetTextStyleFontFamilies" },
     { "name": "OH_Drawing_SetTextStyleFontStyle" },
     { "name": "OH_Drawing_SetTextStyleLocale" },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_ShaderEffectCreateColorShader"
+    },
     { "name": "OH_Drawing_ShaderEffectCreateLinearGradient" },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_ShaderEffectCreateLinearGradientWithLocalMatrix"
+    },
     { "name": "OH_Drawing_ShaderEffectCreateRadialGradient" },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_ShaderEffectCreateRadialGradientWithLocalMatrix"
+    },
     { "name": "OH_Drawing_ShaderEffectCreateSweepGradient" },
     {
         "first_introduced": "12",
@@ -559,7 +599,19 @@
         "first_introduced": "12",
         "name": "OH_Drawing_PixelMapGetFromNativePixelMap"
     },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_PixelMapGetFromOhPixelMapNative"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_PixelMapDissolve"
+    },
     { "name": "OH_Drawing_ImageCreate" },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_ImageCreateFromEncodedData"
+    },
     { "name": "OH_Drawing_ImageDestroy" },
     { "name": "OH_Drawing_ImageBuildFromBitmap" },
     { "name": "OH_Drawing_ImageGetWidth" },
