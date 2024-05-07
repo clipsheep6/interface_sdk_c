@@ -363,6 +363,22 @@
         "name": "OH_Drawing_PathOffset"
     },
     { "name": "OH_Drawing_PathReset" },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_PathIsClosed"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_PathGetPosTan"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_PathOp"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_PathGetMatrix"
+    },
     { "name": "OH_Drawing_PenCreate" },
     { "name": "OH_Drawing_PenDestroy" },
     { "name": "OH_Drawing_PenGetAlpha" },
@@ -925,6 +941,18 @@
     {
         "first_introduced": "12",
         "name": "OH_Drawing_RegionCreate"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_RegionContains"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_RegionOp"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_RegionSetPath"
     },
     {
         "first_introduced": "12",
