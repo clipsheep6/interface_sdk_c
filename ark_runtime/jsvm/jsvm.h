@@ -2339,6 +2339,136 @@ JSVM_EXTERN JSVM_Status OH_JSVM_PerformMicrotaskCheckpoint(JSVM_VM vm);
 JSVM_EXTERN JSVM_Status OH_JSVM_IsCallable(JSVM_Env env,
                                            JSVM_Value value,
                                            bool* isCallable);
+
+/**
+ * @brief This API checks if the value passed in is Undefined.
+ *
+ * @param env: The VM instance on which to check microtasks.
+ * @param value: The JavaScript value to check.
+ * @param isUndefined: Whether the given value is Undefined.
+ * @return Returns JSVM_OK if the API succeeded.
+ * @since 12
+ */
+JSVM_EXTERN JSVM_Status OH_JSVM_IsUndefined(JSVM_Env env,
+                                            JSVM_Value value,
+                                            bool* isUndefined);
+
+/**
+ * @brief This API checks if the value passed in is Null.
+ *
+ * @param env: The VM instance on which to check microtasks.
+ * @param value: The JavaScript value to check.
+ * @param isNull: Whether the given value is Null.
+ * @return Returns JSVM_OK if the API succeeded.
+ * @since 12
+ */
+JSVM_EXTERN JSVM_Status OH_JSVM_IsNull(JSVM_Env env,
+                                       JSVM_Value value,
+                                       bool* isNull);
+
+/**
+ * @brief This API checks if the value passed in is Null or Undefined.
+ *
+ * @param env: The VM instance on which to check microtasks.
+ * @param value: The JavaScript value to check.
+ * @param isNullOrUndefined: Whether the given value is Null or Undefined.
+ * @return Returns JSVM_OK if the API succeeded.
+ * @since 12
+ */
+JSVM_EXTERN JSVM_Status OH_JSVM_IsNullOrUndefined(JSVM_Env env,
+                                                  JSVM_Value value,
+                                                  bool* isNullOrUndefined);
+
+/**
+ * @brief This API checks if the value passed in is Boolean.
+ *
+ * @param env: The VM instance on which to check microtasks.
+ * @param value: The JavaScript value to check.
+ * @param isBoolean: Whether the given value is Boolean.
+ * @return Returns JSVM_OK if the API succeeded.
+ * @since 12
+ */
+JSVM_EXTERN JSVM_Status OH_JSVM_IsBoolean(JSVM_Env env,
+                                          JSVM_Value value,
+                                          bool* isBoolean);
+
+/**
+ * @brief This API checks if the value passed in is Number.
+ *
+ * @param env: The VM instance on which to check microtasks.
+ * @param value: The JavaScript value to check.
+ * @param isNumber: Whether the given value is Number.
+ * @return Returns JSVM_OK if the API succeeded.
+ * @since 12
+ */
+JSVM_EXTERN JSVM_Status OH_JSVM_IsNumber(JSVM_Env env,
+                                         JSVM_Value value,
+                                         bool* isNumber);
+
+/**
+ * @brief This API checks if the value passed in is String.
+ *
+ * @param env: The VM instance on which to check microtasks.
+ * @param value: The JavaScript value to check.
+ * @param isString: Whether the given value is String.
+ * @return Returns JSVM_OK if the API succeeded.
+ * @since 12
+ */
+JSVM_EXTERN JSVM_Status OH_JSVM_IsString(JSVM_Env env,
+                                         JSVM_Value value,
+                                         bool* isString);
+
+/**
+ * @brief This API checks if the value passed in is Symbol.
+ *
+ * @param env: The VM instance on which to check microtasks.
+ * @param value: The JavaScript value to check.
+ * @param isSymbol: Whether the given value is Symbol.
+ * @return Returns JSVM_OK if the API succeeded.
+ * @since 12
+ */
+JSVM_EXTERN JSVM_Status OH_JSVM_IsSymbol(JSVM_Env env,
+                                         JSVM_Value value,
+                                         bool* isSymbol);
+
+/**
+ * @brief This API checks if the value passed in is Function.
+ *
+ * @param env: The VM instance on which to check microtasks.
+ * @param value: The JavaScript value to check.
+ * @param isFunction: Whether the given value is Function.
+ * @return Returns JSVM_OK if the API succeeded.
+ * @since 12
+ */
+JSVM_EXTERN JSVM_Status OH_JSVM_IsFunction(JSVM_Env env,
+                                           JSVM_Value value,
+                                           bool* isFunction);
+
+/**
+ * @brief This API checks if the value passed in is Object.
+ *
+ * @param env: The VM instance on which to check microtasks.
+ * @param value: The JavaScript value to check.
+ * @param isObject: Whether the given value is Object.
+ * @return Returns JSVM_OK if the API succeeded.
+ * @since 12
+ */
+JSVM_EXTERN JSVM_Status OH_JSVM_IsObject(JSVM_Env env,
+                                         JSVM_Value value,
+                                         bool* isObject);
+
+/**
+ * @brief This API checks if the value passed in is BigInt.
+ *
+ * @param env: The VM instance on which to check microtasks.
+ * @param value: The JavaScript value to check.
+ * @param isBigInt: Whether the given value is BigInt.
+ * @return Returns JSVM_OK if the API succeeded.
+ * @since 12
+ */
+JSVM_EXTERN JSVM_Status OH_JSVM_IsBigInt(JSVM_Env env,
+                                         JSVM_Value value,
+                                         bool* isBigInt);
 EXTERN_C_END
 
 /** @} */
