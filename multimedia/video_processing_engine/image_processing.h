@@ -31,7 +31,7 @@
  *
  * @library libimage_processing.so
  * @syscap SystemCapability.Multimedia.VideoProcessingEngine
- * @since
+ * @since 12
  */
 
 #ifndef VIDEO_PROCESSING_ENGINE_C_API_IMAGE_PROCESSING_H
