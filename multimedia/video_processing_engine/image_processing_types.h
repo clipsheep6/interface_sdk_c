@@ -73,7 +73,7 @@ typedef struct OH_PixelmapNative OH_PixelmapNative;
  * @see OH_ImageProcessing_Create
  * @since 12
  */
-extern const int32_t IMAGE_PROCESSING_TYPE_COLORSPACE_CONVERSION;
+extern const int32_t IMAGE_PROCESSING_TYPE_COLOR_SPACE_CONVERSION;
 
 /**
  * @brief Used to create an image processing instance for metadata generation.
@@ -94,14 +94,14 @@ extern const int32_t IMAGE_PROCESSING_TYPE_METADATA_GENERATION;
  * @see OH_ImageProcessing_IsDecompositionSupported
  * @since 12
  */
-typedef struct ImageProcessing_ColorSpaceInformation {
+typedef struct ImageProcessing_ColorSpaceInfo {
     /** define metadata type */
     int32_t metadataType;
     /** define color space, {@link enum OH_NativeBuffer_ColorSpace} */
     int32_t colorSpace;
     /** define pixel format, {@link enum OH_NativeBuffer_Format} */
     int32_t pixelFormat;
-} ImageProcessing_ColorSpaceInformation;
+} ImageProcessing_ColorSpaceInfo;
 
 /**
  * @brief Image processing error code.

@@ -68,7 +68,7 @@ typedef struct NativeWindow OHNativeWindow;
  * @see OH_VideoProcessing_Create
  * @since 12
  */
-extern const int32_t VIDEO_PROCESSING_TYPE_COLORSPACE_CONVERSION;
+extern const int32_t VIDEO_PROCESSING_TYPE_COLOR_SPACE_CONVERSION;
 
 /**
  * @brief Used to create a video processing instance for metadata generation.
@@ -87,14 +87,14 @@ extern const int32_t VIDEO_PROCESSING_TYPE_METADATA_GENERATION;
  * @see OH_VideoProcessing_IsColorSpaceConversionSupported
  * @since 12
  */
-typedef struct VideoProcessing_ColorSpaceInformation {
+typedef struct VideoProcessing_ColorSpaceInfo {
     /** The metadata type of the video */
     int32_t metadataType;
     /** The color space type of the video, see {@link enum OH_NativeBuffer_ColorSpace} */
     int32_t colorSpace;
     /** The pixel format of the video, see {@link enum OH_NativeBuffer_Format} */
     int32_t pixelFormat;
-} VideoProcessing_ColorSpaceInformation;
+} VideoProcessing_ColorSpaceInfo;
 
 /**
  * @brief Video processing error code.

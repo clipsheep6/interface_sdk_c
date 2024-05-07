@@ -78,45 +78,45 @@ ImageProcessing_ErrorCode OH_ImageProcessing_DeinitializeEnvironment();
 /**
  * @brief Query whether the image color space conversion is supported.
  *
- * @param sourceImageInformation Input image color space information pointer.
- * @param destinationImageInformation Output image color space information pointer.
+ * @param sourceImageInfo Input image color space information pointer.
+ * @param destinationImageInfo Output image color space information pointer.
  * @return <b>true</b> if the color space conversion is supported. \n
  * <b>false</b> if the the color space conversion is unsupported.
  * @since 12
  */
 bool OH_ImageProcessing_IsColorSpaceConversionSupported(
-    const ImageProcessing_ColorSpaceInformation* sourceImageInformation,
-    const ImageProcessing_ColorSpaceInformation* destinationImageInformation);
+    const ImageProcessing_ColorSpaceInfo* sourceImageInfo,
+    const ImageProcessing_ColorSpaceInfo* destinationImageInfo);
 
 /**
  * @brief Query whether the image composition is supported.
  *
- * @param sourceImageInformation Input image color space information pointer.
- * @param sourceGainmapInformation Input gainmap color space information pointer.
- * @param destinationImageInformation Output image color space information pointer.
+ * @param sourceImageInfo Input image color space information pointer.
+ * @param sourceGainmapInfo Input gainmap color space information pointer.
+ * @param destinationImageInfo Output image color space information pointer.
  * @return <b>true</b> if the image composition is supported. \n
  * <b>false</b> if the image composition is unsupported.
  * @since 12
  */
 bool OH_ImageProcessing_IsCompositionSupported(
-    const ImageProcessing_ColorSpaceInformation* sourceImageInformation,
-    const ImageProcessing_ColorSpaceInformation* sourceGainmapInformation,
-    const ImageProcessing_ColorSpaceInformation* destinationImageInformation);
+    const ImageProcessing_ColorSpaceInfo* sourceImageInfo,
+    const ImageProcessing_ColorSpaceInfo* sourceGainmapInfo,
+    const ImageProcessing_ColorSpaceInfo* destinationImageInfo);
 
 /**
  * @brief Query whether the image decomposition is supported.
  *
- * @param sourceImageInformation Input image color space information pointer.
- * @param destinationImageInformation Output image color space information pointer.
- * @param destinationGainmapInformation Output gainmap information pointer.
+ * @param sourceImageInfo Input image color space information pointer.
+ * @param destinationImageInfo Output image color space information pointer.
+ * @param destinationGainmapInfo Output gainmap information pointer.
  * @return <b>true</b> if the image decomposition is supported. \n
  * <b>false</b> if the image decomposition is unsupported.
  * @since 12
  */
 bool OH_ImageProcessing_IsDecompositionSupported(
-    const ImageProcessing_ColorSpaceInformation* sourceImageInformation,
-    const ImageProcessing_ColorSpaceInformation* destinationImageInformation,
-    const ImageProcessing_ColorSpaceInformation* destinationGainmapInformation);
+    const ImageProcessing_ColorSpaceInfo* sourceImageInfo,
+    const ImageProcessing_ColorSpaceInfo* destinationImageInfo,
+    const ImageProcessing_ColorSpaceInfo* destinationGainmapInfo);
 
 /**
  * @brief Create an image processing instance.

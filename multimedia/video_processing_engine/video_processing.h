@@ -75,15 +75,15 @@ VideoProcessing_ErrorCode OH_VideoProcessing_DeinitializeEnvironment();
 /**
  * @brief Query if the video color space conversion is supported.
  *
- * @param sourceVideoInformation Source video color space information.
- * @param destinationVideoInformation Destination video color space information.
+ * @param sourceVideoInfo Source video color space information.
+ * @param destinationVideoInfo Destination video color space information.
  * @return <b>true</b> if the video color space conversion is supported. \n
  * <b>false</b> if the video color space conversion is not supported.
  * @since 12
  */
 bool OH_VideoProcessing_IsColorSpaceConversionSupported(
-    const VideoProcessing_ColorSpaceInformation* sourceVideoInformation,
-    const VideoProcessing_ColorSpaceInformation* destinationVideoInformation);
+    const VideoProcessing_ColorSpaceInfo* sourceVideoInfo,
+    const VideoProcessing_ColorSpaceInfo* destinationVideoInfo);
 
 /**
  * @brief Create a video processing instance.

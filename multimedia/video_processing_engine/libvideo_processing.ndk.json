@@ -65,7 +65,7 @@
     },
     {
         "first_introduced": "12",
-        "name": "VIDEO_PROCESSING_TYPE_COLORSPACE_CONVERSION",
+        "name": "VIDEO_PROCESSING_TYPE_COLOR_SPACE_CONVERSION",
         "type": "variable"
     },
     {
