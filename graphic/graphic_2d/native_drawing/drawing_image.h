@@ -54,6 +54,19 @@ extern "C" {
 OH_Drawing_Image* OH_Drawing_ImageCreate(void);
 
 /**
+ * @brief Creates an <b>OH_Drawing_Image</b> object.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param data Indicates the pointer to the encoded data, it must not be null.
+ * @param size Indicates the size of the encoded data.
+ * @param copyData Indicates whether should copy the data to create the image.
+ * @return Returns the pointer to the <b>OH_Drawing_Image</b> object created.
+ * @since 12
+ * @version 1.0
+ */
+OH_Drawing_Image* OH_Drawing_ImageCreateFromEncodedData(const void* data, size_t size, bool copyData);
+
+/**
  * @brief Destroys an <b>OH_Drawing_Image</b> object and reclaims the memory occupied by the object.
  *
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing

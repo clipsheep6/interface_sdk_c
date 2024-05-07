@@ -54,6 +54,17 @@ extern "C" {
 OH_Drawing_Brush* OH_Drawing_BrushCreate(void);
 
 /**
+ * @brief Creates an <b>OH_Drawing_Brush</b> copy object.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param OH_Drawing_Brush Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
+ * @return Returns the pointer to the <b>OH_Drawing_Brush</b> object created.
+ * @since 12
+ * @version 1.0
+ */
+OH_Drawing_Brush* OH_Drawing_BrushCopy(OH_Drawing_Brush*);
+
+/**
  * @brief Destroys an <b>OH_Drawing_Brush</b> object and reclaims the memory occupied by the object.
  *
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
