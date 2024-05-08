@@ -93,6 +93,8 @@ bool OH_VideoProcessing_IsColorSpaceConversionSupported(
  * @param type Use VIDEO_PROCESSING_TYPE_XXX to specify the processing type. The processing type of the instance can not
  * be changed.
  * @return {@link VIDEO_PROCESSING_SUCCESS} if creating a video processing instance successfully. \n
+ * {@link VIDEO_PROCESSING_ERROR_UNSUPPORTED_PROCESSING} if the type is not supported. For example, if metadata
+ * generation is not supported by vendor, it returns unsupported processing. \n
  * {@link VIDEO_PROCESSING_ERROR_CREATE_FAILED} if failed to create a video processing instance. \n
  * {@link VIDEO_PROCESSING_ERROR_INVALID_INSTANCE} if instance is null or <b>*</b>instance is <b>not</b> null. \n
  * {@link VIDEO_PROCESSING_ERROR_INVALID_PARAMETER} if type is invalid.
