@@ -1934,6 +1934,16 @@ typedef enum {
     NODE_TEXT_SELECTED_BACKGROUND_COLOR,
 
     /**
+     * @brief Defines the paragraph of the text.
+     * This attribute can be set, reset as required through APIs.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .object: ArkUI_TextParagraph \n
+     *
+     */
+    NODE_TEXT_CONTENT_WITH_PARAGRAPH,
+
+    /**
      * @brief Defines the text content attribute, which can be set, reset, and obtained as required through APIs.
      *
      * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
