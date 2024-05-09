@@ -111,6 +111,8 @@ typedef struct ImageProcessing_ColorSpaceInfo {
 typedef enum ImageProcessing_ErrorCode {
     /** Operation is successful */
     IMAGE_PROCESSING_SUCCESS,
+    /** Parameter is invalid */
+    IMAGE_PROCESSING_ERROR_INVALID_PARAMETER = 401,
     /** Some unknown error occurred */
     IMAGE_PROCESSING_ERROR_UNKNOWN = 29200001,
     /** Initialize global environment for image processing failed */
@@ -127,8 +129,6 @@ typedef enum ImageProcessing_ErrorCode {
     IMAGE_PROCESSING_ERROR_NO_MEMORY,
     /** Image processing instance is invalid */
     IMAGE_PROCESSING_ERROR_INVALID_INSTANCE,
-    /** Parameter is invalid */
-    IMAGE_PROCESSING_ERROR_INVALID_PARAMETER,
     /** Value is invalid. */
     IMAGE_PROCESSING_ERROR_INVALID_VALUE
 } ImageProcessing_ErrorCode;

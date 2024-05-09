@@ -104,6 +104,8 @@ typedef struct VideoProcessing_ColorSpaceInfo {
 typedef enum VideoProcessing_ErrorCode {
     /** Operation is successful */
     VIDEO_PROCESSING_SUCCESS,
+    /** Parameter is invalid. */
+    VIDEO_PROCESSING_ERROR_INVALID_PARAMETER = 401,
     /** Some unknown error occurred */
     VIDEO_PROCESSING_ERROR_UNKNOWN = 29210001,
     /** Initializing global environment for video processing failed */
@@ -120,8 +122,6 @@ typedef enum VideoProcessing_ErrorCode {
     VIDEO_PROCESSING_ERROR_NO_MEMORY,
     /** Video processing instance is invalid */
     VIDEO_PROCESSING_ERROR_INVALID_INSTANCE,
-    /** Parameter is invalid. */
-    VIDEO_PROCESSING_ERROR_INVALID_PARAMETER,
     /** Value is invalid */
     VIDEO_PROCESSING_ERROR_INVALID_VALUE
 } VideoProcessing_ErrorCode;
