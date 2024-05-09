@@ -105,7 +105,7 @@ typedef enum VideoProcessing_ErrorCode {
     /** Operation is successful */
     VIDEO_PROCESSING_SUCCESS,
     /** Some unknown error occurred */
-    VIDEO_PROCESSING_ERROR_UNKNOWN,
+    VIDEO_PROCESSING_ERROR_UNKNOWN = 29210001,
     /** Initializing global environment for video processing failed */
     VIDEO_PROCESSING_ERROR_INITIALIZE_FAILED,
     /** Create video processing instance failed */

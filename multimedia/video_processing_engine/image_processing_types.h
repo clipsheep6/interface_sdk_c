@@ -112,7 +112,7 @@ typedef enum ImageProcessing_ErrorCode {
     /** Operation is successful */
     IMAGE_PROCESSING_SUCCESS,
     /** Some unknown error occurred */
-    IMAGE_PROCESSING_ERROR_UNKNOWN,
+    IMAGE_PROCESSING_ERROR_UNKNOWN = 29200001,
     /** Initialize global environment for image processing failed */
     IMAGE_PROCESSING_ERROR_INITIALIZE_FAILED,
     /** Create image processing instance failed */
