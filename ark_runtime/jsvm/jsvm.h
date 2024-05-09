@@ -2341,8 +2341,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_IsCallable(JSVM_Env env,
                                            bool* isCallable);
 
 /**
- * @brief This API checks if the value passed in is an undefined object.
- * This equals to `typeof value === 'undefined'` in JS.
+ * @brief This API checks if the value passed in is undefined.
+ * This equals to `value === undefined` in JS.
  *
  * @param env: The VM instance on which to check microtasks.
  * @param value: The JavaScript value to check.
@@ -2356,7 +2356,7 @@ JSVM_EXTERN JSVM_Status OH_JSVM_IsUndefined(JSVM_Env env,
 
 /**
  * @brief This API checks if the value passed in is a null object.
- * This equals to `typeof value === 'null'` in JS.
+ * This equals to `value === null` in JS.
  *
  * @param env: The VM instance on which to check microtasks.
  * @param value: The JavaScript value to check.
