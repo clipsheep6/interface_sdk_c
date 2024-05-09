@@ -2370,7 +2370,7 @@ JSVM_EXTERN JSVM_Status OH_JSVM_IsNull(JSVM_Env env,
 
 /**
  * @brief This API checks if the value passed in is either a null or an undefined object.
- * This is equivalent to `value == 'null'` in JS.
+ * This is equivalent to `value == null` in JS.
  *
  * @param env: The VM instance on which to check microtasks.
  * @param value: The JavaScript value to check.
