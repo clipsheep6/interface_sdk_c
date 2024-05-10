@@ -487,6 +487,18 @@ Image_ErrorCode OH_PixelmapNative_ConvertAlphaFormat(OH_PixelmapNative* srcpixel
 Image_ErrorCode OH_PixelmapNative_CreateEmptyPixelmap(
     OH_Pixelmap_InitializationOptions *options, OH_PixelmapNative **pixelmap);
 
+/**
+ * @brief The interversion of the two formats
+ *
+ * @param srcPixelMap Source Image PixelMap.
+ * @param destPixelMap Destination Image PixelMap.
+ * @param destPixelFormat Destination Image PixelFormat.
+ * @return Returns {@link Image_ErrorCode} IMAGE_RESULT_SUCCESS - if the operation is successful.
+ * @since 12
+ */
+Image_ErrorCode OH_PixelMapNative_ConvertPixelFormat(OH_PixelmapNative *srcPixelMap, OH_PixelmapNative **destPixelMap,
+                                                     int32_t destPixelFormat);
+
 #ifdef __cplusplus
 };
 #endif
