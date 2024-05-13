@@ -25,5 +25,7 @@
     { "name": "OH_NativeWindow_CreateNativeWindowFromSurfaceId"},
     { "name": "OH_NativeWindow_NativeWindowAttachBuffer" },
     { "name": "OH_NativeWindow_NativeWindowDetachBuffer" },
+    { "name": "OH_NativeWindow_WriteToParcel" },
+    { "name": "OH_NativeWindow_ReadFromParcel" },
     { "name": "OH_NativeWindow_SetBufferHold" }
 ]

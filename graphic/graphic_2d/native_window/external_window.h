@@ -39,6 +39,7 @@
 
 #include <stdint.h>
 #include "buffer_handle.h"
+#include "IPCKit/ipc_cparcel.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -648,6 +649,29 @@ int32_t OH_NativeWindow_CreateNativeWindowFromSurfaceId(uint64_t surfaceId, OHNa
  * @version 1.0
  */
 int32_t OH_NativeWindow_NativeWindowSetScalingModeV2(OHNativeWindow *window, OHScalingModeV2 scalingMode);
+
+/**
+ * @brief Write an OHNativeWindow to an OHIPCParcel.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeWindow
+ * @param window Indicates the pointer to an <b>OHNativeWindow</b> instance.
+ * @param parcel Indicates the pointer to an <b>OHIPCParcel</b> instance.
+ * @return Returns an error code, 0 is success, otherwise, failed.
+ * @since 12
+ * @version 1.0
+ */
+int32_t OH_NativeWindow_WriteToParcel(OHNativeWindow* window, OHIPCParcel* parcel);
+
+/**
+ * @brief Read an OHNativeWindow from an OHIPCParcel.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeWindow
+ * @param window Indicates the pointer to an <b>OHIPCParcel</b> instance.
+ * @return Returns the pointer to an <b>OHNativeWindow</b> instance.
+ * @since 12
+ * @version 1.0
+ */
+OHNativeWindow* OH_NativeWindow_ReadFromParcel(OHIPCParcel* parcel);
 
 /**
  * @brief Set native window buffer hold.
