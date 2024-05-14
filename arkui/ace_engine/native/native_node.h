@@ -5437,6 +5437,31 @@ typedef enum {
      * start position of the swiper along the main axis. \n
      */
     NODE_SWIPER_EVENT_ON_GESTURE_SWIPE,
+    /**
+     * @brief Define the <b>ARKUI_NODE_SWIPER</b> to listen for Swiper page slide events.
+     * Instruction: \n
+     * 1. If the {@link ArkUI_SwiperDisplayModeType} attribute is set to \n
+     * ARKUI_SWIPER_DISPLAY_MODE_AUTO_LINEAR, the interface does not take effect. \n
+     * 2, circular scenario, set prevMargin and nextMargin attributes, \n
+     * so that Swiper front and back end display the same page, the interface does not take effect. \n
+     * 3. During page sliding, the ContentDidScrollCallback callback is \n
+     * triggered frame-by-frame for all pages in the window. \n
+     * For example, when there are two pages in the window with subscripts 0 and 1, \n
+     * callbacks with index values 0 and 1 are triggered twice per frame. \n
+     * 4, set the swipeByGroup parameter of the displayCount property to \n
+     * true if at least one page in the same group is in the window, \n
+     * A callback is triggered for all pages in the group. \n
+     * When the event callback occurs, the union type in the {@link ArkUI_NodeEvent} object is
+     * {@link ArkUI_NodeComponentEvent}. \n
+     * {@link ArkUI_NodeComponentEvent} contains four parameters:\n
+     * <b>ArkUI_NodeComponentEvent.data[0].i32</b> : indicates the index of the Swiper component, \n
+     * which is consistent with the index change in the onChange event. \n
+     * <b>ArkUI_NodeComponentEvent.data[1].i32</b> : The index of a page in the window. \n
+     * <b>ArkUI_NodeComponentEvent.data[2].f32</b> : The proportion of page movement relative to \n
+     * the start position of the Swiper spindle (selectedIndex corresponds to the start position of the page). \n
+     * <b>ArkUI_NodeComponentEvent.data[3].f32</b> : The length of the page in the axis direction. \n
+     */
+    NODE_SWIPER_EVENT_ON_CONTENT_DID_SCROLL,
 
     /**
      * @brief Defines the event triggered when the <b>ARKUI_NODE_SCROLL</b> component scrolls.
@@ -5636,6 +5661,15 @@ typedef enum {
      * {@link ArkUI_NodeComponentEvent} does not contain parameters:\n
      */
     NODE_REFRESH_ON_REFRESH,
+    /**
+     * @brief Defines the event that is triggered when the <b>ARKUI_NODE_REFRESH</b> drop-down distance changes.
+     *
+     * When the event callback occurs, the union type in the {@link ArkUI_NodeEvent} object is
+     * {@link ArkUI_NodeComponentEvent}. \n
+     * {@link ArkUI_NodeComponentEvent} contains one parameter:\n
+     * <b>ArkUI_NodeComponentEvent.data[0].f32</b>: Pull-down distance. \n
+     */
+    NODE_REFRESH_ON_OFFSET_CHANGE,
 
     /**
      * @brief Defines the event triggered when the <b>ARKUI_NODE_SCROLL</b> component is about to scroll.
