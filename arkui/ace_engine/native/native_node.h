@@ -1967,6 +1967,18 @@ typedef enum {
      */
     NODE_SPAN_TEXT_BACKGROUND_STYLE,
     /**
+     * @brief Defines the text baseline offset attribute
+     * This attribute can be set, reset, and obtained as required through APIs.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .value[0].f32: baseline offset, in fp.\n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .value[0].f32: baseline offset, in fp. \n
+     *
+     */
+    NODE_SPAN_BASELINE_OFFSET,
+    /**
      * @brief Defines the image source of the image span.
      * This attribute can be set, reset, and obtained as required through APIs.
      *
@@ -1994,6 +2006,20 @@ typedef enum {
      *
      */
     NODE_IMAGE_SPAN_VERTICAL_ALIGNMENT,
+    /**
+     * @brief Defines the placeholder image source.
+     * This attribute can be set, reset, and obtained as required through APIs.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .string: placeholder image source. \n
+     * .object: The parameter type is {@link ArkUI_DrawableDescriptor}. Either .string or .object must be set.\n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .string: placeholder image source. \n
+     * .object: The parameter type is {@link ArkUI_DrawableDescriptor}.\n
+     *
+     */
+    NODE_IMAGE_SPAN_ALT,
     /**
      * @brief Defines the image source of the <Image> component.
      * This attribute can be set, reset, and obtained as required through APIs.
@@ -2075,9 +2101,11 @@ typedef enum {
      *
      * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
      * .string: placeholder image source. \n
+     * .object: The parameter type is {@link ArkUI_DrawableDescriptor}. Either .string or .object must be set.\n
      * \n
      * Format of the return value {@link ArkUI_AttributeItem}:\n
      * .string: placeholder image source. \n
+     * .object: The parameter type is {@link ArkUI_DrawableDescriptor}.\n
      *
      */
     NODE_IMAGE_ALT,
