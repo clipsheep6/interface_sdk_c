@@ -2070,10 +2070,12 @@ typedef enum {
      * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
      * .value[0].f32 to .value[19].f32: filter matrix array. \n
      * .size: 5 x 4 filter array size. \n
+     * .obejct: Object input, blendMode colorFilter.\n
      * \n
      * Format of the return value {@link ArkUI_AttributeItem}:\n
      * .value[0].f32 to .value[19].f32: filter matrix array. \n
      * .size: 5 x 4 filter array size. \n
+     * .obejct: Object input, blendMode colorFilter.\n
      *
      */
     NODE_IMAGE_COLOR_FILTER,
