@@ -79,6 +79,11 @@ typedef enum QoS_Level {
     QOS_USER_INTERACTIVE,
 } QoS_Level;
 
+typedef enum {
+    ffrt_error = -1,
+    ffrt_success = 0,
+} OH_QoS_ErrCode;
+
 /**
  * @brief Set the QoS level of the current thread.
  *
