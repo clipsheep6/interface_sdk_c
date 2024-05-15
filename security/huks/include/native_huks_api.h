@@ -177,6 +177,7 @@ struct OH_Huks_Result OH_Huks_IsKeyItemExist(const struct OH_Huks_Blob *keyAlias
  * @param certChain Indicates the pointer to the key certificate chain obtained.
  * @return Returns {@link OH_Huks_ErrCode#OH_HUKS_SUCCESS} if the operation is successful;
  *    returns an error code otherwise.
+ * @deprecated since 12
  * @since 9
  * @version 1.0
  */
