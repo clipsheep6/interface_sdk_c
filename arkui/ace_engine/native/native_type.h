@@ -1947,6 +1947,15 @@ void OH_ArkUI_WaterFlowSectionOption_Dispose(ArkUI_WaterFlowSectionOption* optio
 void OH_ArkUI_WaterFlowSectionOption_SetSize(ArkUI_WaterFlowSectionOption* option, int32_t size);
 
 /**
+* @brief Gets the FlowItem grouping configuration information array length.
+*
+* @param option FlowItem Indicates the packet configuration.
+* @return array size.
+* @since 12
+*/
+int32_t OH_ArkUI_WaterFlowSectionOption_GetSize(ArkUI_WaterFlowSectionOption* option);
+
+/**
 * @brief Sets the number of items in a water flow section.
 *
 * @param option Indicates the pointer to a water flow section configuration.
@@ -2064,6 +2073,17 @@ ArkUI_Margin OH_ArkUI_WaterFlowSectionOption_GetMargin(ArkUI_WaterFlowSectionOpt
 * @since 12
 */
 int32_t OH_ArkUI_WaterFlowSectionOption_GetItemCount(ArkUI_WaterFlowSectionOption* option, int32_t index);
+/**
+* @brief The FlowItem grouping configuration information getsthe spindle size of 
+* the specified Item based on flowItemIndex.
+*
+* @param option Indicates the pointer to a water flow section configuration.
+* @param index Indicates the index of the target water flow section.
+* @param callback Gets the spindle size of the specified Item based on index.
+* @since 12
+*/
+void OH_ArkUI_WaterFlowSectionOption_RegisterGetItemMainSizeCallbackByIndex(ArkUI_WaterFlowSectionOption* option,
+    int32_t index, float(*callback)(int32_t itemIndex));
 
 /**
  * @brief Creates a navigation indicator.
