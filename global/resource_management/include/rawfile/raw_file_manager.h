@@ -47,6 +47,43 @@
 extern "C" {
 #endif
 
+struct NativeResourceManager;
+
+/**
+ * @brief Presents the resource manager.
+ *
+ * This class encapsulates the native implementation of the JavaScript resource manager. The pointer to a
+ * <b>ResourceManager</b> object can be obtained by calling {@link OH_ResourceManager_InitNativeResourceManager}.
+ *
+ * @since 8
+ * @version 1.0
+ */
+typedef struct NativeResourceManager NativeResourceManager;
+
+/**
+ * @brief Obtains the native resource manager based on the JavaScipt resource manager.
+ *
+ * You need to obtain the resource manager to process raw files as required.
+ *
+ * @param env Indicates the pointer to the JavaScipt Native Interface (napi) environment.
+ * @param jsResMgr Indicates the JavaScipt resource manager.
+ * @return Returns the pointer to {@link NativeResourceManager}.
+ * @since 8
+ * @version 1.0
+ */
+NativeResourceManager *OH_ResourceManager_InitNativeResourceManager(napi_env env, napi_value jsResMgr);
+
+/**
+ * @brief Releases the native resource manager.
+ *
+ *
+ *
+ * @param resMgr Indicates the pointer to {@link RawDir}.
+ * @since 8
+ * @version 1.0
+ */
+void OH_ResourceManager_ReleaseNativeResourceManager(NativeResourceManager *resMgr);
+
 /**
  * @brief Opens a raw file directory.
  *
