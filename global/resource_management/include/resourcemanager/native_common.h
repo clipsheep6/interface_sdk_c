@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -39,8 +39,6 @@
 #define NATIVE_COMMON_H
 
 #include "napi/native_api.h"
-#include "raw_dir.h"
-#include "raw_file.h"
 
 #ifdef __cplusplus
 extern "C" {
