@@ -41,7 +41,6 @@
 #include "napi/native_api.h"
 #include "raw_dir.h"
 #include "raw_file.h"
-#include "../resourcemanager/native_common.h"
 
 #ifdef __cplusplus
 extern "C" {
