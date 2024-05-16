@@ -4178,6 +4178,18 @@ typedef enum {
      * The parameter type is {@link ArkUI_ListItemAlignment}. \n
     */
     NODE_LIST_ALIGN_LIST_ITEM,
+    /**
+    * @brief Set the size information of the sub components of the List component or ListItem Group component in
+    * the main axis direction, support property setting, property reset, and property acquisition interface。
+    *
+    * Attribute setting method parameter {@link ArkUI_AttributeItem} format:\n
+    * .object content filling method, constructed using the {@link ArkUI_ListitemMainSizeAdapter} class.\n
+    * \n
+    * The return value of the attribute acquisition method {@link ArkUI_AttributeItem} format:\n
+    *.object content filling method, constructed using the {@link ArkUI_ListitemMainSizeAdapter} class\n
+    *
+    */
+    NODE_LIST_ITEM_MAIN_SIZE,
 
     /**
      * @brief Defines whether to enable loop playback for the swiper.
@@ -4486,6 +4498,18 @@ typedef enum {
      *
      */
     NODE_LIST_ITEM_GROUP_SET_DIVIDER,
+    /**
+     * @brief: Set the delineation component of the ListItem, supporting property settings, property resets, and
+     * property acquisition interfaces.
+     *
+     * Attribute setting method parameter {@link ArkUI_AttributeItem} format: \n
+     * .object: Construct using the {@link ArkUI_ListitemSwipeActionOption} object. \n
+     * \n
+     * The return value of the attribute acquisition method {@link ArkUI_AttributeItem} format: \n
+     * .object: Construct using the {@link ArkUI_ListitemSwipeActionOption} object. \n
+     *
+     */
+    NODE_LIST_ITEM_SWIPE_ACTION,
 
     /**
      * @brief Defines the horizontal alignment mode of child components in the column.
