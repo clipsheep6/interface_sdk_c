@@ -27,3 +27,26 @@ ohos_ndk_headers("rawfile_header") {
     "./include/raw_file_manager.h",
   ]
 }
+
+ohos_ndk_headers("rawfile_header") {
+  dest_dir = "$ndk_headers_out_dir/rawfile"
+  sources = [
+    "./include/rawfile/raw_dir.h",
+    "./include/rawfile/raw_file.h",
+    "./include/rawfile/raw_file_manager.h",
+  ]
+}
+
+ohos_ndk_library("native_resmgr_ndk") {
+  ndk_description_file = "./libnative_resmgr.ndk.json"
+  min_compact_version = "1"
+  output_name = "native_resmgr"
+}
+
+ohos_ndk_headers("native_resmgr_header") {
+  dest_dir = "$ndk_headers_out_dir/resourcemanager"
+  sources = [ 
+  "./include/resourcemanager/native_resource_manager.h",
+  "./include/resourcemanager/native_common.h"
+  ]
+}
