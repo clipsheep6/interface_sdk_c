@@ -1770,6 +1770,18 @@ typedef enum {
     ARKUI_SWIPER_INDICATOR_TYPE_DIGIT,
 } ArkUI_SwiperIndicatorType;
 
+
+struct OH_Drawing_Typography;
+/**
+ * @brief Describes the typography of a text component.
+ *
+ * @since 12
+ */
+typedef struct {
+    /** typography instance, which is created by drawing native api*/
+    OH_Drawing_Typography* typography;
+} ArkUI_TextTypography;
+
 /**
 * @brief Creates a size constraint.
 *
