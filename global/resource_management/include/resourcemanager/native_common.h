@@ -13,28 +13,6 @@
  * limitations under the License.
  */
 
-/**
- * @addtogroup rawfile
- * @{
- *
- * @brief Provides native functions for the resource manager to operate raw file directories and their raw files.
- *
- * You can use the resource manager to traverse, open, seek, read, and close raw files.
- *
- * @since 8
- * @version 1.0
- */
-
-/**
- * @file raw_file_manager.h
- *
- * @brief Declares native functions for the resource manager.
- *
- * You can use the resource manager to open raw files for subsequent operations, such as seeking and reading.
- *
- * @since 8
- * @version 1.0
- */
 #ifndef NATIVE_COMMON_H
 #define NATIVE_COMMON_H
 
