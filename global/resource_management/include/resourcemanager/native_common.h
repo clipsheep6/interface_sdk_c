@@ -58,7 +58,7 @@ struct NativeResourceManager;
 typedef struct NativeResourceManager NativeResourceManager;
 
 enum ResourceManager_ErrorCode{
-    SUCCESS == 0;
+    SUCCESS = 0，
     ERROR_CODE_INVALID_INPUT_PARAMETER = 401,
     ERROR_CODE_RES_ID_NOT_FOUND        = 9001001,
     ERROR_CODE_RES_NOT_FOUND_BY_ID     = 9001002,
