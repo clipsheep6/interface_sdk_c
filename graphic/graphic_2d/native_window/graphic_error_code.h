@@ -48,35 +48,35 @@ extern "C" {
  * @since 12
  */
 typedef enum OHNativeErrorCode {
-    /** succeed */
+    /** @error succeed */
     NATIVE_ERROR_OK = 0,
-    /** input invalid parameter */
+    /** @error input invalid parameter */
     NATIVE_ERROR_INVALID_ARGUMENTS = 40001000,
-    /** unauthorized operation */
+    /** @error unauthorized operation */
     NATIVE_ERROR_NO_PERMISSION = 40301000,
-    /** no idle buffer is available */
+    /** @error no idle buffer is available */
     NATIVE_ERROR_NO_BUFFER = 40601000,
-    /** the consumer side doesn't exist */
+    /** @error the consumer side doesn't exist */
     NATIVE_ERROR_NO_CONSUMER = 41202000,
-    /** uninitialized */
+    /** @error uninitialized */
     NATIVE_ERROR_NOT_INIT = 41203000,
-    /** the consumer is connected */
-    NATIVE_ERROR_CONSUMER_IS_CONNECTED = 41206000,
-    /** the buffer status did not meet expectations */
+    /** @error the consumer is connected */
+    NATIVE_ERROR_CONSUMER_CONNECTED = 41206000,
+    /** @error the buffer status did not meet expectations */
     NATIVE_ERROR_BUFFER_STATE_INVALID = 41207000,
-    /** buffer is already in the cache queue */
-    NATIVE_ERROR_BUFFER_IS_INCACHE = 41208000,
-    /** the buffer queue is full */
+    /** @error buffer is already in the cache queue */
+    NATIVE_ERROR_BUFFER_IN_CACHE = 41208000,
+    /** @error the buffer queue is full */
     NATIVE_ERROR_BUFFER_QUEUE_FULL = 41209000,
-    /** buffer is not in the cache queue */
-    NATIVE_ERROR_BUFFER_NOT_INCACHE = 41210000,
-    /** the current device or platform does not support it */
-    NATIVE_ERROR_UNSUPPORT = 50102000,
-    /** unknown error, please check log */
-    NATIVE_ERROR_UNKNOW = 50002000,
-    /** the egl environment is abnormal */
-    NATIVE_ERROR_EGL_STATE_UNKNOW = 60001000,
-    /** egl interface invocation failed */
+    /** @error buffer is not in the cache queue */
+    NATIVE_ERROR_BUFFER_NOT_IN_CACHE = 41210000,
+    /** @error the current device or platform does not support it */
+    NATIVE_ERROR_UNSUPPORTED = 50102000,
+    /** @error unknown error, please check log */
+    NATIVE_ERROR_UNKNOWN = 50002000,
+    /** @error the egl environment is abnormal */
+    NATIVE_ERROR_EGL_STATE_UNKNOWN = 60001000,
+    /** @error egl interface invocation failed */
     NATIVE_ERROR_EGL_API_FAILED = 60002000,
 } OHNativeErrorCode;
 
