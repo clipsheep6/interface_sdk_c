@@ -147,6 +147,37 @@ ImageProcessing_ErrorCode OH_ImageProcessing_Create(OH_ImageProcessing** instanc
 ImageProcessing_ErrorCode OH_ImageProcessing_Destroy(OH_ImageProcessing* instance);
 
 /**
+ * @brief Set parameter. which will be used by {@link OH_ImageProcessing_Process}.
+ *
+ * Adds parameter identified by the specified keyword. The parameter will be used by {@link OH_ImageProcessing_Process}.
+ *
+ * @param instance An image processing instance pointer.
+ * @param parameter The parameter used by {@link OH_ImageProcessing_Process}.
+ * @return {@link IMAGE_PROCESSING_SUCCESS} if setting parameter is successful. \n
+ * {@link IMAGE_PROCESSING_ERROR_INVALID_INSTANCE} if instance is null or not an image processing instance. \n
+ * {@link IMAGE_PROCESSING_ERROR_INVALID_PARAMETER} if the parameter is null. \n
+ * {@link IMAGE_PROCESSING_ERROR_INVALID_VALUE} if some property of the parameter is invalid. For example, the parameter
+ * contains unsupported keyword or value. \n
+ * {@link IMAGE_PROCESSING_ERROR_NO_MEMORY} if memory allocation failed.
+ * @since 12
+ */
+ImageProcessing_ErrorCode OH_ImageProcessing_SetParameter(OH_ImageProcessing* instance, const OH_AVFormat* parameter);
+
+/**
+ * @brief Get parameter.
+ *
+ * Gets parameter identified by the specified keyword.
+ *
+ * @param instance An image processing instance pointer.
+ * @param parameter The parameter which has been set before.
+ * @return {@link IMAGE_PROCESSING_SUCCESS} if getting parameter is successful. \n
+ * {@link IMAGE_PROCESSING_ERROR_INVALID_INSTANCE} if instance is null or not an image processing instance. \n
+ * {@link IMAGE_PROCESSING_ERROR_INVALID_PARAMETER} if the parameter is null. \n
+ * @since 12
+ */
+ImageProcessing_ErrorCode OH_ImageProcessing_GetParameter(OH_ImageProcessing* instance, OH_AVFormat* parameter);
+
+/**
  * @brief Process image.
  *
  * The processing type is specified when creating the instance.

@@ -165,6 +165,37 @@ VideoProcessing_ErrorCode OH_VideoProcessing_SetSurface(OH_VideoProcessing* inst
 VideoProcessing_ErrorCode OH_VideoProcessing_GetSurface(OH_VideoProcessing* instance, OHNativeWindow** window);
 
 /**
+ * @brief Set parameter.
+ *
+ * Adds parameter identified by the specified keyword.
+ *
+ * @param instance An video processing instance pointer.
+ * @param parameter The parameter used video processing.
+ * @return {@link VIDEO_PROCESSING_SUCCESS} if setting parameter is successful. \n
+ * {@link VIDEO_PROCESSING_ERROR_INVALID_INSTANCE} if instance is null or not an video processing instance. \n
+ * {@link VIDEO_PROCESSING_ERROR_INVALID_PARAMETER} if the parameter is null. \n
+ * {@link VIDEO_PROCESSING_ERROR_INVALID_VALUE} if some property of the parameter is invalid. For example, the parameter
+ * contains unsupported keyword or value. \n
+ * {@link VIDEO_PROCESSING_ERROR_NO_MEMORY} if memory allocation failed.
+ * @since 12
+ */
+VideoProcessing_ErrorCode OH_VideoProcessing_SetParameter(OH_VideoProcessing* instance, const OH_AVFormat* parameter);
+
+/**
+ * @brief Get parameter.
+ *
+ * Gets parameter identified by the specified keyword.
+ *
+ * @param instance An video processing instance pointer.
+ * @param parameter The parameter which has been set before.
+ * @return {@link VIDEO_PROCESSING_SUCCESS} if getting parameter is successful. \n
+ * {@link VIDEO_PROCESSING_ERROR_INVALID_INSTANCE} if instance is null or not an video processing instance. \n
+ * {@link VIDEO_PROCESSING_ERROR_INVALID_PARAMETER} if the parameter is null. \n
+ * @since 12
+ */
+VideoProcessing_ErrorCode OH_VideoProcessing_GetParameter(OH_VideoProcessing* instance, OH_AVFormat* parameter);
+
+/**
  * @brief Start video processing instance.
  *
  * After successfully calling this function, the state {@link VIDEO_PROCESSING_STATE_RUNNING} is reported by callback

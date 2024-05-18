@@ -60,6 +60,13 @@ typedef struct OH_ImageProcessing OH_ImageProcessing;
 typedef struct OH_PixelmapNative OH_PixelmapNative;
 
 /**
+ * @brief Forward declaration of OH_AVFormat.
+ *
+ * @since 12
+ */
+typedef struct OH_AVFormat OH_AVFormat;
+
+/**
  * @brief Used to create an image processing instance for color space conversion.
  *
  * Color space conversion includes the conversion between dual-layer HDR images and single-layer HDR images,
@@ -87,6 +94,28 @@ extern const int32_t IMAGE_PROCESSING_TYPE_COLOR_SPACE_CONVERSION;
 extern const int32_t IMAGE_PROCESSING_TYPE_METADATA_GENERATION;
 
 /**
+ * @brief Used to create an image processing instance for detail enhancement.
+ *
+ * Scale images with specified qualities or just enhance detail for rendering an image.
+ *
+ * @see OH_ImageProcessing_Create
+ * @since 12
+ */
+extern const int32_t IMAGE_PROCESSING_TYPE_DETAIL_ENHANCER;
+
+/**
+ * @brief The keyword used to specify quality level for detail enhancement.
+ *
+ * Use {@link OH_ImageProcessing_SetParameter} to set the quality level.
+ * Use {@link OH_ImageProcessing_GetParameter} to get the current quality level.
+ *
+ * @see OH_ImageProcessing_SetParameter
+ * @see OH_ImageProcessing_GetParameter
+ * @since 12
+ */
+extern const char* IMAGE_DETAIL_ENHANCER_PARAMETER_KEY_QUALITY_LEVEL;
+
+/**
  * @brief The color space information is used for color space conversion capability query.
  *
  * @see OH_ImageProcessing_IsColorSpaceConversionSupported
@@ -102,6 +131,24 @@ typedef struct ImageProcessing_ColorSpaceInfo {
     /** define pixel format, {@link enum OH_NativeBuffer_Format} */
     int32_t pixelFormat;
 } ImageProcessing_ColorSpaceInfo;
+
+/**
+ * @brief The quatily level is used for detail enhancement.
+ *
+ * @see OH_ImageProcessing_SetParameter
+ * @see OH_ImageProcessing_GetParameter
+ * @since 12
+ */
+typedef enum ImageDetailEnhancer_QualityLevel {
+    /** No detail enhancement */
+    IMAGE_DETAIL_ENHANCER_QUALITY_LEVEL_NONE,
+    /** A low level of detail enhancement quality. It's the default level */
+    IMAGE_DETAIL_ENHANCER_QUALITY_LEVEL_LOW,
+    /** A medium level of detail enhancement quality */
+    IMAGE_DETAIL_ENHANCER_QUALITY_LEVEL_MEDIUM,
+    /** A high level of detail enhancement quality */
+    IMAGE_DETAIL_ENHANCER_QUALITY_LEVEL_HIGH,
+} ImageDetailEnhancer_QualityLevel;
 
 /**
  * @brief Image processing error code.

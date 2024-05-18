@@ -60,6 +60,13 @@ typedef struct OH_VideoProcessing OH_VideoProcessing;
 typedef struct NativeWindow OHNativeWindow;
 
 /**
+ * @brief Forward declaration of OH_AVFormat.
+ *
+ * @since 12
+ */
+typedef struct OH_AVFormat OH_AVFormat;
+
+/**
  * @brief Used to create a video processing instance for color space conversion.
  *
  * Some capabilities are supported by vendor. Use {@link OH_VideoProcessing_IsColorSpaceConversionSupported} to query if
@@ -82,6 +89,28 @@ extern const int32_t VIDEO_PROCESSING_TYPE_COLOR_SPACE_CONVERSION;
 extern const int32_t VIDEO_PROCESSING_TYPE_METADATA_GENERATION;
 
 /**
+ * @brief Used to create an video processing instance for detail enhancement.
+ *
+ * Scale video with specified qualities.
+ *
+ * @see OH_ImageProcessing_Create
+ * @since 12
+ */
+extern const int32_t VIDEO_PROCESSING_TYPE_DETAIL_ENHANCER;
+
+/**
+ * @brief The keyword used to specify quality level for detail enhancement.
+ *
+ * Use {@link OH_VideoProcessing_SetParameter} to set the quality level.
+ * Use {@link OH_VideoProcessing_GetParameter} to get the current quality level.
+ *
+ * @see OH_VideoProcessing_SetParameter
+ * @see OH_VideoProcessing_GetParameter
+ * @since 12
+ */
+extern const char* VIDEO_DETAIL_ENHANCER_PARAMETER_KEY_QUALITY_LEVEL;
+
+/**
  * @brief Video color space information structure of querying if video color space conversion is supported.
  *
  * @see OH_VideoProcessing_IsColorSpaceConversionSupported
@@ -95,6 +124,24 @@ typedef struct VideoProcessing_ColorSpaceInfo {
     /** The pixel format of the video, see {@link enum OH_NativeBuffer_Format} */
     int32_t pixelFormat;
 } VideoProcessing_ColorSpaceInfo;
+
+/**
+ * @brief The quatily level is used for detail enhancement.
+ *
+ * @see OH_VideoProcessing_SetParameter
+ * @see OH_VideoProcessing_GetParameter
+ * @since 12
+ */
+typedef enum VideoDetailEnhancer_QualityLevel {
+    /** No detail enhancement */
+    VIDEO_DETAIL_ENHANCER_QUALITY_LEVEL_NONE,
+    /** A low level of detail enhancement quality. It's the default level */
+    VIDEO_DETAIL_ENHANCER_QUALITY_LEVEL_LOW,
+    /** A medium level of detail enhancement quality */
+    VIDEO_DETAIL_ENHANCER_QUALITY_LEVEL_MEDIUM,
+    /** A high level of detail enhancement quality */
+    VIDEO_DETAIL_ENHANCER_QUALITY_LEVEL_HIGH,
+} VideoDetailEnhancer_QualityLevel;
 
 /**
  * @brief Video processing error code.
