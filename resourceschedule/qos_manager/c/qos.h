@@ -82,9 +82,9 @@ typedef enum QoS_Level {
 /**
   *@brief Enum of qos error code.
   *
-  *@since@12
+  *@since@ 12
 */
-typedef enum {
+typedef enum QoS_ErrCode {
     /** @error Operation sucess*/
     QOS_SUCCESS = 0,
     /** @error Operation failde*/
