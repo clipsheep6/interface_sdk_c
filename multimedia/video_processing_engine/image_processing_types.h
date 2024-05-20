@@ -96,7 +96,7 @@ extern const int32_t IMAGE_PROCESSING_TYPE_METADATA_GENERATION;
 /**
  * @brief Used to create an image processing instance for detail enhancement.
  *
- * Scale images with specified qualities or just enhance detail for rendering an image.
+ * Scale image with specified quality or just enhance detail for rendering an image.
  *
  * @see OH_ImageProcessing_Create
  * @since 12
@@ -104,13 +104,12 @@ extern const int32_t IMAGE_PROCESSING_TYPE_METADATA_GENERATION;
 extern const int32_t IMAGE_PROCESSING_TYPE_DETAIL_ENHANCER;
 
 /**
- * @brief The keyword used to specify quality level for detail enhancement.
+ * @brief The key is used to specify quality level for image detail enhancement.
  *
+ * See {@link ImageDetailEnhancer_QualityLevel} for values.
  * Use {@link OH_ImageProcessing_SetParameter} to set the quality level.
  * Use {@link OH_ImageProcessing_GetParameter} to get the current quality level.
  *
- * @see OH_ImageProcessing_SetParameter
- * @see OH_ImageProcessing_GetParameter
  * @since 12
  */
 extern const char* IMAGE_DETAIL_ENHANCER_PARAMETER_KEY_QUALITY_LEVEL;
@@ -133,7 +132,9 @@ typedef struct ImageProcessing_ColorSpaceInfo {
 } ImageProcessing_ColorSpaceInfo;
 
 /**
- * @brief The quatily level is used for detail enhancement.
+ * @brief The quality level is used for detail enhancement.
+ *
+ * It is the value for parameter key {@link IMAGE_DETAIL_ENHANCER_PARAMETER_KEY_QUALITY_LEVEL}.
  *
  * @see OH_ImageProcessing_SetParameter
  * @see OH_ImageProcessing_GetParameter

@@ -165,29 +165,29 @@ VideoProcessing_ErrorCode OH_VideoProcessing_SetSurface(OH_VideoProcessing* inst
 VideoProcessing_ErrorCode OH_VideoProcessing_GetSurface(OH_VideoProcessing* instance, OHNativeWindow** window);
 
 /**
- * @brief Set parameter.
+ * @brief Set parameter for video processing.
  *
- * Adds parameter identified by the specified keyword.
+ * Add parameter identified by the specified parameter key.
  *
  * @param instance An video processing instance pointer.
- * @param parameter The parameter used video processing.
+ * @param parameter The parameter for video processing.
  * @return {@link VIDEO_PROCESSING_SUCCESS} if setting parameter is successful. \n
  * {@link VIDEO_PROCESSING_ERROR_INVALID_INSTANCE} if instance is null or not an video processing instance. \n
  * {@link VIDEO_PROCESSING_ERROR_INVALID_PARAMETER} if the parameter is null. \n
  * {@link VIDEO_PROCESSING_ERROR_INVALID_VALUE} if some property of the parameter is invalid. For example, the parameter
- * contains unsupported keyword or value. \n
+ * contains unsupported parameter key or value. \n
  * {@link VIDEO_PROCESSING_ERROR_NO_MEMORY} if memory allocation failed.
  * @since 12
  */
 VideoProcessing_ErrorCode OH_VideoProcessing_SetParameter(OH_VideoProcessing* instance, const OH_AVFormat* parameter);
 
 /**
- * @brief Get parameter.
+ * @brief Get parameter of video processing.
  *
- * Gets parameter identified by the specified keyword.
+ * Get parameter identified by the specified parameter key.
  *
  * @param instance An video processing instance pointer.
- * @param parameter The parameter which has been set before.
+ * @param parameter The parameter used by the video processing instance.
  * @return {@link VIDEO_PROCESSING_SUCCESS} if getting parameter is successful. \n
  * {@link VIDEO_PROCESSING_ERROR_INVALID_INSTANCE} if instance is null or not an video processing instance. \n
  * {@link VIDEO_PROCESSING_ERROR_INVALID_PARAMETER} if the parameter is null. \n
