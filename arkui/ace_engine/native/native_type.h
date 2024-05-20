@@ -3101,7 +3101,6 @@ void OH_ArkUI_AccessibilityValue_SetCurrent(ArkUI_AccessibilityValue* value, int
 /**
  * @brief Get accessibility current value.
  *
- * 
  * @param value accessibility value object.
  * @return current value based on range components, The default value is -1。
  *         If the function parameter is abnormal, return -1.
@@ -3121,7 +3120,6 @@ void OH_ArkUI_AccessibilityValue_SetText(ArkUI_AccessibilityValue* value, const 
 /**
  * @brief Get accessibility text value。
  *
- * 
  * @param value accessibility value object.
  * @return The textual description information of the component, which defaults to an empty string;
  *         If the function parameter is abnormal, return null.
