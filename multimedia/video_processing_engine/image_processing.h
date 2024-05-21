@@ -57,7 +57,7 @@ extern "C" {
  * {@link IMAGE_PROCESSING_ERROR_INITIALIZE_FAILED} if initialization is failed.
  * @since 12
  */
-ImageProcessing_ErrorCode OH_ImageProcessing_InitializeEnvironment();
+ImageProcessing_ErrorCode OH_ImageProcessing_InitializeEnvironment(void);
 
 /**
  * @brief Deinitialize global environment for image processing.
@@ -73,7 +73,7 @@ ImageProcessing_ErrorCode OH_ImageProcessing_InitializeEnvironment();
  * {@link OH_ImageProcessing_InitializeEnvironment} is not called. \n
  * @since 12
  */
-ImageProcessing_ErrorCode OH_ImageProcessing_DeinitializeEnvironment();
+ImageProcessing_ErrorCode OH_ImageProcessing_DeinitializeEnvironment(void);
 
 /**
  * @brief Query whether the image color space conversion is supported.

@@ -54,7 +54,7 @@ extern "C" {
  * {@link VIDEO_PROCESSING_ERROR_INITIALIZE_FAILED} if initialization is failed.
  * @since 12
  */
-VideoProcessing_ErrorCode OH_VideoProcessing_InitializeEnvironment();
+VideoProcessing_ErrorCode OH_VideoProcessing_InitializeEnvironment(void);
 
 /**
  * @brief Deinitialize global environment for video processing.
@@ -70,7 +70,7 @@ VideoProcessing_ErrorCode OH_VideoProcessing_InitializeEnvironment();
  * {@link OH_VideoProcessing_InitializeEnvironment} is not called. \n
  * @since 12
  */
-VideoProcessing_ErrorCode OH_VideoProcessing_DeinitializeEnvironment();
+VideoProcessing_ErrorCode OH_VideoProcessing_DeinitializeEnvironment(void);
 
 /**
  * @brief Query if the video color space conversion is supported.

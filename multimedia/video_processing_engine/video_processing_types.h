@@ -91,7 +91,8 @@ extern const int32_t VIDEO_PROCESSING_TYPE_METADATA_GENERATION;
 /**
  * @brief Used to create an video processing instance of detail enhancement.
  *
- * Scale video with specified quality.
+ * Scale or resize video with the specified quality or just enhance details for rendering without changing its
+ * resolution.
  *
  * @see OH_ImageProcessing_Create
  * @since 12
@@ -99,12 +100,14 @@ extern const int32_t VIDEO_PROCESSING_TYPE_METADATA_GENERATION;
 extern const int32_t VIDEO_PROCESSING_TYPE_DETAIL_ENHANCER;
 
 /**
- * @brief The key is used to specify quality level for video detail enhancement.
+ * @brief The key is used to specify the quality level for video detail enhancement.
  *
- * See {@link VideoDetailEnhancer_QualityLevel} for values.
+ * See {@link VideoDetailEnhancer_QualityLevel} for its values.
  * Use {@link OH_VideoProcessing_SetParameter} to set the quality level.
  * Use {@link OH_VideoProcessing_GetParameter} to get the current quality level.
  *
+ * @see OH_VideoProcessing_SetParameter
+ * @see OH_VideoProcessing_GetParameter
  * @since 12
  */
 extern const char* VIDEO_DETAIL_ENHANCER_PARAMETER_KEY_QUALITY_LEVEL;
@@ -127,7 +130,7 @@ typedef struct VideoProcessing_ColorSpaceInfo {
 /**
  * @brief The quality level is used for detail enhancement.
  *
- * It is the value for parameter key {@link VIDEO_DETAIL_ENHANCER_PARAMETER_KEY_QUALITY_LEVEL}.
+ * It is the value of the key parameter {@link VIDEO_DETAIL_ENHANCER_PARAMETER_KEY_QUALITY_LEVEL}.
  *
  * @see OH_VideoProcessing_SetParameter
  * @see OH_VideoProcessing_GetParameter
@@ -136,11 +139,11 @@ typedef struct VideoProcessing_ColorSpaceInfo {
 typedef enum VideoDetailEnhancer_QualityLevel {
     /** No detail enhancement */
     VIDEO_DETAIL_ENHANCER_QUALITY_LEVEL_NONE,
-    /** A low level of detail enhancement quality. It's the default level */
+    /** A low level of detail enhancement quality but with a fast speed. It's the default level */
     VIDEO_DETAIL_ENHANCER_QUALITY_LEVEL_LOW,
-    /** A medium level of detail enhancement quality */
+    /** A medium level of detail enhancement quality. Its speed is between the low setting and high setting */
     VIDEO_DETAIL_ENHANCER_QUALITY_LEVEL_MEDIUM,
-    /** A high level of detail enhancement quality */
+    /** A high level of detail enhancement quality but with a relatively slow speed */
     VIDEO_DETAIL_ENHANCER_QUALITY_LEVEL_HIGH,
 } VideoDetailEnhancer_QualityLevel;
 
