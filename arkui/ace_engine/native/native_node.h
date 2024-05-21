@@ -5170,6 +5170,19 @@ typedef enum {
     NODE_EVENT_ON_DETACH,
 
     /**
+     * @brief Defines the accessibility action event.
+     *
+     * This event is triggered when The accessibility operation type has been set and
+     * corresponding operations have been carried out. \n
+     * When the event callback occurs, the union type in the {@link ArkUI_NodeEvent} object is
+     * {@link ArkUI_NodeComponentEvent}. \n
+     * {@link ArkUI_NodeComponentEvent} contains one parameters:\n
+     * <b>ArkUI_NodeComponentEvent.data[0].u32</b>: accessibility action type，the union type is
+     * {@link ArkUI_AccessibilityActionType} \n
+     *
+     */
+    NODE_ON_ACCESSIBILITY_ACTIONS = 13,
+    /**
      * @brief Triggers onDetectResultUpdate callback
      * when the text is set to TextDataDetectorConfig and recognized successfully.
      *
