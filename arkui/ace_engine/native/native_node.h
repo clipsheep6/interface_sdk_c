@@ -1624,7 +1624,7 @@ typedef enum {
      * .value[0].i32：Accessible ID。\n
      *
      */
-    NODE_ACCESSIBILITY_ID,
+    NODE_ACCESSIBILITY_ID = 85,
 
     /**
      * @brief Define accessible actions, which can be set, reset, and obtained as required through APIs.
@@ -1636,7 +1636,7 @@ typedef enum {
      * .value[0].u32：accessible action types，and uses the {@link ArkUI_AccessibilityActionType} enumeration value.\n
      *
      */
-    NODE_ACCESSIBILITY_ACTIONS,
+    NODE_ACCESSIBILITY_ACTIONS = 86,
 
     /**
      * @brief Define accessible role, which can be set, reset, and obtained as required through APIs.
@@ -1648,7 +1648,7 @@ typedef enum {
      * .value[0].u32：accessible role type，and uses the {@link ArkUI_NodeType} enumeration value.\n
      *
      */
-    NODE_ACCESSIBILITY_ROLE,
+    NODE_ACCESSIBILITY_ROLE = 87,
 
     /**
      * @brief Define accessible state, which can be set, reset, and obtained as required through APIs.
@@ -1660,7 +1660,7 @@ typedef enum {
      * .object：the parameter type is {@link ArkUI_AccessibilityState}.\n
      *
      */
-    NODE_ACCESSIBILITY_STATE,
+    NODE_ACCESSIBILITY_STATE = 88,
 
     /**
      * @brief Define accessible value, which can be set, reset, and obtained as required through APIs.
@@ -1672,7 +1672,7 @@ typedef enum {
      * .object：the parameter type is {@link ArkUI_AccessibilityValue}.\n
      *
      */
-    NODE_ACCESSIBILITY_VALUE,
+    NODE_ACCESSIBILITY_VALUE = 89,
 
     /**
      * @brief Defines the text content attribute, which can be set, reset, and obtained as required through APIs.
