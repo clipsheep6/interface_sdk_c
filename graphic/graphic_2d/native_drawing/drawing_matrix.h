@@ -497,6 +497,17 @@ bool OH_Drawing_MatrixIsIdentity(OH_Drawing_Matrix*);
  */
 void OH_Drawing_MatrixDestroy(OH_Drawing_Matrix*);
 
+/**
+ * @brief Copies nine scalar values contained by matrix into array.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param OH_Drawing_Matrix Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+ * @param value Storages for nine scalar values.
+ * @since 12
+ * @version 1.0
+ */
+void OH_Drawing_MatrixGetAll(OH_Drawing_Matrix*, float value[9]);
+
 #ifdef __cplusplus
 }
 #endif
