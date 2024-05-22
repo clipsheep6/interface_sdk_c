@@ -528,7 +528,7 @@ typedef enum {
     ARKUI_ACCESSIBILITY_UNCHECKED = 0,
     /** 复选框被选中。*/
     ARKUI_ACCESSIBILITY_CHECKED,
-} ArkUI_AccessibilityCheckedType;
+} ArkUI_AccessibilityCheckedState;
 
 
 /**
@@ -3018,22 +3018,22 @@ int32_t OH_ArkUI_AccessibilityState_IsSelected(ArkUI_AccessibilityState* state);
  * @brief Set accessibility state checked type.
  *
  * @param state accessibility state object.
- * @param checkedType checked type，and uses the {@link ArkUI_AccessibilityCheckedType} enumeration value,
+ * @param checkState checked state，and uses the {@link ArkUI_AccessibilityCheckedState} enumeration value,
  *        The default value is ARKUI_ACCESSIBILITY_UNCHECKED.
  * @since 12
 */
-void OH_ArkUI_AccessibilityState_SetCheckedType(ArkUI_AccessibilityState* state, int32_t checkedType);
+void OH_ArkUI_AccessibilityState_SetCheckedState(ArkUI_AccessibilityState* state, int32_t checkState);
 
 /**
  * @brief Get accessibility state checked type.
  *
  * @param state accessibility state object.
- * @return checked type，and uses the {@link ArkUI_AccessibilityCheckedType} enumeration value,
+ * @return checked state，and uses the {@link ArkUI_AccessibilityCheckedState} enumeration value,
  *         The default value is ARKUI_ACCESSIBILITY_UNCHECKED.
  *         If the function parameter is abnormal, return the default value.
  * @since 12
 */
-int32_t OH_ArkUI_AccessibilityState_GetCheckedType(ArkUI_AccessibilityState* state);
+int32_t OH_ArkUI_AccessibilityState_GetCheckedState(ArkUI_AccessibilityState* state);
 
 /**
  * @brief Create accessibility value.
