@@ -2961,7 +2961,8 @@ void OH_ArkUI_ListItemSwipeActionOption_SetOnOffsetChange(ArkUI_ListItemSwipeAct
 /**
  * @brief Create accessibility state.
  *
- * @return accessibility state object.
+ * @return accessibility state object. If the object returns a null pointer,
+ *         it indicates a creation failure, and the reason for the failure may be that the address space is full.
  * @since 12
 */
 ArkUI_AccessibilityState* OH_ArkUI_AccessibilityState_Create(void);
@@ -3038,7 +3039,8 @@ int32_t OH_ArkUI_AccessibilityState_GetCheckedState(ArkUI_AccessibilityState* st
 /**
  * @brief Create accessibility value.
  *
- * @return accessibility value object.
+ * @return accessibility value object. If the object returns a null pointer,
+ *         it indicates a creation failure, and the reason for the failure may be that the address space is full.
  * @since 12
 */
 ArkUI_AccessibilityValue* OH_ArkUI_AccessibilityValue_Create(void);
