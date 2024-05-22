@@ -1618,6 +1618,63 @@ typedef enum {
     NODE_FOCUS_ON_TOUCH,
 
     /**
+     * @brief Accessible ID, which can be obtained as required through APIs.
+     *
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .value[0].i32：Accessible ID。\n
+     *
+     */
+    NODE_ACCESSIBILITY_ID = 85,
+
+    /**
+     * @brief Define accessible actions, which can be set, reset, and obtained as required through APIs.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .value[0].u32：accessible action types，and uses the {@link ArkUI_AccessibilityActionType} enumeration value.\n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .value[0].u32：accessible action types，and uses the {@link ArkUI_AccessibilityActionType} enumeration value.\n
+     *
+     */
+    NODE_ACCESSIBILITY_ACTIONS = 86,
+
+    /**
+     * @brief Define accessible role, which can be set, reset, and obtained as required through APIs.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .value[0].u32：accessible role type，and uses the {@link ArkUI_NodeType} enumeration value.\n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .value[0].u32：accessible role type，and uses the {@link ArkUI_NodeType} enumeration value.\n
+     *
+     */
+    NODE_ACCESSIBILITY_ROLE = 87,
+
+    /**
+     * @brief Define accessible state, which can be set, reset, and obtained as required through APIs.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .object：the parameter type is {@link ArkUI_AccessibilityState}.\n
+     * \n
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .object：the parameter type is {@link ArkUI_AccessibilityState}.\n
+     *
+     */
+    NODE_ACCESSIBILITY_STATE = 88,
+
+    /**
+     * @brief Define accessible value, which can be set, reset, and obtained as required through APIs.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .object：the parameter type is {@link ArkUI_AccessibilityValue}.\n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .object：the parameter type is {@link ArkUI_AccessibilityValue}.\n
+     *
+     */
+    NODE_ACCESSIBILITY_VALUE = 89,
+
+    /**
      * @brief Defines the text content attribute, which can be set, reset, and obtained as required through APIs.
      *
      * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
@@ -5112,6 +5169,19 @@ typedef enum {
      */
     NODE_EVENT_ON_DETACH,
 
+    /**
+     * @brief Defines the accessibility action event.
+     *
+     * This event is triggered when The accessibility operation type has been set and
+     * corresponding operations have been carried out. \n
+     * When the event callback occurs, the union type in the {@link ArkUI_NodeEvent} object is
+     * {@link ArkUI_NodeComponentEvent}. \n
+     * {@link ArkUI_NodeComponentEvent} contains one parameters:\n
+     * <b>ArkUI_NodeComponentEvent.data[0].u32</b>: accessibility action type，the union type is
+     * {@link ArkUI_AccessibilityActionType} \n
+     *
+     */
+    NODE_ON_ACCESSIBILITY_ACTIONS = 13,
     /**
      * @brief Triggers onDetectResultUpdate callback
      * when the text is set to TextDataDetectorConfig and recognized successfully.
