@@ -100,7 +100,7 @@ typedef enum QoS_ErrCode {
  *
  * @param level Indicates the level to set. Specific level can be referenced {@link QoS_Level}.
  * @return {@link QOS_SUCCESS} the operation is successful.
- *         {@link QOS_FAILURE} internal error failed. 
+ *         {@link QOS_FAILURE} internal error failed.
  *         {@link QOS_INVALID_PARAMETER} level is out of range.
  * @see QoS_Level
  * @since 12
