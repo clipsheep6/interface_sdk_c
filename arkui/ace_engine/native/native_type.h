@@ -3015,7 +3015,7 @@ void OH_ArkUI_AccessibilityState_SetSelected(ArkUI_AccessibilityState* state, in
 int32_t OH_ArkUI_AccessibilityState_IsSelected(ArkUI_AccessibilityState* state);
 
 /**
- * @brief Set accessibility state checked type.
+ * @brief Set accessibility checked state.
  *
  * @param state accessibility state object.
  * @param checkState checked state，and uses the {@link ArkUI_AccessibilityCheckedState} enumeration value,
@@ -3025,7 +3025,7 @@ int32_t OH_ArkUI_AccessibilityState_IsSelected(ArkUI_AccessibilityState* state);
 void OH_ArkUI_AccessibilityState_SetCheckedState(ArkUI_AccessibilityState* state, int32_t checkState);
 
 /**
- * @brief Get accessibility state checked type.
+ * @brief Get accessibility checked state.
  *
  * @param state accessibility state object.
  * @return checked state，and uses the {@link ArkUI_AccessibilityCheckedState} enumeration value,
