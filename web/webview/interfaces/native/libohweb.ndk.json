@@ -237,6 +237,10 @@
     },
     {
         "first_introduced": "12",
+        "name": "OH_ArkWebResponse_GetFrameUrl"
+    },
+    {
+        "first_introduced": "12",
         "name": "OH_ArkWebResponse_SetError"
     },
     {

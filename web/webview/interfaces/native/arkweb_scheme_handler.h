@@ -473,6 +473,17 @@ void OH_ArkWebResourceRequest_GetMethod(const ArkWeb_ResourceRequest* resourceRe
 void OH_ArkWebResourceRequest_GetUrl(const ArkWeb_ResourceRequest* resourceRequest, char** url);
 
 /*
+ * @brief Get the url of frame which trigger this request.
+ * @param resourceRequest The ArkWeb_ResourceRequest.
+ * @param frameUrl The url of frame which trigger this request. This function will allocate memory for the url string
+ *            and caller must release the string by OH_ArkWeb_ReleaseString.
+ *
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 12
+ */
+void OH_ArkWebResourceRequest_GetFrameUrl(const ArkWeb_ResourceRequest* resourceRequest, char** frameUrl);
+
+/*
  * @brief Create a ArkWeb_HttpBodyStream which used to read the http body.
  * @param resourceRequest The ArkWeb_ResourceRequest.
  * @param httpBodyStream The request's http body. This function will allocate memory for the http body stream and
