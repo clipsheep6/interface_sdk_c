@@ -268,6 +268,10 @@
     },
     {
         "first_introduced": "12",
+        "name": "OH_Drawing_FontMeasureText"
+    },
+    {
+        "first_introduced": "12",
         "name": "OH_Drawing_FontSetBaselineSnap"
     },
     {
@@ -752,6 +756,22 @@
     { "name": "OH_Drawing_ImageBuildFromBitmap" },
     { "name": "OH_Drawing_ImageGetWidth" },
     { "name": "OH_Drawing_ImageGetHeight" },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_ImageGetColorSpace"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_ImageGetUniqueID"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_ImageIsOpaque"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_ImageScalePixels"
+    },
     {
         "first_introduced": "12",
         "name": "OH_Drawing_TextStyleGetShadowWithIndex"
