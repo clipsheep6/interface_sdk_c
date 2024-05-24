@@ -61,6 +61,10 @@
     },
     {
         "first_introduced": "12",
+        "name": "OH_AVCODEC_MIMETYPE_AUDIO_LBVC"
+    },
+    {
+        "first_introduced": "12",
         "name": "OH_AVCODEC_MIMETYPE_AUDIO_APE"
     },
     {
@@ -346,6 +350,30 @@
     {
         "first_introduced": "12",
         "name": "OH_MD_KEY_VIDEO_ENCODER_QP_MIN"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_MD_KEY_VIDEO_ENCODER_QP_AVERAGE"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_MD_KEY_VIDEO_ENCODER_MSE"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_MD_KEY_DECODING_TIMESTAMP"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_MD_KEY_BUFFER_DURATION"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_MD_KEY_VIDEO_SAR"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_MD_KEY_START_TIME"
     },
     {
         "first_introduced": "10",

@@ -418,7 +418,7 @@ float OH_Drawing_FontMeasureText(OH_Drawing_Font*, const void* text, size_t byte
 void OH_Drawing_FontDestroy(OH_Drawing_Font*);
 
 /**
- * @brief Defines a run, supplies storage for the metrics of an SkFont.
+ * @brief Defines a run, supplies storage for the metrics of an <b>OH_Drawing_Font</b>.
  *
  * @since 12
  * @version 1.0

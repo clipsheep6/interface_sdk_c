@@ -509,14 +509,11 @@ def open_file(include_path):
 
 def api_entrance(share_lib, include_path, gn_path=None, link_path=None):  # 统计入口
     # clang.cindex需要用到libclang.dll共享库   所以配置共享库
-    if Config.loaded:
-        print("config.loaded == true")
-    else:
+    if not Config.loaded:
         Config.set_library_file(share_lib)
         print("lib.dll: install path")
     # 创建AST索引
     index = Index.create()
-    print('=' * 50)
     # options赋值为如下，代表宏定义解析数据也要
     args = ['-I{}'.format(path) for path in link_path]
     args.append('-std=c99')
@@ -525,14 +522,10 @@ def api_entrance(share_lib, include_path, gn_path=None, link_path=None):  # 统�
     data_total = []  # 列表对象-用于统计
     for item in include_path:  # 对每个头文件做处理
         tu = index.parse(item, args=args, options=options)
-        print(tu)
-        print('=' * 50)
         ast_root_node = tu.cursor  # 获取根节点
-        print(ast_root_node)
         matches = get_start_comments(item)  # 接收文件最开始的注释
         # 前序遍历AST
         preorder_travers_ast(ast_root_node, data_total, matches, item, gn_path)  # 调用处理函数
-        print('=' * 50)
 
     return data_total
 
@@ -542,7 +535,6 @@ def get_include_file(include_file_path, link_path, gn_path=None):  # 库路径�
     libclang_path = StringConstant.LIB_CLG_PATH.value
     # c头文件的路径
     file_path = include_file_path
-    print(file_path)
     # 头文件链接路径
     link_include_path = link_path  # 可以通过列表传入
     data = api_entrance(libclang_path, file_path, gn_path, link_include_path)  # 调用接口

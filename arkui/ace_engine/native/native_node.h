@@ -1586,22 +1586,73 @@ typedef enum {
     NODE_FOREGROUND_BLUR_STYLE,
 
     /**
-     * @brief Defines layout rect attribute, which can be set, reset, and obtained as required through APIs.
+     * @brief Defines the component size and position for layout.
+     * This attribute can be set, reset, and obtained as required through APIs.
      *
      * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
-     * .value[0].i32: x position of the component.
-     * .value[1].i32: y position of the component.
-     * .value[2].i32: width of the component.
-     * .value[3].i32: height of the component.
+     * .value[0].i32: X coordinate of the component, in px. \n
+     * .value[1].i32: Y coordinate of the component, in px. \n
+     * .value[2].i32: width of the component, in px. \n
+     * .value[3].i32: height of the component, in px. \n
      * \n
      * Format of the return value {@link ArkUI_AttributeItem}:\n
-     * .value[0].i32: x position of the component.
-     * .value[1].i32: y position of the component.
-     * .value[2].i32: width of the component.
-     * .value[3].i32: height of the component.
+     * .value[0].i32: X coordinate of the component, in px. \n
+     * .value[1].i32: Y coordinate of the component, in px. \n
+     * .value[2].i32: width of the component, in px. \n
+     * .value[3].i32: height of the component, in px. \n
      *
      */
     NODE_LAYOUT_RECT,
+
+    /**
+     * @brief Whether the current component supports click-to-focus capability,
+     * which can be set, reset, and obtained as required through APIs.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .value[0].i32: The parameter type is 1 or 0.
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .value[0].i32: The parameter type is 1 or 0.
+     *
+     */
+    NODE_FOCUS_ON_TOUCH,
+
+    /**
+     * @brief Defines the border width attribute, which can be set, reset, and obtained as required through APIs.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * 1: .value[0].f32: width of the four borders, in percentage. \n
+     * 2: .value[0].f32: width of the top border, in percentage. \n
+     * .value[1].f32: width of the right border, in percentage. \n
+     * .value[2].f32: width of the bottom border, in percentage. \n
+     * .value[3].f32: width of the right border, in percentage. \n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .value[0].f32: width of the top border, in percentage. \n
+     * .value[1].f32: width of the right border, in percentage. \n
+     * .value[2].f32: width of the bottom border, in percentage. \n
+     * .value[3].f32: width of the right border, in percentage. \n
+     *
+     */
+    NODE_BORDER_WIDTH_PERCENT = 85,
+    /**
+     * @brief Defines the border corner radius attribute, which can be set, reset, and obtained as required through APIs.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * 1: .value[0].f32: radius of the four corners, in percentage. \n
+     * 2: .value[0].f32: radius of the upper left corner, in percentage. \n
+     * .value[1].f32: radius of the upper right corner, in percentage. \n
+     * .value[2].f32: radius of the lower left corner, in percentage. \n
+     * .value[3].f32: radius of the lower right corner, in percentage. \n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .value[0].f32: radius of the upper left corner, in percentage. \n
+     * .value[1].f32: radius of the upper right corner, in percentage. \n
+     * .value[2].f32: radius of the lower left corner, in percentage. \n
+     * .value[3].f32: radius of the lower right corner, in percentage. \n
+     *
+     */
+    NODE_BORDER_RADIUS_PERCENT = 86,
 
     /**
      * @brief Defines the text content attribute, which can be set, reset, and obtained as required through APIs.
@@ -1953,6 +2004,18 @@ typedef enum {
     NODE_TEXT_SELECTED_BACKGROUND_COLOR,
 
     /**
+     * @brief The text component uses a formatted string object to set text content properties,
+     * and supports property setting, property reset, and property acquisition interfaces.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .object indicates ArkUI_StyledString formatted string data. The parameter type is {@link ArkUI_StyledString}. \n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .object indicates ArkUI_StyledString formatted string data. The parameter type is {@link ArkUI_StyledString}. \n
+     */
+    NODE_TEXT_CONTENT_WITH_STYLED_STRING,
+
+    /**
      * @brief Defines the text content attribute, which can be set, reset, and obtained as required through APIs.
      *
      * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
@@ -1986,6 +2049,18 @@ typedef enum {
      */
     NODE_SPAN_TEXT_BACKGROUND_STYLE,
     /**
+     * @brief Defines the text baseline offset attribute
+     * This attribute can be set, reset, and obtained as required through APIs.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .value[0].f32: baseline offset, in fp.\n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .value[0].f32: baseline offset, in fp. \n
+     *
+     */
+    NODE_SPAN_BASELINE_OFFSET,
+    /**
      * @brief Defines the image source of the image span.
      * This attribute can be set, reset, and obtained as required through APIs.
      *
@@ -2013,6 +2088,20 @@ typedef enum {
      *
      */
     NODE_IMAGE_SPAN_VERTICAL_ALIGNMENT,
+    /**
+     * @brief Defines the placeholder image source.
+     * This attribute can be set, reset, and obtained as required through APIs.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .string: placeholder image source. \n
+     * .object: The parameter type is {@link ArkUI_DrawableDescriptor}. Either .string or .object must be set.\n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .string: placeholder image source. \n
+     * .object: The parameter type is {@link ArkUI_DrawableDescriptor}.\n
+     *
+     */
+    NODE_IMAGE_SPAN_ALT,
     /**
      * @brief Defines the image source of the <Image> component.
      * This attribute can be set, reset, and obtained as required through APIs.
@@ -2094,9 +2183,11 @@ typedef enum {
      *
      * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
      * .string: placeholder image source. \n
+     * .object: The parameter type is {@link ArkUI_DrawableDescriptor}. Either .string or .object must be set.\n
      * \n
      * Format of the return value {@link ArkUI_AttributeItem}:\n
      * .string: placeholder image source. \n
+     * .object: The parameter type is {@link ArkUI_DrawableDescriptor}.\n
      *
      */
     NODE_IMAGE_ALT,
@@ -4180,6 +4271,17 @@ typedef enum {
     NODE_LIST_ALIGN_LIST_ITEM,
 
     /**
+     * @brief Set the default spindle size for the List subcomponent.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .object: The parameter format is {@ ArkUI-ListChildrenMainSize} \n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .object: The parameter format is {@ ArkUI-ListChildrenMainSize} \n
+     */
+    NODE_LIST_CHILDREN_MAIN_SIZE = 1003007,
+
+    /**
      * @brief Defines whether to enable loop playback for the swiper.
      * This attribute can be set, reset, and obtained as required through APIs.
      *
@@ -4445,6 +4547,19 @@ typedef enum {
     NODE_SWIPER_SWIPE_TO_INDEX,
 
     /**
+     * @brief: Set the delineation component of the ListItem, supporting property settings, property resets, and
+     * property acquisition interfaces.
+     *
+     * Attribute setting method parameter {@link ArkUI_AttributeItem} format: \n
+     * .object: Construct using the {@link ArkUI_ListitemSwipeActionOption} object. \n
+     * \n
+     * The return value of the attribute acquisition method {@link ArkUI_AttributeItem} format: \n
+     * .object: Construct using the {@link ArkUI_ListitemSwipeActionOption} object. \n
+     *
+     */
+    NODE_LIST_ITEM_SWIPE_ACTION = MAX_NODE_SCOPE_NUM * ARKUI_NODE_LIST_ITEM,
+
+    /**
      * @brief Defines the header of the list item group.
      * This attribute can be set, reset, and obtained as required through APIs.
      *
@@ -4486,6 +4601,17 @@ typedef enum {
      *
      */
     NODE_LIST_ITEM_GROUP_SET_DIVIDER,
+
+    /**
+     * @brief Set the default spindle size for the ListItem Group subcomponent.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .object: The parameter format is {@ ArkUI-ListChildrenMainSize} \n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .object: The parameter format is {@ ArkUI-ListChildrenMainSize} \n
+     */
+    NODE_LIST_ITEM_GROUP_CHILDREN_MAIN_SIZE = 1005003,
 
     /**
      * @brief Defines the horizontal alignment mode of child components in the column.
@@ -4593,6 +4719,18 @@ typedef enum {
      *
      */
     NODE_REFRESH_CONTENT,
+    /**
+     * @brief Set the pull-down hand coefficient.
+     * This attribute can be set, reset, and obtained as required through APIs.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .value[0].f32：Pull-down hand coefficient, valid value between 0 and 1.
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .value[0].f32：Pull-down hand coefficient, valid value between 0 and 1.
+     *
+     */
+    NODE_REFRESH_PULL_DOWN_RATIO = 1009002,
 
     /**
      * @brief Defines the main axis direction of the <b><WaterFlow></b> component layout.
@@ -5026,6 +5164,24 @@ typedef enum {
      * {@link ArkUI_UIInputEvent}. \n
      */
     NODE_ON_MOUSE,
+    /**
+     * @brief Defines the attach event.
+     *
+     * This event is triggered when the component is attached. \n
+     * When the event callback occurs, the union type in the {@link ArkUI_NodeEvent} object is
+     * {@link ArkUI_NodeComponentEvent}. \n
+     * {@link ArkUI_NodeComponentEvent} does not contain parameters.
+     */
+    NODE_EVENT_ON_ATTACH,
+    /**
+     * @brief Defines the detach event.
+     *
+     * This event is triggered when the component is detached. \n
+     * When the event callback occurs, the union type in the {@link ArkUI_NodeEvent} object is
+     * {@link ArkUI_NodeComponentEvent}. \n
+     * {@link ArkUI_NodeComponentEvent} does not contain parameters.
+     */
+    NODE_EVENT_ON_DETACH,
 
     /**
      * @brief Triggers onDetectResultUpdate callback
@@ -5439,6 +5595,32 @@ typedef enum {
     NODE_SWIPER_EVENT_ON_GESTURE_SWIPE,
 
     /**
+     * @brief Define the <b>ARKUI_NODE_SWIPER</b> to listen for Swiper page slide events.
+     * Instruction: \n
+     * 1. If the {@link ArkUI_SwiperDisplayModeType} attribute is set to \n
+     * ARKUI_SWIPER_DISPLAY_MODE_AUTO_LINEAR, the interface does not take effect. \n
+     * 2, circular scenario, set prevMargin and nextMargin attributes, \n
+     * so that Swiper front and back end display the same page, the interface does not take effect. \n
+     * 3. During page sliding, the ContentDidScrollCallback callback is \n
+     * triggered frame-by-frame for all pages in the window. \n
+     * For example, when there are two pages in the window with subscripts 0 and 1, \n
+     * callbacks with index values 0 and 1 are triggered twice per frame. \n
+     * 4, set the swipeByGroup parameter of the displayCount property to \n
+     * true if at least one page in the same group is in the window, \n
+     * A callback is triggered for all pages in the group. \n
+     * When the event callback occurs, the union type in the {@link ArkUI_NodeEvent} object is
+     * {@link ArkUI_NodeComponentEvent}. \n
+     * {@link ArkUI_NodeComponentEvent} contains four parameters:\n
+     * <b>ArkUI_NodeComponentEvent.data[0].i32</b> : indicates the index of the Swiper component, \n
+     * which is consistent with the index change in the onChange event. \n
+     * <b>ArkUI_NodeComponentEvent.data[1].i32</b> : The index of a page in the window. \n
+     * <b>ArkUI_NodeComponentEvent.data[2].f32</b> : The proportion of page movement relative to \n
+     * the start position of the Swiper spindle (selectedIndex corresponds to the start position of the page). \n
+     * <b>ArkUI_NodeComponentEvent.data[3].f32</b> : The length of the page in the axis direction. \n
+     */
+    NODE_SWIPER_EVENT_ON_CONTENT_DID_SCROLL,
+
+    /**
      * @brief Defines the event triggered when the <b>ARKUI_NODE_SCROLL</b> component scrolls.
      *
      * Notes for triggering the event:\n
@@ -5636,6 +5818,16 @@ typedef enum {
      * {@link ArkUI_NodeComponentEvent} does not contain parameters:\n
      */
     NODE_REFRESH_ON_REFRESH,
+
+    /**
+     * @brief Defines the event that is triggered when the <b>ARKUI_NODE_REFRESH</b> drop-down distance changes.
+     *
+     * When the event callback occurs, the union type in the {@link ArkUI_NodeEvent} object is
+     * {@link ArkUI_NodeComponentEvent}. \n
+     * {@link ArkUI_NodeComponentEvent} contains one parameter:\n
+     * <b>ArkUI_NodeComponentEvent.data[0].f32</b>: Pull-down distance. \n
+     */
+    NODE_REFRESH_ON_OFFSET_CHANGE,
 
     /**
      * @brief Defines the event triggered when the <b>ARKUI_NODE_SCROLL</b> component is about to scroll.
@@ -6616,6 +6808,78 @@ int32_t OH_ArkUI_NodeContent_RemoveNode(ArkUI_NodeContentHandle content, ArkUI_N
  * @since 12
  */
 int32_t OH_ArkUI_NodeContent_InsertNode(ArkUI_NodeContentHandle content, ArkUI_NodeHandle node, int32_t position);
+
+/**
+ * @brief Get the size of the component layout area.
+ * The layout area size does not include graphic variation attributes such as scaling.
+ *
+ * @param node ArkUI_NodeHandle pointer.
+ * @param size The drawing area size of the component handle, in px.
+ * @return Returns 0 if success.
+ * Returns 401 if a parameter exception occurs.
+ * @since 12
+ */
+int32_t OH_ArkUI_NodeUtils_GetLayoutSize(ArkUI_NodeHandle node, ArkUI_IntSize* size);
+
+/**
+ * @brief Obtain the position of the component layout area relative to the parent component.
+ * The relative position of the layout area does not include graphic variation attributes, such as translation.
+ *
+ * @param node ArkUI_NodeHandle pointer.
+ * @param localOffset The offset value of the component handle relative to the parent component, in px.
+ * @return Returns 0 if success.
+ * Returns 401 if a parameter exception occurs.
+ * @since 12
+ */
+int32_t OH_ArkUI_NodeUtils_GetLayoutPosition(ArkUI_NodeHandle node, ArkUI_IntOffset* localOffset);
+
+/**
+ * @brief Obtain the position of the component layout area relative to the window.
+ * The relative position of the layout area does not include graphic variation attributes, such as translation.
+ *
+ * @param node ArkUI_NodeHandle pointer.
+ * @param globalOffset The offset value of the component handle relative to the window, in px.
+ * @return Returns 0 if success.
+ * Returns 401 if a parameter exception occurs.
+ * @since 12
+ */
+int32_t OH_ArkUI_NodeUtils_GetLayoutPositionInWindow(ArkUI_NodeHandle node, ArkUI_IntOffset* globalOffset);
+
+/**
+ * @brief Obtain the position of the component layout area relative to the screen.
+ * The relative position of the layout area does not include graphic variation attributes, such as translation.
+ *
+ * @param node ArkUI_NodeHandle pointer.
+ * @param screenOffset The offset value of the component handle relative to the screen, in px.
+ * @return Returns 0 if success.
+ * Returns 401 if a parameter exception occurs.
+ * @since 12
+ */
+int32_t OH_ArkUI_NodeUtils_GetLayoutPositionInScreen(ArkUI_NodeHandle node, ArkUI_IntOffset* screenOffset);
+
+/**
+ * @brief Obtain the position of the component in the window, including the properties of graphic translation changes.
+ *
+ * @param node ArkUI_NodeHandle pointer.
+ * @param translateOffset The cumulative offset value of the component handle itself,
+ * parent components, and ancestor nodes, in px.
+ * @return Returns 0 if success.
+ * Returns 401 if a parameter exception occurs.
+ * @since 12
+ */
+int32_t OH_ArkUI_NodeUtils_GetPositionWithTranslateInWindow(ArkUI_NodeHandle node, ArkUI_IntOffset* translateOffset);
+
+/**
+ * @brief Obtain the position of the component on the screen, including the attributes of graphic translation changes.
+ *
+ * @param node ArkUI_NodeHandle pointer.
+ * @param translateOffset The cumulative offset value of the component handle itself,
+ * parent components, and ancestor nodes, in px.
+ * @return Returns 0 if success.
+ * Returns 401 if a parameter exception occurs.
+ * @since 12
+ */
+int32_t OH_ArkUI_NodeUtils_GetPositionWithTranslateInScreen(ArkUI_NodeHandle node, ArkUI_IntOffset* translateOffset);
 
 #ifdef __cplusplus
 };
