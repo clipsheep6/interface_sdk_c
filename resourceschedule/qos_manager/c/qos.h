@@ -83,7 +83,9 @@ typedef enum QoS_Level {
  * @brief Set the QoS level of the current thread.
  *
  * @param level Indicates the level to set. Specific level can be referenced {@link QoS_Level}.
- * @return Returns int32_t, return value == 0, success, otherwise value == -1, failed.
+ * @return {@link QOS_SUCCESS} 0 - the operation is successful.
+ *         {@link QOS_FAILURE} -1 - internal error failed.
+ *         {@link QOS_INVALID_PARAMETER} -2 - level is out of range.
  * @see QoS_Level
  * @since 12
  */
@@ -92,7 +94,9 @@ int OH_QoS_SetThreadQoS(QoS_Level level);
 /**
  * @brief Cancel the QoS level of the current thread.
  *
- * @return Returns int32_t, return value == 0, success, otherwise value == -1, failed.
+ * @return {@link QOS_SUCCESS} 0 - the operation is successful.
+ *         {@link QOS_FAILURE} -1 - internal error failed.
+ *         {@linl QOS_INVALID_OPERATION} -3 - not set QoS for current thread.
  * @see QoS_Level
  * @since 12
  */
@@ -103,7 +107,10 @@ int OH_QoS_ResetThreadQoS();
  *
  * @param level This parameter is the output parameter,
  * and the QoS level of the thread as a {@link QoS_Level} is written to this variable.
- * @return Returns int32_t, return value == 0, success, otherwise value == -1, failed.
+ * @return {@link QOS_SUCCESS} 0 - the operation is successful.
+ *         {@link QOS_FAILURE} -1 - internal error failed.
+ *         {@link QOS_INVALID_PARAMETER} -2 level is null.
+ *         {@linl QOS_INVALID_OPERATION} -3 not set QoS for current thread.
  * @see QoS_Level
  * @since 12
  */
