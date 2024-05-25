@@ -96,7 +96,7 @@ int OH_QoS_SetThreadQoS(QoS_Level level);
  *
  * @return {@link QOS_SUCCESS} 0 - the operation is successful.
  *         {@link QOS_FAILURE} -1 - internal error failed.
- *         {@linl QOS_INVALID_OPERATION} -3 - not set QoS for current thread.
+ *         {@link QOS_INVALID_OPERATION} -3 - not set QoS for current thread.
  * @see QoS_Level
  * @since 12
  */
@@ -110,7 +110,7 @@ int OH_QoS_ResetThreadQoS();
  * @return {@link QOS_SUCCESS} 0 - the operation is successful.
  *         {@link QOS_FAILURE} -1 - internal error failed.
  *         {@link QOS_INVALID_PARAMETER} -2 level is null.
- *         {@linl QOS_INVALID_OPERATION} -3 not set QoS for current thread.
+ *         {@link QOS_INVALID_OPERATION} -3 not set QoS for current thread.
  * @see QoS_Level
  * @since 12
  */
