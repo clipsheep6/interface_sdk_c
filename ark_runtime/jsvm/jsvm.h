@@ -235,7 +235,7 @@ JSVM_EXTERN JSVM_Status OH_JSVM_GetVM(JSVM_Env env,
 JSVM_EXTERN JSVM_Status OH_JSVM_CompileScript(JSVM_Env env,
                                               JSVM_Value script,
                                               const uint8_t* cachedData,
-                                              size_t cacheDataLength,
+                                              size_t cachedDataLength,
                                               bool eagerCompile,
                                               bool* cacheRejected,
                                               JSVM_Script* result);
@@ -939,6 +939,54 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CreateStringUtf8(JSVM_Env env,
                                                  const char* str,
                                                  size_t length,
                                                  JSVM_Value* result);
+
+/**
+ * @brief This API allocates a JavaScript string value with an external ISO-8859-1-encoded C
+ * string attached to it.
+ * The API adds a JSVM_Finalize callback which will be called when the JavaScript objects
+ * just created has been garbage collected.
+ *
+ * @param env: The environment that the API is invoked under.
+ * @param string: Raw pointer to the external string.
+ * @param finalizeCb: Optional callback to call when the external value is being collected. JSVM_Finalize provides
+ * more details.
+ * @param finalizeHint: Optional hint to pass to the finalize callback during collection.
+ * @param result: A JSVM_Value representing an external value.
+ * @param copied: true if the string is fall back to non-external string creation and is copied into vm
+ * @return Returns JSVM_OK if the API succeeded.
+ * @since 12
+ */
+JSVM_EXTERN JSVM_Status OH_JSVM_CreateExternalStringLatin1(JSVM_Env env,
+                                                           char* str,
+                                                           size_t length,
+                                                           JSVM_Finalize finalizeCallback,
+                                                           void* finalizeHJint,
+                                                           JSVM_Value* result,
+                                                           bool* copied);
+
+/**
+ * @brief This API allocates a JavaScript string value with an external UTF16-LE-encoded C
+ * string attached to it.
+ * The API adds a JSVM_Finalize callback which will be called when the JavaScript objects
+ * just created has been garbage collected.
+ *
+ * @param env: The environment that the API is invoked under.
+ * @param string: Raw pointer to the external string.
+ * @param finalizeCb: Optional callback to call when the external value is being collected. JSVM_Finalize provides
+ * more details.
+ * @param finalizeHint: Optional hint to pass to the finalize callback during collection.
+ * @param result: A JSVM_Value representing an external value.
+ * @param copied: true if the string is fall back to non-external string creation and is copied into vm
+ * @return Returns JSVM_OK if the API succeeded.
+ * @since 12
+ */
+JSVM_EXTERN JSVM_Status OH_JSVM_CreateExternalStringUtf16(JSVM_Env env,
+                                                          char16_t* str,
+                                                          size_t length,
+                                                          JSVM_Finalize finalizeCallback,
+                                                          void* finalizeHint,
+                                                          JSVM_Value* result,
+                                                          bool* copied);
 
 /**
  * @brief This API returns the length of an array.
@@ -1879,7 +1927,7 @@ JSVM_EXTERN JSVM_Status OH_JSVM_NewInstance(JSVM_Env env,
  * is null-terminated.
  * @param constructor: Struct include callback function that handles constructing instances of the class.
  * When wrapping a C++ class, this method must be a static member with the JSVM_Callback.callback
- * signature. A C++ class constructor cannot be used. 
+ * signature. A C++ class constructor cannot be used.
  * Include Optional data to be passed to the constructor callback as the data
  * property of the callback info. JSVM_Callback provides more details.
  * @param propertyCount: Number of items in the properties array argument.
@@ -2254,7 +2302,7 @@ JSVM_EXTERN JSVM_Status OH_JSVM_WaitForDebugger(JSVM_Env env,
  * is null-terminated.
  * @param constructor: Struct include callback function that handles constructing instances of the class.
  * When wrapping a C++ class, this method must be a static member with the JSVM_Callback.callback
- * signature. A C++ class constructor cannot be used. 
+ * signature. A C++ class constructor cannot be used.
  * Include Optional data to be passed to the constructor callback as the data
  * property of the callback info. JSVM_Callback provides more details.
  * @param propertyCount: Number of items in the properties array argument.
