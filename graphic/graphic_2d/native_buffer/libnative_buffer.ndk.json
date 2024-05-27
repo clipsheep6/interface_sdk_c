@@ -8,5 +8,8 @@
     { "name": "OH_NativeBuffer_GetSeqNum" },
     { "name": "OH_NativeBuffer_SetColorSpace" },
     { "name": "OH_NativeBuffer_MapPlanes" },
-    { "name": "OH_NativeBuffer_FromNativeWindowBuffer" }
+    { "name": "OH_NativeBuffer_FromNativeWindowBuffer" },
+    { "name": "OH_NativeBuffer_GetColorSpace" },
+    { "name": "OH_NativeBuffer_SetMetadataValue" },
+    { "name": "OH_NativeBuffer_GetMetadataValue" }
 ]
