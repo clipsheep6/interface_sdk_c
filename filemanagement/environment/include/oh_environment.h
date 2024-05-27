@@ -39,6 +39,7 @@ extern "C" {
 #endif
 /**
  * @brief Get the user Download directory.
+ * This API can be called only by system applications.
  *
  * @permission ohos.permission.READ_WRITE_DOWNLOAD_DIRECTORY
  * @param result Output a pointer to a string. Please use free() to clear the resource.
@@ -53,6 +54,7 @@ FileManagement_ErrCode OH_Environment_GetUserDownloadDir(char **result);
 
 /**
  * @brief Get the user Desktop directory.
+ * This API can be called only by system applications.
  *
  * @permission ohos.permission.READ_WRITE_DESKTOP_DIRECTORY
  * @param result Output a pointer to a string. Please use free() to clear the resource.
@@ -67,6 +69,7 @@ FileManagement_ErrCode OH_Environment_GetUserDesktopDir(char **result);
 
 /**
  * @brief Get the user Document directory.
+ * This API can be called only by system applications.
  *
  * @permission ohos.permission.READ_WRITE_DOCUMENTS_DIRECTORY
  * @param result Output a pointer to a string. Please use free() to clear the resource.
