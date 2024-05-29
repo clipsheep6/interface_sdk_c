@@ -147,7 +147,7 @@ bool OH_Drawing_RegionSetPath(OH_Drawing_Region* region, const OH_Drawing_Path* 
  * @since 12
  * @version 1.0
  */
-bool OH_Drawing_RegionIsContainsRegion(const OH_Drawing_Region* region, const OH_Drawing_Region* other);
+bool OH_Drawing_RegionIsRegionContained(const OH_Drawing_Region* region, const OH_Drawing_Region* other);
 
 /**
  * @brief Destroys an <b>OH_Drawing_Region</b> object and reclaims the memory occupied by the object.

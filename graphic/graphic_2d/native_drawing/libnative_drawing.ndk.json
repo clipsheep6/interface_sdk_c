@@ -1184,7 +1184,7 @@
     },
     {
         "first_introduced": "12",
-        "name": "OH_Drawing_RegionIsContainsRegion"
+        "name": "OH_Drawing_RegionIsRegionContained"
     },
     {
         "first_introduced": "12",
