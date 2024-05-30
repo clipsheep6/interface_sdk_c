@@ -115,6 +115,18 @@ OH_Drawing_Corner_Radii OH_Drawing_RoundRectGetCorner(OH_Drawing_RoundRect*, OH_
  */
 void OH_Drawing_RoundRectDestroy(OH_Drawing_RoundRect*);
 
+/**
+ * @brief Translates RoundRect by (dx, dy).
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param OH_Drawing_RoundRect Indicates the pointer to an <b>OH_Drawing_RoundRect</b> object.
+ * @param dx Offsets added to rect left and rect right.
+ * @param dy Offsets added to rect top and rect bottom.
+ * @since 12
+ * @version 1.0
+ */
+void OH_Drawing_RoundRectOffset(OH_Drawing_RoundRect*, float dx, float dy);
+
 #ifdef __cplusplus
 }
 #endif

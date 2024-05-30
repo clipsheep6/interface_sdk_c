@@ -62,6 +62,19 @@ OH_Drawing_ImageFilter* OH_Drawing_ImageFilterCreateBlur(float sigmaX, float sig
     OH_Drawing_ImageFilter*);
 
 /**
+ * @brief Creates an <b>OH_Drawing_ImageFilter</b> object that composes them.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param ImageFilterOne Indicates the pointer to an <b>OH_Drawing_ImageFilter</b> object.
+ * @param ImageFilterTwo Indicates the pointer to an <b>OH_Drawing_ImageFilter</b> object.
+ * @return Returns the shared pointer to the <b>OH_Drawing_ImageFilter</b> object that its type is compose.
+ * @since 12
+ * @version 1.0
+ */
+OH_Drawing_ImageFilter* OH_Drawing_ImageFilterCreateComposeImageFilter(
+    OH_Drawing_ImageFilter* ImageFilterOne, OH_Drawing_ImageFilter* ImageFilterTwo);
+
+/**
  * @brief Creates an <b>OH_Drawing_ImageFilter</b> object that applies the color filter to the input.
  *
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
@@ -75,6 +88,19 @@ OH_Drawing_ImageFilter* OH_Drawing_ImageFilterCreateBlur(float sigmaX, float sig
  * @version 1.0
  */
 OH_Drawing_ImageFilter* OH_Drawing_ImageFilterCreateFromColorFilter(OH_Drawing_ColorFilter*, OH_Drawing_ImageFilter*);
+
+/**
+ * @brief Creates an <b>OH_Drawing_ImageFilter</b> object that composes them.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param ImageFilterOne Indicates the pointer to an <b>OH_Drawing_ImageFilter</b> object.
+ * @param ImageFilterTwo Indicates the pointer to an <b>OH_Drawing_ImageFilter</b> object.
+ * @return Returns the shared pointer to the <b>OH_Drawing_ImageFilter</b> object that it's type is compose.
+ * @since 12
+ * @version 1.0
+ */
+OH_Drawing_ImageFilter* OH_Drawing_ImageFilterCreateComposeImageFilter(OH_Drawing_ImageFilter* ImageFilterOne,
+    OH_Drawing_ImageFilter* ImageFilterTwo);
 
 /**
  * @brief Destroys an <b>OH_Drawing_ImageFilter</b> object and reclaims the memory occupied by the object.

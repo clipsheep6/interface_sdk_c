@@ -65,6 +65,40 @@ OH_Drawing_Point* OH_Drawing_PointCreate(float x, float y);
  */
 void OH_Drawing_PointDestroy(OH_Drawing_Point*);
 
+/**
+ * @brief Gets the x-axis coordinates of the point.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param OH_Drawing_Point Indicates the pointer to an <b>OH_Drawing_Point</b> object.
+ * @return Returns the x-axis coordinates of the pointer.
+ * @since 12
+ * @version 1.0
+ */
+float OH_Drawing_PointGetX(const OH_Drawing_Point*);
+
+/**
+ * @brief Gets the y-axis coordinates of the point.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param OH_Drawing_Point Indicates the pointer to an <b>OH_Drawing_Point</b> object.
+ * @return Returns the y-axis coordinates of the pointer.
+ * @since 12
+ * @version 1.0
+ */
+float OH_Drawing_PointGetY(const OH_Drawing_Point*);
+
+/**
+ * @brief Sets the x-axis and y-axis coordinates of the point.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param OH_Drawing_Point Indicates the pointer to an <b>OH_Drawing_Point</b> object.
+ * @param x Indicates the x-axis coordinates of the point.
+ * @param y Indicates the y-axis coordinates of the point.
+ * @since 12
+ * @version 1.0
+ */
+void OH_Drawing_PointSet(OH_Drawing_Point*, float x, float y);
+
 #ifdef __cplusplus
 }
 #endif

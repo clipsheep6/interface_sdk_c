@@ -731,6 +731,52 @@ bool OH_Drawing_CanvasReadPixels(OH_Drawing_Canvas*, OH_Drawing_Image_Info*,
  */
 bool OH_Drawing_CanvasReadPixelsToBitmap(OH_Drawing_Canvas*, OH_Drawing_Bitmap*, int32_t srcX, int32_t srcY);
 
+/**
+ * @brief Gets whether clip is empty.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param OH_Drawing_Canvas Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+ * @return Returns <b>true</b> if clip is empty; returns <b>false</b> otherwise.
+ * @since 12
+ * @version 1.0
+ */
+bool OH_Drawing_CanvasIsClipEmpty(OH_Drawing_Canvas*);
+
+/**
+ * @brief Gets whether clip is Rect and not empty.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param OH_Drawing_Canvas Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+ * @return Returns <b>true</b> if clip is rect and not empty; returns <b>false</b> otherwise.
+ * @since 12
+ * @version 1.0
+ */
+bool OH_Drawing_CanvasIsClipRect(OH_Drawing_Canvas*);
+
+/**
+ * @brief Gets imageInfo of canvas.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param OH_Drawing_Canvas Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+ * @param OH_Drawing_Image_Info Indicates the pointer to an <b>OH_Drawing_Image_Info</b> object.
+ * @since 12
+ * @version 1.0
+ */
+void OH_Drawing_CanvasGetImageInfo(OH_Drawing_Canvas*, OH_Drawing_Image_Info*);
+
+/**
+ * @brief Replaces the clipping area with the intersection or difference of the
+ * current clipping area and region, and use a clipping edge that is aliased or anti-aliased.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param OH_Drawing_Canvas Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+ * @param OH_Drawing_Region Indicates the pointer to an <b>OH_Drawing_Region</b> object.
+ * @param OH_Drawing_CanvasClipOp To apply to clip, the default value is ClipOp::INTERSECT.
+ * @since 12
+ * @version 1.0
+ */
+void OH_Drawing_CanvasClipRegion(OH_Drawing_Canvas*, const OH_Drawing_Region*, OH_Drawing_CanvasClipOp);
+
 #ifdef __cplusplus
 }
 #endif

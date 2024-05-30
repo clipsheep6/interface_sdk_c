@@ -394,6 +394,20 @@ void OH_Drawing_FontSetEdging(OH_Drawing_Font*, OH_Drawing_FontEdging);
 OH_Drawing_FontEdging OH_Drawing_FontGetEdging(const OH_Drawing_Font*);
 
 /**
+ * @brief Calculates width of glyphs represented by text.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param OH_Drawing_Font Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+ * @param text Indicates the character storage encoded with text encoding.
+ * @param byteLength Indicates the text length in bytes.
+ * @param OH_Drawing_TextEncoding Indicates the text encoding.
+ * @return Returns the width of the glyphs represented by text.
+ * @since 12
+ * @version 1.0
+ */
+float OH_Drawing_FontMeasureText(OH_Drawing_Font*, const void* text, size_t byteLength, OH_Drawing_TextEncoding);
+
+/**
  * @brief Destroys an <b>OH_Drawing_Font</b> object and reclaims the memory occupied by the object.
  *
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
