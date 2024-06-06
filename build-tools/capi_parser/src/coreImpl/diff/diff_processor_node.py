@@ -19,17 +19,29 @@ import os
 from collections import OrderedDict
 from clang.cindex import CursorKind
 from coreImpl.diff.diff_processor_permission import compare_permission, RangeChange
-from typedef.diff.diff import TAGS, DiffType, DiffInfo, Scene, ApiInfo
+from typedef.diff.diff import TAGS, DiffType, DiffInfo, Scene
 
 current_file = os.path.dirname(__file__)
+change_data_total = []
+
+
+def get_not_api_kind_list():
+    not_api_kind_list = [
+        'MACRO_DEFINITION',
+        'TRANSLATION_UNIT',
+        'MACRO_INSTANTIATION',
+        'INCLUSION_DIRECTIVE'
+    ]
+    return not_api_kind_list
 
 
 def wrap_diff_info(old_info, new_info, diff_info: DiffInfo):
+    not_api_kind_list = get_not_api_kind_list()
     if old_info is not None:
         if 'temporary_name' in old_info['name']:
             old_info['name'] = ''
         if (not diff_info.is_api_change) and 'kind' in old_info \
-                and 'MACRO_DEFINITION' != old_info['kind']:
+                and (old_info['kind'] not in not_api_kind_list):
             diff_info.set_is_api_change(True)
         diff_info.set_api_name(old_info['name'])
         diff_info.set_api_type(old_info['kind'])
@@ -51,7 +63,7 @@ def wrap_diff_info(old_info, new_info, diff_info: DiffInfo):
         if 'temporary_name' in new_info['name']:
             new_info['name'] = ''
         if (not diff_info.is_api_change) and 'kind' in new_info \
-                and 'MACRO_DEFINITION' != new_info['kind']:
+                and (new_info['kind'] not in not_api_kind_list):
             diff_info.set_is_api_change(True)
         diff_info.set_api_name(new_info['name'])
         diff_info.set_api_type(new_info['kind'])
@@ -114,25 +126,58 @@ def process_func_return(old, new, diff_info_list):
         diff_info_list.append(diff_info)
 
 
+def process_func_param_location(old_param_list, new_param_list):
+    result_list = []
+    old_param_str_list = get_param_name_and_type(old_param_list)
+    new_param_str_list = get_param_name_and_type(new_param_list)
+    old_len = len(old_param_list)
+    for i, element in enumerate(old_param_str_list):
+        if element not in new_param_str_list:
+            return result_list
+        if i != new_param_str_list.index(element) and i + 1 <= old_len:
+            result_obj = wrap_diff_info(old_param_list[i], new_param_list[i],
+                                        DiffInfo(DiffType.FUNCTION_PARAM_POS_CHANGE))
+            result_list.append(result_obj)
+    return result_list
+
+
+def get_param_name_and_type(param_list):
+    param_str_list = []
+    for param in param_list:
+        if 'name' in param and 'type' in param:
+            param_str = '{} {}'.format(param.get('type'), param.get('name'))
+            param_str_list.append(param_str)
+    return param_str_list
+
+
+def process_each_param(old, new, old_len, new_len, diff_info_list):
+    for i in range(max(old_len, new_len)):
+        if (i + 1) > new_len:  # 减少参数
+            result_message_obj = get_initial_result_obj(DiffType.FUNCTION_PARAM_REDUCE, new, old)
+            new_none = None
+            diff_info = wrap_diff_info(old['parm'][i], new_none, result_message_obj)
+            diff_info_list.append(diff_info)
+
+        elif (i + 1) > old_len:  # 增加参数
+            result_message_obj = get_initial_result_obj(DiffType.FUNCTION_PARAM_ADD, new, old)
+            old_none = None
+            diff_info = wrap_diff_info(old_none, new['parm'][i], result_message_obj)
+            diff_info_list.append(diff_info)
+
+        else:
+            process_param_scene(old['parm'], new['parm'], diff_info_list, i, new)
+
+
 def process_func_param(old, new, diff_info_list):
     if 'parm' in old and 'parm' in new:
         old_len = len(old['parm'])
         new_len = len(new['parm'])
-        for i in range(max(old_len, new_len)):
-            if (i + 1) > new_len:  # 减少参数
-                result_message_obj = get_initial_result_obj(DiffType.FUNCTION_PARAM_REDUCE, new, old)
-                new_none = None
-                diff_info = wrap_diff_info(old['parm'][i], new_none, result_message_obj)
-                diff_info_list.append(diff_info)
-
-            elif (i + 1) > old_len:  # 增加参数
-                result_message_obj = get_initial_result_obj(DiffType.FUNCTION_PARAM_ADD, new, old)
-                old_none = None
-                diff_info = wrap_diff_info(old_none, new['parm'][i], result_message_obj)
-                diff_info_list.append(diff_info)
-
-            else:
-                process_param_scene(old['parm'], new['parm'], diff_info_list, i, new)
+        result_obj_list = []
+        if old_len == new_len:
+            result_obj_list = process_func_param_location(old['parm'], new['parm'])
+            diff_info_list.extend(result_obj_list)
+        if not result_obj_list:
+            process_each_param(old, new, old_len, new_len, diff_info_list)
 
     elif 'parm' not in old and 'parm' in new:   # 旧无新有
         result_message_obj = get_initial_result_obj(DiffType.FUNCTION_PARAM_ADD, new, old)
@@ -388,16 +433,34 @@ def process_variable_const(old, new):
     diff_var_or_con = []
     if 'is_const' in old:
         if old['is_const']:     # 处理常量
+            if 'is_const' in new and new['is_const']:
+                process_constant_type(old, new, diff_var_or_con)  # 处理常量类型
+            elif 'is_const' in new and (not new['is_const']):  # 处理常量变变量
+                process_const_change_variable(old, new, diff_var_or_con)
             process_constant_name(old, new, diff_var_or_con)  # 处理常量名
-            process_constant_type(old, new, diff_var_or_con)  # 处理常量类型
             process_constant_value(old, new, diff_var_or_con)  # 处理常量值
 
         else:   # 处理变量
+            if 'is_const' in new and new['is_const']:
+                process_variable_change_const(old, new, diff_var_or_con)  # 处理变量变常量
+            elif 'is_const' in new and (not new['is_const']):
+                process_variable_type(old, new, diff_var_or_con)  # 处理变量类型
             process_variable_name(old, new, diff_var_or_con)     # 处理变量名
-            process_variable_type(old, new, diff_var_or_con)     # 处理变量类型
             process_variable_value(old, new, diff_var_or_con)    # 处理变量值
 
     return diff_var_or_con
+
+
+def process_const_change_variable(old, new, diff_variable_list):
+    if 'is_const' in new and (not new['is_const']):
+        diff_info = wrap_diff_info(old, new, DiffInfo(DiffType.CONSTANT_CHANGE_TO_VARIABLE))
+        diff_variable_list.append(diff_info)
+
+
+def process_variable_change_const(old, new, diff_variable_list):
+    if 'is_const' in new and new['is_const']:
+        diff_info = wrap_diff_info(old, new, DiffInfo(DiffType.VARIABLE_CHANGE_TO_CONSTANT))
+        diff_variable_list.append(diff_info)
 
 
 def process_variable_name(old, new, diff_variable_list):
@@ -429,6 +492,12 @@ def process_variable_value(old, new, diff_variable_list):
         diff_info = wrap_diff_info(old['children'][0], new,
                                    DiffInfo(DiffType.VARIABLE_VALUE_CHANGE))
         diff_variable_list.append(diff_info)
+
+
+def process_constant_to_variable(old, new, diff_constant_list):
+    if not new['is_const']:
+        diff_info = wrap_diff_info(old, new, DiffInfo(DiffType.CONSTANT_CHANGE_TO_VARIABLE))
+        diff_constant_list.append(diff_info)
 
 
 def process_constant_name(old, new, diff_constant_list):
@@ -510,20 +579,40 @@ process_data = {
 }
 
 
-def judgment_entrance(old, new):
+def collect_change_data_total(data: dict, diff_info_list):
+    for element in diff_info_list:
+        element.set_api_node_name(data['name'])
+    change_data_total.append(diff_info_list)
+
+
+def judgment_entrance(old, new, data_type=0):
+    """
+    Args:
+        old: ***
+        new: ***
+        data_type(int): 数据处理类型。1-文件新增或删除；0-其他
+    """
     diff_info_list = []
     if old is None and new is None:
         return diff_info_list
     if old is None:
-        diff_info_list.append(wrap_diff_info(old, new, DiffInfo(DiffType.ADD_API)))
+        diff_type = DiffType.ADD_FILE if data_type == 1 else DiffType.ADD_API
+        diff_info_list.append(wrap_diff_info(old, new, DiffInfo(diff_type)))
+        if diff_type == DiffType.ADD_API:
+            collect_change_data_total(new, diff_info_list)
         return diff_info_list
     if new is None:
-        diff_info_list.append(wrap_diff_info(old, new, DiffInfo(DiffType.REDUCE_API)))
+        diff_type = DiffType.REDUCE_FILE if data_type == 1 else DiffType.REDUCE_API
+        diff_info_list.append(wrap_diff_info(old, new, DiffInfo(diff_type)))
+        if diff_type == DiffType.REDUCE_API:
+            collect_change_data_total(old, diff_info_list)
         return diff_info_list
     kind = new['kind']
     diff_info_list.extend(process_comment_str(old, new))
     if kind in process_data:
         diff_info_list.extend(process_data[kind](old, new))
+    if diff_info_list:
+        collect_change_data_total(new, diff_info_list)
     return diff_info_list
 
 
@@ -778,6 +867,54 @@ def process_doc_list(old_doc_list: list, new_doc_list: list, old_info, new_info)
     return diff_info_list
 
 
+def get_eligible_labels_doc(doc_element):
+    addtogroup_doc_list_right = []
+    file_doc_list_right = []
+    if 'tags' in doc_element:
+        for element in doc_element['tags']:
+            if element.get('tag') and 'addtogroup' == element.get('tag'):
+                addtogroup_doc_list_right.append(doc_element)
+                break
+            elif element.get('tag') and 'file' == element.get('tag'):
+                file_doc_list_right.append(doc_element)
+                break
+    return addtogroup_doc_list_right, file_doc_list_right
+
+
+def get_addtogroup_and_file_doc(doc_list: list):
+    addtogroup_doc_list = []
+    file_doc_list = []
+    for doc_element in doc_list:
+        result_of_addtogroup_list, result_of_file_list = get_eligible_labels_doc(doc_element)
+        addtogroup_doc_list.extend(result_of_addtogroup_list)
+        file_doc_list.extend(result_of_file_list)
+
+    return addtogroup_doc_list, file_doc_list
+
+
+def process_addtogroup_and_file_list(old_list, new_list, old_info, new_info, num_key):
+    old_len = len(old_list)
+    new_len = len(new_list)
+    result_list = []
+    # addtogroup tag
+    if 1 == num_key:
+        if old_len > new_len:
+            result_list.append(wrap_diff_info(old_info, new_info, DiffInfo(DiffType.DOC_TAG_ADDTOGROUP_DECREASE)))
+        elif old_len < new_len:
+            result_list.append(wrap_diff_info(old_info, new_info, DiffInfo(DiffType.DOC_TAG_ADDTOGROUP_INCREASE)))
+        else:
+            result_list.extend(process_doc_list(old_list, new_list, old_info, new_info))
+    # file tag
+    elif 0 == num_key:
+        if old_len > new_len:
+            result_list.append(wrap_diff_info(old_info, new_info, DiffInfo(DiffType.DOC_TAG_FILE_DECREASE)))
+        elif old_len < new_len:
+            result_list.append(wrap_diff_info(old_info, new_info, DiffInfo(DiffType.DOC_TAG_FILE_INCREASE)))
+        else:
+            result_list.extend(process_doc_list(old_list, new_list, old_info, new_info))
+    return result_list
+
+
 def process_comment_str(old_info, new_info):
     diff_info_list = []
     if old_info['comment'] == new_info['comment']:
@@ -791,7 +928,12 @@ def process_comment_str(old_info, new_info):
     old_doc_list = process_comment(old_info['comment'])
     new_doc_list = process_comment(new_info['comment'])
     if new_info['kind'] == CursorKind.TRANSLATION_UNIT.name:
-        diff_info_list.extend(process_doc_list(old_doc_list, new_doc_list, old_info, new_info))
+        old_addtogroup_doc_list, old_file_doc_list = get_addtogroup_and_file_doc(old_doc_list)
+        new_addtogroup_doc_list, new_file_doc_list = get_addtogroup_and_file_doc(new_doc_list)
+        diff_info_list.extend(process_addtogroup_and_file_list(old_addtogroup_doc_list, new_addtogroup_doc_list,
+                                                               old_info, new_info, 1))
+        diff_info_list.extend(process_addtogroup_and_file_list(old_file_doc_list, new_file_doc_list,
+                                                               old_info, new_info, 0))
     else:
         if len(old_doc_list) > len(new_doc_list):
             diff_info_list.append(wrap_diff_info(old_info, new_info, DiffInfo(DiffType.REDUCE_DOC)))
