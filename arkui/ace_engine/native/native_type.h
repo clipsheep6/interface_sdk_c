@@ -1933,6 +1933,23 @@ typedef enum {
 } ArkUI_AccessibilityActionType;
 
 /**
+ * @brief Animation playback mode.
+ *
+ * @since 12
+ */
+typedef enum {
+  /**Animation loops forward. */
+  ARKUI_ANIMATION_DIRECTION_NORMAL = 0,
+  /**Animation loops reverse. */
+  ARKUI_ANIMATION_DIRECTION_ALTERNATE,
+  /**Animation loops alternately, odd times forward, even times reverse. */
+  ARKUI_ANIMATION_DIRECTION_REVERSE,
+  /**Animation loops alternately in reverse, odd times reverse, even times
+     forward. */
+  ARKUI_ANIMATION_DIRECTION_ALTERNATE_REVERSE,
+} ArkUI_AnimationDirection;
+
+/**
  * @brief Define the rolling source enumeration value.
  *
  * @since 12

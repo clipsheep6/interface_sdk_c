@@ -7013,6 +7013,15 @@ typedef struct {
       * @return Returns the pointer of the component, if not return NULL
       */
     ArkUI_NodeHandle (*getParent)(ArkUI_NodeHandle node);
+
+    /**
+    * @brief Uninstall all child nodes from the parent component.
+    *
+    * @param parent target node object.
+    * @return 0 - success.
+    * 401 - function parameter exception.
+    */
+    int32_t (*removeAllChildren)(ArkUI_NodeHandle parent);
 } ArkUI_NativeNodeAPI_1;
 
 /**
