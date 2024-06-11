@@ -28,6 +28,7 @@
 |  ├─graphic_2d
 ├─hiviewdfx
 |  ├─hiappevent
+|  ├─hicollie
 |  ├─hilog
 |  ├─hitrace
 ├─multimedia
