@@ -20,6 +20,7 @@
  * @file oh_file_uri.h
  *
  * @brief uri verification and conversion
+ * @kit CoreFileKit
  * @library libohfileuri.so
  * @syscap SystemCapability.FileManagement.AppFileService
  * @since 12
