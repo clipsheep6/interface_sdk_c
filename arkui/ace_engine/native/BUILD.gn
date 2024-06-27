@@ -36,6 +36,7 @@ if (!is_arkui_x) {
       "native_type.h",
       "styled_string.h",
       "ui_input_event.h",
+      "native_drag_and_drop.h",
     ]
   }
 

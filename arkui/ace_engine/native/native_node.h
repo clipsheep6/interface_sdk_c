@@ -5452,7 +5452,62 @@ typedef enum {
      * {@link ArkUI_NodeComponentEvent} does not contain parameters.
      */
     NODE_EVENT_ON_DETACH,
-
+    /**
+     * @brief Tells the listener one drag has entered a specific node.
+     *
+     * This event is triggered when the component is long pressed. \n
+     * When the event callback occurs, the union type in the {@link ArkUI_NodeEvent} object is
+     * {@link ArkUI_UIInputEvent}. \n
+     */
+    NODE_ON_DRAG_START,
+    /**
+     * @brief Tells the listener one drag has entered a specific node.
+     *
+     * This event is triggered when the dragged object enters the boundary of the component that listens to this event. \n
+     * When the event callback occurs, the union type in the {@link ArkUI_NodeEvent} object is
+     * {@link ArkUI_UIInputEvent}. \n
+     */
+    NODE_ON_DRAG_ENTER,
+    /**
+     * @brief Tells the listener one drag moved inside a specific node.
+     *
+     * This event is triggered when the the dragged object is moving within the scope of the component listening for the event. \n
+     * When the event callback occurs, the union type in the {@link ArkUI_NodeEvent} object is
+     * {@link ArkUI_UIInputEvent}. \n
+     */
+    NODE_ON_DRAG_MOVE,
+    /**
+     * @brief Tells the listener one drag has leaved from a specific node.
+     *
+     * This event is triggered when the the dragged object leaves the boundary of the component listening to this event. \n
+     * When the event callback occurs, the union type in the {@link ArkUI_NodeEvent} object is
+     * {@link ArkUI_UIInputEvent}. \n
+     */
+    NODE_ON_DRAG_LEAVE,
+    /**
+     * @brief Tells the listener that user has dropped, and it can request the data from the given information.
+     *
+     * This event is triggered when the component is detached. \n
+     * When the event callback occurs, the union type in the {@link ArkUI_NodeEvent} object is
+     * {@link ArkUI_UIInputEvent}. \n
+     */
+    NODE_ON_DROP,
+    /**
+     * @brief Tells the listener the whole drag activity has ended up.
+     *
+     * This event is triggered when user releases, and drag behavior ends. \n
+     * When the event callback occurs, the union type in the {@link ArkUI_NodeEvent} object is
+     * {@link ArkUI_UIInputEvent}. \n
+     */
+    NODE_ON_DRAG_END,
+    /**
+     * @brief Tells the listener the detailed interaction status before the drag motion started.
+     *
+     * This event is triggered when the component can be dragged, long press to float up preview image. \n
+     * When the event callback occurs, the union type in the {@link ArkUI_NodeEvent} object is
+     * {@link @link ArkUI_UIInputEvent}. \n
+     */
+    NODE_ON_PRE_DRAG,
     /**
      * @brief Defines the accessibility action event.
      *

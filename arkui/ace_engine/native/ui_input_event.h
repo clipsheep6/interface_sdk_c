@@ -180,6 +180,25 @@ enum {
 };
 
 /**
+ * @brief Enumerates the modifier keynames.
+ *
+ * @since 12
+ */
+typedef enum {
+    /** Ctrl. */
+    MODIFIER_KEY_CTRL = 0,
+
+    /** Shift. */
+    MODIFIER_KEY_SHIFT,
+
+    /** Alt. */
+    MODIFIER_KEY_ALT,
+
+    /** Fn. */
+    MODIFIER_KEY_FN,
+} ModifierKeyName;
+
+/**
  * @brief Obtains the type of this UI input event.
  *
  * @param event Indicates the pointer to the current UI input event.
