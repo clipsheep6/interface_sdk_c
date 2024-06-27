@@ -17,6 +17,22 @@
         "first_introduced": "12",
         "name": "OH_Drawing_BitmapGetImageInfo"
     },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_BitmapInstallPixels"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_BitmapPeekPixels"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_BitmapComputeByteSize"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_BitmapTryAllocPixels"
+    },
     { "name": "OH_Drawing_BitmapGetPixels" },
     {
         "first_introduced": "12",
@@ -35,6 +51,10 @@
     { "name": "OH_Drawing_BrushSetAntiAlias" },
     { "name": "OH_Drawing_BrushGetColor" },
     { "name": "OH_Drawing_BrushSetColor" },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_BrushSetColor4f"
+    },
     { "name": "OH_Drawing_BrushSetFilter" },
     {
         "first_introduced": "12",
@@ -86,6 +106,10 @@
     },
     { "name": "OH_Drawing_CanvasDrawRect" },
     { "name": "OH_Drawing_CanvasDrawRoundRect" },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_CanvasDrawNestedRoundRect"
+    },
     { "name": "OH_Drawing_CanvasDrawTextBlob" },
     {
         "first_introduced": "12",
@@ -98,6 +122,10 @@
     {
         "first_introduced": "12",
         "name": "OH_Drawing_CanvasDrawVertices"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_CanvasDrawImage"
     },
     { "name": "OH_Drawing_CanvasDrawImageRect" },
     {
@@ -468,6 +496,10 @@
     { "name": "OH_Drawing_PenSetAntiAlias" },
     { "name": "OH_Drawing_PenGetColor" },
     { "name": "OH_Drawing_PenSetColor" },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_PenSetColor4f"
+    },
     { "name": "OH_Drawing_PenGetWidth" },
     { "name": "OH_Drawing_PenSetWidth" },
     { "name": "OH_Drawing_PenGetMiterLimit" },
@@ -654,6 +686,10 @@
     },
     {
         "first_introduced": "12",
+        "name": "OH_Drawing_SurfaceGetImageSnapshot"
+    },
+    {
+        "first_introduced": "12",
         "name": "OH_Drawing_SurfaceDestroy"
     },
     { "name": "OH_Drawing_TextBlobCreateFromText" },
@@ -707,6 +743,22 @@
         "first_introduced": "12",
         "name": "OH_Drawing_PixelMapDissolve"
     },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_PixmapCreate"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_PixmapDestroy"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_PixmapGetWidth"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_PixmapGetHeight"
+    },
     { "name": "OH_Drawing_ImageCreate" },
     { "name": "OH_Drawing_ImageDestroy" },
     { "name": "OH_Drawing_ImageBuildFromBitmap" },
@@ -751,6 +803,14 @@
     {
         "first_introduced": "12",
         "name": "OH_Drawing_ImageGetImageInfo"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_ImageIsOpaque"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_ImageCreateFromRaster"
     },
     { "name": "OH_Drawing_SamplingOptionsCreate" },
     { "name": "OH_Drawing_SamplingOptionsDestroy" },
