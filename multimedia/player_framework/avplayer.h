@@ -73,6 +73,20 @@ typedef struct DRM_MediaKeySystemInfo DRM_MediaKeySystemInfo;
 typedef void (*Player_MediaKeySystemInfoCallback)(OH_AVPlayer *player, DRM_MediaKeySystemInfo* mediaKeySystemInfo);
 
 /**
+ * @brief Call back will be invoked when updating subtitle information.
+ * @param player Pointer to an OH_AVPlayer instance.
+ * @param text subtitle info's text.
+ * @param pts subtitle info's pts.
+ * @param duration subtitle info's duration.
+ * @param userData userData.
+ * @return {@link AV_ERR_OK} if the playback is started; otherwise returns an error code defined
+ * in {@link native_averrors.h} otherwise.
+ * @since 12
+ * @version 1.0
+ */
+typedef void (*OH_AVPlayerOnSubtitleUpdate)(OH_AVPlayer *player, const char *text, int32_t *pts,  int32_t *duration, void *userData);
+
+/**
  * @brief Create a player
  * @syscap SystemCapability.Multimedia.Media.AVPlayer
  * @return Returns a pointer to an OH_AVPlayer instance for success, nullptr for failure
