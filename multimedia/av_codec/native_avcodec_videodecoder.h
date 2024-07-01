@@ -372,7 +372,7 @@ OH_AVErrCode OH_VideoDecoder_RenderOutputBuffer(OH_AVCodec *codec, uint32_t inde
  * before, calling this interface only returns the output buffer corresponding to the specified index to the decoder.
  * The timestamp may have special meaning depending on the destination surface.
  * Invoker can use the timestamp to render the buffer at a specific time (at the VSYNC at or after the buffer
- * timestamp). For this to work, the timestamp needs to be reasonably close to the current SystemnanoTime. A few notes:
+ * timestamp). For this to work, the timestamp needs to be reasonably close to the current SystemNanoTime. A few notes:
  * 1. The buffer will not be returned to the codec until the timestamp has passed and the buffer is no longer used by
  *    the surface.
  * 2. Buffers are processed sequentially, so you may block subsequent buffers to be displayed on the surface.
