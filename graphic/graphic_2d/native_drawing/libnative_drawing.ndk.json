@@ -903,6 +903,14 @@
         "name": "OH_Drawing_DestroyFontDescriptor"
     },
     {
+        "first_introduced": "14",
+        "name": "OH_Drawing_MatchFontDescriptors"
+    },
+    {
+        "first_introduced": "14",
+        "name": "OH_Drawing_DestroyFontDescriptors"
+    },
+    {
         "first_introduced": "12",
         "name": "OH_Drawing_CreateFontParser"
     },
@@ -912,19 +920,19 @@
     },
     {
         "first_introduced": "14",
-        "name": "OH_Drawing_GetFontDescriptorByName"
+        "name": "OH_Drawing_GetFontDescriptorByFullName"
     },
     {
         "first_introduced": "14",
-        "name": "OH_Drawing_GetSystemFontFullNameListByType"
+        "name": "OH_Drawing_GetSystemFontFullNamesByType"
     },
     {
         "first_introduced": "14",
-        "name": "OH_Drawing_GetSystemFontFullNameListElement"
+        "name": "OH_Drawing_GetSystemFontFullNameByIndex"
     },
     {
         "first_introduced": "14",
-        "name": "OH_Drawing_DestroySystemFontFullNameList"
+        "name": "OH_Drawing_DestroySystemFontFullNames"
     },
     {
         "first_introduced": "12",
