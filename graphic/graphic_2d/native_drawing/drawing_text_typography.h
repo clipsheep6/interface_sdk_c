@@ -137,6 +137,8 @@ enum OH_Drawing_TextDecoration {
     TEXT_DECORATION_OVERLINE = 0x2,
     /** A strikethrough is used for decoration. */
     TEXT_DECORATION_LINE_THROUGH = 0x4,
+    /** A underline and strikethrough is used for decoration. */
+    TEXT_DECORATION_UNDERLINE_LINE_THROUGH = 0x5,
 };
 
 /**
