@@ -2651,6 +2651,32 @@ JSVM_EXTERN JSVM_Status OH_JSVM_IsObject(JSVM_Env env,
 JSVM_EXTERN JSVM_Status OH_JSVM_IsBigInt(JSVM_Env env,
                                          JSVM_Value value,
                                          bool* isBigInt);
+
+/**
+ * @brief Creates a function with a given script as its body.
+ *
+ * @param env: The environment that the API is invoked under.
+ * @param funcName: A string containing the function's name. Pass NULL to create an anonymous function.
+ * @param length: The length of the funcName in bytes, or JSVM_AUTO_LENGTH if it
+ * is null-terminated.
+ * @param argc: The count of elements in the argv array.
+ * @param argv: Array of JSVM_Values representing JavaScript strings passed in as arguments to the function.
+ * @param script: A JavaScript string containing the script to use as the function's body.
+ * @param result: JSVM_Value representing the JavaScript function object for the newly
+ * created function.
+ * @return  Returns JSVM function's result code.
+ *          {@link JSVM_OK } If the API succeeded.
+ *          {@link JSVM_GENERIC_FAILURE} If the input script fails to be compiled.\n
+ * @since 12
+ */
+JSVM_EXTERN JSVM_Status OH_JSVM_CreateFunctionWithScript(JSVM_Env env,
+                                                         const char* funcName,
+                                                         size_t length,
+                                                         size_t argc,
+                                                         const JSVM_Value* argv,
+                                                         JSVM_Value script,
+                                                         JSVM_Value* result);
+
 EXTERN_C_END
 
 /** @} */
