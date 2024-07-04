@@ -43,6 +43,9 @@
     "name": "OH_PixelMap_Scale"
   },
   {
+    "name": "OH_PixelMap_SmoothScale"
+  },
+  {
     "name": "OH_PixelMap_Translate"
   },
   {
