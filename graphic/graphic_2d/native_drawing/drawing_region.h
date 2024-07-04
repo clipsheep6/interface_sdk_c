@@ -104,13 +104,13 @@ bool OH_Drawing_RegionContains(OH_Drawing_Region* region, int32_t x, int32_t y);
  *
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
  * @param region Indicates the pointer to an <b>OH_Drawing_Region</b> object.
- * @param dst Indicates the pointer to an <b>OH_Drawing_Region</b> object.
+ * @param other Indicates the pointer to an <b>OH_Drawing_Region</b> object.
  * @param op Indicates the operation to apply to combine.
  * @return Returns <b>true</b> if constructed Region is not empty; returns <b>false</b> otherwise.
  * @since 12
  * @version 1.0
  */
-bool OH_Drawing_RegionOp(OH_Drawing_Region* region, const OH_Drawing_Region* dst, OH_Drawing_RegionOpMode op);
+bool OH_Drawing_RegionOp(OH_Drawing_Region* region, const OH_Drawing_Region* other, OH_Drawing_RegionOpMode op);
 
 /**
  * @brief Sets the region to the specified rect.
