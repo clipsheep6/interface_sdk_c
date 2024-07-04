@@ -173,6 +173,13 @@ struct Input_MouseEvent;
  */
 struct Input_TouchEvent;
 
+/** 
+ * @brief 鼠标样式参数
+ * 
+ * @since 12
+*/
+struct Input_PointerStyle;
+
 /**
  * @brief Enumerates the error codes.
  *
@@ -186,8 +193,34 @@ typedef enum {
     /** @error Non-system application */
     INPUT_NOT_SYSTEM_APPLICATION = 202,
     /** @error Parameter check failed */
-    INPUT_PARAMETER_ERROR = 401
+    INPUT_PARAMETER_ERROR = 401,
+    /** @创建监听或拦截失败 */
+    INPUT_ADD_HANDLER_ERROR = 402,
+    /** @删除监听或拦截失败 */
+    INPUT_REMOVE_HANDLER_ERROR = 403,
+    /** @设置鼠标样式信息失败 */
+    INPUT_SET_POINTER_STYLE_ERROR = 404,
+    /** @获取鼠标样式信息失败 */
+    INPUT_GET_POINTER_STYLE_ERROR = 405
 } Input_Result;
+
+/**
+ * @brief 定义一个回调函数用于回调鼠标事件
+ * @since 12
+ */
+typedef void (*Input_KeyEventCallback)(struct Input_KeyEvent* keyEvent);
+
+/**
+ * @brief 定义一个回调函数用于回调鼠标事件
+ * @since 12
+ */
+typedef void (*Input_MouseEventCallback)(struct Input_MouseEvent* mouseEvent);
+
+/**
+ * @brief 定义一个回调函数用于回调触摸事件
+ * @since 12
+ */
+typedef void (*Input_TouchEventCallback)(struct Input_TouchEvent* touchEvent);
 
 /**
  * @brief Queries the key state.
@@ -683,6 +716,236 @@ int64_t OH_Input_GetTouchEventActionTime(const struct Input_TouchEvent* touchEve
  */
 void OH_Input_CancelInjection();
 
+/**
+ * @brief 创建一个按键事件的监听.
+ *
+ * @permission ohos.permission.INPUT_MONITORING
+ * @param callback - 回调函数.
+ * @return 监听创建成功时返回0，参数错误返回401，创建失败返回402
+ * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @since 12
+ */
+int32_t OH_Input_AddKeyEventMonitor(Input_KeyEventCallback callback);
+
+/**
+ * @brief 创建一个鼠标事件的监听.
+ *
+ * @permission ohos.permission.INPUT_MONITORING
+ * @param callback - 回调函数.
+ * @return 监听创建成功时返回0，参数错误返回401，创建失败返回402
+ * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @since 12
+ */
+int32_t OH_Input_AddMouseEventMonitor(Input_MouseEventCallback callback);
+
+/**
+ * @brief 创建一个触摸事件的监听.
+ *
+ * @permission ohos.permission.INPUT_MONITORING
+ * @param callback - 回调函数.
+ * @return 监听创建成功时返回0，参数错误返回401，创建失败返回402
+ * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @since 12
+ */
+int32_t OH_Input_AddTouchEventMonitor(Input_TouchEventCallback callback);
+
+/**
+ * @brief 删除按键事件监听
+ *
+ * @permission ohos.permission.INPUT_MONITORING
+ * @param callback - 回调函数.
+ * @return 监听删除成功时返回0，参数错误返回401，创建失败返回402
+ * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @since 12
+ */
+int32_t OH_Input_RemoveKeyEventMonitor(Input_KeyEventCallback callback);
+
+/**
+ * @brief 删除鼠标事件监听
+ *
+ * @permission ohos.permission.INPUT_MONITORING
+ * @param callback - 回调函数.
+ * @return 监听删除成功时返回0，参数错误返回401，创建失败返回402
+ * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @since 12
+ */
+int32_t OH_Input_RemoveMouseEventMonitor(Input_MouseEventCallback callback);
+
+/**
+ * @brief 删除触摸事件监听
+ *
+ * @permission ohos.permission.INPUT_MONITORING
+ * @param callback - 回调函数.
+ * @return 监听删除成功时返回0，参数错误返回401，创建失败返回402
+ * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @since 12
+ */
+int32_t OH_Input_RemoveTouchEventMonitor(Input_TouchEventCallback callback);
+
+/**
+ * @brief 创建一个按键事件的拦截.
+ *
+ * @permission ohos.permission.INTERCEPT_INPUT_EVENT
+ * @param callback - 回调函数.
+ * @return 拦截创建成功时返回0，参数错误返回401，创建失败返回402
+ * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @since 12
+ */
+int32_t OH_Input_AddKeyEventInterceptor(Input_KeyEventCallback callback);
+
+/**
+ * @brief 创建一个鼠标事件的拦截.
+ *
+ * @permission ohos.permission.INTERCEPT_INPUT_EVENT
+ * @param callback - 回调函数.
+ * @return 拦截创建成功时返回0，参数错误返回401，创建失败返回402
+ * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @since 12
+ */
+int32_t OH_Input_AddMouseEventInterceptor(Input_MouseEventCallback callback);
+
+/**
+ * @brief 创建一个触摸事件的拦截.
+ *
+ * @permission ohos.permission.INTERCEPT_INPUT_EVENT
+ * @param callback - 回调函数.
+ * @return 拦截创建成功时返回0，参数错误返回401，创建失败返回402
+ * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @since 12
+ */
+int32_t OH_Input_AddTouchEventInterceptor(Input_TouchEventCallback callback);
+
+/**
+ * @brief 删除按键事件拦截
+ *
+ * @permission ohos.permission.INTERCEPT_INPUT_EVENT
+ * @param callback - 回调函数.
+ * @return 拦截删除成功时返回0，参数错误返回401，创建失败返回402
+ * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @since 12
+ */
+int32_t OH_Input_RemoveKeyEventInterceptor(Input_KeyEventCallback callback);
+
+/**
+ * @brief 删除鼠标事件拦截
+ *
+ * @permission ohos.permission.INTERCEPT_INPUT_EVENT
+ * @param callback - 回调函数.
+ * @return 拦截删除成功时返回0，参数错误返回401，创建失败返回402
+ * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @since 12
+ */
+int32_t OH_Input_RemoveMouseEventInterceptor(Input_MouseEventCallback callback);
+
+/**
+ * @brief 删除触摸事件拦截
+ *
+ * @permission ohos.permission.INTERCEPT_INPUT_EVENT
+ * @param callback - 回调函数.
+ * @return 拦截删除成功时返回0，参数错误返回401，创建失败返回402
+ * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @since 12
+ */
+int32_t OH_Input_RemoveTouchEventInterceptor(Input_TouchEventCallback callback);
+
+/**
+ * @brief 创建一个鼠标样式对象
+ *
+ * @return 成功返回一个Input_PointerStyle类型指针，失败返回nullptr
+ * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @since 12
+ */
+struct Input_PointerStyle* OH_Input_CreatePointerStyle();
+
+/**
+ * @brief 销毁一个鼠标样式对象.
+ *
+ * @param pointerStyle 鼠标样式对象
+ * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @since 12
+ */
+void OH_Input_DestroyPointerStyle(struct Input_PointerStyle** pointerStyle);
+
+/**
+ * @brief 设置鼠标样式
+ *
+ * @param windowId - 窗口id.
+ * @param pointerStyle - 鼠标样式各项参数
+ * @return 设置成功时返回0，参数错误返回401，设置失败返回404
+ * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @since 12
+ */
+int32_t OH_Input_SetPointerStyle(int32_t windowId, const struct Input_PointerStyle* pointerStyle);
+
+/**
+ * @brief 获取鼠标样式
+ *
+ * @param windowId - 窗口id.
+ * @param pointerStyle - 保存获取到的鼠标样式各项参数
+ * @return 获取成功时返回0，参数错误返回401，获取失败返回405
+ * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @since 12
+ */
+int32_t OH_Input_GetPointerStyle(int32_t windowId, struct Input_PointerStyle* pointerStyle);
+
+/**
+ * @brief 设置鼠标是否可见
+ *
+ * @param visible - 是否可见
+ * @return 设置成功时返回0，参数错误返回401，设置失败返回404
+ * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @since 12
+ */
+int32_t OH_Input_SetPointerVisible(bool visible);
+
+/**
+ * @brief 获取鼠标是否可见
+ *
+ * @return true或false
+ * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @since 12
+ */
+bool OH_Input_IsPointerVisible();
+
+/**
+ * @brief 设置鼠标颜色
+ *
+ * @param color - 鼠标颜色
+ * @return 设置成功时返回0，参数错误返回401，设置失败返回404
+ * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @since 12
+ */
+int32_t OH_Input_SetPointerColor(int32_t color);
+
+/**
+ * @brief 获取鼠标颜色
+ *
+ * @param color - 保存获取到的鼠标颜色
+ * @return 获取成功时返回0，获取失败返回405
+ * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @since 12
+ */
+int32_t OH_Input_GetPointerColor(int32_t* color);
+
+/**
+ * @brief 设置鼠标大小
+ *
+ * @param size - 鼠标大小
+ * @return 设置成功时返回0，参数错误返回401，设置失败返回404
+ * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @since 12
+ */
+int32_t OH_Input_SetPointerSize(int32_t size);
+
+/**
+ * @brief 获取鼠标大小
+ *
+ * @param size - 保存获取到的鼠标大小
+ * @return 获取成功时返回0，获取失败返回405
+ * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @since 12
+ */
+int32_t OH_Input_GetPointerSize(int32_t* size);
 #ifdef __cplusplus
 }
 #endif
