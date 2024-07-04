@@ -7071,7 +7071,7 @@ typedef struct {
      * @param height Indicates the height.
      * @return Returns the error code.
      *         Returns {@link ARKUI_ERROR_CODE_NO_ERROR} if the operation is successful.
-     *         Returns {@link ARKUI_ERROR_CODE_PARAM_INVALID} if a parameter error occurs..
+     *         Returns {@link ARKUI_ERROR_CODE_PARAM_INVALID} if a parameter error occurs.
      */
     int32_t (*setMeasuredSize)(ArkUI_NodeHandle node, int32_t width, int32_t height);
 
@@ -7083,7 +7083,7 @@ typedef struct {
      * @param positionY Indicates the Y coordinate.
      * @return Returns the error code.
      *         Returns {@link ARKUI_ERROR_CODE_NO_ERROR} if the operation is successful.
-     *         Returns {@link ARKUI_ERROR_CODE_PARAM_INVALID} if a parameter error occurs..
+     *         Returns {@link ARKUI_ERROR_CODE_PARAM_INVALID} if a parameter error occurs.
      */
     int32_t (*setLayoutPosition)(ArkUI_NodeHandle node, int32_t positionX, int32_t positionY);
 
@@ -7110,7 +7110,7 @@ typedef struct {
      * @param Constraint Indicates the size constraint.
      * @return Returns the error code.
      *         Returns {@link ARKUI_ERROR_CODE_NO_ERROR} if the operation is successful.
-     *         Returns {@link ARKUI_ERROR_CODE_PARAM_INVALID} if a parameter error occurs..
+     *         Returns {@link ARKUI_ERROR_CODE_PARAM_INVALID} if a parameter error occurs.
      */
     int32_t (*measureNode)(ArkUI_NodeHandle node, ArkUI_LayoutConstraint* Constraint);
 
@@ -7124,7 +7124,7 @@ typedef struct {
      * @param positionY Indicates the Y coordinate.
      * @return Returns the error code.
      *         Returns {@link ARKUI_ERROR_CODE_NO_ERROR} if the operation is successful.
-     *         Returns {@link ARKUI_ERROR_CODE_PARAM_INVALID} if a parameter error occurs..
+     *         Returns {@link ARKUI_ERROR_CODE_PARAM_INVALID} if a parameter error occurs.
      */
     int32_t (*layoutNode)(ArkUI_NodeHandle node, int32_t positionX, int32_t positionY);
 
@@ -7143,7 +7143,7 @@ typedef struct {
      * @param eventReceiver Indicates the component event callback function to add.
      * @return Returns the error code.
      *         Returns {@link ARKUI_ERROR_CODE_NO_ERROR} if the operation is successful.
-     *         Returns {@link ARKUI_ERROR_CODE_PARAM_INVALID} if a parameter error occurs..
+     *         Returns {@link ARKUI_ERROR_CODE_PARAM_INVALID} if a parameter error occurs.
      */
     int32_t (*addNodeEventReceiver)(ArkUI_NodeHandle node, void (*eventReceiver)(ArkUI_NodeEvent* event));
 
@@ -7154,7 +7154,7 @@ typedef struct {
      * @param eventReceiver Indicates the component event callback function to remove.
      * @return Returns the error code.
      *         Returns {@link ARKUI_ERROR_CODE_NO_ERROR} if the operation is successful.
-     *         Returns {@link ARKUI_ERROR_CODE_PARAM_INVALID} if a parameter error occurs..
+     *         Returns {@link ARKUI_ERROR_CODE_PARAM_INVALID} if a parameter error occurs.
      */
     int32_t (*removeNodeEventReceiver)(ArkUI_NodeHandle node, void (*eventReceiver)(ArkUI_NodeEvent* event));
 
@@ -7196,7 +7196,7 @@ typedef struct {
      * @param userData Indicates the custom data to be saved.
      * @return Returns the error code.
      *         Returns {@link ARKUI_ERROR_CODE_NO_ERROR} if the operation is successful.
-     *         Returns {@link ARKUI_ERROR_CODE_PARAM_INVALID} if a parameter error occurs..
+     *         Returns {@link ARKUI_ERROR_CODE_PARAM_INVALID} if a parameter error occurs.
      */
     int32_t (*setUserData)(ArkUI_NodeHandle node, void* userData);
 
