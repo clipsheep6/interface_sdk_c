@@ -2651,6 +2651,37 @@ JSVM_EXTERN JSVM_Status OH_JSVM_IsObject(JSVM_Env env,
 JSVM_EXTERN JSVM_Status OH_JSVM_IsBigInt(JSVM_Env env,
                                          JSVM_Value value,
                                          bool* isBigInt);
+
+/**
+ * @brief This API implements the abstract operation ToBigInt().
+ *
+ * @param env: The environment that the API is invoked under.
+ * @param value: The JavaScript value to coerce.
+ * @param result: JSVM_Value representing the coerced JavaScript BigInt.
+ * @return Returns JSVM function's result code.
+ *         {@link JSVM_OK } If the API succeeded.
+ *         {@link JSVM_BIGINT_EXPECTED} If the JavaScript value fails to coerce.\n
+ * @since 12
+ */
+JSVM_EXTERN JSVM_Status OH_JSVM_CoerceToBigInt(JSVM_Env env,
+                                               JSVM_Value value,
+                                               JSVM_Value* result);
+
+/**
+ * @brief This API checks if the value passed in is a regExp.
+ * This equals to `value instanceof RegExp` in JS.
+ *
+ * @param env: The environment that the API is invoked under.
+ * @param value: The JavaScript value to check.
+ * @param result: Whether the given value is RegExp.
+ * @return Returns JSVM function's result code.
+ *         {@link JSVM_OK } If the API succeeded.\n
+ * @since 12
+ */
+JSVM_EXTERN JSVM_Status OH_JSVM_IsRegExp(JSVM_Env env,
+                                         JSVM_Value value,
+                                         bool* result);
+
 EXTERN_C_END
 
 /** @} */
