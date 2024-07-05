@@ -13,6 +13,10 @@
     },
     {
         "first_introduced": "12",
+        "name": "OH_VideoProcessing_IsMetadataGenerationSupported"
+    },
+    {
+        "first_introduced": "12",
         "name": "OH_VideoProcessing_Create"
     },
     {
