@@ -109,6 +109,10 @@
     },
     {
         "first_introduced": "12",
+        "name": "OH_PixelmapNative_Scale_AntiAliasing"
+    },
+    {
+        "first_introduced": "12",
         "name": "OH_PixelmapNative_Translate"
     },
     {
