@@ -118,31 +118,6 @@ enum {
 };
 
 /**
- * @brief Enumerates the anti-aliasing options.
- *
- * @since 12
- * @version 1.0
- */
-typedef enum {
-    /**
-     * Nearest-neighbor interpolation.
-     */
-    OH_PixelmapNative_AntiAliasingOption_NONE = 0,
-    /**
-     * Bilinear interpolation, without mipmap linear filtering.
-     */
-    OH_PixelmapNative_AntiAliasingOption_LOW = 1,
-    /**
-     * Bilinear interpolation, with mipmap linear filtering.
-     */
-    OH_PixelmapNative_AntiAliasingOption_MEDIUM = 2,
-    /**
-     * Cubic interpolation.
-     */
-    OH_PixelmapNative_AntiAliasingOption_HIGH = 3,
-} OH_PixelmapNative_AntiAliasingOption;
-
-/**
  * @brief Defines the options used for creating a pixel map.
  *
  * @since 10
