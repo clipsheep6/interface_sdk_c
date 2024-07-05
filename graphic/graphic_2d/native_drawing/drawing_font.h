@@ -494,6 +494,28 @@ typedef struct OH_Drawing_Font_Metrics {
  */
 float OH_Drawing_FontGetMetrics(OH_Drawing_Font*, OH_Drawing_Font_Metrics*);
 
+
+/**
+ * @brief Gets the font postScript name.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param OH_Drawing_Font Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+ * @return Returns the font postScript name corresponding to the font instance.
+ * @since 12
+ * @version 1.0
+ */
+char* OH_Drawing_FontGetPostScriptName(OH_Drawing_Font*);
+
+/**
+ * @brief Releases the memory occupied by font family name.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param postScriptName Indicates the font family name.
+ * @since 12
+ * @version 1.0
+ */
+void OH_Drawing_FontDestroyPostScriptName(char* postScriptName);
+
 #ifdef __cplusplus
 }
 #endif

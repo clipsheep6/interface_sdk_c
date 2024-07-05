@@ -93,6 +93,35 @@ void OH_Drawing_DisableFontCollectionSystemFont(OH_Drawing_FontCollection*);
  */
 OH_Drawing_FontCollection* OH_Drawing_CreateSharedFontCollection(void);
 
+/**
+ * @brief Creates an <b>OH_Drawing_Font</b> object with name.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @return Returns the pointer to the <b>OH_Drawing_Font</b> object created.
+ * @since 12
+ * @version 1.0
+ */
+OH_Drawing_Font* OH_Drawing_creatFontWithName(const char*, float, float, float);
+
+/**
+ * @brief Creates an <b>OH_Drawing_Font</b> object with FontDescriptor.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @return Returns the pointer to the <b>OH_Drawing_Font</b> object created.
+ * @since 12
+ * @version 1.0
+ */
+OH_Drawing_Font* OH_Drawing_creatFontWithFontDescriptor(OH_Drawing_FontDescriptor*, float, float, float);
+
+/**
+ * @brief Creates an <b>OH_Drawing_Font</b> object with old <b>OH_Drawing_Font</b>.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @return Returns the pointer to the <b>OH_Drawing_Font</b> object created.
+ * @since 12
+ * @version 1.0
+ */
+OH_Drawing_Font* OH_Drawing_copyNewFont(OH_Drawing_Font*, float, float, float, OH_Drawing_FontDescriptor*);
 #ifdef __cplusplus
 }
 #endif
