@@ -119,6 +119,17 @@ bool OH_ImageProcessing_IsDecompositionSupported(
     const ImageProcessing_ColorSpaceInfo* destinationGainmapInfo);
 
 /**
+ * @brief Query whether the image metadata generation is supported.
+ *
+ * @param sourceImageInfo Input image color space information pointer.
+ * @return <b>true</b> if the image metadata generation is supported.. \n
+ * <b>false</b> if the image metadata generation is unsupported.
+ * @since 12
+ */
+bool OH_ImageProcessing_IsMetadataGenerationSupported(
+    const ImageProcessing_ColorSpaceInfo* sourceImageInfo);
+    
+/**
  * @brief Create an image processing instance.
  *
  * @param instance Output parameter. The *instance points to a new image processing object. The *instance must be null
@@ -178,11 +189,9 @@ ImageProcessing_ErrorCode OH_ImageProcessing_SetParameter(OH_ImageProcessing* in
 ImageProcessing_ErrorCode OH_ImageProcessing_GetParameter(OH_ImageProcessing* instance, OH_AVFormat* parameter);
 
 /**
- * @brief Process image.
+ * @brief Conversion between single-layer images.
  *
  * The processing type is specified when creating the instance.
- * For color space conversion, it includes the conversion between single-layer images, composition from dual-layer HDR
- * images to single-layer HDR images, and decomposition from single-layer image to dual-layer HDR image.
  *
  * @param instance An image processing instance pointer.
  * @param sourceImage Input image pointer.
@@ -197,9 +206,92 @@ ImageProcessing_ErrorCode OH_ImageProcessing_GetParameter(OH_ImageProcessing* in
  * {@link IMAGE_PROCESSING_ERROR_NO_MEMORY} if memory allocation failed.
  * @since 12
  */
-ImageProcessing_ErrorCode OH_ImageProcessing_Process(OH_ImageProcessing* instance, OH_PixelmapNative* sourceImage,
+ImageProcessing_ErrorCode OH_ImageProcessing_ConvertColorSpace(OH_ImageProcessing* instance, const OH_PixelmapNative* sourceImage,
     OH_PixelmapNative* destinationImage);
 
+/**
+ * @brief Composition from dual-layer HDR images to single-layer HDR images.
+ *
+ * The processing type is specified when creating the instance.
+ *
+ * @param instance An image processing instance pointer.
+ * @param sourceImage Input image pointer.
+ * @param sourceGainmap Input gainmap pointer.
+ * @param destinationImage Output image pointer.
+ * @return {@link IMAGE_PROCESSING_SUCCESS} if processing image is successful. \n
+ * {@link IMAGE_PROCESSING_ERROR_INVALID_INSTANCE} if instance is null or not an image processing instance. \n
+ * {@link IMAGE_PROCESSING_ERROR_INVALID_PARAMETER} if the image is null. \n
+ * {@link IMAGE_PROCESSING_ERROR_INVALID_VALUE} if some property of image is invalid. For example, the color space
+ * of the image is unsupported. \n
+ * {@link IMAGE_PROCESSING_ERROR_UNSUPPORTED_PROCESSING} if the processing is not supported. \n
+ * {@link IMAGE_PROCESSING_ERROR_PROCESS_FAILED} if processing error occurs. \n
+ * {@link IMAGE_PROCESSING_ERROR_NO_MEMORY} if memory allocation failed.
+ * @since 12
+ */
+ImageProcessing_ErrorCode OH_ImageProcessing_Compose(OH_ImageProcessing* instance, const OH_PixelmapNative* sourceImage,
+    const OH_PixelmapNative* sourceGainmap, OH_PixelmapNative* destinationImage);
+
+/**
+ * @brief Decomposition from single-layer HDR images to dual-layer HDR images.
+ *
+ * The processing type is specified when creating the instance.
+ *
+ * @param instance An image processing instance pointer.
+ * @param sourceImage Input image pointer.
+ * @param destinationImage Output image pointer.
+ * @param destinationGainmap Output gainmap pointer.
+ * @return {@link IMAGE_PROCESSING_SUCCESS} if processing image is successful. \n
+ * {@link IMAGE_PROCESSING_ERROR_INVALID_INSTANCE} if instance is null or not an image processing instance. \n
+ * {@link IMAGE_PROCESSING_ERROR_INVALID_PARAMETER} if the image is null. \n
+ * {@link IMAGE_PROCESSING_ERROR_INVALID_VALUE} if some property of image is invalid. For example, the color space
+ * of the image is unsupported. \n
+ * {@link IMAGE_PROCESSING_ERROR_UNSUPPORTED_PROCESSING} if the processing is not supported. \n
+ * {@link IMAGE_PROCESSING_ERROR_PROCESS_FAILED} if processing error occurs. \n
+ * {@link IMAGE_PROCESSING_ERROR_NO_MEMORY} if memory allocation failed.
+ * @since 12
+ */
+ImageProcessing_ErrorCode OH_ImageProcessing_Deompose(OH_ImageProcessing* instance, const OH_PixelmapNative* sourceImage,
+    OH_PixelmapNative* destinationImage, OH_PixelmapNative* destinationGainmap);
+
+/**
+ * @brief Generation for HDR images.
+ *
+ * The processing type is specified when creating the instance.
+ *
+ * @param instance An image processing instance pointer.
+ * @param sourceImage Input image pointer.
+ * @return {@link IMAGE_PROCESSING_SUCCESS} if processing image is successful. \n
+ * {@link IMAGE_PROCESSING_ERROR_INVALID_INSTANCE} if instance is null or not an image processing instance. \n
+ * {@link IMAGE_PROCESSING_ERROR_INVALID_PARAMETER} if the image is null. \n
+ * {@link IMAGE_PROCESSING_ERROR_INVALID_VALUE} if some property of image is invalid. For example, the color space
+ * of the image is unsupported. \n
+ * {@link IMAGE_PROCESSING_ERROR_UNSUPPORTED_PROCESSING} if the processing is not supported. \n
+ * {@link IMAGE_PROCESSING_ERROR_PROCESS_FAILED} if processing error occurs. \n
+ * {@link IMAGE_PROCESSING_ERROR_NO_MEMORY} if memory allocation failed.
+ * @since 12
+ */
+ImageProcessing_ErrorCode OH_ImageProcessing_GenerateMetadata(OH_ImageProcessing* instance, OH_PixelmapNative* sourceImage);
+
+/**
+ * @brief enhancement for images.
+ *
+ * The processing type is specified when creating the instance.
+ *
+ * @param instance An image processing instance pointer.
+ * @param sourceImage Input image pointer.
+ * @param destinationImage Output image pointer.
+ * @return {@link IMAGE_PROCESSING_SUCCESS} if processing image is successful. \n
+ * {@link IMAGE_PROCESSING_ERROR_INVALID_INSTANCE} if instance is null or not an image processing instance. \n
+ * {@link IMAGE_PROCESSING_ERROR_INVALID_PARAMETER} if the image is null. \n
+ * {@link IMAGE_PROCESSING_ERROR_INVALID_VALUE} if some property of image is invalid. For example, the color space
+ * of the image is unsupported. \n
+ * {@link IMAGE_PROCESSING_ERROR_UNSUPPORTED_PROCESSING} if the processing is not supported. \n
+ * {@link IMAGE_PROCESSING_ERROR_PROCESS_FAILED} if processing error occurs. \n
+ * {@link IMAGE_PROCESSING_ERROR_NO_MEMORY} if memory allocation failed.
+ * @since 12
+ */
+ImageProcessing_ErrorCode OH_ImageProcessing_EnhanceDetail(OH_ImageProcessing* instance, const OH_PixelmapNative* sourceImage,
+    OH_PixelmapNative* destinationImage);
 #ifdef __cplusplus
 }
 #endif

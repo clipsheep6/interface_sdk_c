@@ -69,18 +69,39 @@ typedef struct OH_AVFormat OH_AVFormat;
 /**
  * @brief Used to create an image processing instance for color space conversion.
  *
- * Color space conversion includes the conversion between dual-layer HDR images and single-layer HDR images,
- * as well as the color space conversion of SDR images, and the conversion of SDR images to HDR images. Some
+ * Color space conversion includes the conversion of single-layer HDR images to SDR images, as well as
+ * the color space conversion of SDR images, and the conversion of SDR images to single-layer HDR images. Some
  * capabilities are supported by vendor. Use {@link OH_ImageProcessing_IsColorSpaceConversionSupported} to query if
- * the conversion is supported between single-layer images. Use {@link OH_ImageProcessing_IsCompositionSupported} to
- * query if the composition is supported from dual-layer HDR image to single-layer HDR image. Use
- * {@link OH_ImageProcessing_IsDecompositionSupported} to query if the decomposition is supported from single-layer
- * image to dual-layer HDR image.
+ * the conversion is supported between single-layer images.
  *
  * @see OH_ImageProcessing_Create
  * @since 12
  */
 extern const int32_t IMAGE_PROCESSING_TYPE_COLOR_SPACE_CONVERSION;
+
+/**
+ * @brief Used to create an image processing instance for HDR image composition.
+ *
+ * HDR image compose includes the conversion from dual-layer HDR images to single-layer HDR images. Some
+ * capabilities are supported by vendor. Use {@link OH_ImageProcessing_IsCompositionSupported} to
+ * query if the composition is supported from dual-layer HDR image to single-layer HDR image. 
+ *
+ * @see OH_ImageProcessing_Create
+ * @since 12
+ */
+extern const int32_t IMAGE_PROCESSING_TYPE_COMPOSITION;
+
+/**
+ * @brief Used to create an image processing instance for HDR image decomposition.
+ *
+ * HDR image decompose includes the conversion from single-layer HDR images to dual-layer HDR images. Some
+ * capabilities are supported by vendor. Use {@link OH_ImageProcessing_IsDecompositionSupported} to
+ * query if the decomposition is supported from single-layer image to dual-layer HDR image.
+ *
+ * @see OH_ImageProcessing_Create
+ * @since 12
+ */
+extern const int32_t IMAGE_PROCESSING_TYPE_DECOMPOSITION;
 
 /**
  * @brief Used to create an image processing instance for metadata generation.

@@ -86,6 +86,17 @@ bool OH_VideoProcessing_IsColorSpaceConversionSupported(
     const VideoProcessing_ColorSpaceInfo* destinationVideoInfo);
 
 /**
+ * @brief Query if the video metadata generation is supported.
+ *
+ * @param sourceVideoInfo Source video color space information.
+ * @return <b>true</b> if the video metadata generation is supported. \n
+ * <b>false</b> if the video metadata generation is not supported.
+ * @since 12
+ */
+bool OH_VideoProcessing_IsMetadataGenerationSupported(
+    const VideoProcessing_ColorSpaceInfo* sourceVideoInfo);
+
+/**
  * @brief Create a video processing instance.
  *
  * @param instance Output parameter. The *instance points to a new video processing object. The *instance must be null
