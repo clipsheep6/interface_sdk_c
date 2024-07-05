@@ -2651,6 +2651,61 @@ JSVM_EXTERN JSVM_Status OH_JSVM_IsObject(JSVM_Env env,
 JSVM_EXTERN JSVM_Status OH_JSVM_IsBigInt(JSVM_Env env,
                                          JSVM_Value value,
                                          bool* isBigInt);
+
+/**
+ * @brief This API returns a JSVM-API value corresponding to a JavaScript Set type.
+ *
+ * @param env: The environment that the API is invoked under.
+ * @param result: A JSVM_Value representing a JavaScript Set.
+ * @return Returns JSVM function's result code.
+ *         {@link JSVM_OK } If the API succeeded.\n
+ * @since 12
+ */
+JSVM_EXTERN JSVM_Status OH_JSVM_CreateSet(JSVM_Env env,
+                                          JSVM_Value* result);
+
+/**
+ * @brief This API checks if the value passed in is a Set.
+ *
+ * @param env: The environment that the API is invoked under.
+ * @param value: The JavaScript value to check.
+ * @param isSet: Whether the given value is Set.
+ * @return Returns JSVM function's result code.
+ *         {@link JSVM_OK } If the API succeeded.\n
+ * @since 12
+ */
+JSVM_EXTERN JSVM_Status OH_JSVM_IsSet(JSVM_Env env,
+                                     JSVM_Value value,
+                                     bool* isSet);
+
+/**
+ * @brief This API returns the Object prototype.
+ *
+ * @param env: The environment that the API is invoked under.
+ * @param object: JSVM_Value representing JavaScript Object whose prototype to return. This returns
+ * the equivalent of Object.getPrototypeOf (which is not the same as the function's prototype property).
+ * @param result: JSVM_Value representing prototype of the given object.
+ * @return Returns JSVM function's result code.
+ *         {@link JSVM_OK } If the API succeeded.\n
+ * @since 12
+ */
+JSVM_EXTERN JSVM_Status OH_JSVM_ObjectGetPrototypeOf(JSVM_Env env,
+                                                   JSVM_Value object,
+                                                   JSVM_Value* result);
+
+/**
+ * @brief This API set the prototype on the Object passed in.
+ *
+ * @param env: The environment that the API is invoked under.
+ * @param object: The object on which to set the prototype.
+ * @param prototype: The prototype value.
+ * @return Returns JSVM function's result code.
+ *         {@link JSVM_OK } If the API succeeded.\n
+ * @since 12
+ */
+JSVM_EXTERN JSVM_Status OH_JSVM_ObjectSetPrototypeOf(JSVM_Env env,
+                                                   JSVM_Value object,
+                                                   JSVM_Value prototype);
 EXTERN_C_END
 
 /** @} */
