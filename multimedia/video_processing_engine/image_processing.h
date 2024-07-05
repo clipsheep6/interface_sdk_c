@@ -191,9 +191,11 @@ ImageProcessing_ErrorCode OH_ImageProcessing_GetParameter(OH_ImageProcessing* in
 /**
  * @brief Conversion between single-layer images.
  *
- * The processing type is specified when creating the instance.
+ * The function generate the destinationImage from sourceImage. It include the colorspace conversion from
+ * HDR image to SDR image, SDR image to HDR image, SDR image to SDR image and HDR image to HDR image.
  *
- * @param instance An image processing instance pointer.
+ * @param instance An image processing instance pointer. The instance should be created with
+ * type {@link IMAGE_PROCESSING_TYPE_COLOR_SPACE_CONVERSION}.
  * @param sourceImage Input image pointer.
  * @param destinationImage Output image pointer.
  * @return {@link IMAGE_PROCESSING_SUCCESS} if processing image is successful. \n
@@ -212,9 +214,10 @@ ImageProcessing_ErrorCode OH_ImageProcessing_ConvertColorSpace(OH_ImageProcessin
 /**
  * @brief Composition from dual-layer HDR images to single-layer HDR images.
  *
- * The processing type is specified when creating the instance.
+ * The function generate the destinationImage from sourceImage and sourceGainmap.
  *
- * @param instance An image processing instance pointer.
+ * @param instance An image processing instance pointer. The instance should be created with
+ * type {@link IMAGE_PROCESSING_TYPE_COMPOSITION}.
  * @param sourceImage Input image pointer.
  * @param sourceGainmap Input gainmap pointer.
  * @param destinationImage Output image pointer.
@@ -234,9 +237,10 @@ ImageProcessing_ErrorCode OH_ImageProcessing_Compose(OH_ImageProcessing* instanc
 /**
  * @brief Decomposition from single-layer HDR images to dual-layer HDR images.
  *
- * The processing type is specified when creating the instance.
+ * The function generate the destinationImage and destinationGainmap from sourceImage.
  *
- * @param instance An image processing instance pointer.
+ * @param instance An image processing instance pointer. The instance should be created with
+ * type {@link IMAGE_PROCESSING_TYPE_DECOMPOSITION}.
  * @param sourceImage Input image pointer.
  * @param destinationImage Output image pointer.
  * @param destinationGainmap Output gainmap pointer.
@@ -254,11 +258,12 @@ ImageProcessing_ErrorCode OH_ImageProcessing_Deompose(OH_ImageProcessing* instan
     OH_PixelmapNative* destinationImage, OH_PixelmapNative* destinationGainmap);
 
 /**
- * @brief Generation for HDR images.
+ * @brief Metadata Generation for HDR images.
  *
- * The processing type is specified when creating the instance.
+ * The function generate metadata for the sourceImage.
  *
- * @param instance An image processing instance pointer.
+ * @param instance An image processing instance pointer. The instance should be created with
+ * type {@link IMAGE_PROCESSING_TYPE_METADATA_GENERATION}.
  * @param sourceImage Input image pointer.
  * @return {@link IMAGE_PROCESSING_SUCCESS} if processing image is successful. \n
  * {@link IMAGE_PROCESSING_ERROR_INVALID_INSTANCE} if instance is null or not an image processing instance. \n
@@ -273,11 +278,14 @@ ImageProcessing_ErrorCode OH_ImageProcessing_Deompose(OH_ImageProcessing* instan
 ImageProcessing_ErrorCode OH_ImageProcessing_GenerateMetadata(OH_ImageProcessing* instance, OH_PixelmapNative* sourceImage);
 
 /**
- * @brief enhancement for images.
+ * @brief Clarity enhancement for images.
  *
- * The processing type is specified when creating the instance.
+ * The function generate the destinationImage from sourceImage with necessary scaling operation according to the size
+ * preset in the sourceImage and destinationImage. Different levels of scaling methonds are provided to balance
+ * performance and image quality.
  *
- * @param instance An image processing instance pointer.
+ * @param instance An image processing instance pointer. The instance should be created with
+ * type {@link IMAGE_PROCESSING_TYPE_DETAIL_ENHANCER}.
  * @param sourceImage Input image pointer.
  * @param destinationImage Output image pointer.
  * @return {@link IMAGE_PROCESSING_SUCCESS} if processing image is successful. \n
