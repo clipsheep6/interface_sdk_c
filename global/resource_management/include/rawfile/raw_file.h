@@ -38,7 +38,8 @@
 #ifndef GLOBAL_RAW_FILE_H
 #define GLOBAL_RAW_FILE_H
 
-#include <string>
+#include <stddef.h>
+#include <stdint.h>
 
 #ifdef __cplusplus
 extern "C" {
