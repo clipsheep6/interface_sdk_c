@@ -31,6 +31,7 @@
  *
  * @library libimage_processing.so
  * @syscap SystemCapability.Multimedia.VideoProcessingEngine
+ * @kit Image Kit
  * @since 12
  */
 
