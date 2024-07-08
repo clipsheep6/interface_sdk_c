@@ -800,11 +800,11 @@ OH_Drawing_ErrorCode OH_Drawing_CanvasIsClipEmpty(OH_Drawing_Canvas* canvas, boo
  * @param isClipRect Indicates if drawable area is a rect and not empty.
  * @return Returns the error code.
  *         Returns {@link OH_DRAWING_SUCCESS} if the operation is successful.
- *         Returns {@link OH_DRAWING_ERROR_INVALID_PARAMETER} if canvas or isClipRect is nullptr.
+ *         Returns {@link OH_DRAWING_ERROR_INVALID_PARAMETER} if cCanvas or isClipRect is nullptr.
  * @since 12
  * @version 1.0
  */
-OH_Drawing_ErrorCode OH_Drawing_CanvasIsClipRect(OH_Drawing_Canvas*, bool* isClipRect);
+OH_Drawing_ErrorCode OH_Drawing_CanvasIsClipRect(OH_Drawing_Canvas* cCanvas, bool* isClipRect);
 
 /**
  * @brief Gets image info of canvas.
