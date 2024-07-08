@@ -208,7 +208,7 @@ ImageProcessing_ErrorCode OH_ImageProcessing_GetParameter(OH_ImageProcessing* in
  * {@link IMAGE_PROCESSING_ERROR_NO_MEMORY} if memory allocation failed.
  * @since 12
  */
-ImageProcessing_ErrorCode OH_ImageProcessing_ConvertColorSpace(OH_ImageProcessing* instance, const OH_PixelmapNative* sourceImage,
+ImageProcessing_ErrorCode OH_ImageProcessing_ConvertColorSpace(OH_ImageProcessing* instance, OH_PixelmapNative* sourceImage,
     OH_PixelmapNative* destinationImage);
 
 /**
@@ -231,8 +231,8 @@ ImageProcessing_ErrorCode OH_ImageProcessing_ConvertColorSpace(OH_ImageProcessin
  * {@link IMAGE_PROCESSING_ERROR_NO_MEMORY} if memory allocation failed.
  * @since 12
  */
-ImageProcessing_ErrorCode OH_ImageProcessing_Compose(OH_ImageProcessing* instance, const OH_PixelmapNative* sourceImage,
-    const OH_PixelmapNative* sourceGainmap, OH_PixelmapNative* destinationImage);
+ImageProcessing_ErrorCode OH_ImageProcessing_Compose(OH_ImageProcessing* instance, OH_PixelmapNative* sourceImage,
+    OH_PixelmapNative* sourceGainmap, OH_PixelmapNative* destinationImage);
 
 /**
  * @brief Decomposition from single-layer HDR images to dual-layer HDR images.
@@ -254,7 +254,7 @@ ImageProcessing_ErrorCode OH_ImageProcessing_Compose(OH_ImageProcessing* instanc
  * {@link IMAGE_PROCESSING_ERROR_NO_MEMORY} if memory allocation failed.
  * @since 12
  */
-ImageProcessing_ErrorCode OH_ImageProcessing_Deompose(OH_ImageProcessing* instance, const OH_PixelmapNative* sourceImage,
+ImageProcessing_ErrorCode OH_ImageProcessing_Deompose(OH_ImageProcessing* instance, OH_PixelmapNative* sourceImage,
     OH_PixelmapNative* destinationImage, OH_PixelmapNative* destinationGainmap);
 
 /**
@@ -298,7 +298,7 @@ ImageProcessing_ErrorCode OH_ImageProcessing_GenerateMetadata(OH_ImageProcessing
  * {@link IMAGE_PROCESSING_ERROR_NO_MEMORY} if memory allocation failed.
  * @since 12
  */
-ImageProcessing_ErrorCode OH_ImageProcessing_EnhanceDetail(OH_ImageProcessing* instance, const OH_PixelmapNative* sourceImage,
+ImageProcessing_ErrorCode OH_ImageProcessing_EnhanceDetail(OH_ImageProcessing* instance, OH_PixelmapNative* sourceImage,
     OH_PixelmapNative* destinationImage);
 #ifdef __cplusplus
 }
