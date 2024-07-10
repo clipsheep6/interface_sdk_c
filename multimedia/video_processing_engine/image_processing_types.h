@@ -85,7 +85,7 @@ extern const int32_t IMAGE_PROCESSING_TYPE_COLOR_SPACE_CONVERSION;
  *
  * HDR image compose includes the conversion from dual-layer HDR images to single-layer HDR images. Some
  * capabilities are supported by vendor. Use {@link OH_ImageProcessing_IsCompositionSupported} to
- * query if the composition is supported from dual-layer HDR image to single-layer HDR image. 
+ * query if the composition is supported from dual-layer HDR image to single-layer HDR image.
  *
  * @see OH_ImageProcessing_Create
  * @since 12

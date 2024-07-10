@@ -209,8 +209,8 @@ ImageProcessing_ErrorCode OH_ImageProcessing_GetParameter(OH_ImageProcessing* in
  * {@link IMAGE_PROCESSING_ERROR_NO_MEMORY} if memory allocation failed.
  * @since 12
  */
-ImageProcessing_ErrorCode OH_ImageProcessing_ConvertColorSpace(OH_ImageProcessing* instance, OH_PixelmapNative* sourceImage,
-    OH_PixelmapNative* destinationImage);
+ImageProcessing_ErrorCode OH_ImageProcessing_ConvertColorSpace(OH_ImageProcessing* instance,
+    OH_PixelmapNative* sourceImage, OH_PixelmapNative* destinationImage);
 
 /**
  * @brief Composition from dual-layer HDR images to single-layer HDR images.
@@ -276,7 +276,8 @@ ImageProcessing_ErrorCode OH_ImageProcessing_Deompose(OH_ImageProcessing* instan
  * {@link IMAGE_PROCESSING_ERROR_NO_MEMORY} if memory allocation failed.
  * @since 12
  */
-ImageProcessing_ErrorCode OH_ImageProcessing_GenerateMetadata(OH_ImageProcessing* instance, OH_PixelmapNative* sourceImage);
+ImageProcessing_ErrorCode OH_ImageProcessing_GenerateMetadata(OH_ImageProcessing* instance,
+    OH_PixelmapNative* sourceImage);
 
 /**
  * @brief Clarity enhancement for images.
