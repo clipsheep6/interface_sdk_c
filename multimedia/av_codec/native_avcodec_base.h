@@ -381,7 +381,12 @@ extern const char *OH_MD_MAX_OUTPUT_BUFFER_COUNT;
  */
 /* Key for audio codec compression level, value type is int32_t */
 extern const char *OH_MD_KEY_AUDIO_COMPRESSION_LEVEL;
-/* Key of the video is hdr vivid. value type is bool */
+/**
+ * @brief Key of the video is hdr vivid. value type is bool.
+ * @syscap SystemCapability.Multimedia.Media.CodecBase
+ * 
+ * @since 11
+ */
 extern const char *OH_MD_KEY_VIDEO_IS_HDR_VIVID;
 /* Key for number of audio objects. value type is int32_t */
 extern const char *OH_MD_KEY_AUDIO_OBJECT_NUMBER;
