@@ -188,45 +188,45 @@ typedef struct OH_AVDataSource {
 } OH_AVDataSource;
 
 /**
- * @brief Enumerates the MIME types of audio and video codecs.
+ * @brief Enumerates the mime types of video avc codecs.
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 9
  */
 extern const char *OH_AVCODEC_MIMETYPE_VIDEO_AVC;
 /**
- * @brief Enumerates the MIME types of audio and video codecs.
+ * @brief Enumerates the mime types of audio aac codecs.
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 9
  */
 extern const char *OH_AVCODEC_MIMETYPE_AUDIO_AAC;
 
 /**
- * @brief Enumerates the MIME types of audio and video codecs.
+ * @brief Enumerates the mime types of audio flac codecs.
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 10
  */
 extern const char *OH_AVCODEC_MIMETYPE_AUDIO_FLAC;
 /**
- * @brief Enumerates the MIME types of audio and video codecs.
+ * @brief Enumerates the mime types of audio vorbis codecs.
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 10
  */
 extern const char *OH_AVCODEC_MIMETYPE_AUDIO_VORBIS;
 /**
- * @brief Enumerates the MIME types of audio and video codecs.
+ * @brief Enumerates the mime types of audio mpeg codecs.
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 10
  */
 extern const char *OH_AVCODEC_MIMETYPE_AUDIO_MPEG;
 /**
- * @brief Enumerates the MIME types of audio and video codecs.
+ * @brief Enumerates the mime types of video hevc codecs.
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 10
  */
 extern const char *OH_AVCODEC_MIMETYPE_VIDEO_HEVC;
 
 /**
- * @brief Enumerates the types of audio and video muxer.
+ * @brief Enumerates the mime types of video mpeg4 muxer.
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @deprecated since 11
  * @since 10
@@ -234,57 +234,57 @@ extern const char *OH_AVCODEC_MIMETYPE_VIDEO_HEVC;
 extern const char *OH_AVCODEC_MIMETYPE_VIDEO_MPEG4;
 
 /**
- * @brief Enumerates the types of audio and video muxer.
+ * @brief Enumerates the mime types of video jpg muxer.
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 10
  */
 extern const char *OH_AVCODEC_MIMETYPE_IMAGE_JPG;
 /**
- * @brief Enumerates the types of audio and video muxer.
+ * @brief Enumerates the mime types of video png muxer.
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 10
  */
 extern const char *OH_AVCODEC_MIMETYPE_IMAGE_PNG;
 /**
- * @brief Enumerates the types of audio and video muxer.
+ * @brief Enumerates the mime types of video bmp muxer.
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 10
  */
 extern const char *OH_AVCODEC_MIMETYPE_IMAGE_BMP;
 
 /**
- * @brief Enumerates the MIME types of audio codecs.
+ * @brief Enumerates the mime types of audio vivid codecs.
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 11
  */
 extern const char *OH_AVCODEC_MIMETYPE_AUDIO_VIVID;
 /**
- * @brief Enumerates the MIME types of audio codecs.
+ * @brief Enumerates the mime types of audio amrnb codecs.
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 11
  */
 extern const char *OH_AVCODEC_MIMETYPE_AUDIO_AMR_NB;
 /**
- * @brief Enumerates the MIME types of audio codecs.
+ * @brief Enumerates the mime types of audio amrwb codecs.
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 11
  */
 extern const char *OH_AVCODEC_MIMETYPE_AUDIO_AMR_WB;
 /**
- * @brief Enumerates the MIME types of audio codecs.
+ * @brief Enumerates the mime types of audio opus codecs.
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 11
  */
 extern const char *OH_AVCODEC_MIMETYPE_AUDIO_OPUS;
 /**
- * @brief Enumerates the MIME types of audio codecs.
+ * @brief Enumerates the mime types of audio g711mu codecs.
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 11
  */
 extern const char *OH_AVCODEC_MIMETYPE_AUDIO_G711MU;
 
 /**
- * @brief Enumerates the MIME type of audio low bitrate voice codec.
+ * @brief Enumerates the mime type of audio low bitrate voice codec.
  *
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 12
@@ -292,7 +292,7 @@ extern const char *OH_AVCODEC_MIMETYPE_AUDIO_G711MU;
 extern const char *OH_AVCODEC_MIMETYPE_AUDIO_LBVC;
 
 /**
- * @brief Enumerates the MIME type of audio ape codec.
+ * @brief Enumerates the mime type of audio ape codec.
  *
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 12
@@ -300,7 +300,7 @@ extern const char *OH_AVCODEC_MIMETYPE_AUDIO_LBVC;
 extern const char *OH_AVCODEC_MIMETYPE_AUDIO_APE;
 
 /**
- * @brief Enumerates the MIME type of subtitle.
+ * @brief Enumerates the mime type of subtitle srt.
  *
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 12
