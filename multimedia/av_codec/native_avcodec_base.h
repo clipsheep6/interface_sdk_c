@@ -334,7 +334,7 @@ extern const char *OH_MD_KEY_TRACK_TYPE;
  */
 extern const char *OH_MD_KEY_CODEC_MIME;
 /**
- * @brief Key for file duration, value type is int64_t.
+ * @brief Key for file duration in microseconds, value type is int64_t.
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 9
  * @version 1.0
