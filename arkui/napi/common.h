@@ -13,6 +13,26 @@
  * limitations under the License.
  */
 
+/**
+ * @addtogroup ArkTS_NapiModule
+ * @{
+ *
+ * @brief Provides Napi of ArkTS.
+ *
+ * @since 12
+ */
+
+/**
+ * @file common.h
+ *
+ * @brief This file contains common enums for the ArkTS napi.
+ *
+ * @library NA
+ * @syscap SystemCapability.ArkUI.ArkUI.Napi
+ * @kit ArkTS
+ * @since 12
+ */
+
 #ifndef FOUNDATION_ACE_NAPI_INTERFACES_KITS_NAPI_COMMON_H
 #define FOUNDATION_ACE_NAPI_INTERFACES_KITS_NAPI_COMMON_H
 
@@ -68,3 +88,4 @@ typedef enum {
 } napi_task_priority;
 
 #endif /* FOUNDATION_ACE_NAPI_INTERFACES_KITS_NAPI_NATIVE_API_H */
+/** @} */
