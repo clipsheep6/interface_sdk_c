@@ -39,7 +39,7 @@ extern "C" {
 /**
  * @brief Forward declaration of OHNativeWindow.
  * 
- * @since 10
+ * @since 9
  */
 typedef struct NativeWindow OHNativeWindow;
 /**
