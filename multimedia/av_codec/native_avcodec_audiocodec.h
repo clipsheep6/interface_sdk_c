@@ -38,7 +38,6 @@ extern "C" {
 /**
  * @brief MediaKeySession field.
  * @since 12
- * @version 1.0
  */
 typedef struct MediaKeySession MediaKeySession;
 
@@ -281,7 +280,6 @@ OH_AVErrCode OH_AudioCodec_IsValid(OH_AVCodec *codec, bool *isValid);
  *         the mediaKeySession is nullptr or invalid.
  *         {@link AV_ERR_INVALID_STATE} 8 - If the codec service is invalid.
  * @since 12
- * @version 1.0
 */
 OH_AVErrCode OH_AudioCodec_SetDecryptionConfig(OH_AVCodec *codec, MediaKeySession *mediaKeySession,
     bool secureAudio);
