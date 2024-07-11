@@ -45,7 +45,7 @@ typedef struct NativeWindow OHNativeWindow;
 /**
  * @brief Forward declaration of OH_AVCodec.
  * 
- * @since 10
+ * @since 9
  */
 typedef struct OH_AVCodec OH_AVCodec;
 
