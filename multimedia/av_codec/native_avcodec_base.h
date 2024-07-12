@@ -213,7 +213,7 @@ extern const char *OH_AVCODEC_MIMETYPE_AUDIO_FLAC;
  */
 extern const char *OH_AVCODEC_MIMETYPE_AUDIO_VORBIS;
 /**
- * @brief Enumerates the mime types of audio mpeg codec.
+ * @brief Enumerates the mime types of audio mp3 codec.
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 10
  */
@@ -234,19 +234,19 @@ extern const char *OH_AVCODEC_MIMETYPE_VIDEO_HEVC;
 extern const char *OH_AVCODEC_MIMETYPE_VIDEO_MPEG4;
 
 /**
- * @brief Enumerates the mime types of video jpg muxer.
+ * @brief Enumerates the mime types of cover jpg muxer.
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 10
  */
 extern const char *OH_AVCODEC_MIMETYPE_IMAGE_JPG;
 /**
- * @brief Enumerates the mime types of video png muxer.
+ * @brief Enumerates the mime types of cover png muxer.
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 10
  */
 extern const char *OH_AVCODEC_MIMETYPE_IMAGE_PNG;
 /**
- * @brief Enumerates the mime types of video bmp muxer.
+ * @brief Enumerates the mime types of cover bmp muxer.
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 10
  */
@@ -369,7 +369,7 @@ extern const char *OH_MD_KEY_HEIGHT;
  */
 extern const char *OH_MD_KEY_PIXEL_FORMAT;
 /**
- * @brief key for audio raw format, value type is int32_t , see @AudioSampleFormat.
+ * @brief key for audio raw format, value type is int32_t , see @OH_BitsPerS1ample.
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 9
  */
