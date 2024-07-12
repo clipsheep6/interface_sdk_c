@@ -459,161 +459,138 @@ extern const char *OH_MD_KEY_REQUEST_I_FRAME;
 extern const char *OH_MD_KEY_QUALITY;
 /**
  * @brief Key of the codec specific data. value type is a uint8_t pointer.
- * supported for encoders that are configured in constant quality mode.
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 10
  */
 extern const char *OH_MD_KEY_CODEC_CONFIG;
 /**
  * @brief source format Key for title, value type is string.
- * supported for encoders that are configured in constant quality mode.
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 10
  */
 extern const char *OH_MD_KEY_TITLE;
 /**
  * @brief source format Key for artist, value type is string.
- * supported for encoders that are configured in constant quality mode.
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 10
  */
 extern const char *OH_MD_KEY_ARTIST;
 /**
  * @brief source format Key for album, value type is string.
- * supported for encoders that are configured in constant quality mode.
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 10
  */
 extern const char *OH_MD_KEY_ALBUM;
 /**
  * @brief source format Key for album artist, value type is string.
- * supported for encoders that are configured in constant quality mode.
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 10
  */
 extern const char *OH_MD_KEY_ALBUM_ARTIST;
 /**
  * @brief source format Key for date, value type is string.
- * supported for encoders that are configured in constant quality mode.
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 10
  */
 extern const char *OH_MD_KEY_DATE;
 /**
  * @brief source format Key for comment, value type is string.
- * supported for encoders that are configured in constant quality mode.
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 10
  */
 extern const char *OH_MD_KEY_COMMENT;
 /**
  * @brief source format Key for genre, value type is string.
- * supported for encoders that are configured in constant quality mode.
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 10
  */
 extern const char *OH_MD_KEY_GENRE;
 /**
  * @brief source format Key for copyright, value type is string.
- * supported for encoders that are configured in constant quality mode.
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 10
  */
 extern const char *OH_MD_KEY_COPYRIGHT;
 /**
  * @brief source format Key for language, value type is string.
- * supported for encoders that are configured in constant quality mode.
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 10
  */
 extern const char *OH_MD_KEY_LANGUAGE;
 /**
  * @brief source format Key for description, value type is string.
- * supported for encoders that are configured in constant quality mode.
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 10
  */
 extern const char *OH_MD_KEY_DESCRIPTION;
 /**
  * @brief source format Key for lyrics, value type is string.
- * supported for encoders that are configured in constant quality mode.
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 10
  */
 extern const char *OH_MD_KEY_LYRICS;
 /**
  * @brief source format Key for track count, value type is int32_t.
- * supported for encoders that are configured in constant quality mode.
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 10
  */
 extern const char *OH_MD_KEY_TRACK_COUNT;
 /**
  * @brief Key for the desired encoding channel layout, value type is int64_t, this key is only supported for encoders.
- * supported for encoders that are configured in constant quality mode.
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 10
  */
 extern const char *OH_MD_KEY_CHANNEL_LAYOUT;
 /**
  * @brief Key for bits per coded sample, value type is int32_t, supported for flac encoder, see @OH_BitsPerSample.
- * supported for encoders that are configured in constant quality mode.
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 10
  */
 extern const char *OH_MD_KEY_BITS_PER_CODED_SAMPLE;
 /**
  * @brief Key for the aac format, value type is int32_t, supported for aac decoder.
- * supported for encoders that are configured in constant quality mode.
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 10
  */
 extern const char *OH_MD_KEY_AAC_IS_ADTS;
 /**
  * @brief Key for aac sbr mode, value type is int32_t, supported for aac encoder.
- * supported for encoders that are configured in constant quality mode.
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 10
  */
 extern const char *OH_MD_KEY_SBR;
 /**
  * @brief Key for flac compliance level, value type is int32_t.
- * supported for encoders that are configured in constant quality mode.
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 10
  */
 extern const char *OH_MD_KEY_COMPLIANCE_LEVEL;
 /**
  * @brief Key for vorbis identification header, value type is a uint8_t pointer, supported only for vorbis decoder.
- * supported for encoders that are configured in constant quality mode.
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 10
  */
 extern const char *OH_MD_KEY_IDENTIFICATION_HEADER;
 /**
  * @brief Key for vorbis setup header, value type is a uint8_t pointer, supported only for vorbis decoder.
- * supported for encoders that are configured in constant quality mode.
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 10
  */
 extern const char *OH_MD_KEY_SETUP_HEADER;
 /**
  * @brief Key for video scale type, value type is int32_t, see @OH_ScalingMode.
- * supported for encoders that are configured in constant quality mode.
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 10
  */
 extern const char *OH_MD_KEY_SCALING_MODE;
 /**
  * @brief Key for max input buffer count, value type is int32_t.
- * supported for encoders that are configured in constant quality mode.
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 10
  */
 extern const char *OH_MD_MAX_INPUT_BUFFER_COUNT;
 /**
  * @brief Key for max output buffer count, value type is int32_t.
- * supported for encoders that are configured in constant quality mode.
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 10
  */
