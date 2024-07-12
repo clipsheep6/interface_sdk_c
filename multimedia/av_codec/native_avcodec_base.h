@@ -369,7 +369,7 @@ extern const char *OH_MD_KEY_HEIGHT;
  */
 extern const char *OH_MD_KEY_PIXEL_FORMAT;
 /**
- * @brief key for audio raw format, value type is int32_t , see @OH_BitsPerS1ample.
+ * @brief key for audio raw format, value type is int32_t , see @OH_BitsPerSample.
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 9
  */
