@@ -119,8 +119,8 @@ VideoProcessing_ErrorCode OH_VideoProcessing_Create(OH_VideoProcessing** videoPr
  *
  * Stop the instance before destroying it. see {@link OH_VideoProcessing_Stop}. \n
  *
- * @param videoProcessing The video processing instance pointer to be destroyed. It is recommended setting the instance pointer
- * to null after the instance is destroyed.
+ * @param videoProcessing The video processing instance pointer to be destroyed. It is recommended setting the
+ * instance pointer to null after the instance is destroyed.
  * @return {@link VIDEO_PROCESSING_SUCCESS} if the instance is destroyed successfully . \n
  * {@link VIDEO_PROCESSING_ERROR_INVALID_INSTANCE} if instance is null or not a video processing instance. \n
  * {@link VIDEO_PROCESSING_ERROR_OPERATION_NOT_PERMITTED} if the instance is still running.
