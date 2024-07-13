@@ -493,5 +493,9 @@
     {
         "first_introduced": "12",
         "name": "OH_AVCapability_GetFeatureProperties"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_MD_KEY_VIDEO_DECODER_OUTPUT_COLOR_SPACE"
     }
 ]
