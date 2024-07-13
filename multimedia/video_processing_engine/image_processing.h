@@ -133,8 +133,8 @@ bool OH_ImageProcessing_IsMetadataGenerationSupported(
 /**
  * @brief Create an image processing instance.
  *
- * @param instance Output parameter. The *instance points to a new image processing object. The *instance must be null
- * before passed in.
+ * @param imageProcessing Output parameter. The *imageProcessing points to a new image processing object.
+ * The *imageProcessing must be null before passed in.
  * @param type Use IMAGE_PROCESSING_TYPE_XXX to specify the processing type. The processing type of the instance can not
  * be changed.
  * @return {@link IMAGE_PROCESSING_SUCCESS} if creating an image processing successfully. \n
@@ -145,25 +145,25 @@ bool OH_ImageProcessing_IsMetadataGenerationSupported(
  * {@link IMAGE_PROCESSING_ERROR_INVALID_PARAMETER} if type is invalid. \n
  * @since 12
  */
-ImageProcessing_ErrorCode OH_ImageProcessing_Create(OH_ImageProcessing** instance, int32_t type);
+ImageProcessing_ErrorCode OH_ImageProcessing_Create(OH_ImageProcessing** imageProcessing, int32_t type);
 
 /**
  * @brief Destroy the image processing instance.
  *
- * @param instance An image processing instance pointer. It is recommended setting the instance pointer to null after
- * the instance is destroyed.
+ * @param imageProcessing An image processing instance pointer. It is recommended setting the
+ * instance pointer to null after the instance is destroyed.
  * @return {@link IMAGE_PROCESSING_SUCCESS} if the instance is destroyed successfully. \n
  * {@link IMAGE_PROCESSING_ERROR_INVALID_INSTANCE} if instance is null or not an image processing instance.
  * @since 12
  */
-ImageProcessing_ErrorCode OH_ImageProcessing_Destroy(OH_ImageProcessing* instance);
+ImageProcessing_ErrorCode OH_ImageProcessing_Destroy(OH_ImageProcessing* imageProcessing);
 
 /**
  * @brief Set parameter for image processing.
  *
  * Add parameter identified by the specified parameter key.
  *
- * @param instance An image processing instance pointer.
+ * @param imageProcessing An image processing instance pointer.
  * @param parameter The parameter for image processing.
  * @return {@link IMAGE_PROCESSING_SUCCESS} if setting parameter is successful. \n
  * {@link IMAGE_PROCESSING_ERROR_INVALID_INSTANCE} if instance is null or not an image processing instance. \n
@@ -173,21 +173,23 @@ ImageProcessing_ErrorCode OH_ImageProcessing_Destroy(OH_ImageProcessing* instanc
  * {@link IMAGE_PROCESSING_ERROR_NO_MEMORY} if memory allocation failed.
  * @since 12
  */
-ImageProcessing_ErrorCode OH_ImageProcessing_SetParameter(OH_ImageProcessing* instance, const OH_AVFormat* parameter);
+ImageProcessing_ErrorCode OH_ImageProcessing_SetParameter(OH_ImageProcessing* imageProcessing,
+    const OH_AVFormat* parameter);
 
 /**
  * @brief Get parameter of image processing.
  *
  * Get parameter identified by the specified parameter key.
  *
- * @param instance An image processing instance pointer.
+ * @param imageProcessing An image processing instance pointer.
  * @param parameter The parameter used by the image processing instance.
  * @return {@link IMAGE_PROCESSING_SUCCESS} if getting parameter is successful. \n
  * {@link IMAGE_PROCESSING_ERROR_INVALID_INSTANCE} if instance is null or not an image processing instance. \n
  * {@link IMAGE_PROCESSING_ERROR_INVALID_PARAMETER} if the parameter is null. \n
  * @since 12
  */
-ImageProcessing_ErrorCode OH_ImageProcessing_GetParameter(OH_ImageProcessing* instance, OH_AVFormat* parameter);
+ImageProcessing_ErrorCode OH_ImageProcessing_GetParameter(OH_ImageProcessing* imageProcessing,
+    OH_AVFormat* parameter);
 
 /**
  * @brief Conversion between single-layer images.
@@ -195,7 +197,7 @@ ImageProcessing_ErrorCode OH_ImageProcessing_GetParameter(OH_ImageProcessing* in
  * The function generate the destinationImage from sourceImage. It include the colorspace conversion from
  * HDR image to SDR image, SDR image to HDR image, SDR image to SDR image and HDR image to HDR image.
  *
- * @param instance An image processing instance pointer. The instance should be created with
+ * @param imageProcessing An image processing instance pointer. The instance should be created with
  * type {@link IMAGE_PROCESSING_TYPE_COLOR_SPACE_CONVERSION}.
  * @param sourceImage Input image pointer.
  * @param destinationImage Output image pointer.
@@ -209,7 +211,7 @@ ImageProcessing_ErrorCode OH_ImageProcessing_GetParameter(OH_ImageProcessing* in
  * {@link IMAGE_PROCESSING_ERROR_NO_MEMORY} if memory allocation failed.
  * @since 12
  */
-ImageProcessing_ErrorCode OH_ImageProcessing_ConvertColorSpace(OH_ImageProcessing* instance,
+ImageProcessing_ErrorCode OH_ImageProcessing_ConvertColorSpace(OH_ImageProcessing* imageProcessing,
     OH_PixelmapNative* sourceImage, OH_PixelmapNative* destinationImage);
 
 /**
@@ -217,7 +219,7 @@ ImageProcessing_ErrorCode OH_ImageProcessing_ConvertColorSpace(OH_ImageProcessin
  *
  * The function generate the destinationImage from sourceImage and sourceGainmap.
  *
- * @param instance An image processing instance pointer. The instance should be created with
+ * @param imageProcessing An image processing instance pointer. The instance should be created with
  * type {@link IMAGE_PROCESSING_TYPE_COMPOSITION}.
  * @param sourceImage Input image pointer.
  * @param sourceGainmap Input gainmap pointer.
@@ -232,15 +234,15 @@ ImageProcessing_ErrorCode OH_ImageProcessing_ConvertColorSpace(OH_ImageProcessin
  * {@link IMAGE_PROCESSING_ERROR_NO_MEMORY} if memory allocation failed.
  * @since 12
  */
-ImageProcessing_ErrorCode OH_ImageProcessing_Compose(OH_ImageProcessing* instance, OH_PixelmapNative* sourceImage,
-    OH_PixelmapNative* sourceGainmap, OH_PixelmapNative* destinationImage);
+ImageProcessing_ErrorCode OH_ImageProcessing_Compose(OH_ImageProcessing* imageProcessing,
+    OH_PixelmapNative* sourceImage, OH_PixelmapNative* sourceGainmap, OH_PixelmapNative* destinationImage);
 
 /**
  * @brief Decomposition from single-layer HDR images to dual-layer HDR images.
  *
  * The function generate the destinationImage and destinationGainmap from sourceImage.
  *
- * @param instance An image processing instance pointer. The instance should be created with
+ * @param imageProcessing An image processing instance pointer. The instance should be created with
  * type {@link IMAGE_PROCESSING_TYPE_DECOMPOSITION}.
  * @param sourceImage Input image pointer.
  * @param destinationImage Output image pointer.
@@ -255,15 +257,15 @@ ImageProcessing_ErrorCode OH_ImageProcessing_Compose(OH_ImageProcessing* instanc
  * {@link IMAGE_PROCESSING_ERROR_NO_MEMORY} if memory allocation failed.
  * @since 12
  */
-ImageProcessing_ErrorCode OH_ImageProcessing_Deompose(OH_ImageProcessing* instance, OH_PixelmapNative* sourceImage,
-    OH_PixelmapNative* destinationImage, OH_PixelmapNative* destinationGainmap);
+ImageProcessing_ErrorCode OH_ImageProcessing_Deompose(OH_ImageProcessing* imageProcessing,
+    OH_PixelmapNative* sourceImage, OH_PixelmapNative* destinationImage, OH_PixelmapNative* destinationGainmap);
 
 /**
  * @brief Metadata Generation for HDR images.
  *
  * The function generate metadata for the sourceImage.
  *
- * @param instance An image processing instance pointer. The instance should be created with
+ * @param imageProcessing An image processing instance pointer. The instance should be created with
  * type {@link IMAGE_PROCESSING_TYPE_METADATA_GENERATION}.
  * @param sourceImage Input image pointer.
  * @return {@link IMAGE_PROCESSING_SUCCESS} if processing image is successful. \n
@@ -276,7 +278,7 @@ ImageProcessing_ErrorCode OH_ImageProcessing_Deompose(OH_ImageProcessing* instan
  * {@link IMAGE_PROCESSING_ERROR_NO_MEMORY} if memory allocation failed.
  * @since 12
  */
-ImageProcessing_ErrorCode OH_ImageProcessing_GenerateMetadata(OH_ImageProcessing* instance,
+ImageProcessing_ErrorCode OH_ImageProcessing_GenerateMetadata(OH_ImageProcessing* imageProcessing,
     OH_PixelmapNative* sourceImage);
 
 /**
@@ -286,7 +288,7 @@ ImageProcessing_ErrorCode OH_ImageProcessing_GenerateMetadata(OH_ImageProcessing
  * preset in the sourceImage and destinationImage. Different levels of scaling methonds are provided to balance
  * performance and image quality.
  *
- * @param instance An image processing instance pointer. The instance should be created with
+ * @param imageProcessing An image processing instance pointer. The instance should be created with
  * type {@link IMAGE_PROCESSING_TYPE_DETAIL_ENHANCER}.
  * @param sourceImage Input image pointer.
  * @param destinationImage Output image pointer.
@@ -300,8 +302,8 @@ ImageProcessing_ErrorCode OH_ImageProcessing_GenerateMetadata(OH_ImageProcessing
  * {@link IMAGE_PROCESSING_ERROR_NO_MEMORY} if memory allocation failed.
  * @since 12
  */
-ImageProcessing_ErrorCode OH_ImageProcessing_EnhanceDetail(OH_ImageProcessing* instance, OH_PixelmapNative* sourceImage,
-    OH_PixelmapNative* destinationImage);
+ImageProcessing_ErrorCode OH_ImageProcessing_EnhanceDetail(OH_ImageProcessing* imageProcessing,
+    OH_PixelmapNative* sourceImage, OH_PixelmapNative* destinationImage);
 #ifdef __cplusplus
 }
 #endif

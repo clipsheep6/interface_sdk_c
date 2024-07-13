@@ -215,13 +215,13 @@ typedef struct VideoProcessing_Callback VideoProcessing_Callback;
  * {@link VIDEO_PROCESSING_ERROR_PROCESS_FAILED}, some processing error occurs. \n
  * For more errors, see {@link VideoProcessing_ErrorCode}.
  *
- * @param instance The video processing instance.
+ * @param videoProcessing The video processing instance.
  * @param error Error code reporting to user.
  * @param userData User's custom data.
  * @since 12
  */
-typedef void (*OH_VideoProcessingCallback_OnError)(OH_VideoProcessing* instance, VideoProcessing_ErrorCode error,
-    void* userData);
+typedef void (*OH_VideoProcessingCallback_OnError)(OH_VideoProcessing* videoProcessing,
+    VideoProcessing_ErrorCode error, void* userData);
 
 /**
  * @brief The callback function pointer definition for reporting video processing state.
@@ -231,12 +231,12 @@ typedef void (*OH_VideoProcessingCallback_OnError)(OH_VideoProcessing* instance,
  * The state will be {@link VIDEO_PROCESSING_STATE_STOPPED} after all the buffers cached before
  * {@link OH_VideoProcessing_Stop} is called are processed.
  *
- * @param instance The video processing instance.
+ * @param videoProcessing The video processing instance.
  * @param state see {@link VideoProcessing_State}.
  * @param userData User's custom data.
  * @since 12
  */
-typedef void (*OH_VideoProcessingCallback_OnState)(OH_VideoProcessing* instance, VideoProcessing_State state,
+typedef void (*OH_VideoProcessingCallback_OnState)(OH_VideoProcessing* videoProcessing, VideoProcessing_State state,
     void* userData);
 
 /**
@@ -247,12 +247,12 @@ typedef void (*OH_VideoProcessingCallback_OnState)(OH_VideoProcessing* instance,
  * If this function is not registered, the output buffer is sent out as soon as the buffer is filled with processed
  * data without reporting.
  *
- * @param instance The video processing instance.
+ * @param videoProcessing The video processing instance.
  * @param index The index of the new output buffer.
  * @param userData The user's custom data.
  * @since 12
  */
-typedef void (*OH_VideoProcessingCallback_OnNewOutputBuffer)(OH_VideoProcessing* instance, uint32_t index,
+typedef void (*OH_VideoProcessingCallback_OnNewOutputBuffer)(OH_VideoProcessing* videoProcessing, uint32_t index,
     void* userData);
 
 #ifdef __cplusplus
