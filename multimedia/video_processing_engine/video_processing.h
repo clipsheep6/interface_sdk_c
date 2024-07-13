@@ -100,8 +100,8 @@ bool OH_VideoProcessing_IsMetadataGenerationSupported(
 /**
  * @brief Create a video processing instance.
  *
- * @param videoProcessing Output parameter. The *videoProcessing points to a new video processing object.
- * The *videoProcessing must be null before passed in.
+ * @param videoProcessor Output parameter. The *videoProcessor points to a new video processing object.
+ * The *videoProcessor must be null before passed in.
  * @param type Use VIDEO_PROCESSING_TYPE_XXX to specify the processing type. The processing type of the instance can not
  * be changed.
  * @return {@link VIDEO_PROCESSING_SUCCESS} if creating a video processing instance successfully. \n
@@ -112,28 +112,28 @@ bool OH_VideoProcessing_IsMetadataGenerationSupported(
  * {@link VIDEO_PROCESSING_ERROR_INVALID_PARAMETER} if type is invalid.
  * @since 12
  */
-VideoProcessing_ErrorCode OH_VideoProcessing_Create(OH_VideoProcessing** videoProcessing, int type);
+VideoProcessing_ErrorCode OH_VideoProcessing_Create(OH_VideoProcessing** videoProcessor, int type);
 
 /**
  * @brief Destroy the video processing instance.
  *
  * Stop the instance before destroying it. see {@link OH_VideoProcessing_Stop}. \n
  *
- * @param videoProcessing The video processing instance pointer to be destroyed. It is recommended setting the
+ * @param videoProcessor The video processing instance pointer to be destroyed. It is recommended setting the
  * instance pointer to null after the instance is destroyed.
  * @return {@link VIDEO_PROCESSING_SUCCESS} if the instance is destroyed successfully . \n
  * {@link VIDEO_PROCESSING_ERROR_INVALID_INSTANCE} if instance is null or not a video processing instance. \n
  * {@link VIDEO_PROCESSING_ERROR_OPERATION_NOT_PERMITTED} if the instance is still running.
  * @since 12
  */
-VideoProcessing_ErrorCode OH_VideoProcessing_Destroy(OH_VideoProcessing* videoProcessing);
+VideoProcessing_ErrorCode OH_VideoProcessing_Destroy(OH_VideoProcessing* videoProcessor);
 
 /**
  * @brief Register callback object.
  *
  * Register the callback object before starting video processing.
  *
- * @param videoProcessing A video processing instance pointer.
+ * @param videoProcessor A video processing instance pointer.
  * @param callback Callback pointer to be registered.
  * @param userData User's custom data pointer.
  * @return {@link VIDEO_PROCESSING_SUCCESS} if callback is registered successfully. \n
@@ -142,7 +142,7 @@ VideoProcessing_ErrorCode OH_VideoProcessing_Destroy(OH_VideoProcessing* videoPr
  * {@link VIDEO_PROCESSING_ERROR_OPERATION_NOT_PERMITTED} if video processing instance is running.
  * @since 12
  */
-VideoProcessing_ErrorCode OH_VideoProcessing_RegisterCallback(OH_VideoProcessing* videoProcessing,
+VideoProcessing_ErrorCode OH_VideoProcessing_RegisterCallback(OH_VideoProcessing* videoProcessor,
     const VideoProcessing_Callback* callback, void* userData);
 
 /**
@@ -150,14 +150,14 @@ VideoProcessing_ErrorCode OH_VideoProcessing_RegisterCallback(OH_VideoProcessing
  *
  * Set the output surface before starting video processing.
  *
- * @param videoProcessing A video processing instance pointer.
+ * @param videoProcessor A video processing instance pointer.
  * @param window The output surface pointer.
  * @return {@link VIDEO_PROCESSING_SUCCESS} if setting output surface successfully. \n
  * {@link VIDEO_PROCESSING_ERROR_INVALID_INSTANCE} if instance is null or not a video processing instance. \n
  * {@link VIDEO_PROCESSING_ERROR_INVALID_PARAMETER} if window is null.
  * @since 12
  */
-VideoProcessing_ErrorCode OH_VideoProcessing_SetSurface(OH_VideoProcessing* videoProcessing,
+VideoProcessing_ErrorCode OH_VideoProcessing_SetSurface(OH_VideoProcessing* videoProcessor,
     const OHNativeWindow* window);
 
 /**
@@ -166,7 +166,7 @@ VideoProcessing_ErrorCode OH_VideoProcessing_SetSurface(OH_VideoProcessing* vide
  * Create the input surface before starting video processing.
  * Call {@link OH_NativeWindow_DestroyNativeWindow} to destroy the input surface.
  *
- * @param videoProcessing A video processing instance pointer.
+ * @param videoProcessor A video processing instance pointer.
  * @param window The input surface pointer. For example, it is the output surface of a video decoder.
  * @return {@link VIDEO_PROCESSING_SUCCESS} if operation is successful. \n
  * {@link VIDEO_PROCESSING_ERROR_INVALID_INSTANCE} if instance is null or not a video processing instance. \n
@@ -175,14 +175,14 @@ VideoProcessing_ErrorCode OH_VideoProcessing_SetSurface(OH_VideoProcessing* vide
  * or video processing instance is running.
  * @since 12
  */
-VideoProcessing_ErrorCode OH_VideoProcessing_GetSurface(OH_VideoProcessing* videoProcessing, OHNativeWindow** window);
+VideoProcessing_ErrorCode OH_VideoProcessing_GetSurface(OH_VideoProcessing* videoProcessor, OHNativeWindow** window);
 
 /**
  * @brief Set parameter for video processing.
  *
  * Add parameter identified by the specified parameter key.
  *
- * @param videoProcessing An video processing instance pointer.
+ * @param videoProcessor An video processing instance pointer.
  * @param parameter The parameter for video processing.
  * @return {@link VIDEO_PROCESSING_SUCCESS} if setting parameter is successful. \n
  * {@link VIDEO_PROCESSING_ERROR_INVALID_INSTANCE} if instance is null or not an video processing instance. \n
@@ -192,7 +192,7 @@ VideoProcessing_ErrorCode OH_VideoProcessing_GetSurface(OH_VideoProcessing* vide
  * {@link VIDEO_PROCESSING_ERROR_NO_MEMORY} if memory allocation failed.
  * @since 12
  */
-VideoProcessing_ErrorCode OH_VideoProcessing_SetParameter(OH_VideoProcessing* videoProcessing,
+VideoProcessing_ErrorCode OH_VideoProcessing_SetParameter(OH_VideoProcessing* videoProcessor,
     const OH_AVFormat* parameter);
 
 /**
@@ -200,14 +200,14 @@ VideoProcessing_ErrorCode OH_VideoProcessing_SetParameter(OH_VideoProcessing* vi
  *
  * Get parameter identified by the specified parameter key.
  *
- * @param videoProcessing An video processing instance pointer.
+ * @param videoProcessor An video processing instance pointer.
  * @param parameter The parameter used by the video processing instance.
  * @return {@link VIDEO_PROCESSING_SUCCESS} if getting parameter is successful. \n
  * {@link VIDEO_PROCESSING_ERROR_INVALID_INSTANCE} if instance is null or not an video processing instance. \n
  * {@link VIDEO_PROCESSING_ERROR_INVALID_PARAMETER} if the parameter is null. \n
  * @since 12
  */
-VideoProcessing_ErrorCode OH_VideoProcessing_GetParameter(OH_VideoProcessing* videoProcessing, OH_AVFormat* parameter);
+VideoProcessing_ErrorCode OH_VideoProcessing_GetParameter(OH_VideoProcessing* videoProcessor, OH_AVFormat* parameter);
 
 /**
  * @brief Start video processing instance.
@@ -215,14 +215,14 @@ VideoProcessing_ErrorCode OH_VideoProcessing_GetParameter(OH_VideoProcessing* vi
  * After successfully calling this function, the state {@link VIDEO_PROCESSING_STATE_RUNNING} is reported by callback
  * function {@link OH_VideoProcessingCallback_OnState}.
  *
- * @param videoProcessing A video processing instance pointer.
+ * @param videoProcessor A video processing instance pointer.
  * @return {@link VIDEO_PROCESSING_SUCCESS} if the operation is successful. \n
  * {@link VIDEO_PROCESSING_ERROR_INVALID_INSTANCE} if instance is null or not a video processing instance. \n
  * {@link VIDEO_PROCESSING_ERROR_OPERATION_NOT_PERMITTED} if output surface is not set, input surface is not created or
  * instance is already running.
  * @since 12
  */
-VideoProcessing_ErrorCode OH_VideoProcessing_Start(OH_VideoProcessing* videoProcessing);
+VideoProcessing_ErrorCode OH_VideoProcessing_Start(OH_VideoProcessing* videoProcessor);
 
 /**
  * @brief To stop video processing instance.
@@ -230,13 +230,13 @@ VideoProcessing_ErrorCode OH_VideoProcessing_Start(OH_VideoProcessing* videoProc
  * After the video processing instance is stopped successfully, the state {@link VIDEO_PROCESSING_STATE_STOPPED} is
  * reported by callback function {@link OH_VideoProcessing_OnState}.
  *
- * @param videoProcessing A video processing instance pointer.
+ * @param videoProcessor A video processing instance pointer.
  * @return {@link VIDEO_PROCESSING_SUCCESS} if the operation is successful. \n
  * {@link VIDEO_PROCESSING_ERROR_INVALID_INSTANCE} if instance is null or not a video processing instance. \n
  * {@link VIDEO_PROCESSING_ERROR_OPERATION_NOT_PERMITTED} if instance is already stopped.
  * @since 12
  */
-VideoProcessing_ErrorCode OH_VideoProcessing_Stop(OH_VideoProcessing* videoProcessing);
+VideoProcessing_ErrorCode OH_VideoProcessing_Stop(OH_VideoProcessing* videoProcessor);
 
 /**
  * @brief Send the output buffer out.
@@ -244,7 +244,7 @@ VideoProcessing_ErrorCode OH_VideoProcessing_Stop(OH_VideoProcessing* videoProce
  * If the callback function {@link OH_VideoProcessingCallback_OnNewOutputBuffer} is set, the buffer's index is reported
  * to user by the callback function when an output buffer is ready.
  *
- * @param videoProcessing A video processing instance pointer.
+ * @param videoProcessor A video processing instance pointer.
  * @param index The output buffer's index.
  * @return {@link VIDEO_PROCESSING_SUCCESS} if the operation is successful. \n
  * {@link VIDEO_PROCESSING_ERROR_INVALID_INSTANCE} if instance is null or not a video processing instance. \n
@@ -253,7 +253,7 @@ VideoProcessing_ErrorCode OH_VideoProcessing_Stop(OH_VideoProcessing* videoProce
  * not set or instance is stopped.
  * @since 12
  */
-VideoProcessing_ErrorCode OH_VideoProcessing_RenderOutputBuffer(OH_VideoProcessing* videoProcessing, uint32_t index);
+VideoProcessing_ErrorCode OH_VideoProcessing_RenderOutputBuffer(OH_VideoProcessing* videoProcessor, uint32_t index);
 
 /**
  * @brief Create a video processing callback object.
