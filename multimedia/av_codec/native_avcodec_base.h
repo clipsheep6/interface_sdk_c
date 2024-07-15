@@ -655,7 +655,9 @@ typedef enum OH_MediaType {
     MEDIA_TYPE_AUD = 0,
     /* track is video. */
     MEDIA_TYPE_VID = 1,
-    /* track is subtitle. */
+    /** track is subtitle.
+     * @since 12
+     */
     MEDIA_TYPE_SUBTITLE = 2,
 } OH_MediaType;
 
