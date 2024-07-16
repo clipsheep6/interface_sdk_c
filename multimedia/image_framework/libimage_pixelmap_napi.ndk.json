@@ -43,7 +43,7 @@
     "name": "OH_PixelMap_Scale"
   },
   {
-    "name": "OH_PixelMap_Scale_AntiAliasing"
+    "name": "OH_PixelMap_ScaleWithAntiAliasing"
   },
   {
     "name": "OH_PixelMap_Translate"

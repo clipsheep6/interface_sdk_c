@@ -109,7 +109,7 @@
     },
     {
         "first_introduced": "12",
-        "name": "OH_PixelmapNative_Scale_AntiAliasing"
+        "name": "OH_PixelmapNative_ScaleWithAntiAliasing"
     },
     {
         "first_introduced": "12",
