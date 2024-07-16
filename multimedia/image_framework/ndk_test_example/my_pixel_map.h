@@ -13,6 +13,10 @@
  * limitations under the License.
  */
 
+/**
+ * @kit ImageKit
+ */
+
 #ifndef PIXEL_MAP_NAPI_TEST_H_
 #define PIXEL_MAP_NAPI_TEST_H_
 
