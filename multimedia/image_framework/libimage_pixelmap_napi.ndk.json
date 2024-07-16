@@ -13,6 +13,9 @@
     "name": "OH_PixelMap_CreatePixelMap"
   },
   {
+    "name": "OH_PixelMap_CreatePixelMapWithStride"
+  },
+  {
     "name": "OH_PixelMap_CreateAlphaPixelMap"
   },
   {
