@@ -51,6 +51,7 @@ typedef struct DRM_MediaKeySystemInfo DRM_MediaKeySystemInfo;
 
 /**
  * @brief After this callback is set, it will be invoked when DRM information is updated.
+ *
  * @param mediaKeySystemInfo DRM information.
  * @since 11
  */
