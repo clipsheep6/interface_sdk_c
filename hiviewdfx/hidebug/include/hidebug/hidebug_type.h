@@ -173,6 +173,39 @@ typedef enum HiDebug_TraceFlag {
     /** Capture all thread trace */
     HIDEBUG_TRACE_FLAG_ALL_THREADS = 2
 } HiDebug_TraceFlag;
+
+/**
+ * @brief Enum for application memory item.
+ *
+ * @since 13
+ */
+typedef enum HiDebug_MemoryItem {
+    /** total graphics memory, in kilobyte */
+    HIDEBUG_MEMORY_ITEM_SUMMARY_GRAPHICS = 1,
+} HiDebug_MemoryItem;
+
+/**
+ * @brief Defines application process memory statistics item.
+ *
+ * @since 13
+ */
+typedef struct HiDebug_AppMemoryItem {
+    /**
+     * Application memory item
+     */
+    HiDebug_MemoryItem item;
+    /**
+     * Application memory value of item
+     */
+    uint32_t value;
+} HiDebug_AppMemoryItem;
+
+/**
+ * @brief Defines pointer to application process memory statistics item.
+ *
+ * @since 13
+ */
+typedef HiDebug_AppMemoryItem* HiDebug_AppMemoryItemPtr;
 #ifdef __cplusplus
 }
 #endif // __cplusplus
