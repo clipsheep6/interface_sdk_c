@@ -689,7 +689,7 @@ void OH_Input_CancelInjection();
  * @param 自上次输入以来的间隔.
  * @return 返回自上次输入事件以来的时间间隔.
  * @syscap SystemCapability.MultimodalInput.Input.Core
- * @since 12
+ * @since 13
  */
 int32_t OH_Input_GetIntervalSinceLastInput(int64_t &timeInterval);
 
