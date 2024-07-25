@@ -2,7 +2,7 @@
 #define VULKAN_OHOS_H_ 1
 
 /*
-** Copyright 2015-2022 The Khronos Group Inc.
+** Copyright 2015-2023 The Khronos Group Inc.
 **
 ** SPDX-License-Identifier: Apache-2.0
 */
@@ -70,43 +70,11 @@ typedef struct VkPhysicalDevicePresentationPropertiesOHOS {
     VkBool32           sharedImage;
 } VkPhysicalDevicePresentationPropertiesOHOS;
 
-/**
- * @brief this type is deprecated, please use PFN_vkAcquireImageOHOS instead
- * @deprecated
- */
-typedef VkResult (VKAPI_PTR *PFN_vkSetNativeFenceFdOpenHarmony)(VkDevice device, int32_t nativeFenceFd, VkSemaphore semaphore, VkFence fence);
-
-/**
- * @brief this type is deprecated, please use PFN_vkQueueSignalReleaseImageOHOS instead
- * @deprecated
- */
-typedef VkResult (VKAPI_PTR *PFN_vkGetNativeFenceFdOpenHarmony)(VkQueue queue, uint32_t waitSemaphoreCount, const VkSemaphore* pWaitSemaphores, VkImage image, int32_t* pNativeFenceFd);
 typedef VkResult (VKAPI_PTR *PFN_vkGetSwapchainGrallocUsageOHOS)(VkDevice device, VkFormat format, VkImageUsageFlags imageUsage, uint64_t* grallocUsage);
 typedef VkResult (VKAPI_PTR *PFN_vkAcquireImageOHOS)(VkDevice device, VkImage image, int32_t nativeFenceFd, VkSemaphore semaphore, VkFence fence);
 typedef VkResult (VKAPI_PTR *PFN_vkQueueSignalReleaseImageOHOS)(VkQueue queue, uint32_t waitSemaphoreCount, const VkSemaphore* pWaitSemaphores, VkImage image, int32_t* pNativeFenceFd);
 
 #ifndef VK_NO_PROTOTYPES
-/**
- * @brief this interface is deprecated, please use vkAcquireImageOHOS instead
- * @deprecated
- */
-VKAPI_ATTR VkResult VKAPI_CALL vkSetNativeFenceFdOpenHarmony(
-    VkDevice                                    device,
-    int32_t                                     nativeFenceFd,
-    VkSemaphore                                 semaphore,
-    VkFence                                     fence);
-
-/**
- * @brief this interface is deprecated, please use vkQueueSignalReleaseImageOHOS instead
- * @deprecated
- */
-VKAPI_ATTR VkResult VKAPI_CALL vkGetNativeFenceFdOpenHarmony(
-    VkQueue                                     queue,
-    uint32_t                                    waitSemaphoreCount,
-    const VkSemaphore*                          pWaitSemaphores,
-    VkImage                                     image,
-    int32_t*                                    pNativeFenceFd);
-
 VKAPI_ATTR VkResult VKAPI_CALL vkGetSwapchainGrallocUsageOHOS(
     VkDevice                                    device,
     VkFormat                                    format,
