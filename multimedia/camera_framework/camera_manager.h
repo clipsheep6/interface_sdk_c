@@ -63,6 +63,15 @@ extern "C" {
 typedef void (*OH_CameraManager_StatusCallback)(Camera_Manager* cameraManager, Camera_StatusInfo* status);
 
 /**
+ * @brief Camera manager torch status callback to be called in {@link CameraManager_Callbacks}.
+ *
+ * @param cameraManager the {@link Camera_Manager} which deliver the callback.
+ * @param status the {@link Camera_TorchStatusInfo} of the torch.
+ * @since 12
+ */
+typedef void (*OH_CameraManager_TorchStatusCallback)(Camera_Manager* cameraManager, Camera_TorchStatusInfo* status);
+
+/**
  * @brief A listener for camera devices status.
  *
  * @see OH_CameraManager_RegisterCallback
@@ -74,6 +83,12 @@ typedef struct CameraManager_Callbacks {
      * Camera status change event.
      */
     OH_CameraManager_StatusCallback onCameraStatus;
+
+    /**
+     * Camera torch status change event.
+     * @since 12
+     */
+    OH_CameraManager_TorchStatusCallback onCameraTorchStatus;
 } CameraManager_Callbacks;
 
 /**
@@ -140,6 +155,22 @@ Camera_ErrorCode OH_CameraManager_GetSupportedCameraOutputCapability(Camera_Mana
     const Camera_Device* camera, Camera_OutputCapability** cameraOutputCapability);
 
 /**
+ * @brief Gets supported output capability for specific camera and specific sceneMode.
+ *
+ * @param cameraManager the {@link Camera_Manager} instance.
+ * @param camera the {@link Camera_Device} to be queryed.
+ * @param sceneMode the {@link Camera_SceneMode} to be queryed.
+ * @param cameraOutputCapability the supported {@link Camera_OutputCapability} will be filled
+ *        if the method call succeeds.
+ * @return {@link #CAMERA_OK} if the method call succeeds.
+ *         {@link #CAMERA_INVALID_ARGUMENT} if parameter missing or parameter type incorrect.
+ *         {@link #CAMERA_SERVICE_FATAL_ERROR} if camera service fatal error.
+ * @since 12
+ */
+Camera_ErrorCode OH_CameraManager_GetSupportedCameraOutputCapabilityWithSceneMode(Camera_Manager* cameraManager,
+    const Camera_Device* camera, Camera_SceneMode sceneMode, Camera_OutputCapability** cameraOutputCapability);
+
+/**
  * @brief Delete the supported output capability.
  *
  * @param cameraManager the {@link Camera_Manager} instance.
@@ -163,7 +194,7 @@ Camera_ErrorCode OH_CameraManager_DeleteSupportedCameraOutputCapability(Camera_M
 Camera_ErrorCode OH_CameraManager_IsCameraMuted(Camera_Manager* cameraManager, bool* isCameraMuted);
 
 /**
- * @brief Create a capture session instance.
+ * @brief Create a capture session instance.The default session mode is photo session.
  *
  * @param cameraManager the {@link Camera_Manager} instance.
  * @param captureSession the {@link Camera_CaptureSession} will be created
@@ -177,7 +208,7 @@ Camera_ErrorCode OH_CameraManager_CreateCaptureSession(Camera_Manager* cameraMan
     Camera_CaptureSession** captureSession);
 
 /**
- * @brief Create a camera input= instance.
+ * @brief Create a camera input instance.
  *
  * @param cameraManager the {@link Camera_Manager} instance.
  * @param camera the {@link Camera_Device} which use to create {@link Camera_Input}.
@@ -223,6 +254,20 @@ Camera_ErrorCode OH_CameraManager_CreatePreviewOutput(Camera_Manager* cameraMana
     const char* surfaceId, Camera_PreviewOutput** previewOutput);
 
 /**
+ * @brief Create a preview output instance used in preconfig.
+ *
+ * @param cameraManager the {@link Camera_Manager} instance.
+ * @param surfaceId the which use to create {@link Camera_PreviewOutput}.
+ * @param previewOutput the {@link Camera_PreviewOutput} will be created if the method call succeeds.
+ * @return {@link #CAMERA_OK} if the method call succeeds.
+ *         {@link #CAMERA_INVALID_ARGUMENT} if parameter missing or parameter type incorrect.
+ *         {@link #CAMERA_SERVICE_FATAL_ERROR} if camera service fatal error.
+ * @since 12
+ */
+Camera_ErrorCode OH_CameraManager_CreatePreviewOutputUsedInPreconfig(Camera_Manager* cameraManager,
+    const char* surfaceId, Camera_PreviewOutput** previewOutput);
+
+/**
  * @brief Create a photo output instance.
  *
  * @param cameraManager the {@link Camera_Manager} instance.
@@ -235,6 +280,20 @@ Camera_ErrorCode OH_CameraManager_CreatePreviewOutput(Camera_Manager* cameraMana
  * @since 11
  */
 Camera_ErrorCode OH_CameraManager_CreatePhotoOutput(Camera_Manager* cameraManager, const Camera_Profile* profile,
+    const char* surfaceId, Camera_PhotoOutput** photoOutput);
+
+/**
+ * @brief Create a photo output instance used in preconfig.
+ *
+ * @param cameraManager the {@link Camera_Manager} instance.
+ * @param surfaceId the which use to create {@link Camera_PhotoOutput}.
+ * @param photoOutput the {@link Camera_PhotoOutput} will be created if the method call succeeds.
+ * @return {@link #CAMERA_OK} if the method call succeeds.
+ *         {@link #CAMERA_INVALID_ARGUMENT} if parameter missing or parameter type incorrect.
+ *         {@link #CAMERA_SERVICE_FATAL_ERROR} if camera service fatal error.
+ * @since 12
+ */
+Camera_ErrorCode OH_CameraManager_CreatePhotoOutputUsedInPreconfig(Camera_Manager* cameraManager,
     const char* surfaceId, Camera_PhotoOutput** photoOutput);
 
 /**
@@ -253,6 +312,20 @@ Camera_ErrorCode OH_CameraManager_CreateVideoOutput(Camera_Manager* cameraManage
     const char* surfaceId, Camera_VideoOutput** videoOutput);
 
 /**
+ * @brief Create a video output instance used in preconfig.
+ *
+ * @param cameraManager the {@link Camera_Manager} instance.
+ * @param surfaceId the which use to create {@link Camera_VideoOutput}.
+ * @param videoOutput the {@link Camera_VideoOutput} will be created if the method call succeeds.
+ * @return {@link #CAMERA_OK} if the method call succeeds.
+ *         {@link #CAMERA_INVALID_ARGUMENT} if parameter missing or parameter type incorrect.
+ *         {@link #CAMERA_SERVICE_FATAL_ERROR} if camera service fatal error.
+ * @since 12
+ */
+Camera_ErrorCode OH_CameraManager_CreateVideoOutputUsedInPreconfig(Camera_Manager* cameraManager,
+    const char* surfaceId, Camera_VideoOutput** videoOutput);
+
+/**
  * @brief Create a metadata output instance.
  *
  * @param cameraManager the {@link Camera_Manager} instance.
@@ -265,6 +338,70 @@ Camera_ErrorCode OH_CameraManager_CreateVideoOutput(Camera_Manager* cameraManage
  */
 Camera_ErrorCode OH_CameraManager_CreateMetadataOutput(Camera_Manager* cameraManager,
     const Camera_MetadataObjectType* profile, Camera_MetadataOutput** metadataOutput);
+
+/**
+ * @brief Gets supported scene mode for specific camera.
+ *
+ * @param camera the {@link Camera_Device} to be queryed.
+ * @param sceneModes the supported {@link Camera_SceneMode} will be filled if the method call succeeds.
+ * @param size the size of supported {@link Camera_SceneMode} list will be filled if the method call succeeds.
+ * @return {@link #CAMERA_OK} if the method call succeeds.
+ *         {@link #CAMERA_INVALID_ARGUMENT} if parameter missing or parameter type incorrect.
+ *         {@link #CAMERA_SERVICE_FATAL_ERROR} if camera service fatal error.
+ * @since 12
+ */
+Camera_ErrorCode OH_CameraManager_GetSupportedSceneModes(Camera_Device* camera,
+    Camera_SceneMode** sceneModes, uint32_t* size);
+
+/**
+ * @brief Delete the scene mode.
+ *
+ * @param cameraManager the {@link Camera_Manager} instance.
+ * @param sceneModes the {@link Camera_SceneMode} to be deleted.
+ * @return {@link #CAMERA_OK} if the method call succeeds.
+ *         {@link #CAMERA_INVALID_ARGUMENT} if parameter missing or parameter type incorrect.
+ * @since 12
+ */
+Camera_ErrorCode OH_CameraManager_DeleteSceneModes(Camera_Manager* cameraManager, Camera_SceneMode* sceneModes);
+
+/**
+ * @brief Check if the device supports torch.
+ *
+ * @param cameraManager the {@link Camera_Manager} instance.
+ * @param isTorchSupported whether the device supports torch.
+ * @return {@link #CAMERA_OK} if the method call succeeds.
+ *         {@link #CAMERA_INVALID_ARGUMENT} if parameter missing or parameter type incorrect.
+ * @since 12
+ */
+Camera_ErrorCode OH_CameraManager_IsTorchSupported(Camera_Manager* cameraManager,
+    bool* isTorchSupported);
+
+/**
+ * @brief Check if the set torch mode is supported.
+ *
+ * @param cameraManager the {@link Camera_Manager} instance.
+ * @param torchMode the {@link Camera_TorchMode} to be checked.
+ * @param isTorchSupported whether device supports the torch mode.
+ * @return {@link #CAMERA_OK} if the method call succeeds.
+ *         {@link #CAMERA_INVALID_ARGUMENT} if parameter missing or parameter type incorrect.
+ *         {@link #CAMERA_SERVICE_FATAL_ERROR} if camera service fatal error.
+ * @since 12
+ */
+Camera_ErrorCode OH_CameraManager_IsTorchSupportedForTorchMode(Camera_Manager* cameraManager,
+    Camera_TorchMode torchMode, bool* isTorchSupported);
+
+/**
+ * @brief Set camera torch mode.
+ *
+ * @param cameraManager the {@link Camera_Manager} instance.
+ * @param torchMode the {@link Camera_TorchMode} to be set.
+ * @return {@link #CAMERA_OK} if the method call succeeds.
+ *         {@link #CAMERA_INVALID_ARGUMENT} if parameter missing or parameter type incorrect.
+ *         {@link #CAMERA_SERVICE_FATAL_ERROR} if camera service fatal error.
+ * @since 12
+ */
+Camera_ErrorCode OH_CameraManager_SetTorchMode(Camera_Manager* cameraManager,
+    Camera_TorchMode torchMode);
 
 #ifdef __cplusplus
 }
