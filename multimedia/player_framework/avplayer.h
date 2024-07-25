@@ -461,6 +461,8 @@ OH_AVErrCode OH_AVPlayer_SetLooping(OH_AVPlayer *player, bool loop);
  *         {@link AV_ERR_INVALID_VAL} if input player is nullptr, callback.onInfo or callback.onError is null,
  *         or player SetPlayerCallback failed.
  * @since 11
+ * @deprecated since 12
+ * @useinstead {@link OH_AVPlayer_SetPlayerOnInfoCallback} {@link OH_AVPlayer_SetPlayerOnErrorCallback}
  * @version 1.0
  */
 OH_AVErrCode OH_AVPlayer_SetPlayerCallback(OH_AVPlayer *player, AVPlayerCallback callback);
@@ -561,6 +563,62 @@ OH_AVErrCode OH_AVPlayer_GetMediaKeySystemInfo(OH_AVPlayer *player, DRM_MediaKey
 */
 OH_AVErrCode OH_AVPlayer_SetDecryptionConfig(OH_AVPlayer *player, MediaKeySession *mediaKeySession,
     bool secureVideoPath);
+
+/**
+ * @brief Method to set player information notify callback.
+ * @syscap SystemCapability.Multimedia.Media.AVPlayer
+ * @param player Pointer to an OH_AVPlayer instance
+ * @param callback object pointer.
+ * @return Function result code.
+ *         {@link AV_ERR_OK} if the execution is successful.
+ *         {@link AV_ERR_INVALID_VAL} if input player is nullptr, callback.onInfo or callback.onError is null,
+ *         or player SetPlayerCallback failed.
+ * @since 12
+ * @version 1.0
+ */
+OH_AVErrCode OH_AVPlayer_SetOnInfoCallback(OH_AVPlayer *player, OH_AVPlayerOnInfoCallback callback);
+
+/**
+ * @brief Method to set player error callback.
+ * @syscap SystemCapability.Multimedia.Media.AVPlayer
+ * @param player Pointer to an OH_AVPlayer instance
+ * @param callback object pointer.
+ * @return Function result code.
+ *         {@link AV_ERR_OK} if the execution is successful.
+ *         {@link AV_ERR_INVALID_VAL} if input player is nullptr, callback.onInfo or callback.onError is null,
+ *         or player SetPlayerCallback failed.
+ * @since 12
+ * @version 1.0
+ */
+OH_AVErrCode OH_AVPlayer_SetOnErrorCallback(OH_AVPlayer *player, OH_AVPlayerOnError callback);
+
+/**
+ * @brief Add the subtitle source for the player. The corresponding source can be http url.
+ * @syscap SystemCapability.Multimedia.Media.AVPlayer
+ * @param player Pointer to an OH_AVPlayer instance
+ * @param url Indicates the playback source.
+ * @return Function result code.
+ *         {@link AV_ERR_OK} if the execution is successful.
+ *         {@link AV_ERR_INVALID_VAL} if input player is nullptr, url is null or player setUrlSource failed.
+ * @since 12
+ * @version 1.0
+ */
+OH_AVErrCode OH_AVPlayer_AddSubtitleFromUrl(H_AVPlayer *player, const char *url);
+
+/**
+ * @brief Add the subtitle file descriptor source for the player.
+ * @syscap SystemCapability.Multimedia.Media.AVPlayer
+ * @param player Pointer to an OH_AVPlayer instance
+ * @param fd Indicates the file descriptor of subtitle source.
+ * @param offset Indicates the offset of subtitle source in file descriptor.
+ * @param size Indicates the size of subtitle source.
+ * @return Function result code.
+ *         {@link AV_ERR_OK} if the execution is successful.
+ *         {@link AV_ERR_INVALID_VAL} if input player is nullptr or player setFdSource failed.
+ * @since 12
+ * @version 1.0
+ */
+OH_AVErrCode OH_AVPlayer_AddSubtitleFromFd(H_AVPlayer *player, int32_t fd, int64_t offset, int64_t size);
 
 #ifdef __cplusplus
 }

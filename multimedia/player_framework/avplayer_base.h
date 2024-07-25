@@ -173,15 +173,169 @@ typedef enum AVPlayerOnInfoType {
 } AVPlayerOnInfoType;
 
 /**
+ * @brief Player Buffering Type
+ * @syscap SystemCapability.Multimedia.Media.AVPlayer
+ * @since 12
+ * @version 1.0
+ */
+typedef enum AVPlayerBufferingType{
+    AVPLAYER_BUFFERING_START = 1,
+    AVPLAYER_BUFFERING_END,
+    AVPLAYER_BUFFERING_PERCENT,
+    AVPLAYER_BUFFERING_CACHED_DURATION,
+} AVPlayerBufferingType;
+
+/**
+ * @brief Key to get state, value type is int32_t.
+ * @syscap SystemCapability.Multimedia.Media.AVPlayer
+ * @since 12
+ * @version 1.0
+ */
+extern const char* OH_PLAYER_STATE;
+
+/**
+ * @brief Key to get state changed reason, value type is int32_t.
+ * @syscap SystemCapability.Multimedia.Media.AVPlayer
+ * @since 12
+ * @version 1.0
+ */
+extern const char* OH_PLAYER_STATE_CHANGED_REASON;
+
+/**
+ * @brief Key to get volume, value type is float.
+ * @syscap SystemCapability.Multimedia.Media.AVPlayer
+ * @since 12
+ * @version 1.0
+ */
+extern const char* OH_PLAYER_VOLUME;
+
+/**
+ * @brief Key to get subtitle text, value type is char array.
+ * @syscap SystemCapability.Multimedia.Media.AVPlayer
+ * @since 12
+ * @version 1.0
+ */
+extern const char* OH_PLAYER_SUBTITLE_TEXT;
+
+/**
+ * @brief Key to get subtitle pts, value type is int32_t.
+ * @syscap SystemCapability.Multimedia.Media.AVPlayer
+ * @since 12
+ * @version 1.0
+ */
+extern const char* OH_PLAYER_SUBTITLE_PTS;
+
+/**
+ * @brief Key to get subtitle duration, value type is int32_t.
+ * @syscap SystemCapability.Multimedia.Media.AVPlayer
+ * @since 12
+ * @version 1.0
+ */
+extern const char* OH_PLAYER_SUBTITLE_DURATION;
+
+/**
+ * @brief Key to get bitrate count, value type is uint32_t.
+ * @syscap SystemCapability.Multimedia.Media.AVPlayer
+ * @since 12
+ * @version 1.0
+ */
+extern const char* OH_PLAYER_BITRATE_COUNT;
+
+/**
+ * @brief Key to get bitrate count, value type is uint32_t array.
+ * @syscap SystemCapability.Multimedia.Media.AVPlayer
+ * @since 12
+ * @version 1.0
+ */
+extern const char* OH_PLAYER_BITRATE_ARRAY;
+
+/**
+ * @brief Key to get track count, value type is uint32_t.
+ * @syscap SystemCapability.Multimedia.Media.AVPlayer
+ * @since 12
+ * @version 1.0
+ */
+extern const char* OH_PLAYER_TRACK_COUNT;
+
+/**
+ * @brief Key to get track info array, value type is OH_AVFormat pointer array.
+ * @syscap SystemCapability.Multimedia.Media.AVPlayer
+ * @since 12
+ * @version 1.0
+ */
+extern const char* OH_PLAYER_TRACK_INFO_ARRAY;
+
+/**
+ * @brief Key to get audio interrupt type, value type is int32_t.
+ * @syscap SystemCapability.Multimedia.Media.AVPlayer
+ * @since 12
+ * @version 1.0
+ */
+extern const char* OH_PLAYER_AUDIO_INTERRUPT_TYPE;
+
+/**
+ * @brief Key to get audio interrupt force, value type is int32_t.
+ * @syscap SystemCapability.Multimedia.Media.AVPlayer
+ * @since 12
+ * @version 1.0
+ */
+extern const char* OH_PLAYER_AUDIO_INTERRUPT_FORCE;
+
+/**
+ * @brief Key to get audio interrupt hint, value type is int32_t.
+ * @syscap SystemCapability.Multimedia.Media.AVPlayer
+ * @since 12
+ * @version 1.0
+ */
+extern const char* OH_PLAYER_AUDIO_INTERRUPT_HINT;
+
+/**
+ * @brief Key to get audio device info, value type is uint8_t array.
+ * @syscap SystemCapability.Multimedia.Media.AVPlayer
+ * @since 12
+ * @version 1.0
+ */
+extern const char* OH_PLAYER_AUDIO_DEVICE_INFO;
+
+/**
+ * @brief Key to get buffering type, value type is AVPlayerBufferingType.
+ * @syscap SystemCapability.Multimedia.Media.AVPlayer
+ * @since 12
+ * @version 1.0
+ */
+extern const char* OH_PLAYER_BUFFERING_TYPE;
+
+/**
+ * @brief Key to get buffering value, value type is int32_t.
+ * @syscap SystemCapability.Multimedia.Media.AVPlayer
+ * @since 12
+ * @version 1.0
+ */
+extern const char* OH_PLAYER_BUFFERING_VALUE;
+
+/**
  * @brief Called when a player message or alarm is received.
  * @syscap SystemCapability.Multimedia.Media.AVPlayer
  * @param player The pointer to an OH_AVPlayer instance.
  * @param type Indicates the information type. For details, see {@link AVPlayerOnInfoType}.
  * @param extra Indicates other information, for example, the start time position of a playing file.
  * @since 11
+ * @deprecated since 12
+ * @useinstead {@link OH_AVPlayerOnInfoCallback}
  * @version 1.0
  */
 typedef void (*OH_AVPlayerOnInfo)(OH_AVPlayer *player, AVPlayerOnInfoType type, int32_t extra);
+
+/**
+ * @brief Called when a player info event is received.
+ * @syscap SystemCapability.Multimedia.Media.AVPlayer
+ * @param player The pointer to an OH_AVPlayer instance.
+ * @param type Indicates the information type. For details, see {@link AVPlayerOnInfoType}.
+ * @param infoBody Indicates the information parameters.
+ * @since 12
+ * @version 1.0
+ */
+typedef void (*OH_AVPlayerOnInfoCallback)(OH_AVPlayer *player, AVPlayerOnInfoType type, OH_AVFormat* infoBody);
 
 /**
  * @brief Called when an error occurred for versions above api9
@@ -202,13 +356,14 @@ typedef void (*OH_AVPlayerOnError)(OH_AVPlayer *player, int32_t errorCode, const
  * @param onInfo Monitor OH_AVPlayer operation information, refer to {@link OH_AVPlayerOnInfo}
  * @param onError Monitor OH_AVPlayer operation errors, refer to {@link OH_AVPlayerOnError}
  * @since 11
+ * @deprecated since 12
+ * @useinstead {@link OH_AVPlayerOnInfoCallback} {@link OH_AVPlayerOnError}
  * @version 1.0
  */
 typedef struct AVPlayerCallback {
     OH_AVPlayerOnInfo onInfo;
     OH_AVPlayerOnError onError;
 } AVPlayerCallback;
-
 
 #ifdef __cplusplus
 }
