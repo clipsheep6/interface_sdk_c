@@ -290,12 +290,12 @@ extern const char* OH_PLAYER_AUDIO_INTERRUPT_FORCE;
 extern const char* OH_PLAYER_AUDIO_INTERRUPT_HINT;
 
 /**
- * @brief Key to get audio device info, value type is uint8_t array.
+ * @brief Key to get audio device change reason, value type is int32_t.
  * @syscap SystemCapability.Multimedia.Media.AVPlayer
  * @since 12
  * @version 1.0
  */
-extern const char* OH_PLAYER_AUDIO_DEVICE_INFO;
+extern const char* OH_PLAYER_AUDIO_DEVICE_CHANGE_REASON;
 
 /**
  * @brief Key to get buffering type, value type is AVPlayerBufferingType.
