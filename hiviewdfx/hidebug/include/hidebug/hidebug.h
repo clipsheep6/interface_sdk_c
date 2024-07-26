@@ -139,24 +139,13 @@ HiDebug_ErrorCode OH_HiDebug_StartAppTraceCapture(HiDebug_TraceFlag flag,
 HiDebug_ErrorCode OH_HiDebug_StopAppTraceCapture();
 
 /**
- * @brief Get the memory of application by item.
+ * @brief Get the graphics memory of application.
  *
- * @param item Indicates memory item to {@link HiDebug_MemoryItem}
- * @param value Indicates value of memory item
+ * @param value Indicates value of graphics memory
  * @return Returns {@code HIDEBUG_SUCCESS} if successful. See {@link HiDebug_ErrorCode}
  * @since 13
  */
-HiDebug_ErrorCode OH_HiDebug_GetApMemoryStat(HiDebug_MemoryItem item, uint32_t *value);
-
-/**
- * @brief Get the memory of application.
- *
- * @param appMemoryItem Indicates memory item to {@link HiDebug_AppMemoryItemPtr}
- * @param size Indicates size of HiDebug_AppMemoryItem
- * @return Returns {@code HIDEBUG_SUCCESS} if successful. See {@link HiDebug_ErrorCode}
- * @since 13
- */
-HiDebug_ErrorCode OH_HiDebug_GetApMemoryStats(HiDebug_AppMemoryItemPtr *appMemoryItem, uint32_t *size);
+HiDebug_ErrorCode OH_HiDebug_GetGraphicsMemory(uint32_t *value);
 
 #ifdef __cplusplus
 }
