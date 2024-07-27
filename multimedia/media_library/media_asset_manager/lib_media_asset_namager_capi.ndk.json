@@ -14,5 +14,13 @@
   {
     "first_introduced": "12",
     "name": "OH_MediaAssetManager_CancelRequest"
+  },
+  {
+    "first_introduced": "12",
+    "name": "OH_MediaAssetManager_RequestMovingPhoto"
+  },
+  {
+    "first_introduced": "12",
+    "name": "OH_MediaAssetManager_RequestImage"
   }
 ]

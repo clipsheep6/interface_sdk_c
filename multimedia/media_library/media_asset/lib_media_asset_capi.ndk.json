@@ -1,0 +1,70 @@
+[
+  {
+    "first_introduced": "12",
+    "name": "OH_MediaAsset_GetUri"
+  },
+  {
+    "first_introduced": "12",
+    "name": "OH_MediaAsset_GetMediaType"
+  },
+  {
+    "first_introduced": "12",
+    "name": "OH_MediaAsset_GetMediaSubType"
+  },
+  {
+    "first_introduced": "12",
+    "name": "OH_MediaAsset_GetDisplayName"
+  },
+  {
+    "first_introduced": "12",
+    "name": "OH_MediaAsset_GetSize"
+  },
+  {
+    "first_introduced": "12",
+    "name": "OH_MediaAsset_GetDataAdded"
+  },
+  {
+    "first_introduced": "12",
+    "name": "OH_MediaAsset_GetDataModified"
+  },
+  {
+    "first_introduced": "12",
+    "name": "OH_MediaAsset_GetDataTaken"
+  },
+  {
+    "first_introduced": "12",
+    "name": "OH_MediaAsset_GetDateAddedMs"
+  },
+  {
+    "first_introduced": "12",
+    "name": "OH_MediaAsset_GetDateModifiedMs"
+  },
+  {
+    "first_introduced": "12",
+    "name": "OH_MediaAsset_GetDuration"
+  },
+  {
+    "first_introduced": "12",
+    "name": "OH_MediaAsset_GetWidth"
+  },
+  {
+    "first_introduced": "12",
+    "name": "OH_MediaAsset_GetHeight"
+  },
+  {
+    "first_introduced": "12",
+    "name": "OH_MediaAsset_GetOrientation"
+  },
+  {
+    "first_introduced": "12",
+    "name": "OH_MediaAsset_isFavorite"
+  },
+  {
+    "first_introduced": "12",
+    "name": "OH_MediaAsset_GetTitle"
+  },
+  {
+    "first_introduced": "12",
+    "name": "OH_MediaAsset_Release"
+  }
+]

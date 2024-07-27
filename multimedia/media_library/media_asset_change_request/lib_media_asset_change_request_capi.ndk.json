@@ -1,0 +1,14 @@
+[
+    {
+      "first_introduced": "12",
+      "name": "OH_MediaAssetChangeRequest_Create"
+    },
+    {
+      "first_introduced": "12",
+      "name": "OH_MediaAssetChangeRequest_AddResourceWithUri"
+    },
+    {
+      "first_introduced": "12",
+      "name": "OH_MediaAssetChangeRequest_AddResourceWithBuffer"
+    }
+  ]

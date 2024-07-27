@@ -1,0 +1,10 @@
+[
+    {
+      "first_introduced": "12",
+      "name": "OH_MovingPhoto_GetUri"
+    },
+    {
+      "first_introduced": "12",
+      "name": "OH_MovingPhoto_RequestContent"
+    }
+]
