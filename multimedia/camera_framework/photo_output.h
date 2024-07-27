@@ -79,9 +79,20 @@ typedef void (*OH_PhotoOutput_OnFrameShutter)(Camera_PhotoOutput* photoOutput, C
  *
  * @param photoOutput the {@link Camera_PhotoOutput} which deliver the callback.
  * @param frameCount the frame count which delivered by the callback.
+ * @deprecated since 12
+ * @useinstead {@link OH_PhotoOutput_CaptureEnd}
  * @since 11
  */
 typedef void (*OH_PhotoOutput_OnFrameEnd)(Camera_PhotoOutput* photoOutput, int32_t frameCount);
+
+/**
+ * @brief Photo output capture end callback to be called in {@link PhotoOutput_Callbacks}.
+ *
+ * @param photoOutput the {@link Camera_PhotoOutput} which deliver the callback.
+ * @param frameCount the {@link int32_t} which is delivered by the callback.
+ * @since 12
+ */
+typedef void (*OH_PhotoOutput_CaptureEnd) (Camera_PhotoOutput* photoOutput, int32_t frameCount);
 
 /**
  * @brief Photo output error callback to be called in {@link PhotoOutput_Callbacks}.
@@ -93,6 +104,41 @@ typedef void (*OH_PhotoOutput_OnFrameEnd)(Camera_PhotoOutput* photoOutput, int32
  * @since 11
  */
 typedef void (*OH_PhotoOutput_OnError)(Camera_PhotoOutput* photoOutput, Camera_ErrorCode errorCode);
+
+/**
+ * @brief Photo output capture start with infomation callback to be called in {@link PhotoOutput_Callbacks}.
+ *
+ * @param photoOutput the {@link Camera_PhotoOutput} which deliver the callback.
+ * @param Info the {@link Camera_CaptureStartInfo} which is delivered by the callback..
+ * @since 12
+ */
+typedef void (*OH_PhotoOutput_CaptureStartWithInfo) (Camera_PhotoOutput* photoOutput, Camera_CaptureStartInfo* Info);
+
+/**
+ * @brief Photo output eframe shutter end callback to be called in {@link PhotoOutput_Callbacks}.
+ *
+ * @param photoOutput the {@link Camera_PhotoOutput} which deliver the callback.
+ * @param Info the {@link Camera_CaptureStartInfo} which is delivered by the callback.
+ * @since 12
+ */
+typedef void (*OH_PhotoOutput_OnFrameShutterEnd) (Camera_PhotoOutput* photoOutput, Camera_FrameShutterInfo* Info);
+
+/**
+ * @brief Photo output capture ready callback to be called in {@link PhotoOutput_Callbacks}.
+ *
+ * @param photoOutput the {@link Camera_PhotoOutput} which deliver the callback.
+ * @since 12
+ */
+typedef void (*OH_PhotoOutput_CaptureReady) (Camera_PhotoOutput* photoOutput);
+
+/**
+ * @brief Photo output estimated capture duration callback to be called in {@link PhotoOutput_Callbacks}.
+ *
+ * @param photoOutput the {@link Camera_PhotoOutput} which deliver the callback.
+ * @param duration the {link int64_t} which is delivered by the callback.
+ * @since 12
+ */
+typedef void (*OH_PhotoOutput_EstimatedCaptureDuration) (Camera_PhotoOutput* photoOutput, int64_t duration);
 
 /**
  * @brief A listener for photo output.
@@ -114,13 +160,45 @@ typedef struct PhotoOutput_Callbacks {
 
     /**
      * Photo output frame end event.
+     * @deprecated since 12
+     * @useinstead {@link captureEnd}
      */
     OH_PhotoOutput_OnFrameEnd onFrameEnd;
+
+    /**
+     * Photo output frame end event.
+     * @since 12
+     */
+    OH_PhotoOutput_CaptureEnd captureEnd;
 
     /**
      * Photo output error event.
      */
     OH_PhotoOutput_OnError onError;
+
+    /**
+     * Photo output satrt capture with infomation event.
+     * @since 12
+     */
+    OH_PhotoOutput_CaptureStartWithInfo captureStartWithInfo;
+
+    /**
+     * Photo output frame shutter end event.
+     * @since 12
+     */
+    OH_PhotoOutput_OnFrameShutterEnd onFrameShutterEnd;
+
+    /**
+     * Photo output capture ready event.
+     * @since 12
+     */
+    OH_PhotoOutput_CaptureReady captureReady;
+
+    /**
+     * Photo output estimated capture duration event.
+     * @since 12
+     */
+    OH_PhotoOutput_EstimatedCaptureDuration estimatedCaptureDuration;
 } PhotoOutput_Callbacks;
 
 /**
@@ -141,6 +219,7 @@ Camera_ErrorCode OH_PhotoOutput_RegisterCallback(Camera_PhotoOutput* photoOutput
  * @param callback the {@link PhotoOutput_Callbacks} to be unregistered.
  * @return {@link #CAMERA_OK} if the method call succeeds.
  *         {@link #INVALID_ARGUMENT} if parameter missing or parameter type incorrect.
+ *         {@link #CAMERA_OPERATION_NOT_ALLOWED} if operation is not allowed.
  * @since 11
  */
 Camera_ErrorCode OH_PhotoOutput_UnregisterCallback(Camera_PhotoOutput* photoOutput, PhotoOutput_Callbacks* callback);
@@ -193,6 +272,28 @@ Camera_ErrorCode OH_PhotoOutput_Release(Camera_PhotoOutput* photoOutput);
  * @since 11
  */
 Camera_ErrorCode OH_PhotoOutput_IsMirrorSupported(Camera_PhotoOutput* photoOutput, bool* isSupported);
+
+/**
+ * @brief Get active photo output profile.
+ *
+ * @param photoOutput the {@link Camera_PhotoOutput} instance to deliver active profile.
+ * @param profile the active {@link Camera_Profile} to be filled if the method call succeeds.
+ * @return {@link #CAMERA_OK} if the method call succeeds.
+ *         {@link #CAMERA_INVALID_ARGUMENT} if parameter missing or parameter type incorrect.
+ *         {@link #CAMERA_SERVICE_FATAL_ERROR} if camera service fatal error.
+ * @since 12
+ */
+Camera_ErrorCode OH_PhotoOutput_GetActiveProfile(Camera_PhotoOutput* photoOutput, Camera_Profile** profile);
+
+/**
+ * @brief Delete photo profile instance.
+ *
+ * @param profile the {@link Camera_Profile} instance to deleted.
+ * @return {@link #CAMERA_OK} if the method call succeeds.
+ *         {@link #CAMERA_INVALID_ARGUMENT} if parameter missing or parameter type incorrect.
+ * @since 12
+ */
+Camera_ErrorCode OH_PhotoOutput_DeleteProfile(Camera_Profile* profile);
 
 #ifdef __cplusplus
 }
