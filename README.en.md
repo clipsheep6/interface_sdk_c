@@ -26,6 +26,7 @@ This repository is used to store .h declaration files of C APIs. The OpenHarmony
     |  ├─graphic_2d
     ├─hiviewdfx
     |  ├─hiappevent
+    |  ├─hicollie
     |  ├─hilog
     |  ├─hitrace
     ├─multimedia
