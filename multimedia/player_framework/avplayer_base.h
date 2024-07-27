@@ -179,9 +179,16 @@ typedef enum AVPlayerOnInfoType {
  * @version 1.0
  */
 typedef enum AVPlayerBufferingType{
+    /** Indicates the buffer to start buffering. */
     AVPLAYER_BUFFERING_START = 1,
+
+    /** Indicates the buffer to end buffering and start playback. */
     AVPLAYER_BUFFERING_END,
+
+    /** Indicates the current buffering percentage of the buffer. */
     AVPLAYER_BUFFERING_PERCENT,
+
+    /** Indicates how long the buffer cache data can be played. */
     AVPLAYER_BUFFERING_CACHED_DURATION,
 } AVPlayerBufferingType;
 
@@ -194,12 +201,12 @@ typedef enum AVPlayerBufferingType{
 extern const char* OH_PLAYER_STATE;
 
 /**
- * @brief Key to get state changed reason, value type is int32_t.
+ * @brief Key to get state change reason, value type is int32_t.
  * @syscap SystemCapability.Multimedia.Media.AVPlayer
  * @since 12
  * @version 1.0
  */
-extern const char* OH_PLAYER_STATE_CHANGED_REASON;
+extern const char* OH_PLAYER_STATE_CHANGE_REASON;
 
 /**
  * @brief Key to get volume, value type is float.
