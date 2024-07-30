@@ -168,6 +168,34 @@ Camera_ErrorCode OH_PreviewOutput_Stop(Camera_PreviewOutput* previewOutput);
 Camera_ErrorCode OH_PreviewOutput_Release(Camera_PreviewOutput* previewOutput);
 
 /**
+ * @brief Gets the preview rotation angle.
+ *
+ * @param previewOutput the {@link Camera_PreviewOutput} instance which used to get the preview rotation angle.
+ * @param displayRotation the current display rotation angle.
+ * @param imageRotation the {@link Camera_ImageRotation} result of preview rotation angle.
+ * @return {@link #CAMERA_OK} if the method call succeeds.
+ *         {@link #INVALID_ARGUMENT} if parameter missing or parameter type incorrect.
+ *         {@link #CAMERA_SERVICE_FATAL_ERROR} if camera service fatal error.
+ * @since 12
+ */
+Camera_ErrorCode OH_PreviewOutput_GetPreviewRotation(Camera_PreviewOutput* previewOutput, int displayRotation,
+    Camera_ImageRotation* imageRotation);
+
+/**
+ * @brief Sets the preview rotation angle.
+ *
+ * @param previewOutput the {@link Camera_PreviewOutput} instance which used to set the preview rotation angle.
+ * @param imageRotation the {@link Camera_ImageRotation} of preview display rotation angle.
+ * @param isDisplayLocked TRUE means the display is locked.
+ * @return {@link #CAMERA_OK} if the method call succeeds.
+ *         {@link #INVALID_ARGUMENT} if parameter missing or parameter type incorrect.
+ *         {@link #CAMERA_SERVICE_FATAL_ERROR} if camera service fatal error.
+ * @since 12
+ */
+Camera_ErrorCode OH_PreviewOutput_SetPreviewRotation(Camera_PreviewOutput* previewOutput,
+    Camera_ImageRotation imageRotation, bool isDisplayLocked);
+
+/**
  * @brief Get active profiles.
  *
  * @param previewOutput the {@link Camera_PreviewOutput} instance which used to get active profiles.
