@@ -334,5 +334,25 @@
     {
         "first_introduced": "12",
         "name": "OH_Udmf_SetUnifiedData"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Udmf_SubscribeDragSync"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Udmf_UnsubscribeDragSync"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_DeviceSyncInfo_GetStatus"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_DeviceSyncInfo_GetProcess"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_DeviceSyncInfo_GetDeviceName"
     }
 ]

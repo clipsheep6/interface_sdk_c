@@ -91,6 +91,26 @@ typedef enum Udmf_ShareOption {
 } Udmf_ShareOption;
 
 /**
+ * @brief Describe status of data synchronization between two devices.
+ *
+ * @since 12
+ */
+typedef enum Udmf_SyncStatus {
+    /**
+    * @brief Idle status.
+    */
+    SYNC_IDLE,
+    /**
+    * @brief Data is being synchronized between two devices.
+    */
+    SYNC_RUNNING,
+    /**
+    * @brief Data synchronization between the two devices complete.
+    */
+    SYNC_COMPLETE,
+} Udmf_SyncStatus;
+
+/**
  * @brief Describes the unified data type.
  *
  * @since 12
@@ -110,6 +130,13 @@ typedef struct OH_UdmfRecord OH_UdmfRecord;
  * @since 12
  */
 typedef struct OH_UdmfProperty OH_UdmfProperty;
+
+/**
+ * @brief Describe the synchronization information.
+ *
+ * @since 12
+ */
+typedef struct OH_DeviceSyncInfo OH_DeviceSyncInfo;
 
 /**
  * @brief Creation a pointer to the instance of the {@link OH_UdmfData}.
@@ -512,6 +539,67 @@ int OH_Udmf_GetUnifiedData(const char* key, Udmf_Intention intention, OH_UdmfDat
  */
 int OH_Udmf_SetUnifiedData(Udmf_Intention intention, OH_UdmfData* unifiedData,
     char* key, unsigned int keyLen);
+
+/**
+ * @brief Defines the callback function used to return the progress of data synchronization
+ * between two devices changes.
+ *
+ * @param syncInfo Represents the synchronization information.
+ * @since 12
+ */
+typedef void (*Udmf_DragSyncCallback)(OH_DeviceSyncInfo* syncInfo);
+
+/**
+ * @brief Subscribe to the notification of data synchronization progress change between two devices.
+ *
+ * @param callback Represents callback function when the progress of data synchronization between two devices changes.
+ * @return Returns the status code of the execution. See {@link Udmf_ErrCode}.
+ *         {@link UDMF_E_OK} success.
+ *         {@link UDMF_E_INVALID_PARAM} The error code for invalid argument.
+ * @since 12
+ */
+int OH_Udmf_SubscribeDragSync(Udmf_DragSyncCallback callback);
+
+/**
+ * @brief Unsubscribe to the notification of data synchronization progress change between two devices.
+ *
+ * @param callback Represents callback function when the progress of data synchronization between two devices changes.
+ * @return Returns the status code of the execution. See {@link Udmf_ErrCode}.
+ *         {@link UDMF_E_OK} success.
+ *         {@link UDMF_E_INVALID_PARAM} The error code for invalid argument.
+ * @since 12
+ */
+int OH_Udmf_UnsubscribeDragSync(Udmf_DragSyncCallback callback);
+
+/**
+ * @brief Get status from the {@link OH_DeviceSyncInfo}.
+ *
+ * @param pThis Represents a pointer to an instance of {@link OH_DeviceSyncInfo}.
+ * @return Returns the synchronize status. See {@link Udmf_SyncStatus}.
+ * @see OH_DeviceSyncInfo.
+ * @since 12
+ */
+Udmf_SyncStatus OH_DeviceSyncInfo_GetStatus(OH_DeviceSyncInfo* pThis);
+
+/**
+ * @brief Get process information from the {@link OH_DeviceSyncInfo}.
+ *
+ * @param pThis Represents a pointer to an instance of {@link OH_DeviceSyncInfo}.
+ * @return Returns the process of data synchronize, the value ranges from 0 to 100.
+ * @see OH_DeviceSyncInfo.
+ * @since 12
+ */
+int OH_DeviceSyncInfo_GetProcess(OH_DeviceSyncInfo* pThis);
+
+/**
+ * @brief Get the original data device name from the {@link OH_DeviceSyncInfo}.
+ *
+ * @param pThis Represents a pointer to an instance of {@link OH_DeviceSyncInfo}.
+ * @return Returns the device name of the original data device.
+ * @see OH_DeviceSyncInfo.
+ * @since 12
+ */
+const char* OH_DeviceSyncInfo_GetDeviceName(OH_DeviceSyncInfo* pThis);
 
 #ifdef __cplusplus
 };
