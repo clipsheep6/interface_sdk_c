@@ -53,6 +53,13 @@ extern "C" {
 struct ArkUI_Node;
 
 /**
+ * @brief Defines the ArkUI node content object.
+ *
+ * @since 12
+ */
+struct ArkUI_NodeContent;
+
+/**
  * @brief Defines the pointer type of the ArkUI node content
  *
  * @since 12
