@@ -217,30 +217,6 @@ extern const char* OH_PLAYER_STATE_CHANGE_REASON;
 extern const char* OH_PLAYER_VOLUME;
 
 /**
- * @brief Key to get subtitle text, value type is char array.
- * @syscap SystemCapability.Multimedia.Media.AVPlayer
- * @since 12
- * @version 1.0
- */
-extern const char* OH_PLAYER_SUBTITLE_TEXT;
-
-/**
- * @brief Key to get subtitle pts, value type is int32_t.
- * @syscap SystemCapability.Multimedia.Media.AVPlayer
- * @since 12
- * @version 1.0
- */
-extern const char* OH_PLAYER_SUBTITLE_PTS;
-
-/**
- * @brief Key to get subtitle duration, value type is int32_t.
- * @syscap SystemCapability.Multimedia.Media.AVPlayer
- * @since 12
- * @version 1.0
- */
-extern const char* OH_PLAYER_SUBTITLE_DURATION;
-
-/**
  * @brief Key to get bitrate count, value type is uint32_t.
  * @syscap SystemCapability.Multimedia.Media.AVPlayer
  * @since 12
@@ -255,22 +231,6 @@ extern const char* OH_PLAYER_BITRATE_COUNT;
  * @version 1.0
  */
 extern const char* OH_PLAYER_BITRATE_ARRAY;
-
-/**
- * @brief Key to get track count, value type is uint32_t.
- * @syscap SystemCapability.Multimedia.Media.AVPlayer
- * @since 12
- * @version 1.0
- */
-extern const char* OH_PLAYER_TRACK_COUNT;
-
-/**
- * @brief Key to get track info array, value type is OH_AVFormat pointer array.
- * @syscap SystemCapability.Multimedia.Media.AVPlayer
- * @since 12
- * @version 1.0
- */
-extern const char* OH_PLAYER_TRACK_INFO_ARRAY;
 
 /**
  * @brief Key to get audio interrupt type, value type is int32_t.
