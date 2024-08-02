@@ -715,7 +715,8 @@ Input_Result OH_Input_AddShortcutKeyMonitor(const Input_ShortcutKey* shortcutKey
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 13
  */
-Input_Result OH_Input_RemoveShortcutKeyMonitor(const Input_ShortcutKey* shortcutKey, Input_ShortcutKeyCallback callback);
+Input_Result OH_Input_RemoveShortcutKeyMonitor(const Input_ShortcutKey* shortcutKey,
+                                              Input_ShortcutKeyCallback callback);
 #ifdef __cplusplus
 }
 #endif
