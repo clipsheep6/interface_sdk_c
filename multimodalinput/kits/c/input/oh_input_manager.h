@@ -190,6 +190,12 @@ typedef enum {
 } Input_Result;
 
 /**
+ * @brief 定义一个回调函数用于回调订阅快捷键事件
+ * @since 13
+ */
+typedef void (*Input_ShortcutKeyCallback)(Input_ShortcutKey* shortcutKey);
+
+/**
  * @brief Queries the key state.
  *
  * @param keyState Key state.
@@ -683,6 +689,33 @@ int64_t OH_Input_GetTouchEventActionTime(const struct Input_TouchEvent* touchEve
  */
 void OH_Input_CancelInjection();
 
+/**
+ * @brief 订阅组合按键, 当满足条件的组合按键输入事件发生时, 使用Callback上报组合按键数据.
+ *
+ * @param shortcutKey 快捷键对象的实例.
+ * @param callback 回调函数.
+ * @return OH_Input_AddShortcutKeyMonitor 函数错误码.
+ *         {@Link INPUT_SUCCESS} 订阅组合按键成功.\n
+ *         {@link INPUT_PARAMETER_ERROR} 参数检查失败.\n
+ *         {@Link INPUT_SERVICE_EXCEPTION} 服务异常, 订阅组合按键失败.\n
+ * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @since 13
+ */
+Input_Result OH_Input_AddShortcutKeyMonitor(const Input_ShortcutKey* shortcutKey, Input_ShortcutKeyCallback callback);
+
+/**
+ * @brief 取消订阅组合按键.
+ *
+ * @param shortcutKey 快捷键对象的实例.
+ * @param callback 回调函数.
+ * @return OH_Input_RemoveShortcutKeyMonitor 函数错误码.
+ *         {@Link INPUT_SUCCESS} 取消订阅组合按键成功.\n
+ *         {@link INPUT_PARAMETER_ERROR} 参数检查失败.\n
+ *         {@Link INPUT_SERVICE_EXCEPTION} 服务异常, 取消订阅组合按键失败.\n
+ * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @since 13
+ */
+Input_Result OH_Input_RemoveShortcutKeyMonitor(const Input_ShortcutKey* shortcutKey, Input_ShortcutKeyCallback callback);
 #ifdef __cplusplus
 }
 #endif
