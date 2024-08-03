@@ -442,6 +442,23 @@ typedef struct OH_Drawing_FontDescriptor {
 } OH_Drawing_FontDescriptor;
 
 /**
+ * @brief An enumeration of system font types.
+ *
+ * @since 14
+ * @version 1.0
+ */
+typedef enum {
+    /** All font types */
+    ALL = 1 << 0,
+    /** System generic font type */
+    GENERIC = 1 << 1,
+    /** Stylish font type */
+    STYLISH = 1 << 2,
+    /** Installed font types */
+    INSTALLED = 1 << 3,
+} OH_Drawing_SystemFontType;
+
+/**
  * @brief The metrics of line.
  *
  * @since 12
@@ -1479,6 +1496,50 @@ OH_Drawing_FontParser* OH_Drawing_CreateFontParser(void);
  * @version 1.0
  */
 void OH_Drawing_DestroyFontParser(OH_Drawing_FontParser*);
+
+/**
+ * @brief Get font details by the full name of the font.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param char* Indicates the full name of the font.
+ * @return Indicates the pointer to a font descriptor object <b>OH_Drawing_FontDescriptor</b>.
+ * @since 14
+ * @version 1.0
+ */
+OH_Drawing_FontDescriptor* OH_Drawing_GetFontDescriptorByName(const char* fullName);
+
+/**
+ * @brief Obtain the corresponding font full name list by the font type.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param OH_Drawing_SystemFontType Indicates enumerates of system font type.
+ * @return Returns an array of full name.
+ * @since 14
+ * @version 1.0
+ */
+OH_Drawing_Array* OH_Drawing_GetSystemFontFullNameListByType(OH_Drawing_SystemFontType fontType);
+
+/**
+ * @brief Gets the full name indices by index.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param OH_Drawing_Array Indicates an array of full name.
+ * @param size_t The index of full name.
+ * @return Returns a full name of the font.
+ * @since 14
+ * @version 1.0
+ */
+const char* OH_Drawing_GetSystemFontFullNameListElement(OH_Drawing_Array* fullNameList, size_t index);
+
+/**
+ * @brief Releases the memory occupied by a list of system font names.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param OH_Drawing_Array Indicates an array of full name.
+ * @since 14
+ * @version 1.0
+ */
+void OH_Drawing_DestroySystemFontFullNameList(OH_Drawing_Array* fullNameList);
 
 /**
  * @brief Gets a list of system font names.

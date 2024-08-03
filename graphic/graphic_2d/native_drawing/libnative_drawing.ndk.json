@@ -911,6 +911,22 @@
         "name": "OH_Drawing_DestroyFontParser"
     },
     {
+        "first_introduced": "14",
+        "name": "OH_Drawing_GetFontDescriptorByName"
+    },
+    {
+        "first_introduced": "14",
+        "name": "OH_Drawing_GetSystemFontFullNameListByType"
+    },
+    {
+        "first_introduced": "14",
+        "name": "OH_Drawing_GetSystemFontFullNameListElement"
+    },
+    {
+        "first_introduced": "14",
+        "name": "OH_Drawing_DestroySystemFontFullNameList"
+    },
+    {
         "first_introduced": "12",
         "name": "OH_Drawing_FontParserGetSystemFontList"
     },
