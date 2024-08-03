@@ -168,6 +168,15 @@ typedef struct OH_Drawing_PathEffect OH_Drawing_PathEffect;
 typedef struct OH_Drawing_Rect OH_Drawing_Rect;
 
 /**
+ * @brief Defines an array object, which is used to store multiple NDK object.
+ *
+ * @since 13
+ * @version 1.0
+ */
+
+typedef struct OH_Drawing_Array OH_Drawing_Array;
+
+/**
  * @brief Defines a roundRect, which is used to describe the round rectangle.
  *
  * @since 11
