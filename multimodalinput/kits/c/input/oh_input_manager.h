@@ -683,6 +683,18 @@ int64_t OH_Input_GetTouchEventActionTime(const struct Input_TouchEvent* touchEve
  */
 void OH_Input_CancelInjection();
 
+/**
+ * @brief Obtains the interval since the last input.
+ *
+ * @param timeInterval Interval since the last input.
+ * @return OH_Input_GetIntervalSinceLastInput Error code.
+ *         {@Link INPUT_SUCCESS} Operation succeeded.\n
+ *         {@Link INPUT_SERVICE_EXCEPTION} Operation failed due to a service error.\n
+ * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @since 13
+ */
+int32_t OH_Input_GetIntervalSinceLastInput(int64_t *timeInterval);
+
 #ifdef __cplusplus
 }
 #endif
