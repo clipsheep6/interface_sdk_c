@@ -29,7 +29,7 @@
  *
  * @library libvideo_processing.so
  * @syscap SystemCapability.Multimedia.VideoProcessingEngine
- * @kit Media Kit
+ * @kit MediaKit
  * @since 12
  */
 

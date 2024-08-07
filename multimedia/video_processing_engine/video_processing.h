@@ -27,9 +27,11 @@
  *
  * @brief Declare video processing functions.
  *
+ * Provides SDR content processing for images, including color space conversion and metadata generation.
+ * 
  * @library libvideo_processing.so
  * @syscap SystemCapability.Multimedia.VideoProcessingEngine
- * @kit Media Kit
+ * @kit MediaKit
  * @since 12
  */
 
@@ -52,7 +54,8 @@ extern "C" {
  * To deinitialize global environment, call {@link OH_VideoProcessing_DeinitializeEnvironment}.
  *
  * @return {@link VIDEO_PROCESSING_SUCCESS} if initialization is successful. \n
- * {@link VIDEO_PROCESSING_ERROR_INITIALIZE_FAILED} if initialization is failed.
+ * {@link VIDEO_PROCESSING_ERROR_INITIALIZE_FAILED} if initialization is failed. \n
+ * You can check if the device GPU is working properly.
  * @since 12
  */
 VideoProcessing_ErrorCode OH_VideoProcessing_InitializeEnvironment(void);
