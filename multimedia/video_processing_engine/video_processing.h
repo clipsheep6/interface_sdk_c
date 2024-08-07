@@ -29,7 +29,7 @@
  *
  * Provides SDR content processing for videos, including color space conversion, metadata generation
  * and video scaling.
- * 
+ *
  * @library libvideo_processing.so
  * @syscap SystemCapability.Multimedia.VideoProcessingEngine
  * @kit MediaKit
