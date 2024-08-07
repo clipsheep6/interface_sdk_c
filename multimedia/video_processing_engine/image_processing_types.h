@@ -182,27 +182,27 @@ typedef enum ImageDetailEnhancer_QualityLevel {
  * @since 12
  */
 typedef enum ImageProcessing_ErrorCode {
-    /** Operation is successful */
+    /** @error Operation is successful */
     IMAGE_PROCESSING_SUCCESS,
-    /** Parameter is invalid */
+    /** @error Parameter is invalid */
     IMAGE_PROCESSING_ERROR_INVALID_PARAMETER = 401,
-    /** Some unknown error occurred */
+    /** @error Some unknown error occurred */
     IMAGE_PROCESSING_ERROR_UNKNOWN = 29200001,
-    /** Initialize global environment for image processing failed */
+    /** @error Initialize global environment for image processing failed */
     IMAGE_PROCESSING_ERROR_INITIALIZE_FAILED,
-    /** Create image processing instance failed */
+    /** @error Create image processing instance failed */
     IMAGE_PROCESSING_ERROR_CREATE_FAILED,
-    /** Process image failed */
+    /** @error Process image failed */
     IMAGE_PROCESSING_ERROR_PROCESS_FAILED,
-    /** Processing is not supported */
+    /** @error Processing is not supported */
     IMAGE_PROCESSING_ERROR_UNSUPPORTED_PROCESSING,
-    /** Operation is not permitted */
+    /** @error Operation is not permitted */
     IMAGE_PROCESSING_ERROR_OPERATION_NOT_PERMITTED,
-    /** Out of memory */
+    /** @error Out of memory */
     IMAGE_PROCESSING_ERROR_NO_MEMORY,
-    /** Image processing instance is invalid */
+    /** @error Image processing instance is invalid */
     IMAGE_PROCESSING_ERROR_INVALID_INSTANCE,
-    /** Value is invalid. */
+    /** @error Value is invalid. */
     IMAGE_PROCESSING_ERROR_INVALID_VALUE
 } ImageProcessing_ErrorCode;
 

@@ -154,27 +154,27 @@ typedef enum VideoDetailEnhancer_QualityLevel {
  * @since 12
  */
 typedef enum VideoProcessing_ErrorCode {
-    /** Operation is successful */
+    /** @error Operation is successful */
     VIDEO_PROCESSING_SUCCESS,
-    /** Parameter is invalid. */
+    /** @error Parameter is invalid. */
     VIDEO_PROCESSING_ERROR_INVALID_PARAMETER = 401,
-    /** Some unknown error occurred */
+    /** @error Some unknown error occurred */
     VIDEO_PROCESSING_ERROR_UNKNOWN = 29210001,
-    /** Initializing global environment for video processing failed */
+    /** @error Initializing global environment for video processing failed */
     VIDEO_PROCESSING_ERROR_INITIALIZE_FAILED,
-    /** Create video processing instance failed */
+    /** @error Create video processing instance failed */
     VIDEO_PROCESSING_ERROR_CREATE_FAILED,
-    /** Process video failed */
+    /** @error Process video failed */
     VIDEO_PROCESSING_ERROR_PROCESS_FAILED,
-    /** The processing is not supported */
+    /** @error The processing is not supported */
     VIDEO_PROCESSING_ERROR_UNSUPPORTED_PROCESSING,
-    /** Operation is not permitted */
+    /** @error Operation is not permitted */
     VIDEO_PROCESSING_ERROR_OPERATION_NOT_PERMITTED,
-    /** Out of memory */
+    /** @error Out of memory */
     VIDEO_PROCESSING_ERROR_NO_MEMORY,
-    /** Video processing instance is invalid */
+    /** @error Video processing instance is invalid */
     VIDEO_PROCESSING_ERROR_INVALID_INSTANCE,
-    /** Value is invalid */
+    /** @error Value is invalid */
     VIDEO_PROCESSING_ERROR_INVALID_VALUE
 } VideoProcessing_ErrorCode;
 
