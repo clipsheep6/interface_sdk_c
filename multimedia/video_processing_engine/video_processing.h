@@ -27,7 +27,8 @@
  *
  * @brief Declare video processing functions.
  *
- * Provides SDR content processing for images, including color space conversion and metadata generation.
+ * Provides SDR content processing for videos, including color space conversion, metadata generation
+ * and video scaling.
  * 
  * @library libvideo_processing.so
  * @syscap SystemCapability.Multimedia.VideoProcessingEngine
