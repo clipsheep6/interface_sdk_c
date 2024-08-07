@@ -122,6 +122,8 @@ typedef enum {
     ARKUI_NODE_GRID,
     /** Grid item. */
     ARKUI_NODE_GRID_ITEM,
+    /** Custom span. */
+    ARKUI_NODE_CUSTOM_SPAN,
 } ArkUI_NodeType;
 
 /**
@@ -494,15 +496,16 @@ typedef enum {
      */
     NODE_VISIBILITY,
     /**
-     * @brief Defines the clip attribute, which can be set, reset, and obtained as required through APIs.
+     * @brief Defines the clipping and masking attribute, which can be set, reset, and obtained as required through
+     * APIs.
      *
      * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
      * .value[0].i32: whether to clip the component based on the parent container bounds.
-     * The value <b>0</b> means to clip the component, and <b>1</b> means the opposite. \n
+     * The value <b>1</b> means to clip the component, and <b>0</b> means the opposite. \n
      * \n
      * Format of the return value {@link ArkUI_AttributeItem}:\n
      * .value[0].i32: whether to clip the component based on the parent container bounds.
-     * The value <b>0</b> means to clip the component, and <b>1</b> means the opposite. \n
+     * The value <b>1</b> means to clip the component, and <b>0</b> means the opposite. \n
      *
      */
     NODE_CLIP,
@@ -1027,10 +1030,10 @@ typedef enum {
      * .string: command for drawing the path.\n
      * 5. Progress:\n
      * .value[0].i32: mask type. The parameter type is {@link ArkUI_MaskType}.
-     * The value is <b>ARKUI_MASK_TYPE_PROSGRESS</b> for the progress shape.\n
+     * The value is <b>ARKUI_MASK_TYPE_PROGRESS</b> for the progress shape.\n
      * .value[1].f32: current value of the progress indicator.\n
      * .value[2].f32: maximum value of the progress indicator.\n
-     * .value[3].u32: color of the progress indicator.\n
+     * .value[3].u32: color of the progress indicator, in 0xARGB format.\n
      * \n
      * Format of the return value {@link ArkUI_AttributeItem}, which supports five types of shapes:\n
      * 1. Rectangle:\n
@@ -2171,6 +2174,18 @@ typedef enum {
      * .object indicates ArkUI_StyledString formatted string data. The parameter type is {@link ArkUI_StyledString}. \n
      */
     NODE_TEXT_CONTENT_WITH_STYLED_STRING,
+
+    /**
+     * @brief Sets whether to center text vertically in the text component.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .value[0].i32: whether to center text vertically. The default value is <b>false</b>. \n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .value[0].i32: whether to center text vertically. \n
+     *
+     */
+    NODE_TEXT_HALF_LEADING = 1029,
 
     /**
      * @brief Defines the text content attribute, which can be set, reset, and obtained as required through APIs.
@@ -5537,7 +5552,7 @@ typedef enum {
      * When the event callback occurs, the union type in the {@link ArkUI_NodeEvent} object is
      * {@link ArkUI_NodeComponentEvent}. \n
      * {@link ArkUI_NodeComponentEvent} contains one parameter:\n
-     * <b>ArkUI_NodeComponentEvent.data[0].i32</b>: corresponds to {@link ArkUI_PreViewDragStatus}. \n
+     * <b>ArkUI_NodeComponentEvent.data[0].i32</b>: corresponds to {@link ArkUI_PreDragStatus}. \n
      */
     NODE_ON_PRE_DRAG = 14,
     /**
@@ -7407,6 +7422,48 @@ ArkUI_NodeHandle OH_ArkUI_NodeCustomEvent_GetNodeHandle(ArkUI_NodeCustomEvent* e
 ArkUI_NodeCustomEventType OH_ArkUI_NodeCustomEvent_GetEventType(ArkUI_NodeCustomEvent* event);
 
 /**
+* @brief Obtains the measurement information of a custom span through a custom component event.
+*
+* @param event Indicates the pointer to the custom component event.
+* @param info Indicates the measurement information to be obtained.
+* @return Returns the result code.
+*         Returns {@link ARKUI_ERROR_CODE_NO_ERROR} if the operation is successful.
+*         Returns {@link ARKUI_ERROR_CODE_PARAM_INVALID} if a parameter error occurs.
+*         <br> Possible causes: Parameter verification failed, the parameter should not be nullptr.
+* @since 12
+*/
+int32_t OH_ArkUI_NodeCustomEvent_GetCustomSpanMeasureInfo(
+    ArkUI_NodeCustomEvent* event, ArkUI_CustomSpanMeasureInfo* info);
+
+/**
+* @brief Sets the measurement metrics of a custom span through a custom component event.
+*
+* @param event Indicates the pointer to the custom component event.
+* @param metrics Indicates the measurement metrics to set.
+* @return Returns the result code.
+*         Returns {@link ARKUI_ERROR_CODE_NO_ERROR} if the operation is successful.
+*         Returns {@link ARKUI_ERROR_CODE_PARAM_INVALID} if a parameter error occurs.
+*         <br> Possible causes: Parameter verification failed, the parameter should not be nullptr.
+* @since 12
+*/
+int32_t OH_ArkUI_NodeCustomEvent_SetCustomSpanMetrics(
+    ArkUI_NodeCustomEvent* event, ArkUI_CustomSpanMetrics* metrics);
+
+/**
+* @brief Obtains the drawing information of a custom span through a custom component event.
+*
+* @param event Indicates the pointer to the custom component event.
+* @param info Indicates the drawing information to obtain.
+* @return Returns the result code.
+*         Returns {@link ARKUI_ERROR_CODE_NO_ERROR} if the operation is successful.
+*         Returns {@link ARKUI_ERROR_CODE_PARAM_INVALID} if a parameter error occurs.
+*         <br> Possible causes: Parameter verification failed, the parameter should not be nullptr.
+* @since 12
+*/
+int32_t OH_ArkUI_NodeCustomEvent_GetCustomSpanDrawInfo(
+    ArkUI_NodeCustomEvent* event, ArkUI_CustomSpanDrawInfo* info);
+
+/**
  * @brief Defines the node content event type.
  * 
  * @since 12
@@ -7619,6 +7676,73 @@ int32_t OH_ArkUI_List_CloseAllSwipeActions(ArkUI_NodeHandle node, void* userData
 * @since 12
 */
 ArkUI_ContextHandle OH_ArkUI_GetContextByNode(ArkUI_NodeHandle node);
+
+/**
+* @brief The event called when the system color mode changes.
+*        Only one system color change callback can be registered for the same component.
+*
+* @param node Indicates the target node.
+* @param userData Indicates the custom data to be saved.
+* @param onColorModeChange Callback Events.
+* @return Error code.
+*         {@link ARKUI_ERROR_CODE_NO_ERROR} Success.
+*         {@link ARKUI_ERROR_CODE_PARAM_INVALID} Function parameter exception.
+*         {@link ARKUI_ERROR_CODE_ATTRIBUTE_OR_EVENT_NOT_SUPPORTED} The component does not support this event.
+* @since 12
+*/
+int32_t OH_ArkUI_RegisterSystemColorModeChangeEvent(ArkUI_NodeHandle node,
+    void* userData, void (*onColorModeChange)(ArkUI_SystemColorMode colorMode, void* userData));
+
+/**
+* @brief Unregister the event callback when the system color mode changes.
+*
+* @param node Indicates the target node.
+* @since 12
+*/
+void OH_ArkUI_UnregisterSystemColorModeChangeEvent(ArkUI_NodeHandle node);
+
+/**
+* @brief The event called when the system font style changes.
+*        Only one system font change callback can be registered for the same component.
+*
+* @param node Indicates the target node.
+* @param userData Indicates the custom data to be saved.
+* @param onFontStyleChange Callback Events.
+* @return Error code.
+*         {@link ARKUI_ERROR_CODE_NO_ERROR} Success.
+*         {@link ARKUI_ERROR_CODE_PARAM_INVALID} Function parameter exception.
+*         {@link ARKUI_ERROR_CODE_ATTRIBUTE_OR_EVENT_NOT_SUPPORTED} The component does not support this event.
+* @since 12
+*/
+int32_t OH_ArkUI_RegisterSystemFontStyleChangeEvent(ArkUI_NodeHandle node,
+    void* userData, void (*onFontStyleChange)(ArkUI_SystemFontStyleEvent* event, void* userData));
+
+/**
+* @brief Unregister the event callback when the system font style changes.
+*
+* @param node Indicates the target node.
+* @since 12
+*/
+void OH_ArkUI_UnregisterSystemFontStyleChangeEvent(ArkUI_NodeHandle node);
+
+/**
+ * @brief Retrieve the font size value for system font change events.
+ *
+ * @param event Indicates a pointer to the current system font change event.
+ * @return Updated system font size. -1 indicates a retrieval error.
+ * @since 12
+ */
+int32_t OH_ArkUI_SystemFontStyleEvent_GetFontSize(const ArkUI_SystemFontStyleEvent* event);
+
+/**
+ * @brief Retrieve the font thickness values for system font change events.
+ *
+ * @param event Indicates a pointer to the current system font change event.
+ * @return Updated system font thickness, return value type {@link ArkUI_fontWeight},
+ * default value:ARKUI_FONT_WEIGHT_W100。
+ * @since 12
+ */
+int32_t OH_ArkUI_SystemFontStyleEvent_GetFontWeight(const ArkUI_SystemFontStyleEvent* event);
 
 #ifdef __cplusplus
 };
