@@ -39,7 +39,7 @@
 #ifndef MULTIMEDIA_MEDIA_LIBRARY_NATIVE_MEDIA_ASSET_MANAGER_H
 #define MULTIMEDIA_MEDIA_LIBRARY_NATIVE_MEDIA_ASSET_MANAGER_H
 
-#include "image_source_native.h"
+#include "multimedia/image_framework/image/image_source_native.h"
 #include "media_asset_base_capi.h"
 
 #ifdef __cplusplus
