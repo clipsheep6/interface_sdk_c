@@ -17,7 +17,7 @@
  * @addtogroup VideoProcessing
  * @{
  *
- * @brief Provide video processing including color space conversion and metadata generation.
+ * @brief Provide APIs for video quality processing.
  *
  * @since 12
  */
@@ -40,6 +40,7 @@
 #define VIDEO_PROCESSING_ENGINE_C_API_VIDEO_PROCESSING_H
 
 #include <stdint.h>
+#include <stdbool.h>
 #include "video_processing_types.h"
 
 #ifdef __cplusplus

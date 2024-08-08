@@ -17,7 +17,7 @@
  * @addtogroup ImageProcessing
  * @{
  *
- * @brief Provide image processing including color space conversion and metadata generation.
+ * @brief Provide APIs for image quality processing.
  *
  * @since 12
  */
@@ -41,7 +41,6 @@
 
 #include <stdint.h>
 #include <stdbool.h>
-
 #include "image_processing_types.h"
 
 #ifdef __cplusplus
