@@ -567,30 +567,28 @@ OH_AVErrCode OH_AVPlayer_SetDecryptionConfig(OH_AVPlayer *player, MediaKeySessio
 /**
  * @brief Method to set player information notify callback.
  * @syscap SystemCapability.Multimedia.Media.AVPlayer
- * @param player Pointer to an OH_AVPlayer instance
- * @param callback object pointer.
+ * @param player Pointer to an OH_AVPlayer instance.
+ * @param callback Pointer to callback.
+ * @param userData Pointer to user specific data.
  * @return Function result code.
  *         {@link AV_ERR_OK} if the execution is successful.
- *         {@link AV_ERR_INVALID_VAL} if input player is null or callback is null,
- *         or player SetOnInfoCallback failed.
+ *         {@link AV_ERR_INVALID_VAL} if input player is null or player SetOnInfoCallback failed.
  * @since 12
- * @version 1.0
  */
-OH_AVErrCode OH_AVPlayer_SetOnInfoCallback(OH_AVPlayer *player, OH_AVPlayerOnInfoCallback callback);
+OH_AVErrCode OH_AVPlayer_SetOnInfoCallback(OH_AVPlayer *player, OH_AVPlayerOnInfoCallback callback, void *userData);
 
 /**
  * @brief Method to set player error callback.
  * @syscap SystemCapability.Multimedia.Media.AVPlayer
- * @param player Pointer to an OH_AVPlayer instance
- * @param callback object pointer.
+ * @param player Pointer to an OH_AVPlayer instance.
+ * @param callback Pointer to callback.
+ * @param userData Pointer to user specific data.
  * @return Function result code.
  *         {@link AV_ERR_OK} if the execution is successful.
- *         {@link AV_ERR_INVALID_VAL} if input player is null or callback is null,
- *         or player SetOnErrorCallback failed.
+ *         {@link AV_ERR_INVALID_VAL} if input player is null or player SetOnErrorCallback failed.
  * @since 12
- * @version 1.0
  */
-OH_AVErrCode OH_AVPlayer_SetOnErrorCallback(OH_AVPlayer *player, OH_AVPlayerOnError callback);
+OH_AVErrCode OH_AVPlayer_SetOnErrorCallback(OH_AVPlayer *player, OH_AVPlayerOnErrorCallback callback, void *userData);
 
 #ifdef __cplusplus
 }

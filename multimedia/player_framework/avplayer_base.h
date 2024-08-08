@@ -299,10 +299,11 @@ typedef void (*OH_AVPlayerOnInfo)(OH_AVPlayer *player, AVPlayerOnInfoType type, 
  * @param player The pointer to an OH_AVPlayer instance.
  * @param type Indicates the information type. For details, see {@link AVPlayerOnInfoType}.
  * @param infoBody Indicates the information parameters.
+ * @param userData Pointer to user specific data.
  * @since 12
- * @version 1.0
  */
-typedef void (*OH_AVPlayerOnInfoCallback)(OH_AVPlayer *player, AVPlayerOnInfoType type, OH_AVFormat* infoBody);
+typedef void (*OH_AVPlayerOnInfoCallback)(OH_AVPlayer *player, AVPlayerOnInfoType type, OH_AVFormat* infoBody,
+        void *userData);
 
 /**
  * @brief Called when an error occurred for versions above api9
@@ -311,9 +312,22 @@ typedef void (*OH_AVPlayerOnInfoCallback)(OH_AVPlayer *player, AVPlayerOnInfoTyp
  * @param errorCode Error code.
  * @param errorMsg Error message.
  * @since 11
+ * @deprecated since 12
+ * @useinstead {@link OH_AVPlayerOnErrorCallback}
  * @version 1.0
  */
 typedef void (*OH_AVPlayerOnError)(OH_AVPlayer *player, int32_t errorCode, const char *errorMsg);
+
+/**
+ * @brief Called when an error occurred.
+ * @syscap SystemCapability.Multimedia.Media.AVPlayer
+ * @param player The pointer to an OH_AVPlayer instance.
+ * @param errorCode Error code.
+ * @param errorMsg Error message.
+ * @param userData Pointer to user specific data.
+ * @since 12
+ */
+typedef void (*OH_AVPlayerOnErrorCallback)(OH_AVPlayer *player, int32_t errorCode, const char *errorMsg, void *userData);
 
 /**
  * @brief A collection of all callback function pointers in OH_AVPlayer. Register an instance of this
@@ -324,7 +338,7 @@ typedef void (*OH_AVPlayerOnError)(OH_AVPlayer *player, int32_t errorCode, const
  * @param onError Monitor OH_AVPlayer operation errors, refer to {@link OH_AVPlayerOnError}
  * @since 11
  * @deprecated since 12
- * @useinstead {@link OH_AVPlayerOnInfoCallback} {@link OH_AVPlayerOnError}
+ * @useinstead {@link OH_AVPlayerOnInfoCallback} {@link OH_AVPlayerOnErrorCallback}
  * @version 1.0
  */
 typedef struct AVPlayerCallback {
