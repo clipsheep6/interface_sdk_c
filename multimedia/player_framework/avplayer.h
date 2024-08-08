@@ -563,6 +563,20 @@ OH_AVErrCode OH_AVPlayer_GetMediaKeySystemInfo(OH_AVPlayer *player, DRM_MediaKey
 OH_AVErrCode OH_AVPlayer_SetDecryptionConfig(OH_AVPlayer *player, MediaKeySession *mediaKeySession,
     bool secureVideoPath);
 
+/**
+ * @brief mute or unmute specified media.
+ * @syscap SystemCapability.Multimedia.Media.AVPlayer
+ * @param player Pointer to an OH_AVPlayer instance
+ * @param mediaType Indicates the target media type. see @OH_AVCodec.OH_MediaType
+ * @param isMuted The switch to set mute or unmute
+ * @return Function result code.
+ *         {@link AV_ERR_OK} if the execution is successful.
+ *         {@link AV_ERR_INVALID_VAL} if input player is nullptr or media don't contain specified mediaType.
+ *         {@link AV_ERR_UNSUPPORT} if the specified mediaType not supported.
+ * @since 13
+*/
+OH_AVErrCode OH_AVPlayer_SetMediaMuted(OH_AVPlayer *player, OH_MediaType mediaType, bool isMuted);
+
 #ifdef __cplusplus
 }
 #endif
