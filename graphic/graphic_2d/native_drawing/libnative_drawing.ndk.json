@@ -1441,5 +1441,25 @@
     {
         "first_introduced": "12",
         "name":"OH_Drawing_SetTextShadow"
+    },
+    {
+        "first_introduced": "13",
+        "name": "OH_Drawing_CreateLineTypography"
+    },
+    {
+        "first_introduced": "13",
+        "name": "OH_Drawing_DestroyLineTypography"
+    },
+    {
+        "first_introduced": "13",
+        "name": "OH_Drawing_LineTypographyGetLineBreak"
+    },
+    {
+        "first_introduced": "13",
+        "name": "OH_Drawing_LineTypographyCreateLine"
+    },
+    {
+        "first_introduced": "13",
+        "name": "OH_Drawing_TextLineDestroy"
     }
 ]
