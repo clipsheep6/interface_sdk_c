@@ -62,5 +62,37 @@
     {
         "first_introduced": "12",
         "name": "OH_ImagePackerNative_Release"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_PackingOptions_SetLoop"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_PackingOptions_GetLoop"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_PackingOptions_SetDelayTimes"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_PackingOptions_GetDelayTimes"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_PackingOptions_SetDisposalTypes"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_PackingOptions_GetDisposalTypes"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_ImagePacker_PackToDataMultiFrames"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_ImagePacker_PackToFileMultiFrames"
     }
 ]
