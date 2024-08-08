@@ -173,6 +173,41 @@ typedef enum AVPlayerOnInfoType {
 } AVPlayerOnInfoType;
 
 /**
+ * @brief Key to get subtitle text, value type is char array.
+ * @syscap SystemCapability.Multimedia.Media.AVPlayer
+ * @since 13
+ */
+extern const char* OH_PLAYER_SUBTITLE_TEXT;
+
+/**
+ * @brief Key to get subtitle pts, value type is int32_t.
+ * @syscap SystemCapability.Multimedia.Media.AVPlayer
+ * @since 13
+ */
+extern const char* OH_PLAYER_SUBTITLE_PTS;
+
+/**
+ * @brief Key to get subtitle duration, value type is int32_t.
+ * @syscap SystemCapability.Multimedia.Media.AVPlayer
+ * @since 13
+ */
+extern const char* OH_PLAYER_SUBTITLE_DURATION;
+
+/**
+ * @brief Key to get track count, value type is uint32_t.
+ * @syscap SystemCapability.Multimedia.Media.AVPlayer
+ * @since 13
+ */
+extern const char* OH_PLAYER_TRACK_COUNT;
+
+/**
+ * @brief Key to get track info array, value type is OH_AVFormat pointer array.
+ * @syscap SystemCapability.Multimedia.Media.AVPlayer
+ * @since 13
+ */
+extern const char* OH_PLAYER_TRACK_INFO_ARRAY;
+
+/**
  * @brief Called when a player message or alarm is received.
  * @syscap SystemCapability.Multimedia.Media.AVPlayer
  * @param player The pointer to an OH_AVPlayer instance.
