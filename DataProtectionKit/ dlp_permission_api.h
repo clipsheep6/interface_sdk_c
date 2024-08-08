@@ -170,7 +170,8 @@ OH_DLPPermission_ErrCode OH_DLPPermission_GetDLPSuffix(char *suffixFileName);
 /**
  * @brief Checks whether current application is in the DLP sandbox. This method uses a promise to return the result.
  *
- * @param isInSandbox - Indicates output parameter; {@code true} if current application is in a DLP sandbox, {@code false} otherwise.
+ * @param isInSandbox - Indicates output parameter;
+                        {@code true} if current application is in a DLP sandbox, {@code false} otherwise.
  * @return {@link OH_DLPPermission_ErrCode#ERR_OH_SUCCESS} 0 - If the operation is successful.
  *         {@link OH_DLPPermission_ErrCode#ERR_OH_SYSTEM_SERVICE_EXCEPTION} 19100011 - If the system ability
  *             works abnormally.
