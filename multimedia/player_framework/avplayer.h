@@ -568,7 +568,7 @@ OH_AVErrCode OH_AVPlayer_SetDecryptionConfig(OH_AVPlayer *player, MediaKeySessio
  * @brief Method to set player information notify callback.
  * @syscap SystemCapability.Multimedia.Media.AVPlayer
  * @param player Pointer to an OH_AVPlayer instance.
- * @param callback Pointer to callback.
+ * @param callback Pointer to callback function, nullptr indicates unregister callback.
  * @param userData Pointer to user specific data.
  * @return Function result code.
  *         {@link AV_ERR_OK} if the execution is successful.
@@ -581,7 +581,7 @@ OH_AVErrCode OH_AVPlayer_SetOnInfoCallback(OH_AVPlayer *player, OH_AVPlayerOnInf
  * @brief Method to set player error callback.
  * @syscap SystemCapability.Multimedia.Media.AVPlayer
  * @param player Pointer to an OH_AVPlayer instance.
- * @param callback Pointer to callback.
+ * @param callback Pointer to callback function, nullptr indicates unregister callback.
  * @param userData Pointer to user specific data.
  * @return Function result code.
  *         {@link AV_ERR_OK} if the execution is successful.

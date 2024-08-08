@@ -298,7 +298,7 @@ typedef void (*OH_AVPlayerOnInfo)(OH_AVPlayer *player, AVPlayerOnInfoType type, 
  * @syscap SystemCapability.Multimedia.Media.AVPlayer
  * @param player The pointer to an OH_AVPlayer instance.
  * @param type Indicates the information type. For details, see {@link AVPlayerOnInfoType}.
- * @param infoBody Indicates the information parameters.
+ * @param infoBody Indicates the information parameters, only valid in callback function.
  * @param userData Pointer to user specific data.
  * @since 12
  */
@@ -323,7 +323,7 @@ typedef void (*OH_AVPlayerOnError)(OH_AVPlayer *player, int32_t errorCode, const
  * @syscap SystemCapability.Multimedia.Media.AVPlayer
  * @param player The pointer to an OH_AVPlayer instance.
  * @param errorCode Error code.
- * @param errorMsg Error message.
+ * @param errorMsg Error message, only valid in callback function.
  * @param userData Pointer to user specific data.
  * @since 12
  */
