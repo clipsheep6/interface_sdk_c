@@ -170,6 +170,8 @@ typedef enum AVPlayerOnInfoType {
      * {@link OH_AVPlayerOnInfo} is the same as {@OH_AudioStream_DeviceChangeReason} in audio framework.
      */
     AV_INFO_TYPE_AUDIO_OUTPUT_DEVICE_CHANGE = 17,
+    /* return the message when DRM information is reported */
+    AV_INFO_TYPE_DRM_INFO_UPDATED = 18,
 } AVPlayerOnInfoType;
 
 /**
