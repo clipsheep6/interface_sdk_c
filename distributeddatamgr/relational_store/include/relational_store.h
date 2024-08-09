@@ -143,6 +143,12 @@ typedef struct {
      * @since 11
      */
     int area;
+    /**
+     * Indicates the names of the shared library containing fts etc.
+     *
+     * @since 12
+     */
+    char* pluginLibs[16];
 } OH_Rdb_Config;
 #pragma pack()
 
