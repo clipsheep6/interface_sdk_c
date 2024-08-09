@@ -190,6 +190,13 @@ typedef enum {
 } Input_Result;
 
 /**
+ * @brief Defines the hot key structure.
+ *
+ * @since 13
+ */
+typedef struct Input_HotKey Input_HotKey;
+
+/**
  * @brief Queries the key state.
  *
  * @param keyState Key state.
@@ -683,6 +690,110 @@ int64_t OH_Input_GetTouchEventActionTime(const struct Input_TouchEvent* touchEve
  */
 void OH_Input_CancelInjection();
 
+/**
+ * @brief Creates a hot key object.
+ *
+ * @return Pointer to {@link Input_HotKey} if the operation is successful;
+ * a null pointer otherwise (possibly because of a memory allocation fail failure).
+ * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @since 13
+ */
+Input_HotKey *OH_Input_CreateHotKey();
+
+/**
+ * @brief Destroys a hot key object.
+ *
+ * @param hotKey Hot key object.
+ * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @since 13
+ */
+void OH_Input_DestroyHotKey(Input_HotKey **hotKey);
+
+/**
+ * @brief Sets a modifier key.
+ *
+ * @param hotKey HotKey key object.
+ * @param pressedKeys List of modifier keys.
+ * @param pressedKeyNum Number of modifier keys. One or two modifier keys are supported.
+ * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @since 13
+ */
+void OH_Input_SetPressedKeys(Input_HotKey *hotKey, int32_t *pressedKeys, int32_t pressedKeyNum);
+
+/**
+ * @brief Obtains a modifier key.
+ *
+ * @param hotKey HotKey key object.
+ * @param pressedKeys List of modifier keys.
+ * @param pressedKeyNum Number of modifier keys.
+ * @return OH_Input_GetpressedKeys status code, specifically,
+ *         {@link INPUT_SUCCESS} if the operation is successful;\n
+ *         {@link INPUT_PARAMETER_ERROR} otherwise. \n
+ * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @since 13
+ */
+Input_Result OH_Input_GetPressedKeys(const Input_HotKey *hotKey, int32_t **pressedKeys,
+                                     int32_t *pressedKeyNum);
+
+/**
+ * @brief Sets a modified key.
+ *
+ * @param hotKey HotKey key object.
+ * @param finalKey Modified key. Only one modified key is supported.
+ * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @since 13
+ */
+void OH_Input_SetFinalKey(Input_HotKey *hotKey, int32_t finalKey);
+
+/**
+ * @brief Obtains a modified key.
+ *
+ * @param hotKey HotKey key object.
+ * @param finalKeyCode Returns the key value of the decorated key.
+ * @return OH_Input_GetfinalKey status code, specifically,
+ *         {@link INPUT_SUCCESS} if the operation is successful;\n
+ *         {@link INPUT_PARAMETER_ERROR} otherwise. \n
+ * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @since 13
+ */
+Input_Result OH_Input_GetFinalKey(const Input_HotKey *hotKey, int32_t *finalKeyCode);
+
+/**
+ * @brief Creates an array of {@Link Input_HotKey} instances.
+ *
+ * @param count Number of {@link Input_HotKey} instances to be created.
+ * @return OH_Input_CreateAllSystemHotKey status code, specifically,
+ *         {@link INPUT_SUCCESS} if the double pointer to the instance array is successfully created. \n
+ * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @since 13
+ */
+Input_HotKey **OH_Input_CreateAllSystemHotKey(int32_t count);
+
+/**
+ * @brief Destroys an array of {@link Input_HotKey} instances and reclaims memory.
+ *
+ * @param hotKeys Double pointer to the array of {@link Input_HotKey} instances.
+ * @param count Number of {@link Input_HotKey} instances.
+ * @return OH_Input_DestroyAllSystemHotKey status code, specifically,
+ *         {@link INPUT_SUCCESS} if the operation is successful. \n
+ * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @since 13
+ */
+int32_t OH_Input_DestroyAllSystemHotKey(Input_HotKey **hotKeys, int32_t count);
+
+/**
+ * @brief Obtains all hot keys supported by the system.
+ *
+ * @param hotKey Array of {@Link Input_HotKey} instances.
+ * When calling this API for the first time, you can pass NULL to obtain the array length.
+ * @param count Number of hot keys supported by the system.
+ * @return OH_Input_GetAllSystemHotKey status code, specifically,
+ *         {@link INPUT_SUCCESS} if the operation is successful;\n
+ *         {@link INPUT_PARAMETER_ERROR} otherwise. \n
+ * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @since 13
+ */
+int32_t OH_Input_GetAllSystemHotKey(Input_HotKey **hotKey, int32_t *count);
 #ifdef __cplusplus
 }
 #endif
