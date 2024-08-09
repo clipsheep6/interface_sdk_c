@@ -281,6 +281,69 @@ extern const char* OH_PLAYER_BUFFERING_TYPE;
 extern const char* OH_PLAYER_BUFFERING_VALUE;
 
 /**
+ * @brief Key to get seek position, value type is int32_t.
+ * @syscap SystemCapability.Multimedia.Media.AVPlayer
+ * @since 12
+ */
+extern const char* OH_PLAYER_SEEK_POSITION;
+
+/**
+ * @brief Key to get playback speed, value type is AVPlaybackSpeed.
+ * @syscap SystemCapability.Multimedia.Media.AVPlayer
+ * @since 12
+ */
+extern const char* OH_PLAYER_PLAYBACK_SPEED;
+
+/**
+ * @brief Key to get bitrate, value type is uint32_t.
+ * @syscap SystemCapability.Multimedia.Media.AVPlayer
+ * @since 12
+ */
+extern const char* OH_PLAYER_BITRATE;
+
+/**
+ * @brief Key to get current position, value type is int32_t.
+ * @syscap SystemCapability.Multimedia.Media.AVPlayer
+ * @since 12
+ */
+extern const char* OH_PLAYER_CURRENT_POSITION;
+
+/**
+ * @brief Key to get duration, value type is int64_t.
+ * @syscap SystemCapability.Multimedia.Media.AVPlayer
+ * @since 12
+ */
+extern const char* OH_PLAYER_DURATION;
+
+/**
+ * @brief Key to get video width, value type is int32_t.
+ * @syscap SystemCapability.Multimedia.Media.AVPlayer
+ * @since 12
+ */
+extern const char* OH_PLAYER_VIDEO_WIDTH;
+
+/**
+ * @brief Key to get video height, value type is int32_t.
+ * @syscap SystemCapability.Multimedia.Media.AVPlayer
+ * @since 12
+ */
+extern const char* OH_PLAYER_VIDEO_HEIGHT;
+
+/**
+ * @brief Key to get message type, value type is int32_t.
+ * @syscap SystemCapability.Multimedia.Media.AVPlayer
+ * @since 12
+ */
+extern const char* OH_PLAYER_MESSAGE_TYPE;
+
+/**
+ * @brief Key to get is live stream, value type is int32_t.
+ * @syscap SystemCapability.Multimedia.Media.AVPlayer
+ * @since 12
+ */
+extern const char* OH_PLAYER_IS_LIVE_STREAM;
+
+/**
  * @brief Called when a player message or alarm is received.
  * @syscap SystemCapability.Multimedia.Media.AVPlayer
  * @param player The pointer to an OH_AVPlayer instance.
