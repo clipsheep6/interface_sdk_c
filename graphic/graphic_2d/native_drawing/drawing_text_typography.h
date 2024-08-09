@@ -2753,6 +2753,58 @@ void OH_Drawing_TypographyDestroyTextBox(OH_Drawing_TextBox*);
 void OH_Drawing_SetTextShadow(OH_Drawing_TextShadow* shadow, uint32_t color, OH_Drawing_Point* offset,
     double blurRadius);
 
+/**
+ * @brief Creates an <b>OH_Drawing_TextTab</b> object.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @return Returns the pointer to the <b>OH_Drawing_TextTab</b> object created.
+ * @since 13
+ * @version 1.0
+ */
+OH_Drawing_TextTab* OH_Drawing_CreateTextTab(OH_Drawing_TextAlign textAlign, float location);
+
+/**
+ * @brief Releases the memory occupied by an <b>OH_Drawing_TextTab</b> object.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param OH_Drawing_TextTab Indicates the pointer to an <b>OH_Drawing_TextTab</b> object.
+ * @since 13
+ * @version 1.0
+ */
+void OH_Drawing_DestroyTextTab(OH_Drawing_TextTab*);
+
+/**
+ * @brief Gets the text alignment of the tab.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param OH_Drawing_TextTab Indicates the pointer to an <b>OH_Drawing_TextTab</b> object.
+ * @return Returns the text alignment.
+ * @since 13
+ * @version 1.0
+ */
+OH_Drawing_TextAlign OH_Drawing_TextTabGetAlignment(OH_Drawing_TextTab*);
+
+/**
+ * @brief Gets the text location of the tab.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param OH_Drawing_TextTab Indicates the pointer to an <b>OH_Drawing_TextTab</b> object.
+ * @return Returns the text location.
+ * @since 13
+ * @version 1.0
+ */
+float OH_Drawing_TextTabGetLocation(OH_Drawing_TextTab*);
+
+/**
+ * @brief Sets the text tab of <b>OH_Drawing_TypographyStyle</b> object.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param OH_Drawing_TypographyStyle Indicates the pointer to an <b>OH_Drawing_TypographyStyle</b> object.
+ * @param OH_Drawing_TextTab Indicates the pointer to an <b>OH_Drawing_TextTab</b> object.
+ * @since 13
+ * @version 1.0
+ */
+void OH_Drawing_SetTypographyTextTab(OH_Drawing_TypographyStyle*, OH_Drawing_TextTab* TextTab);
 #ifdef __cplusplus
 }
 #endif
