@@ -194,5 +194,41 @@
     {
         "first_introduced": "12",
         "name": "OH_Input_CancelInjection"
+    },
+    {
+        "first_introduced": "13",
+        "name": "OH_Input_CreateAllSystemHotKey"
+    },
+    {
+        "first_introduced": "13",
+        "name": "OH_Input_DestroyAllSystemHotKey"
+    },
+    {
+        "first_introduced": "13",
+        "name": "OH_Input_GetAllSystemHotKey"
+    },
+    {
+        "first_introduced": "13",
+        "name": "OH_Input_CreateHotKey"
+    },
+    {
+        "first_introduced": "13",
+        "name": "OH_Input_DestroyHotKey"
+    },
+    {
+        "first_introduced": "13",
+        "name": "OH_Input_SetPressedKeys"
+    },
+    {
+        "first_introduced": "13",
+        "name": "OH_Input_GetPressedKeys"
+    },
+    {
+        "first_introduced": "13",
+        "name": "OH_Input_SetFinalKey"
+    },
+    {
+        "first_introduced": "13",
+        "name": "OH_Input_GetFinalKey"
     }
 ]
