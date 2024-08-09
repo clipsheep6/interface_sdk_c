@@ -190,6 +190,12 @@ typedef enum {
 } Input_Result;
 
 /**
+ * @brief 回调函数，用于回调快捷键事件。
+ * @since 13
+ */
+typedef void (*Input_HotKeyCallback)(Input_HotKey* hotKey);
+
+/**
  * @brief Queries the key state.
  *
  * @param keyState Key state.
@@ -683,6 +689,32 @@ int64_t OH_Input_GetTouchEventActionTime(const struct Input_TouchEvent* touchEve
  */
 void OH_Input_CancelInjection();
 
+/**
+ * @brief 订阅快捷键事件。
+ *
+ * @param hotKey 指定要订阅的快捷键对象。
+ * @param callback 回调函数，用于回调快捷键事件。
+ * @return OH_Input_AddHotKeyMonitor 函数错误码。
+ *         {@Link INPUT_SUCCESS} 订阅组合按键成功。\n
+ *         {@link INPUT_PARAMETER_ERROR} 参数检查失败。\n
+ *         {@Link INPUT_SERVICE_EXCEPTION} 服务异常，订阅组合按键失败。可能的原因是已经被系统订阅。\n
+ * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @since 13
+ */
+Input_Result OH_Input_AddHotKeyMonitor(const Input_HotKey* hotKey, Input_HotKeyCallback callback);
+
+/**
+ * @brief 取消订阅快捷键。
+ *
+ * @param hotKey 指定要取消订阅的快捷键对象。
+ * @param callback 回调函数，用于回调快捷键事件。
+ * @return OH_Input_RemoveHotKeyMonitor 函数错误码。
+ *         {@Link INPUT_SUCCESS} 取消订阅组合按键成功。\n
+ *         {@link INPUT_PARAMETER_ERROR} 参数检查失败。\n
+ * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @since 13
+ */
+Input_Result OH_Input_RemoveHotKeyMonitor(const Input_HotKey* hotKey, Input_HotKeyCallback callback);
 #ifdef __cplusplus
 }
 #endif
