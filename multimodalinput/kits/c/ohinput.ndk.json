@@ -194,5 +194,13 @@
     {
         "first_introduced": "12",
         "name": "OH_Input_CancelInjection"
+    },
+    {
+        "first_introduced": "13",
+        "name": "OH_Input_AddHotKeyMonitor"
+    },
+    {
+        "first_introduced": "13",
+        "name": "OH_Input_RemoveHotKeyMonitor"
     }
 ]
