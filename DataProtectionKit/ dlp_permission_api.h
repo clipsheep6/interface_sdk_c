@@ -104,6 +104,7 @@ DLP_ErrCode OH_DLP_GetDLPPermissionInfo(DLP_FileAccess *dlpFileAccess, uint32_t 
  * @param originalFileName - Indicates the original file name obtained.
  * @return {@link DLP_ErrCode#ERR_OH_SUCCESS} 0 - If the operation is successful.
  *         {@link DLP_ErrCode#ERR_OH_INVALID_PARAMS} 19100001 - If the parameter value is invalid.
+ *         {@link DLP_ErrCode#ERR_OH_OUT_OF_MEMORY} 19100012 - If the memory error.
  * @since 12
  */
 DLP_ErrCode OH_DLP_GetOriginalFileName(const char *fileName, char *originalFileName);
