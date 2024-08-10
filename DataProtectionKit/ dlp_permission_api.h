@@ -92,6 +92,7 @@ typedef enum {
  *             call this API, which is available only for DLP sandbox applications.
  *         {@link DLP_ErrCode#ERR_OH_SYSTEM_SERVICE_EXCEPTION} 19100011 - If the system ability
  *             works abnormally.
+ *         {@link DLP_ErrCode#ERR_OH_OUT_OF_MEMORY} 19100012 - If the memory error.
  * @since 12
  */
 DLP_ErrCode OH_DLP_GetDLPPermissionInfo(DLP_FileAccess *dlpFileAccess, uint32_t *flags);
