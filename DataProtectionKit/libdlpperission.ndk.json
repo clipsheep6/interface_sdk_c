@@ -1,30 +1,30 @@
 [
     {
         "first_introduced": "12",
-        "name": "OH_DLPPermission_GetDLPPermissionInfo"
+        "name": "OH_DLP_GetDLPPermissionInfo"
     },
     {
         "first_introduced": "12",
-        "name": "OH_DLPPermission_GetOriginalFileName"
+        "name": "OH_DLP_GetOriginalFileName"
     },
     {
         "first_introduced": "12",
-        "name": "OH_DLPPermission_GetDLPSuffix"
+        "name": "OH_DLP_GetDLPSuffix"
     },
     {
         "first_introduced": "12",
-        "name": "OH_DLPPermission_IsInSandbox"
+        "name": "OH_DLP_IsInSandbox"
     },
     {
         "first_introduced": "12",
-        "name": "OH_DLPPermission_SetSandboxAppConfig"
+        "name": "OH_DLP_SetSandboxAppConfig"
     },
     {
         "first_introduced": "12",
-        "name": "OH_DLPPermission_GetSandboxAppConfig"
+        "name": "OH_DLP_GetSandboxAppConfig"
     },
     {
         "first_introduced": "12",
-        "name": "OH_DLPPermission_CleanSandboxAppConfig"
+        "name": "OH_DLP_CleanSandboxAppConfig"
     }
 ]
