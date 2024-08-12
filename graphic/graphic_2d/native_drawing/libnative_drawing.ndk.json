@@ -2,7 +2,15 @@
     { "name": "OH_Drawing_BitmapCreate" },
     { "name": "OH_Drawing_BitmapDestroy" },
     { "name": "OH_Drawing_BitmapBuild" },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_BitmapCreateFromImageInfo"
+    },
     { "name": "OH_Drawing_BitmapCreateFromPixels" },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_BitmapExtractSubset"
+    },
     { "name": "OH_Drawing_BitmapGetWidth" },
     { "name": "OH_Drawing_BitmapGetHeight" },
     {
@@ -15,9 +23,21 @@
     },
     {
         "first_introduced": "12",
+        "name": "OH_Drawing_BitmapGetRowBytes"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_BitmapGetColorSpaceType"
+    },
+    {
+        "first_introduced": "12",
         "name": "OH_Drawing_BitmapGetImageInfo"
     },
     { "name": "OH_Drawing_BitmapGetPixels" },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_BitmapIsImmutable"
+    },
     {
         "first_introduced": "12",
         "name": "OH_Drawing_BitmapReadPixels"
@@ -47,7 +67,19 @@
     },
     {
         "first_introduced": "12",
+        "name": "OH_Drawing_BrushGetShaderEffect"
+    },
+    {
+        "first_introduced": "12",
         "name": "OH_Drawing_BrushReset"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_BitmapSetImmutable"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_BitmapTryAllocPixels"
     },
     { "name": "OH_Drawing_CanvasCreate" },
     { "name": "OH_Drawing_CanvasDestroy" },
@@ -145,6 +177,10 @@
     },
     {
         "first_introduced": "12",
+        "name": "OH_Drawing_CanvasIsClipRect"
+    },
+    {
+        "first_introduced": "12",
         "name": "OH_Drawing_CanvasClipRegion"
     },
     {
@@ -152,7 +188,31 @@
         "name": "OH_Drawing_CanvasGetImageInfo"
     },
     { "name": "OH_Drawing_CreateDashPathEffect" },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_CreatePathDashEffect"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_CreateCornerPathEffect"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_CreateDiscretePathEffect"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_CreateSumPathEffect"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_CreateComposePathEffect"
+    },
     { "name": "OH_Drawing_PathEffectDestroy" },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_ColorFilterCreate"
+    },
     { "name": "OH_Drawing_ColorFilterCreateBlendMode" },
     { "name": "OH_Drawing_ColorFilterCreateCompose" },
     { "name": "OH_Drawing_ColorFilterCreateLinearToSrgbGamma" },
@@ -285,6 +345,10 @@
     {
         "first_introduced": "12",
         "name": "OH_Drawing_ImageFilterCreateBlur"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_ImageFilterCreateComposeImageFilter"
     },
     {
         "first_introduced": "12",
@@ -504,6 +568,10 @@
     },
     {
         "first_introduced": "12",
+        "name": "OH_Drawing_PenGetShaderEffect"
+    },
+    {
+        "first_introduced": "12",
         "name": "OH_Drawing_PenReset"
     },
     { "name": "OH_Drawing_PointCreate" },
@@ -622,6 +690,10 @@
     { "name": "OH_Drawing_SetTextStyleLocale" },
     {
         "first_introduced": "12",
+        "name": "OH_Drawing_ShaderEffectCreate"
+    },
+    {
+        "first_introduced": "12",
         "name": "OH_Drawing_ShaderEffectCreateColorShader"
     },
     { "name": "OH_Drawing_ShaderEffectCreateLinearGradient" },
@@ -638,6 +710,10 @@
     {
         "first_introduced": "12",
         "name": "OH_Drawing_ShaderEffectCreateImageShader"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_ShaderEffectCreatePixelMapShader"
     },
     {
         "first_introduced": "12",
@@ -720,6 +796,22 @@
     { "name": "OH_Drawing_ImageBuildFromBitmap" },
     { "name": "OH_Drawing_ImageGetWidth" },
     { "name": "OH_Drawing_ImageGetHeight" },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_ImageGetColorSpace"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_ImageGetUniqueID"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_ImageIsOpaque"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_ImageScalePixels"
+    },
     {
         "first_introduced": "12",
         "name": "OH_Drawing_TextStyleGetShadowWithIndex"
@@ -1097,6 +1189,10 @@
     {
         "first_introduced": "12",
         "name": "OH_Drawing_RegionSetRect"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_Drawing_RegionIsRegionContained"
     },
     {
         "first_introduced": "12",
