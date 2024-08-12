@@ -49,19 +49,19 @@ extern "C" {
  * @since 12
  */
 typedef enum {
-    /** The operation is successful. */
+    /** @error The operation is successful. */
     ERR_OH_SUCCESS = 0,
-    /** Invalid parameter value. */
+    /** @error Invalid parameter value. */
     ERR_OH_INVALID_PARAMETER = 19100001,
-    /** No permission to call this API, which is available only for DLP sandbox applications. */
+    /** @error No permission to call this API, which is available only for DLP sandbox applications. */
     ERR_OH_API_ONLY_FOR_SANDBOX_ERROR = 19100006,
-    /** No permission to call this API, which is available only for non-DLP sandbox applications. */
+    /** @error No permission to call this API, which is available only for non-DLP sandbox applications. */
     ERR_OH_API_NOT_FOR_SANDBOX_ERROR = 19100007,
-    /** The system ability works abnormally. */
+    /** @error The system ability works abnormally. */
     ERR_OH_SYSTEM_SERVICE_EXCEPTION = 19100011,
-    /** Indicates the memory error. */
+    /** @error Indicates the memory error. */
     ERR_OH_OUT_OF_MEMORY = 19100012,
-    /** DisplayName missing in want. */
+    /** @error DisplayName missing in want. */
     ERR_OH_APPLICATION_NOT_AUTHORIZED = 19100018
 } DLP_ErrCode;
 
@@ -95,7 +95,7 @@ typedef enum {
  *         {@link DLP_ErrCode#ERR_OH_OUT_OF_MEMORY} 19100012 - If the memory error.
  * @since 12
  */
-DLP_ErrCode OH_DLP_GetDLPPermissionInfo(DLP_FileAccess *dlpFileAccess, uint32_t *flags);
+DLP_ErrCode OH_DLP_GetDlpPermissionInfo(DLP_FileAccess *dlpFileAccess, uint32_t *flags);
 
 /**
  * @brief Obtains the original file name from a DLP file name.
@@ -120,7 +120,7 @@ DLP_ErrCode OH_DLP_GetOriginalFileName(const char *fileName, char *originalFileN
  *         {@link DLP_ErrCode#ERR_OH_OUT_OF_MEMORY} 19100012 - If the memory error.
  * @since 12
  */
-DLP_ErrCode OH_DLP_GetDLPSuffix(char *suffixFileName);
+DLP_ErrCode OH_DLP_GetDlpSuffix(char *suffixFileName);
 
 /**
  * @brief Checks whether current application is in the DLP sandbox.
