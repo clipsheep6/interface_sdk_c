@@ -215,7 +215,7 @@ Camera_ErrorCode OH_PreviewOutput_GetPreviewRotation(Camera_PreviewOutput* previ
  * @since 12
  */
 Camera_ErrorCode OH_PreviewOutput_SetPreviewRotation(Camera_PreviewOutput* previewOutput,
-    Camera_ImageRotation* isDisplayLocked, bool isDisplayLocked);
+    Camera_ImageRotation previewRotation, bool isDisplayLocked);
 
 #ifdef __cplusplus
 }
