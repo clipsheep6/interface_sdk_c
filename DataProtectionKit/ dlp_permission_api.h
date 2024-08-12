@@ -108,7 +108,7 @@ DLP_ErrCode OH_DLP_GetDlpPermissionInfo(DLP_FileAccess *dlpFileAccess, uint32_t 
  *         {@link DLP_ErrCode#ERR_OH_OUT_OF_MEMORY} 19100012 - If the memory error.
  * @since 12
  */
-DLP_ErrCode OH_DLP_GetOriginalFileName(const char *fileName, char *originalFileName);
+DLP_ErrCode OH_DLP_GetOriginalFileName(const char *fileName, char **originalFileName);
 
 /**
  * @brief Obtains the original file name from a DLP file name.
@@ -118,7 +118,7 @@ DLP_ErrCode OH_DLP_GetOriginalFileName(const char *fileName, char *originalFileN
  *         {@link DLP_ErrCode#ERR_OH_OUT_OF_MEMORY} 19100012 - If the memory error.
  * @since 12
  */
-DLP_ErrCode OH_DLP_GetDlpSuffix(char *suffixFileName);
+DLP_ErrCode OH_DLP_GetDlpSuffix(char **suffixFileName);
 
 /**
  * @brief Checks whether current application is in the DLP sandbox.
@@ -159,7 +159,7 @@ DLP_ErrCode OH_DLP_SetSandboxAppConfig(const char *configInfo);
  *         {@link DLP_ErrCode#ERR_OH_APPLICATION_NOT_AUTHORIZED} 19100018 - If not authorized application.
  * @since 12
  */
-DLP_ErrCode OH_DLP_GetSandboxAppConfig(char *configInfo);
+DLP_ErrCode OH_DLP_GetSandboxAppConfig(char **configInfo);
 
 /**
  * @brief Cleans sandbox application configuration.
