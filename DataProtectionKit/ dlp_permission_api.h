@@ -112,7 +112,6 @@ DLP_ErrCode OH_DLP_GetOriginalFileName(const char *fileName, char *originalFileN
 
 /**
  * @brief Obtains the original file name from a DLP file name.
- *        This method removes the DLP file name extension from the DLP file name.
  *
  * @param suffixFileName - Indicates the suffix file name obtained.
  * @return {@link DLP_ErrCode#ERR_OH_SUCCESS} 0 - If the operation is successful.
