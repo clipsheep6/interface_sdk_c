@@ -301,6 +301,7 @@ typedef enum HiTrace_Communication_Mode {
  * @since 12
  */
 typedef struct HiTraceId {
+#ifdef __BYTE_ORDER
 #if __BYTE_ORDER == __LITTLE_ENDIAN
     /** Whether the <b>HiTraceId</b> instance is valid. */
     uint64_t valid : 1;
@@ -329,6 +330,7 @@ typedef struct HiTraceId {
     uint64_t flags : 12;
 #else
 #error "ERROR: No BIG_LITTLE_ENDIAN defines."
+#endif
 #endif
 } HiTraceId;
 
