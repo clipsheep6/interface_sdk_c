@@ -1,7 +1,7 @@
 [
     {
         "first_introduced": "12",
-        "name": "OH_DLP_GetDLPPermissionInfo"
+        "name": "OH_DLP_GetDlpPermissionInfo"
     },
     {
         "first_introduced": "12",
@@ -9,7 +9,7 @@
     },
     {
         "first_introduced": "12",
-        "name": "OH_DLP_GetDLPSuffix"
+        "name": "OH_DLP_GetDlpSuffix"
     },
     {
         "first_introduced": "12",
