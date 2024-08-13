@@ -217,14 +217,6 @@ extern const char* OH_PLAYER_STATE_CHANGE_REASON;
 extern const char* OH_PLAYER_VOLUME;
 
 /**
- * @brief Key to get bitrate count, value type is uint32_t.
- * @syscap SystemCapability.Multimedia.Media.AVPlayer
- * @since 12
- * @version 1.0
- */
-extern const char* OH_PLAYER_BITRATE_COUNT;
-
-/**
  * @brief Key to get bitrate count, value type is uint32_t array.
  * @syscap SystemCapability.Multimedia.Media.AVPlayer
  * @since 12
