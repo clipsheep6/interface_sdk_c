@@ -49,19 +49,19 @@ extern "C" {
  * @since 12
  */
 typedef enum {
-    /** The operation is successful. */
+    /** @error The operation is successful. */
     ERR_OH_SUCCESS = 0,
-    /** Invalid parameter value. */
+    /** @error Invalid parameter value. */
     ERR_OH_INVALID_PARAMETER = 19100001,
-    /** No permission to call this API, which is available only for DLP sandbox applications. */
+    /** @error No permission to call this API, which is available only for DLP sandbox applications. */
     ERR_OH_API_ONLY_FOR_SANDBOX_ERROR = 19100006,
-    /** No permission to call this API, which is available only for non-DLP sandbox applications. */
+    /** @error No permission to call this API, which is available only for non-DLP sandbox applications. */
     ERR_OH_API_NOT_FOR_SANDBOX_ERROR = 19100007,
-    /** The system ability works abnormally. */
+    /** @error The system ability works abnormally. */
     ERR_OH_SYSTEM_SERVICE_EXCEPTION = 19100011,
-    /** Indicates the memory error. */
+    /** @error Indicates the memory error. */
     ERR_OH_OUT_OF_MEMORY = 19100012,
-    /** DisplayName missing in want. */
+    /** @error DisplayName missing in want. */
     ERR_OH_APPLICATION_NOT_AUTHORIZED = 19100018
 } DLP_ErrCode;
 
@@ -82,34 +82,20 @@ typedef enum {
 } DLP_FileAccess;
 
 /**
- * @brief Represents the permission info of a DLP file.
+ * @brief Obtains the permission info of this DLP file
  *
- * @since 12
- */
-typedef struct {
-     /**
-     * Access permission for the DLP file.
-     */
-    DLP_FileAccess dlpFileAccess;
-    /**
-     * Actions allowed for the DLP file.
-     */
-    uint32_t flags;
-} DLP_PermissionInfo;
-
-/**
- * @brief Obtains the permission info of this DLP file.
- *
- * @param info - Indicates output parameter about {@link DLP_PermissionInfo}.
+ * @param dlpFileAccess - Indicates the access permission for the DLP file.
+ * @param flags - Indicates the actions allowed for the DLP file.
  * @return {@link DLP_ErrCode#ERR_OH_SUCCESS} 0 - If the operation is successful.
  *         {@link DLP_ErrCode#ERR_OH_INVALID_PARAMETER} 19100001 - If the parameter value is invalid.
  *         {@link DLP_ErrCode#ERR_OH_API_ONLY_FOR_SANDBOX_ERROR} 19100006 - If No permission to
  *             call this API, which is available only for DLP sandbox applications.
  *         {@link DLP_ErrCode#ERR_OH_SYSTEM_SERVICE_EXCEPTION} 19100011 - If the system ability
  *             works abnormally.
+ *         {@link DLP_ErrCode#ERR_OH_OUT_OF_MEMORY} 19100012 - If the memory error.
  * @since 12
  */
-DLP_ErrCode OH_DLP_GetDLPPermissionInfo(DLP_PermissionInfo *info);
+DLP_ErrCode OH_DLP_GetDlpPermissionInfo(DLP_FileAccess *dlpFileAccess, uint32_t *flags);
 
 /**
  * @brief Obtains the original file name from a DLP file name.
@@ -119,27 +105,27 @@ DLP_ErrCode OH_DLP_GetDLPPermissionInfo(DLP_PermissionInfo *info);
  * @param originalFileName - Indicates the original file name obtained.
  * @return {@link DLP_ErrCode#ERR_OH_SUCCESS} 0 - If the operation is successful.
  *         {@link DLP_ErrCode#ERR_OH_INVALID_PARAMS} 19100001 - If the parameter value is invalid.
+ *         {@link DLP_ErrCode#ERR_OH_OUT_OF_MEMORY} 19100012 - If the memory error.
  * @since 12
  */
-DLP_ErrCode OH_DLP_GetOriginalFileName(const char *fileName, char *originalFileName);
+DLP_ErrCode OH_DLP_GetOriginalFileName(const char *fileName, char **originalFileName);
 
 /**
  * @brief Obtains the original file name from a DLP file name.
  *        This method removes the DLP file name extension from the DLP file name.
  *
- * @param fileName - Indicates the DLP file name.
  * @param suffixFileName - Indicates the suffix file name obtained.
  * @return {@link DLP_ErrCode#ERR_OH_SUCCESS} 0 - If the operation is successful.
  *         {@link DLP_ErrCode#ERR_OH_OUT_OF_MEMORY} 19100012 - If the memory error.
  * @since 12
  */
-DLP_ErrCode OH_DLP_GetDLPSuffix(char *suffixFileName);
+DLP_ErrCode OH_DLP_GetDlpSuffix(char **suffixFileName);
 
 /**
- * @brief Checks whether current application is in the DLP sandbox. This method uses a promise to return the result.
+ * @brief Checks whether current application is in the DLP sandbox.
  *
- * @param isInSandbox - Indicates output parameter;
-                        {@code true} if current application is in a DLP sandbox, {@code false} otherwise.
+ * @param isInSandbox - Indicates output parameter,
+ *                      {@code true} if current application is in a DLP sandbox, {@code false} otherwise.
  * @return {@link DLP_ErrCode#ERR_OH_SUCCESS} 0 - If the operation is successful.
  *         {@link DLP_ErrCode#ERR_OH_SYSTEM_SERVICE_EXCEPTION} 19100011 - If the system ability
  *             works abnormally.
@@ -149,7 +135,7 @@ DLP_ErrCode OH_DLP_GetDLPSuffix(char *suffixFileName);
 DLP_ErrCode OH_DLP_IsInSandbox(bool *isInSandbox);
 
 /**
- * @brief Sets sandbox application configuration. This method uses a promise to return the result.
+ * @brief Sets sandbox application configuration.
  *
  * @param configInfo - Configuration of the sandbox application.
  * @return {@link DLP_ErrCode#ERR_OH_SUCCESS} 0 - If the operation is successful.
@@ -164,7 +150,7 @@ DLP_ErrCode OH_DLP_IsInSandbox(bool *isInSandbox);
 DLP_ErrCode OH_DLP_SetSandboxAppConfig(const char *configInfo);
 
 /**
- * @brief Obtains sandbox application configuration. This method uses a promise to return the result.
+ * @brief Obtains sandbox application configuration.
  *
  * @param configInfo - Configuration of the sandbox application.
  * @return {@link DLP_ErrCode#ERR_OH_SUCCESS} 0 - If the operation is successful.
@@ -174,10 +160,10 @@ DLP_ErrCode OH_DLP_SetSandboxAppConfig(const char *configInfo);
  *         {@link DLP_ErrCode#ERR_OH_APPLICATION_NOT_AUTHORIZED} 19100018 - Not authorized application.
  * @since 12
  */
-DLP_ErrCode OH_DLP_GetSandboxAppConfig(char *configInfo);
+DLP_ErrCode OH_DLP_GetSandboxAppConfig(char **configInfo);
 
 /**
- * @brief Cleans sandbox application configuration. This method uses a promise to return the result.
+ * @brief Cleans sandbox application configuration.
  *
  * @return {@link DLP_ErrCode#ERR_OH_SUCCESS} 0 - If the operation is successful.
  *         {@link DLP_ErrCode#ERR_OH_API_NOT_FOR_SANDBOX_ERROR} 19100007 - If No permission to
