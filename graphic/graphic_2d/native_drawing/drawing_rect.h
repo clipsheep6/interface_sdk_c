@@ -214,6 +214,51 @@ void OH_Drawing_RectCopy(OH_Drawing_Rect* src, OH_Drawing_Rect* dst);
  */
 void OH_Drawing_RectDestroy(OH_Drawing_Rect*);
 
+/**
+ * @brief Creates an <b>OH_Drawing_Array</b> object, used to store multiple <b>OH_Drawing_Rect</b> object.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param size Indicates the size of the array object
+ * @return Returns the pointer to the <b>OH_Drawing_Array</b> object created
+ * Must be release by OH_Drawing_RectDestroyArray interface
+ * @since 13
+ * @version 1.0
+ */
+OH_Drawing_Array* OH_Drawing_RectCreateArray(size_t size);
+
+/**
+ * @brief Return the size of an <b>OH_Drawing_Array</b> object.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param OH_Drawing_Array Indicates the array object
+ * @return The size of the array object
+ * @since 13
+ * @version 1.0
+ */
+size_t OH_Drawing_RectGetArraySize(OH_Drawing_Array*);
+
+/**
+ * @brief return the specified <b>OH_Drawing_Rect</b> object from <b>OH_Drawing_Array</b> object.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param rectArr Indicates the array object
+ * @param index Indicates the index of array, caller must make sure the index is valid.
+ * @return Returns the pointer to the <b>OH_Drawing_Rect</b> object.
+ * @since 13
+ * @version 1.0
+ */
+OH_Drawing_Rect* OH_Drawing_RectGetArrayElement(OH_Drawing_Array* rectArr, size_t index);
+
+/**
+ * @brief Destroys an <b>OH_Drawing_Array</b> object and reclaims the memory occupied by the object.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param OH_Drawing_Array Indicates the pointer to an <b>OH_Drawing_Array</b> object.
+ * @since 13
+ * @version 1.0
+ */
+void OH_Drawing_RectDestroyArray(OH_Drawing_Array*);
+
 #ifdef __cplusplus
 }
 #endif
