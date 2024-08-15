@@ -142,9 +142,10 @@ HiDebug_ErrorCode OH_HiDebug_StopAppTraceCapture();
  * @brief Get the graphics memory of application.
  *
  * @param value Indicates value of graphics memory, in kibibytes.
- * @return 0         - Success.
- *         401       - Invalid argument，value is null.
- *         11400104  - Failed to get the application memory due to a remote exception.
+ * @return Result code
+ *         {@link HIDEBUG_SUCCESS} Get graphics memory success.
+ *         {@link HIDEBUG_INVALID_ARGUMENT} Invalid argument，value is null.
+ *         {@link HIDEBUG_TRACE_ABNORMAL} Failed to get the application memory due to a remote exception.
  * @since 13
  */
 HiDebug_ErrorCode OH_HiDebug_GetGraphicsMemory(uint32_t *value);
