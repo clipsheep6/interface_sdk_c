@@ -563,6 +563,46 @@ OH_AVErrCode OH_AVPlayer_GetMediaKeySystemInfo(OH_AVPlayer *player, DRM_MediaKey
 OH_AVErrCode OH_AVPlayer_SetDecryptionConfig(OH_AVPlayer *player, MediaKeySession *mediaKeySession,
     bool secureVideoPath);
 
+/**
+ * @brief mute or unmute specified media.
+ * @syscap SystemCapability.Multimedia.Media.AVPlayer
+ * @param player Pointer to an OH_AVPlayer instance
+ * @param mediaType Indicates the target media type. see @OH_AVCodec.OH_MediaType
+ * @param isMuted The switch to set mute or unmute
+ * @return Function result code.
+ *         {@link AV_ERR_OK} if the execution is successful.
+ *         {@link AV_ERR_INVALID_VAL} if input player is nullptr or media don't contain specified mediaType.
+ *         {@link AV_ERR_UNSUPPORT} if the specified mediaType not supported.
+ * @since 13
+*/
+OH_AVErrCode OH_AVPlayer_SetMediaMuted(OH_AVPlayer *player, OH_MediaType mediaType, bool isMuted);
+
+/**
+ * @brief Add the subtitle source for the player. The corresponding source can be http url.
+ * @syscap SystemCapability.Multimedia.Media.AVPlayer
+ * @param player Pointer to an OH_AVPlayer instance
+ * @param url Indicates the playback source.
+ * @return Function result code.
+ *         {@link AV_ERR_OK} if the execution is successful.
+ *         {@link AV_ERR_INVALID_VAL} if input player is nullptr, url is null or player setUrlSource failed.
+ * @since 13
+ */
+OH_AVErrCode OH_AVPlayer_AddSubtitleFromUrl(H_AVPlayer *player, const char *url);
+
+/**
+ * @brief Add the subtitle file descriptor source for the player.
+ * @syscap SystemCapability.Multimedia.Media.AVPlayer
+ * @param player Pointer to an OH_AVPlayer instance
+ * @param fd Indicates the file descriptor of subtitle source.
+ * @param offset Indicates the offset of subtitle source in file descriptor.
+ * @param size Indicates the size of subtitle source.
+ * @return Function result code.
+ *         {@link AV_ERR_OK} if the execution is successful.
+ *         {@link AV_ERR_INVALID_VAL} if input player is nullptr or player setFdSource failed.
+ * @since 13
+ */
+OH_AVErrCode OH_AVPlayer_AddSubtitleFromFd(H_AVPlayer *player, int32_t fd, int64_t offset, int64_t size);
+
 #ifdef __cplusplus
 }
 #endif
