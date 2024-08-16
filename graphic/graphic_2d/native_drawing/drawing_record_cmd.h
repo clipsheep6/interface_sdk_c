@@ -49,7 +49,7 @@ extern "C" {
  * @brief Creates an <b>OH_Drawing_RecordCmdUtils</b> object.
  *
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
- * @param  OH_Drawing_RecordCmdUtils Indicates the pointer to an <b>OH_Drawing_RecordCmdUtils</b> object.
+ * @param  OH_Drawing_RecordCmdUtils** Indicates the pointer to an <b>OH_Drawing_RecordCmdUtils</b> object.
  * @return Returns the error code.
  *         Returns {@link OH_DRAWING_SUCCESS} if the operation is successful.
  *         Returns {@link OH_DRAWING_ERROR_INVALID_PARAMETER} if canvas or point is nullptr.
@@ -78,7 +78,7 @@ OH_Drawing_ErrorCode OH_Drawing_RecordCmdUtilsDestroy(OH_Drawing_RecordCmdUtils*
  * @param OH_Drawing_RecordCmdUtils Indicates the pointer to an <b>OH_Drawing_RecordCmdUtils</b> object.
  * @param width Width of rectangular object.
  * @param height Height of rectangular object.
- * @param OH_Drawing_Canvas Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+ * @param OH_Drawing_Canvas** Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
  * @return Returns the error code.
  *         Returns {@link OH_DRAWING_SUCCESS} if the operation is successful.
  *         Returns {@link OH_DRAWING_ERROR_INVALID_PARAMETER} if canvas or point is nullptr.
@@ -93,7 +93,7 @@ OH_Drawing_ErrorCode OH_Drawing_RecordCmdUtilsDestroy(OH_Drawing_RecordCmdUtils*
  *
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
  * @param OH_Drawing_RecordCmdUtils Indicates the pointer to an <b>OH_Drawing_RecordCmdUtils</b> object.
- * @param OH_Drawing_RecordCmd Indicates the pointer to an <b>OH_Drawing_RecordCmdUtils</b> object.
+ * @param OH_Drawing_RecordCmd** Indicates the pointer to an <b>OH_Drawing_RecordCmd</b> object.
  * @return Returns the error code.
  *         Returns {@link OH_DRAWING_SUCCESS} if the operation is successful.
  *         Returns {@link OH_DRAWING_ERROR_INVALID_PARAMETER} if canvas or point is nullptr.
