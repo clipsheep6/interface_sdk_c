@@ -31,6 +31,7 @@
  * @brief Declare the camera base concepts.
  *
  * @library libohcamera.so
+ * @kit CameraKit
  * @syscap SystemCapability.Multimedia.Camera.Core
  * @since 11
  * @version 1.0
@@ -924,7 +925,7 @@ typedef struct Camera_TorchStatusInfo {
     /**
      * the current torch brightness level.
      */
-    int32_t torchLevel;
+    float torchLevel;
 } Camera_TorchStatusInfo;
 
 /**

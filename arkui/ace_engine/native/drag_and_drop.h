@@ -80,22 +80,22 @@ typedef enum {
  */
 typedef enum {
     /** Unknown. */
-    ARKUI_PREVIEW_DRAG_STATUS_UNKNOWN = -1,
+    ARKUI_PRE_DRAG_STATUS_UNKNOWN = -1,
     /** A drag gesture is being detected. */
-    ARKUI_PREVIEW_DRAG_STATUS_ACTION_DETECTING,
+    ARKUI_PRE_DRAG_STATUS_ACTION_DETECTING,
     /** The component is ready to be dragged. */
-    ARKUI_PREVIEW_DRAG_STATUS_READY_TO_TRIGGER_DRAG,
+    ARKUI_PRE_DRAG_STATUS_READY_TO_TRIGGER_DRAG,
     /** A lift animation is started. */
-    ARKUI_PREVIEW_DRAG_STATUS_PREVIEW_LIFT_STARTED,
+    ARKUI_PRE_DRAG_STATUS_PREVIEW_LIFT_STARTED,
     /** A lift animation is finished. */
-    ARKUI_PREVIEW_DRAG_STATUS_PREVIEW_LIFT_FINISHED,
+    ARKUI_PRE_DRAG_STATUS_PREVIEW_LIFT_FINISHED,
     /** A drop animation is started. */
-    ARKUI_PREVIEW_DRAG_STATUS_PREVIEW_LANDING_STARTED,
+    ARKUI_PRE_DRAG_STATUS_PREVIEW_LANDING_STARTED,
     /** A drop animation is finished. */
-    ARKUI_PREVIEW_DRAG_STATUS_PREVIEW_LANDING_FINISHED,
+    ARKUI_PRE_DRAG_STATUS_PREVIEW_LANDING_FINISHED,
     /** A drop animation is terminated. */
-    ARKUI_PREVIEW_DRAG_STATUS_CANCELED_BEFORE_DRAG,
-} ArkUI_PreviewDragStatus;
+    ARKUI_PRE_DRAG_STATUS_CANCELED_BEFORE_DRAG,
+} ArkUI_PreDragStatus;
 
 /**
  * @brief Defines an enum for drag preview scale modes.
@@ -192,7 +192,7 @@ ArkUI_DragEvent* OH_ArkUI_NodeEvent_GetDragEvent(ArkUI_NodeEvent* nodeEvent);
  * @return Returns the interaction state prior to the drop and drop operation.
  * @since 12
  */
-ArkUI_PreviewDragStatus OH_ArkUI_NodeEvent_GetPreviewDragStatus(ArkUI_NodeEvent* nodeEvent);
+ArkUI_PreDragStatus OH_ArkUI_NodeEvent_GetPreDragStatus(ArkUI_NodeEvent* nodeEvent);
 
 /**
  * @brief Sets whether to disable the default drop animation.
@@ -297,6 +297,19 @@ int32_t OH_ArkUI_DragEvent_GetDataTypes(
  * @since 12
  */
 int32_t OH_ArkUI_DragEvent_GetDragResult(ArkUI_DragEvent* event, ArkUI_DragResult* result);
+
+/**
+ * @brief Obtains the drop operation from a drag event.
+ *
+ * @param event Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
+ * @param operation Indicates the drop operation which the data receiver set.
+ * @return Returns the result code.
+ *         Returns {@link ARKUI_ERROR_CODE_NO_ERROR} if the operation is successful.
+ *         Returns {@link ARKUI_ERROR_CODE_PARAM_INVALID} if a parameter error occurs.
+ *                 Possible causes: 1. The given parameters are null or the given event is not a valid DragEvent.
+ * @since 12
+ */
+int32_t OH_ArkUI_DragEvent_GetDropOperation(ArkUI_DragEvent* event, ArkUI_DropOperation* operation);
 
 /**
  * @brief Obtains the X coordinate of the touch point for a drag preview from a drag event.
@@ -419,7 +432,7 @@ float OH_ArkUI_DragEvent_GetVelocity(ArkUI_DragEvent* event);
  *         Returns {@link ARKUI_ERROR_CODE_PARAM_INVALID} if a parameter error occurs.
  * @since 12
  */
-int32_t OH_ArkUI_DragEvent_GetModifierKeyStates(ArkUI_DragEvent* event, int64_t* keys);
+int32_t OH_ArkUI_DragEvent_GetModifierKeyStates(ArkUI_DragEvent* event, uint64_t* keys);
 
 /**
  * @brief Sets whether to enable strict reporting on drag events.
