@@ -173,6 +173,7 @@ typedef enum HiDebug_TraceFlag {
     /** Capture all thread trace */
     HIDEBUG_TRACE_FLAG_ALL_THREADS = 2
 } HiDebug_TraceFlag;
+
 #ifdef __cplusplus
 }
 #endif // __cplusplus
