@@ -53,7 +53,7 @@ extern "C" {
  * @return Returns the error code.
  *         Returns {@link OH_DRAWING_SUCCESS} if the operation is successful.
  *         Returns {@link OH_DRAWING_ERROR_INVALID_PARAMETER} if canvas or point is nullptr.
- * @since 12
+ * @since 13
  * @version 1.0
  */
 OH_Drawing_ErrorCode OH_Drawing_RecordCmdUtilsCreate(OH_Drawing_RecordCmdUtils**);
@@ -66,7 +66,7 @@ OH_Drawing_ErrorCode OH_Drawing_RecordCmdUtilsCreate(OH_Drawing_RecordCmdUtils**
  * @return Returns the error code.
  *         Returns {@link OH_DRAWING_SUCCESS} if the operation is successful.
  *         Returns {@link OH_DRAWING_ERROR_INVALID_PARAMETER} if canvas or point is nullptr.
- * @since 12
+ * @since 13
  * @version 1.0
  */
 OH_Drawing_ErrorCode OH_Drawing_RecordCmdUtilsDestroy(OH_Drawing_RecordCmdUtils*);
@@ -82,7 +82,7 @@ OH_Drawing_ErrorCode OH_Drawing_RecordCmdUtilsDestroy(OH_Drawing_RecordCmdUtils*
  * @return Returns the error code.
  *         Returns {@link OH_DRAWING_SUCCESS} if the operation is successful.
  *         Returns {@link OH_DRAWING_ERROR_INVALID_PARAMETER} if canvas or point is nullptr.
- * @since 12
+ * @since 13
  * @version 1.0
  */
  OH_Drawing_ErrorCode OH_Drawing_RecordCmdUtilsBeginRecording(OH_Drawing_RecordCmdUtils*,
@@ -97,7 +97,7 @@ OH_Drawing_ErrorCode OH_Drawing_RecordCmdUtilsDestroy(OH_Drawing_RecordCmdUtils*
  * @return Returns the error code.
  *         Returns {@link OH_DRAWING_SUCCESS} if the operation is successful.
  *         Returns {@link OH_DRAWING_ERROR_INVALID_PARAMETER} if canvas or point is nullptr.
- * @since 12
+ * @since 13
  * @version 1.0
  */
 OH_Drawing_ErrorCode OH_Drawing_RecordCmdUtilsFinishingRecording(OH_Drawing_RecordCmdUtils*, OH_Drawing_RecordCmd**);
@@ -110,7 +110,7 @@ OH_Drawing_ErrorCode OH_Drawing_RecordCmdUtilsFinishingRecording(OH_Drawing_Reco
  * @return Returns the error code.
  *         Returns {@link OH_DRAWING_SUCCESS} if the operation is successful.
  *         Returns {@link OH_DRAWING_ERROR_INVALID_PARAMETER} if canvas or point is nullptr.
- * @since 12
+ * @since 13
  * @version 1.0
  */
 OH_Drawing_ErrorCode OH_Drawing_RecordCmdDestroy(OH_Drawing_RecordCmd*);
