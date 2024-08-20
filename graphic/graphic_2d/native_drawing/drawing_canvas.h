@@ -839,7 +839,7 @@ OH_Drawing_ErrorCode OH_Drawing_CanvasGetImageInfo(OH_Drawing_Canvas* canvas, OH
  * @return Returns the error code.
  *         Returns {@link OH_DRAWING_SUCCESS} if the operation is successful.
  *         Returns {@link OH_DRAWING_ERROR_INVALID_PARAMETER} if canvas or imageInfo is nullptr.
- * @since 12
+ * @since 13
  * @version 1.0
  */
 OH_Drawing_ErrorCode OH_Drawing_Drawing_CanvasDrawRecordCmd(OH_Drawing_Canvas*, const OH_Drawing_RecordCmd*);
