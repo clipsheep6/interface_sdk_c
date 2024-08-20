@@ -219,6 +219,71 @@ int32_t OHOS_NetConn_UnregisterDnsResolver(void);
  */
 int32_t OH_NetConn_BindSocket(int32_t socketFd, NetConn_NetHandle *netHandle);
 
+/**
+ * @brief Register callback, used to monitor specific network status
+ *
+ * @param netSpecifier specifier information
+ * @param callback The callback needed to be registered
+ * @param timeoutMS net connection time out
+ * @param callbackId out param, corresponding to a registered callback, used at OH_NetConn_UnregisterNetConnCallback
+ * @return 0 - Success.
+ *         401 - Parameter error.
+ *         2100002 - Operation failed.
+ *         2100105 - Local null ptr.
+ *         2100202 - Write descriptor token fail.
+ *         2100207 - IPC connect stub fail.
+ *         2100208 - Get proxy error.
+ *         2101022 - Over max request num.       
+ * @{link 401} - if specifier is null/valid or netConnCallback is null or callbackId is null.
+ * @permission ohos.permission.GET_NETWORK_INFO
+ * @syscap SystemCapability.Communication.NetManager.Core
+ * @since 12
+ * @version 1.0
+ */
+int32_t OH_NetConn_RegisterNetConnCallback(NetConn_NetSpecifier *specifier, NetConn_NetConnCallback *netConnCallback,
+                                           uint32_t timeoutMS, uint32_t *callbackId);
+
+/**
+ * @brief Register callback, used to monitor default network status
+ *
+ * @param callback The callback needed to be registered
+ * @param callbackId out param, corresponding to a registered callback, used at OH_NetConn_UnregisterNetConnCallback
+ * @return 0 - Success.
+ *         401 - Parameter error.
+ *         2100002 - Operation failed.
+ *         2100105 - Local null ptr.
+ *         2100202 - Write descriptor token fail.
+ *         2100207 - IPC connect stub fail.
+ *         2100208 - Get proxy error.
+ *         2101022 - Over max request num. 
+ * @{link 401} - if netConnCallback is null or callbackId is null.
+ * @permission ohos.permission.GET_NETWORK_INFO
+ * @syscap SystemCapability.Communication.NetManager.Core
+ * @since 12
+ * @version 1.0
+ */
+int32_t OH_NetConn_RegisterDefaultNetConnCallback(NetConn_NetConnCallback *netConnCallback, uint32_t *callbackId);
+
+ /**
+ * @brief Unregister network status callback
+ *
+ * @param callBackId the id corresponding to a registered callback.
+ * @return 0 - Success.
+ *         401 - Parameter error.
+ *         2100002 - Operation failed.
+ *         2100105 - Local null ptr.
+ *         2100202 - Write descriptor token fail.
+ *         2100207 - IPC connect stub fail.
+ *         2100208 - Get proxy error. 
+ *         2101007 - Callback not found
+ * @{link 401} - if callBackId does not correspond to a registered callback.
+ * @permission ohos.permission.GET_NETWORK_INFO
+ * @syscap SystemCapability.Communication.NetManager.Core
+ * @since 12
+ * @version 1.0
+ */
+int32_t OH_NetConn_UnregisterNetConnCallback(uint32_t callBackId);
+
 #ifdef __cplusplus
 }
 #endif

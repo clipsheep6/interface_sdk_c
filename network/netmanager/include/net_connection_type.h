@@ -238,6 +238,96 @@ typedef struct NetConn_NetHandleList {
  */
 typedef int (*OH_NetConn_CustomDnsResolver)(const char *host, const char *serv,
     const struct addrinfo *hint, struct addrinfo **res);
+
+/**
+ * @brief Defines the network specifier.
+ *
+ * @since 12
+ * @version 1.0
+ */
+typedef struct NetConn_NetSpecifier {
+    NetConn_NetCapabilities caps;
+    char *bearerPrivateIdentifier;
+} NetConn_NetSpecifier;
+
+/**
+ * @brief Pointer to the network available callback.
+ *
+ * @param netHandle The network handle.
+ *
+ * @since 12
+ * @version 1.0
+ */
+typedef void (*OH_NetConn_NetworkAvailable)(NetConn_NetHandle *netHandle);
+
+/**
+ * @brief Pointer to the network capabilities change callback.
+ *
+ * @param netHandle The network handle.
+ * @param netCapabilities The all network capabilities.
+ *
+ * @since 12
+ * @version 1.0
+ */
+typedef void (*OH_NetConn_NetCapabilitiesChange)(NetConn_NetHandle *netHandle,
+                                                 NetConn_NetCapabilities *netCapabilities);
+
+/**
+ * @brief Pointer to the network connection properties change callback.
+ *
+ * @param netHandle The network handle.
+ * @param connConnetionProperties The network connection properties.
+ *
+ * @since 12
+ * @version 1.0
+ */
+typedef void (*OH_NetConn_NetConnectionPropertiesChange)(NetConn_NetHandle *netHandle,
+                                                         NetConn_ConnectionProperties *connConnetionProperties);
+
+/**
+ * @brief Pointer to the network lost callback.
+ *
+ * @param netHandle The network handle.
+ *
+ * @since 12
+ * @version 1.0
+ */
+typedef void (*OH_NetConn_NetLost)(NetConn_NetHandle *netHandle);
+
+/**
+ * @brief Pointer to the network unavailable callback.
+ *
+ * @since 12
+ * @version 1.0
+ */
+typedef void (*OH_NetConn_NetUnavailable)(void);
+
+/**
+ * @brief Pointer to the network block status change callback.
+ *
+ * @param netHandle The network handle.
+ * @param blocked The flag used to indicate whether the network will be blocked.
+ *
+ * @since 12
+ * @version 1.0
+ */
+typedef void (*OH_NetConn_NetBlockStatusChange)(NetConn_NetHandle *netHandle, bool blocked);
+
+/**
+ * @brief Defines the network connection callbacks.
+ *
+ * @since 12
+ * @version 1.0
+ */
+typedef struct NetConn_NetConnCallback {
+    OH_NetConn_NetworkAvailable onNetworkAvailable;
+    OH_NetConn_NetCapabilitiesChange onNetCapabilitiesChange;
+    OH_NetConn_NetConnectionPropertiesChange onConnetionProperties;
+    OH_NetConn_NetLost onNetLost;
+    OH_NetConn_NetUnavailable onNetUnavailable;
+    OH_NetConn_NetBlockStatusChange onNetBlockStatusChange;
+} NetConn_NetConnCallback;
+
 #ifdef __cplusplus
 }
 #endif
