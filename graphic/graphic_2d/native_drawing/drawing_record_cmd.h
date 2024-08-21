@@ -24,7 +24,7 @@
  *
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
  *
- * @since 12
+ * @since 13
  * @version 1.0
  */
 
@@ -34,7 +34,7 @@
  * @brief Declares functions related to the <b>RecordCmd</b> object in the drawing module.
  *
  * @library libnative_drawing.so
- * @since 12
+ * @since 13
  * @version 1.0
  */
 
