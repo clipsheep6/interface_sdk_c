@@ -502,6 +502,14 @@ typedef struct OH_Drawing_FontMgr OH_Drawing_FontMgr;
  */
 typedef struct OH_Drawing_FontStyleSet OH_Drawing_FontStyleSet;
 
+/**
+ * @brief Defines an <b>OH_Drawing_Array</b>, which is used to array.
+ *
+ * @since 13
+ * @version 1.0
+ */
+typedef struct OH_Drawing_Array OH_Drawing_Array;
+
 #ifdef __cplusplus
 }
 #endif

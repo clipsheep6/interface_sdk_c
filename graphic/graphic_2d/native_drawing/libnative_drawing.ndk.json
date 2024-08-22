@@ -1441,5 +1441,81 @@
     {
         "first_introduced": "12",
         "name":"OH_Drawing_SetTextShadow"
+    },
+    {
+        "first_introduced": "13",
+        "name":"OH_Drawing_GetDrawingArraySize"
+    },
+    {
+        "first_introduced": "13",
+        "name":"OH_Drawing_TypographyGetTextLines"
+    },
+    {
+        "first_introduced": "13",
+        "name":"OH_Drawing_DestroyTextLines"
+    },
+    {
+        "first_introduced": "13",
+        "name":"OH_Drawing_DestroyTextLine"
+    },
+    {
+        "first_introduced": "13",
+        "name":"OH_Drawing_GetTextLinesIndex"
+    },
+    {
+        "first_introduced": "13",
+        "name":"OH_Drawing_TextLineGetGlyphCount"
+    },
+    {
+        "first_introduced": "13",
+        "name":"OH_Drawing_TextLineGetTextRange"
+    },
+    {
+        "first_introduced": "13",
+        "name":"OH_Drawing_TextLineGetGlyphRuns"
+    },
+    {
+        "first_introduced": "13",
+        "name":"OH_Drawing_DestroyRuns"
+    },
+    {
+        "first_introduced": "13",
+        "name":"OH_Drawing_GetRunsIndex"
+    },
+    {
+        "first_introduced": "13",
+        "name":"OH_Drawing_TextLinePaint"
+    },
+    {
+        "first_introduced": "13",
+        "name":"OH_Drawing_TextLineCreateJustifiedLine"
+    },
+    {
+        "first_introduced": "13",
+        "name":"OH_Drawing_TextLineGetTypographicBounds"
+    },
+    {
+        "first_introduced": "13",
+        "name":"OH_Drawing_TextLineGetImageBounds"
+    },
+    {
+        "first_introduced": "13",
+        "name":"OH_Drawing_TextLineGetTrailingSpaceWidth"
+    },
+    {
+        "first_introduced": "13",
+        "name":"OH_Drawing_TextLineGetIndexForCharacterPosition"
+    },
+    {
+        "first_introduced": "13",
+        "name":"OH_Drawing_TextLineGetOffsetForCharacterIndex"
+    },
+    {
+        "first_introduced": "13",
+        "name":"OH_Drawing_TextLineTraversalCharacterOffsetAndIndex"
+    },
+    {
+        "first_introduced": "13",
+        "name":"OH_Drawing_TextLineGetAlignmentOffset"
     }
 ]
