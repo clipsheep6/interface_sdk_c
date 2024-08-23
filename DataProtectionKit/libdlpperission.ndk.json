@@ -1,0 +1,30 @@
+[
+    {
+        "first_introduced": "12",
+        "name": "OH_DLP_GetDLPPermissionInfo"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_DLP_GetOriginalFileName"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_DLP_GetDLPSuffix"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_DLP_IsInSandbox"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_DLP_SetSandboxAppConfig"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_DLP_GetSandboxAppConfig"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_DLP_CleanSandboxAppConfig"
+    }
+]
