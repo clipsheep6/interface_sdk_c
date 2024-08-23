@@ -1,0 +1,8 @@
+[
+    { "name": "OH_NativeColorSpaceManager_CreateFromName" },
+    { "name": "OH_NativeColorSpaceManager_CreateFromPrimariesAndGamma" },
+    { "name": "OH_NativeColorSpaceManager_Destroy" },
+    { "name": "OH_NativeColorSpaceManager_GetColorSpaceName" },
+    { "name": "OH_NativeColorSpaceManager_GetWhitePoint" },
+    { "name": "OH_NativeColorSpaceManager_GetGamma" }
+]
