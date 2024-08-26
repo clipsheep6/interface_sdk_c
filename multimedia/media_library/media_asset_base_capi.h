@@ -180,6 +180,13 @@ typedef enum MediaLibrary_DeliveryMode {
     MEDIA_LIBRARY_BALANCED_MODE = 2
 } MediaLibrary_DeliveryMode;
 
+typedef enum MediaLibrary_ImageFileType {
+    /*JPEG type*/
+    MEDIA_LIBRARY_IMAGE_JPEG = 1,
+    /*HEIF type*/
+    MEDIA_LIBRARY_IMAGE_HEIF = 2
+}MediaLibrary_ImageFileType;
+
 /**
  * @brief Request Options
  *
