@@ -497,6 +497,56 @@ typedef struct OH_Drawing_Font_Metrics {
  */
 float OH_Drawing_FontGetMetrics(OH_Drawing_Font*, OH_Drawing_Font_Metrics*);
 
+/**
+ * @brief Get the text outline path.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param OH_Drawing_Font Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+ * @param text Indicates the character storage encoded with text encoding.
+ * @param byteLength Indicates the text length in bytes.
+ * @param encoding Indicates the text encoding.
+ * @param x Indicates x coordinates of the text.
+ * @param y Indicates y coordinates of the text.
+ * @return Returns an <b>OH_Drawing_Path</b> object, must be release by OH_Drawing_PathDestroy.
+ * Returns nullptr if OH_Drawing_Font is nullptr.
+ * @since 13
+ * @version 1.0
+ */
+OH_Drawing_Path* OH_Drawing_FontGetTextPath(OH_Drawing_Font* cFont, const void* text, size_t byteLength,
+    OH_Drawing_TextEncoding encoding, float x, float y);
+
+/**
+ * @brief Retrieves the bound rect for each glyph in glyph array.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param OH_Drawing_Font Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+ * @param glyphs Indicates the array of glyph indices to be measured.
+ * @param count Indicates the number of glyphs.
+ * @param OH_Drawing_Array The bound rect array for each glyph, returned to the caller.
+ * @since 13
+ * @version 1.0
+ * @note <b>OH_Drawing_Array</b> object must be allocated by <b>OH_Drawing_RectCreateArray</b> function.
+ * @note Size of <b>OH_Drawing_Array</b> must be bigger than glyph counts.
+ * @note <b>OH_Drawing_Rect</b> use y-axis-goes-down system, y axis is inverted to the y-axis-goes-up system.
+ * @note <b>OH_Drawing_Rect</b> use two points(left-bottom & right-top) to describe the bound.
+ * @note The bound rect will be snap to integral boundaries.
+ */
+void OH_Drawing_FontGetBounds(const OH_Drawing_Font*, const uint16_t* glyphs, int count, OH_Drawing_Array*);
+
+/**
+ * @brief Create a path object for specified Glyph.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param OH_Drawing_Font Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+ * @param glyph glyph index to be obtained.
+ * @return Returns an <b>OH_Drawing_Path</b> object of specified glyph index, return nullptr if error happened.
+ * @since 13
+ * @version 1.0
+ * @note <b>OH_Drawing_Path</b> use y-axis-goes-down system, y axis is inverted to the y-axis-goes-up system.
+ * @note Return value must be released by <b>OH_Drawing_PathDestroy</b> function.
+ */
+OH_Drawing_Path* OH_Drawing_FontCreatePathForGlyph(OH_Drawing_Font*, uint16_t glyph);
+
 #ifdef __cplusplus
 }
 #endif
