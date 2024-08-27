@@ -16,15 +16,15 @@ import("//build/ohos/ndk/ndk.gni")
 
 ohos_ndk_headers("native_color_space_manager_header") {
   dest_dir = "$ndk_headers_out_dir/native_color_space_manager"
-  sources = [
-    "./native_color_space_manager.h",
-  ]
+  sources = [ "./native_color_space_manager.h" ]
 }
 
 ohos_ndk_library("libnative_color_space_manager_ndk") {
   output_name = "native_color_space_manager"
   output_extension = "so"
   ndk_description_file = "./libnative_color_space_manager.ndk.json"
-  system_capability = "SystemCapability.Graphic.Graphic2D.NativeColorSpaceManager"
-  system_capability_headers = [ "native_color_space_manager/native_color_space_manager.h" ]
+  system_capability =
+      "SystemCapability.Graphic.Graphic2D.NativeColorSpaceManager"
+  system_capability_headers =
+      [ "native_color_space_manager/native_color_space_manager.h" ]
 }

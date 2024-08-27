@@ -22,7 +22,7 @@
  *
  * @brief Provides the native colorSpaceManager capability.
  *
- * @syscap SystemCapability.Graphic.Graphic2D.NativeColorSpaceManager
+ * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
  * @since 13
  * @version 1.0
  */
@@ -33,7 +33,7 @@
  * @brief Defines the functions for obtaining and using a native colorSpaceManager.
  *
  * @library libnative_color_space_manager.so
- * @syscap SystemCapability.Graphic.Graphic2D.NativeColorSpaceManager
+ * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
  * @since 13
  * @version 1.0
  */
@@ -41,6 +41,11 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+/**
+ * @brief Defines a colorspace manager.
+ * @since 13
+ */
 typedef struct OH_NativeColorSpaceManager OH_NativeColorSpaceManager;
 
 /**
@@ -164,7 +169,7 @@ OH_NativeColorSpaceManager* OH_NativeColorSpaceManager_CreateFromName(ColorSpace
  * @syscap SystemCapability.Graphic.Graphic2D.NativeColorSpaceManager
  * @param primaries Indicates the NativeColorSpace connection primaries.
  * @param gamma Indicates the NativeColorSpace connection gamma.
- * @return Returns the pointer to the <b>NativeVsync</b> instance created.
+ * @return Returns the pointer to the <b>NativeColorSpaceManager</b> instance created.
  * @since 13
  * @version 1.0
  */
@@ -186,11 +191,11 @@ void OH_NativeColorSpaceManager_Destroy(OH_NativeColorSpaceManager* nativeColorS
  *
  * @syscap SystemCapability.Graphic.Graphic2D.NativeColorSpaceManager
  * @param nativeColorSpaceManager Indicates the pointer to a <b>NativeColorSpaceManager</b> instance.
- * @return Returns ColorSpaceName, return value >=0 && value <= 36, success, otherwise, failed.
+ * @return Returns value, return value >=0 && value <= 36, success, otherwise, failed.
  * @since 13
  * @version 1.0
  */
-ColorSpaceName OH_NativeColorSpaceManager_GetColorSpaceName(
+int OH_NativeColorSpaceManager_GetColorSpaceName(
     OH_NativeColorSpaceManager* nativeColorSpaceManager);
 
 /**
