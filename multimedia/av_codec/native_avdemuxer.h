@@ -18,7 +18,7 @@
  *
  * @brief Provides audio and video demuxer capabilities.
  *
- * @kit AVCodec
+ * @kit AVCodecKit
  * @library libnative_media_avdemuxer.so
  * @syscap SystemCapability.Multimedia.Media.Spliter
  * @since 10
@@ -35,8 +35,24 @@
 extern "C" {
 #endif
 
+/**
+ * @brief Forward declaration of OH_AVDemuxer.
+ *
+ * @since 10
+ */
 typedef struct OH_AVDemuxer OH_AVDemuxer;
+/**
+ * @brief Forward declaration of DRM_MediaKeySystemInfo.
+ *
+ * @since 11
+ */
 typedef struct DRM_MediaKeySystemInfo DRM_MediaKeySystemInfo;
+
+/**
+* @brief Callback for getting media key system information from media source.
+* @since 11
+* @version 1.0
+*/
 typedef void (*DRM_MediaKeySystemInfoCallback)(DRM_MediaKeySystemInfo* mediaKeySystemInfo);
 
 /**
@@ -45,7 +61,6 @@ typedef void (*DRM_MediaKeySystemInfoCallback)(DRM_MediaKeySystemInfo* mediaKeyS
  * @param mediaKeySystemInfo DRM information.
  * @return DRM_ERR_INVALID_VAL when the params checked failure, return DRM_ERR_OK when function called successfully.
  * @since 12
- * @version 1.0
  */
 typedef void (*Demuxer_MediaKeySystemInfoCallback)(OH_AVDemuxer *demuxer, DRM_MediaKeySystemInfo *mediaKeySystemInfo);
 
@@ -177,7 +192,6 @@ OH_AVErrCode OH_AVDemuxer_SeekToTime(OH_AVDemuxer *demuxer, int64_t millisecond,
  *         {@link AV_ERR_OPERATE_NOT_PERMIT} 2 - If the demuxer engine is not inited or init failed.
  *         {@link AV_ERR_INVALID_VAL} 3 - If the demuxer instance is nullptr or invalid.
  * @since 11
- * @version 1.0
  */
 OH_AVErrCode OH_AVDemuxer_SetMediaKeySystemInfoCallback(OH_AVDemuxer *demuxer,
     DRM_MediaKeySystemInfoCallback callback);
@@ -191,7 +205,6 @@ OH_AVErrCode OH_AVDemuxer_SetMediaKeySystemInfoCallback(OH_AVDemuxer *demuxer,
  *         {@link AV_ERR_OPERATE_NOT_PERMIT} 2 - If the demuxer engine is not inited or init failed.
  *         {@link AV_ERR_INVALID_VAL} 3 - If the demuxer instance is nullptr or invalid.
  * @since 12
- * @version 1.0
  */
 OH_AVErrCode OH_AVDemuxer_SetDemuxerMediaKeySystemInfoCallback(OH_AVDemuxer *demuxer,
     Demuxer_MediaKeySystemInfoCallback callback);
@@ -203,10 +216,10 @@ OH_AVErrCode OH_AVDemuxer_SetDemuxerMediaKeySystemInfoCallback(OH_AVDemuxer *dem
  * @param mediaKeySystemInfo Indicates the media key system info which ram space allocated by callee and
  * released by caller.
  * @return {@link AV_ERR_OK} 0 - Success
+ *         {@link AV_ERR_OPERATE_NOT_PERMIT} 2 - If the demuxer engine is not inited or init failed.
  *         {@link AV_ERR_INVALID_VAL} 3 - If the demuxer instance is nullptr or invalid
  *          or the mediaKeySystemInfo is nullptr.
  * @since 11
- * @version 1.0
  */
 OH_AVErrCode OH_AVDemuxer_GetMediaKeySystemInfo(OH_AVDemuxer *demuxer, DRM_MediaKeySystemInfo *mediaKeySystemInfo);
 

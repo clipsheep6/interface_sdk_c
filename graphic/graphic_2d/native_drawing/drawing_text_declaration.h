@@ -33,6 +33,9 @@
  *
  * @brief Declares the data structure related to text in 2D drawing.
  *
+ * @kit ArkGraphics2D
+ * @library libnative_drawing.so
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
  * @since 8
  * @version 1.0
  */
@@ -125,7 +128,7 @@ typedef struct OH_Drawing_TextShadow OH_Drawing_TextShadow;
 /**
  * @brief Defines an <b>OH_Drawing_TextTab</b>, which is used to to store the tab alignment type and position.
  *
- * @since 13
+ * @since 14
  * @version 1.0
  */
 typedef struct OH_Drawing_TextTab OH_Drawing_TextTab;

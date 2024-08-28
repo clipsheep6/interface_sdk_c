@@ -45,6 +45,14 @@
     },
     {
         "first_introduced": "12",
+        "name": "OH_PixelmapInitializationOptions_GetRowStride"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_PixelmapInitializationOptions_SetRowStride"
+    },
+    {
+        "first_introduced": "12",
         "name": "OH_PixelmapInitializationOptions_Release"
     },
     {
@@ -109,6 +117,10 @@
     },
     {
         "first_introduced": "12",
+        "name": "OH_PixelmapNative_ScaleWithAntiAliasing"
+    },
+    {
+        "first_introduced": "12",
         "name": "OH_PixelmapNative_Translate"
     },
     {
@@ -134,5 +146,25 @@
     {
         "first_introduced": "12",
         "name": "OH_PixelmapNative_CreateEmptyPixelmap"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_PixelmapNative_GetMetadata"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_PixelmapNative_SetMetadata"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_PixelmapNative_GetNativeBuffer"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_PixelmapNative_ConvertPixelmapNativeToNapi"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_PixelmapNative_ConvertPixelmapNativeFromNapi"
     }
 ]

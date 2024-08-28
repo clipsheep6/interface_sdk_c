@@ -18,7 +18,7 @@
  *
  * @brief Provides audio encoder and decoder capabilities.
  *
- * @kit AVCodec
+ * @kit AVCodecKit
  * @library libnative_media_acodec.so
  * @syscap SystemCapability.Multimedia.Media.AudioCodec
  * @since 11
@@ -38,7 +38,6 @@ extern "C" {
 /**
  * @brief MediaKeySession field.
  * @since 12
- * @version 1.0
  */
 typedef struct MediaKeySession MediaKeySession;
 
@@ -280,6 +279,7 @@ OH_AVErrCode OH_AudioCodec_IsValid(OH_AVCodec *codec, bool *isValid);
  *         {@link AV_ERR_INVALID_VAL} 3 - If the codec instance is nullptr or invalid,
  *         the mediaKeySession is nullptr or invalid.
  *         {@link AV_ERR_INVALID_STATE} 8 - If the codec service is invalid.
+ *         {@link AV_ERR_NO_MEMORY}, failed to request memory.
  * @since 12
  * @version 1.0
 */

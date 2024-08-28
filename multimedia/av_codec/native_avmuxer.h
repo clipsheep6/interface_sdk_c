@@ -18,7 +18,7 @@
  *
  * @brief Provides audio and video muxer capabilities.
  *
- * @kit AVCodec
+ * @kit AVCodecKit
  * @library libnative_media_avmuxer.so
  * @syscap SystemCapability.Multimedia.Media.Muxer
  * @since 10
@@ -35,6 +35,11 @@
 extern "C" {
 #endif
 
+/**
+ * @brief Forward declaration of OH_AVMuxer.
+ *
+ * @since 10
+ */
 typedef struct OH_AVMuxer OH_AVMuxer;
 
 /**

@@ -30,6 +30,7 @@
  *
  * @library libace_ndk.z.so
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @kit ArkUI
  * @since 12
  */
 
@@ -121,6 +122,8 @@ typedef enum {
     ARKUI_NODE_GRID,
     /** Grid item. */
     ARKUI_NODE_GRID_ITEM,
+    /** Custom span. */
+    ARKUI_NODE_CUSTOM_SPAN,
 } ArkUI_NodeType;
 
 /**
@@ -343,9 +346,10 @@ typedef enum {
      * @brief Sets the gradient attribute, which can be set, reset, and obtained as required through APIs.
      *
      * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
-     * .value[0].f32: start angle of the linear gradient. A positive value indicates a clockwise rotation from the
-     * origin, (0, 0). The default value is <b>180</b>. \n
-     * .value[1].i32: direction of the linear gradient. It does not take effect when <b>angle</b> is set.
+     * .value[0].f32: start angle of the linear gradient. This attribute takes effect only when
+     * {@link ArkUI_LinearGradientDirection} is set to <b>ARKUI_LINEAR_GRADIENT_DIRECTION_CUSTOM</b>.
+     * A positive value indicates a clockwise rotation from the origin, (0, 0). The default value is <b>180</b>. \n
+     * .value[1].i32: direction of the linear gradient. When it is set, the <b>angle</b> attribute does not take effect.
      * The parameter type is {@link ArkUI_LinearGradientDirection}: \n
      * .value[2].i32: whether the colors are repeated. The default value is <b>false</b>. \n
      * .object: array of color stops, each of which consists of a color and its stop position.
@@ -357,7 +361,7 @@ typedef enum {
      * Format of the return value {@link ArkUI_AttributeItem}: \n
      * .value[0].f32: start angle of the linear gradient. \n
      * .value[1].i32: direction of the linear gradient. It does not take effect when <b>angle</b> is set. \n
-     * .value[0].i32: whether the colors are repeated. \n
+     * .value[2].i32: whether the colors are repeated. \n
      * .object: array of color stops, each of which consists of a color and its stop position.
      * Invalid colors are automatically skipped. \n
      * colors: colors of the color stops. \n
@@ -492,15 +496,16 @@ typedef enum {
      */
     NODE_VISIBILITY,
     /**
-     * @brief Defines the clip attribute, which can be set, reset, and obtained as required through APIs.
+     * @brief Defines the clipping and masking attribute, which can be set, reset, and obtained as required through
+     * APIs.
      *
      * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
      * .value[0].i32: whether to clip the component based on the parent container bounds.
-     * The value <b>0</b> means to clip the component, and <b>1</b> means the opposite. \n
+     * The value <b>1</b> means to clip the component, and <b>0</b> means the opposite. \n
      * \n
      * Format of the return value {@link ArkUI_AttributeItem}:\n
      * .value[0].i32: whether to clip the component based on the parent container bounds.
-     * The value <b>0</b> means to clip the component, and <b>1</b> means the opposite. \n
+     * The value <b>1</b> means to clip the component, and <b>0</b> means the opposite. \n
      *
      */
     NODE_CLIP,
@@ -625,8 +630,8 @@ typedef enum {
      * .value[0]?.f32: blur radius of the shadow, in vp.\n
      * .value[1]?.i32: whether to enable the coloring strategy. The value <b>1</b> means to enable the coloring
      * strategy, and <b>0</b> (default value) means the opposite.\n
-     * .value[2]?.f32: offset of the shadow along the x-axis, in vp.\n
-     * .value[3]?.f32: offset of the shadow along the y-axis, in vp.\n
+     * .value[2]?.f32: offset of the shadow along the x-axis, in px.\n
+     * .value[3]?.f32: offset of the shadow along the y-axis, in px.\n
      * .value[4]?.i32: shadow type {@link ArkUI_ShadowType}. The default value is <b>ARKUI_SHADOW_TYPE_COLOR</b>.\n
      * .value[5]?.u32: shadow color, in 0xARGB format. For example, 0xFFFF0000 indicates red.\n
      * .value[6]?.u32: whether to fill the shadow. The value <b>1</b> means to fill the shadow, and <b>0</b>
@@ -636,8 +641,8 @@ typedef enum {
      * Format of the return value {@link ArkUI_AttributeItem}:\n
      * .value[0].f32: blur radius of the shadow, in vp.\n
      * .value[1].i32: whether to enable the coloring strategy. \n
-     * .value[2].f32: offset of the shadow along the x-axis, in vp.\n
-     * .value[3].f32: offset of the shadow along the y-axis, in vp.\n
+     * .value[2].f32: offset of the shadow along the x-axis, in px.\n
+     * .value[3].f32: offset of the shadow along the y-axis, in px.\n
      * .value[4].i32: shadow type {@link ArkUI_ShadowType}. The default value is <b>ARKUI_SHADOW_TYPE_COLOR</b>.\n
      * .value[5].u32: shadow color, in 0xARGB format. For example, 0xFFFF0000 indicates red.\n
      * .value[6].u32: whether to fill the shadow. The value <b>1</b> means to fill the shadow, and <b>0</b>
@@ -1025,10 +1030,10 @@ typedef enum {
      * .string: command for drawing the path.\n
      * 5. Progress:\n
      * .value[0].i32: mask type. The parameter type is {@link ArkUI_MaskType}.
-     * The value is <b>ARKUI_MASK_TYPE_PROSGRESS</b> for the progress shape.\n
+     * The value is <b>ARKUI_MASK_TYPE_PROGRESS</b> for the progress shape.\n
      * .value[1].f32: current value of the progress indicator.\n
      * .value[2].f32: maximum value of the progress indicator.\n
-     * .value[3].u32: color of the progress indicator.\n
+     * .value[3].u32: color of the progress indicator, in 0xARGB format.\n
      * \n
      * Format of the return value {@link ArkUI_AttributeItem}, which supports five types of shapes:\n
      * 1. Rectangle:\n
@@ -1082,13 +1087,13 @@ typedef enum {
      * .value[0].i32: blend mode. The parameter type is {@link ArkUI_BlendMode}. The default value is
      * <b>ARKUI_BLEND_MODE_NONE</b>. \n
      * .value[1].?i32: how the specified blend mode is applied. The parameter type is {@link ArkUI_BlendApplyType}.
-     * The default value is <b>ARKUI_BLEND_APPLY_TYPE_FAST</b>. \n
+     * The default value is <b>BLEND_APPLY_TYPE_FAST</b>. \n
      * \n
      * Format of the return value {@link ArkUI_AttributeItem}:\n
      * .value[0].i32: blend mode. The parameter type is {@link ArkUI_BlendMode}. The default value is
      * <b>ARKUI_BLEND_MODE_NONE</b>. \n
      * .value[1].i32: how the specified blend mode is applied. The parameter type is {@link ArkUI_BlendApplyType}.
-     * The default value is <b>ARKUI_BLEND_APPLY_TYPE_FAST</b>. \n
+     * The default value is <b>BLEND_APPLY_TYPE_FAST</b>. \n
      *
      */
     NODE_BLEND_MODE,
@@ -1784,6 +1789,40 @@ typedef enum {
      *
      */
     NODE_TRANSITION = 94,
+
+    /**
+     * @brief Set the current component system focus box style.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute: \n
+     * .value[0].f32: The distance between the focus box and the edge of the component. \n
+     * Positive numbers represent the outer side, negative numbers represent the inner side. \n
+     * Percentage is not supported. \n
+     * .value[1].f32: Focus box width. Negative numbers and percentages are not supported. \n
+     * .value[2].u32: Focus box color. \n
+     * \n
+     *
+     */
+    NODE_FOCUS_BOX = 96,
+
+    /**
+     * @brief Defines the component ID.
+     * This attribute can be obtained through APIs.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for obtaining the attribute:\n
+     * .value[0].i32: component ID. \n
+     *
+     */
+    NODE_UNIQUE_ID = 95,
+    
+    /**
+     * @brief Defines the moving distance limit for the component-bound tap gesture.
+     * This attribute can be set as required through APIs.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .value[0].f32: allowed moving distance of a finger, in vp. \n
+     *
+     */
+    NODE_CLICK_DISTANCE = 97,
     
     /**
      * @brief Defines the text content attribute, which can be set, reset, and obtained as required through APIs.
@@ -2145,6 +2184,18 @@ typedef enum {
      * .object indicates ArkUI_StyledString formatted string data. The parameter type is {@link ArkUI_StyledString}. \n
      */
     NODE_TEXT_CONTENT_WITH_STYLED_STRING,
+
+    /**
+     * @brief Sets whether to center text vertically in the text component.
+     *
+     * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
+     * .value[0].i32: whether to center text vertically. The default value is <b>false</b>. \n
+     * \n
+     * Format of the return value {@link ArkUI_AttributeItem}:\n
+     * .value[0].i32: whether to center text vertically. \n
+     *
+     */
+    NODE_TEXT_HALF_LEADING = 1029,
 
     /**
      * @brief Defines the text content attribute, which can be set, reset, and obtained as required through APIs.
@@ -5091,7 +5142,8 @@ typedef enum {
     NODE_WATER_FLOW_ROW_TEMPLATE,
 
     /**
-     * @brief Sets the gap between columns. This attribute can be set, reset, and obtained as required through APIs.
+     * @brief Sets the gap between columns.
+     * This attribute can be set, reset, and obtained as required through APIs.
      *
      * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
      * .value[0].f32: gap between columns, in vp.\n
@@ -5103,7 +5155,8 @@ typedef enum {
     NODE_WATER_FLOW_COLUMN_GAP,
 
     /**
-     * @brief Sets the gap between rows. This attribute can be set, reset, and obtained as required through APIs.
+     * @brief Sets the gap between rows.
+     * This attribute can be set, reset, and obtained as required through APIs.
      *
      * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
      * .value[0].f32: gap between lines, in vp.\n
@@ -5503,6 +5556,67 @@ typedef enum {
     NODE_ON_ACCESSIBILITY_ACTIONS = 13,
 
     /**
+     * @brief Notifies the listener of the interaction state prior to a drop and drop operation.
+     *
+     * This event is triggered when a drag operation is about to start on a draggable item. \n
+     * When the event callback occurs, the union type in the {@link ArkUI_NodeEvent} object is
+     * {@link ArkUI_NodeComponentEvent}. \n
+     * {@link ArkUI_NodeComponentEvent} contains one parameter:\n
+     * <b>ArkUI_NodeComponentEvent.data[0].i32</b>: corresponds to {@link ArkUI_PreDragStatus}. \n
+     */
+    NODE_ON_PRE_DRAG = 14,
+    /**
+     * @brief Called when the user starts to drag an ite
+     *
+     * A drag operation is recognized only when the dragged item is moved far enough. \n
+     * When the event callback occurs, the {@link ArkUI_DragEvent} object can be obtained from the
+     * {@link ArkUI_NodeEvent} object. \n
+     */
+    NODE_ON_DRAG_START = 15,
+    /**
+     * @brief Called when a dragged item enters the boundaries of the current component.
+     *
+     * The current component refers to the component that listens for this event. \n
+     * When the event callback occurs, the {@link ArkUI_DragEvent} object can be obtained from the
+     * {@link ArkUI_NodeEvent} object. \n
+     */
+    NODE_ON_DRAG_ENTER = 16,
+    /**
+     * @brief Called  when a dragged item moves in the current component.
+     *
+     * The current component refers to the component that listens for this event. \n
+     * When the event callback occurs, the {@link ArkUI_DragEvent} object can be obtained from the
+     * {@link ArkUI_NodeEvent} object. \n
+     */
+    NODE_ON_DRAG_MOVE = 17,
+    /**
+     * @brief Called when a dragged item leaves the boundaries of the current component.
+     *
+     * The current component refers to the component that listens for this event. \n
+     * When the event callback occurs, the {@link ArkUI_DragEvent} object can be obtained from the
+     * {@link ArkUI_NodeEvent} object. \n
+     */
+    NODE_ON_DRAG_LEAVE = 18,
+    /**
+     * @brief Called when a dragged item is dropped on the current component.
+     * The component can obtain the drag data for processing through the callback.
+     *
+     * The current component refers to the component that listens for this event. \n
+     * When the event callback occurs, the {@link ArkUI_DragEvent} object can be obtained from the
+     * {@link ArkUI_NodeEvent} object. \n
+     */
+    NODE_ON_DROP = 19,
+    /**
+     * @brief Called when a drag operation ends.
+     * The drag source can obtain the drag result by registering this callback.
+     *
+     * A drag operation ends when the dragged item is released.
+     * When the event callback occurs, the {@link ArkUI_DragEvent} object can be obtained from the
+     * {@link ArkUI_NodeEvent} object. \n
+     */
+    NODE_ON_DRAG_END = 20,
+
+    /**
      * @brief Triggers onDetectResultUpdate callback
      * when the text is set to TextDataDetectorConfig and recognized successfully.
      *
@@ -5663,6 +5777,33 @@ typedef enum {
     NODE_TEXT_INPUT_ON_CONTENT_SIZE_CHANGE,
 
     /**
+     * @brief Defines the event triggered when matching with the regular expression specified by
+     * <b>NODE_TEXT_INPUT_INPUT_FILTER</b> fails.
+     *
+      \n
+     * When the event callback occurs, the union type in the {@link ArkUI_NodeEvent} object is
+     * {@link ArkUI_StringAsyncEvent}. \n
+     * {@link ArkUI_StringAsyncEvent} contains one parameter:\n
+     * <b>ArkUI_StringAsyncEvent.pStr</b>: content that is filtered out when regular expression matching fails. \n
+     *
+     */
+    NODE_TEXT_INPUT_ON_INPUT_FILTER_ERROR,
+
+    /**
+     * @brief This callback is triggered when the text content is scrolled.
+     *
+      \n
+     * When the event callback occurs, the union type in the {@link ArkUI_NodeEvent} object is
+     * {@link ArkUI_NodeComponentEvent}. \n
+     * {@link ArkUI_NodeComponentEvent} contains two parameters:\n
+     * <b>ArkUI_NodeComponentEvent.data[0].i32</b>: Indicates the horizontal offset of the text in the content area. \n
+     * <b>ArkUI_NodeComponentEvent.data[1].i32</b>: Indicates the vertical coordinate offset of \n
+     * the text in the content area. \n
+     *
+     */
+    NODE_TEXT_INPUT_ON_CONTENT_SCROLL,
+
+    /**
      * @brief Defines the event triggered when text is about to be entered.
      *
      * The event parameter is {@link ArkUI_NodeEvent}. \n
@@ -5716,31 +5857,6 @@ typedef enum {
      */
     NODE_TEXT_INPUT_ON_DID_DELETE = 7012,
 
-    /**
-     * @brief Defines the event triggered when matching with the regular expression specified by
-     * <b>NODE_TEXT_INPUT_INPUT_FILTER</b> fails.
-     *
-      \n
-     * When the event callback occurs, the union type in the {@link ArkUI_NodeEvent} object is
-     * {@link ArkUI_StringAsyncEvent}. \n
-     * {@link ArkUI_StringAsyncEvent} contains one parameter:\n
-     * <b>ArkUI_StringAsyncEvent.pStr</b>: content that is filtered out when regular expression matching fails. \n
-     *
-     */
-    NODE_TEXT_INPUT_ON_INPUT_FILTER_ERROR,
-    /**
-     * @brief This callback is triggered when the text content is scrolled.
-     *
-      \n
-     * When the event callback occurs, the union type in the {@link ArkUI_NodeEvent} object is
-     * {@link ArkUI_NodeComponentEvent}. \n
-     * {@link ArkUI_NodeComponentEvent} contains two parameters:\n
-     * <b>ArkUI_NodeComponentEvent.data[0].i32</b>: Indicates the horizontal offset of the text in the content area. \n
-     * <b>ArkUI_NodeComponentEvent.data[1].i32</b>: Indicates the vertical coordinate offset of \n
-     * the text in the content area. \n
-     *
-     */
-    NODE_TEXT_INPUT_ON_CONTENT_SCROLL,
     /**
      * @brief Defines the event triggered when the input in the text box changes.
      *
@@ -7316,6 +7432,48 @@ ArkUI_NodeHandle OH_ArkUI_NodeCustomEvent_GetNodeHandle(ArkUI_NodeCustomEvent* e
 ArkUI_NodeCustomEventType OH_ArkUI_NodeCustomEvent_GetEventType(ArkUI_NodeCustomEvent* event);
 
 /**
+* @brief Obtains the measurement information of a custom span through a custom component event.
+*
+* @param event Indicates the pointer to the custom component event.
+* @param info Indicates the measurement information to be obtained.
+* @return Returns the result code.
+*         Returns {@link ARKUI_ERROR_CODE_NO_ERROR} if the operation is successful.
+*         Returns {@link ARKUI_ERROR_CODE_PARAM_INVALID} if a parameter error occurs.
+*         <br> Possible causes: Parameter verification failed, the parameter should not be nullptr.
+* @since 12
+*/
+int32_t OH_ArkUI_NodeCustomEvent_GetCustomSpanMeasureInfo(
+    ArkUI_NodeCustomEvent* event, ArkUI_CustomSpanMeasureInfo* info);
+
+/**
+* @brief Sets the measurement metrics of a custom span through a custom component event.
+*
+* @param event Indicates the pointer to the custom component event.
+* @param metrics Indicates the measurement metrics to set.
+* @return Returns the result code.
+*         Returns {@link ARKUI_ERROR_CODE_NO_ERROR} if the operation is successful.
+*         Returns {@link ARKUI_ERROR_CODE_PARAM_INVALID} if a parameter error occurs.
+*         <br> Possible causes: Parameter verification failed, the parameter should not be nullptr.
+* @since 12
+*/
+int32_t OH_ArkUI_NodeCustomEvent_SetCustomSpanMetrics(
+    ArkUI_NodeCustomEvent* event, ArkUI_CustomSpanMetrics* metrics);
+
+/**
+* @brief Obtains the drawing information of a custom span through a custom component event.
+*
+* @param event Indicates the pointer to the custom component event.
+* @param info Indicates the drawing information to obtain.
+* @return Returns the result code.
+*         Returns {@link ARKUI_ERROR_CODE_NO_ERROR} if the operation is successful.
+*         Returns {@link ARKUI_ERROR_CODE_PARAM_INVALID} if a parameter error occurs.
+*         <br> Possible causes: Parameter verification failed, the parameter should not be nullptr.
+* @since 12
+*/
+int32_t OH_ArkUI_NodeCustomEvent_GetCustomSpanDrawInfo(
+    ArkUI_NodeCustomEvent* event, ArkUI_CustomSpanDrawInfo* info);
+
+/**
  * @brief Defines the node content event type.
  * 
  * @since 12
@@ -7528,6 +7686,72 @@ int32_t OH_ArkUI_List_CloseAllSwipeActions(ArkUI_NodeHandle node, void* userData
 * @since 12
 */
 ArkUI_ContextHandle OH_ArkUI_GetContextByNode(ArkUI_NodeHandle node);
+
+/**
+* @brief The event called when the system color mode changes.
+*        Only one system color change callback can be registered for the same component.
+*
+* @param node Indicates the target node.
+* @param userData Indicates the custom data to be saved.
+* @param onColorModeChange Callback Events.
+* @return Error code.
+*         {@link ARKUI_ERROR_CODE_NO_ERROR} Success.
+*         {@link ARKUI_ERROR_CODE_PARAM_INVALID} Function parameter exception.
+*         {@link ARKUI_ERROR_CODE_ATTRIBUTE_OR_EVENT_NOT_SUPPORTED} The component does not support this event.
+* @since 12
+*/
+int32_t OH_ArkUI_RegisterSystemColorModeChangeEvent(ArkUI_NodeHandle node,
+    void* userData, void (*onColorModeChange)(ArkUI_SystemColorMode colorMode, void* userData));
+
+/**
+* @brief Unregister the event callback when the system color mode changes.
+*
+* @param node Indicates the target node.
+* @since 12
+*/
+void OH_ArkUI_UnregisterSystemColorModeChangeEvent(ArkUI_NodeHandle node);
+
+/**
+* @brief The event called when the system font style changes.
+*        Only one system font change callback can be registered for the same component.
+*
+* @param node Indicates the target node.
+* @param userData Indicates the custom data to be saved.
+* @param onFontStyleChange Callback Events.
+* @return Error code.
+*         {@link ARKUI_ERROR_CODE_NO_ERROR} Success.
+*         {@link ARKUI_ERROR_CODE_PARAM_INVALID} Function parameter exception.
+*         {@link ARKUI_ERROR_CODE_ATTRIBUTE_OR_EVENT_NOT_SUPPORTED} The component does not support this event.
+* @since 12
+*/
+int32_t OH_ArkUI_RegisterSystemFontStyleChangeEvent(ArkUI_NodeHandle node,
+    void* userData, void (*onFontStyleChange)(ArkUI_SystemFontStyleEvent* event, void* userData));
+
+/**
+* @brief Unregister the event callback when the system font style changes.
+*
+* @param node Indicates the target node.
+* @since 12
+*/
+void OH_ArkUI_UnregisterSystemFontStyleChangeEvent(ArkUI_NodeHandle node);
+
+/**
+ * @brief Retrieve the font size value for system font change events.
+ *
+ * @param event Indicates a pointer to the current system font change event.
+ * @return Updated system font size scaling factor. Default value: 1.0.
+ * @since 12
+ */
+float OH_ArkUI_SystemFontStyleEvent_GetFontSizeScale(const ArkUI_SystemFontStyleEvent* event);
+
+/**
+ * @brief Retrieve the font thickness values for system font change events.
+ *
+ * @param event Indicates a pointer to the current system font change event.
+ * @return The updated system font thickness scaling factor. Default value: 1.0.
+ * @since 12
+ */
+float OH_ArkUI_SystemFontStyleEvent_GetFontWeightScale(const ArkUI_SystemFontStyleEvent* event);
 
 #ifdef __cplusplus
 };

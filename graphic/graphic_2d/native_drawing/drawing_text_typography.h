@@ -33,6 +33,9 @@
  *
  * @brief Declares functions related to <b>typography</b> in the drawing module.
  *
+ * @kit ArkGraphics2D
+ * @library libnative_drawing.so
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
  * @since 8
  * @version 1.0
  */
@@ -2756,9 +2759,11 @@ void OH_Drawing_SetTextShadow(OH_Drawing_TextShadow* shadow, uint32_t color, OH_
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
  * @param OH_Drawing_TextAlign Indicates enumerates text tab alignment modes. TAB alignment, Support left alignment
  * right alignment center alignment, other enumeration values are left alignment effect.
- * @param float Indicates location if text tab.
- * @return Returns the pointer to the <b>OH_Drawing_TextTab</b> object created.
- * @since 13
+ * @param float Indicates location of text tab.
+ * @return Returns the pointer to the <b>OH_Drawing_TextTab</b> object created. If the object returns NULL,
+ * the creation failed. The possible cause of the failure is that the application address space is used up.
+ * As a result, space cannot be allocated.
+ * @since 14
  * @version 1.0
  */
 OH_Drawing_TextTab* OH_Drawing_CreateTextTab(OH_Drawing_TextAlign alignment, float location);
@@ -2768,21 +2773,21 @@ OH_Drawing_TextTab* OH_Drawing_CreateTextTab(OH_Drawing_TextAlign alignment, flo
  *
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
  * @param OH_Drawing_TextTab Indicates the pointer to an <b>OH_Drawing_TextTab</b> object.
- * @since 13
+ * @since 14
  * @version 1.0
  */
 void OH_Drawing_DestroyTextTab(OH_Drawing_TextTab*);
 
 /**
- * @brief Get align of an <b>OH_Drawing_TextTab</b> object.
+ * @brief Get alignment of an <b>OH_Drawing_TextTab</b> object.
  *
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
  * @param OH_Drawing_TextTab Indicates the pointer to an <b>OH_Drawing_TextTab</b> object.
  * @return Returns align of an <b>OH_Drawing_TextTab</b> object.
- * @since 13
+ * @since 14
  * @version 1.0
  */
-OH_Drawing_TextAlign OH_Drawing_GetTextTabAlign(OH_Drawing_TextTab*);
+OH_Drawing_TextAlign OH_Drawing_GetTextTabAlignment(OH_Drawing_TextTab*);
 
 /**
  * @brief Get location of an <b>OH_Drawing_TextTab</b> object.
@@ -2790,19 +2795,21 @@ OH_Drawing_TextAlign OH_Drawing_GetTextTabAlign(OH_Drawing_TextTab*);
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
  * @param OH_Drawing_TextTab Indicates the pointer to an <b>OH_Drawing_TextTab</b> object.
  * @return Returns location of an <b>OH_Drawing_TextTab</b> object.
- * @since 13
+ * @since 14
  * @version 1.0
  */
 float OH_Drawing_GetTextTabLocation(OH_Drawing_TextTab*);
 
 /**
  * @brief Sets the text tab of <b>OH_Drawing_TypographyStyle</b> object.
- * TAB alignment does not take effect when text alignment is also set.
+ * Tab alignment does not take effect when text alignment is also set, Or when the ellipsis style is configured.
+ * When the tab is not set or the tab's location property is less than or equal to 0, it is the default space effect.
+ * And all tabs in the paragraph after the setting are aligned according to this tab effect.
  *
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
  * @param OH_Drawing_TypographyStyle Indicates the pointer to an <b>OH_Drawing_TypographyStyle</b> object.
  * @param OH_Drawing_TextTab Indicates the pointer to an <b>OH_Drawing_TextTab</b> object.
- * @since 13
+ * @since 14
  * @version 1.0
  */
 void OH_Drawing_SetTypographyTextTab(OH_Drawing_TypographyStyle*, OH_Drawing_TextTab* TextTab);

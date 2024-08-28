@@ -34,6 +34,7 @@
  *
  * @library libohaudio.so
  * @syscap SystemCapability.Multimedia.Audio.Core
+ * @kit AudioKit
  * @since 12
  * @version 1.0
  */
@@ -93,6 +94,41 @@ typedef enum {
      */
     AUDIOCOMMON_RESULT_ERROR_SYSTEM = 6800301,
 } OH_AudioCommon_Result;
+
+/**
+ * @brief Defines the audio scene.
+ *
+ * @since 12
+ */
+typedef enum {
+    /**
+     * Default audio scene.
+     *
+     * @since 12
+     */
+    AUDIO_SCENE_DEFAULT = 0,
+
+    /**
+     * Ringing scene.
+     *
+     * @since 12
+     */
+    AUDIO_SCENE_RINGING = 1,
+
+    /**
+     * Phone call scene.
+     *
+     * @since 12
+     */
+    AUDIO_SCENE_PHONE_CALL = 2,
+
+    /**
+     * Voice chat scene.
+     *
+     * @since 12
+     */
+    AUDIO_SCENE_VOICE_CHAT = 3,
+} OH_AudioScene;
 
 #ifdef __cplusplus
 }

@@ -18,7 +18,7 @@
  *
  * @brief Provides audio and video capability queries.
  *
- * @kit AVCodec
+ * @kit AVCodecKit
  * @library libnative_media_codecbase.so
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 10
@@ -35,6 +35,11 @@
 extern "C" {
 #endif
 
+/**
+ * @brief Forward declaration of OH_AVCapability.
+ *
+ * @since 10
+ */
 typedef struct OH_AVCapability OH_AVCapability;
 
 /**

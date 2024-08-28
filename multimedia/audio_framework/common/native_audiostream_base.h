@@ -30,7 +30,9 @@
  *
  * @brief Declare the underlying data structure.
  *
+ * @library libohaudio.so
  * @syscap SystemCapability.Multimedia.Audio.Core
+ * @kit AudioKit
  * @since 10
  * @version 1.0
  */
@@ -431,7 +433,13 @@ typedef enum {
      *
      * @since 10
      */
-    AUDIOSTREAM_SOURCE_TYPE_VOICE_COMMUNICATION = 7
+    AUDIOSTREAM_SOURCE_TYPE_VOICE_COMMUNICATION = 7,
+    /**
+     * Voice message source type.
+     *
+     * @since 12
+     */
+    AUDIOSTREAM_SOURCE_TYPE_VOICE_MESSAGE = 10
 } OH_AudioStream_SourceType;
 
 /**

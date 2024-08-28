@@ -18,7 +18,7 @@
  *
  * @brief Provides audio and video memory.
  *
- * @kit AVCodec
+ * @kit AVCodecKit
  * @library libnative_media_core.so
  * @syscap SystemCapability.Multimedia.Media.Core
  * @since 9
@@ -34,6 +34,11 @@
 extern "C" {
 #endif
 
+/**
+ * @brief Forward declaration of OH_AVFormat.
+ *
+ * @since 9
+ */
 typedef struct OH_AVMemory OH_AVMemory;
 
 /**

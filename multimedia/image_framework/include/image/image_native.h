@@ -28,6 +28,7 @@
  * @brief Declares functions that access the image rectangle, size, format, and component data.
  *
  * @library libohimage.so
+ * @kit ImageKit
  * @syscap SystemCapability.Multimedia.Image.Core
  * @since 12
  */
@@ -132,6 +133,18 @@ Image_ErrorCode OH_ImageNative_GetRowStride(OH_ImageNative *image,
  */
 Image_ErrorCode OH_ImageNative_GetPixelStride(OH_ImageNative *image,
     uint32_t componentType, int32_t *pixelStride);
+
+/**
+ * @brief Get timestamp from an {@link OH_ImageNative} object.
+ *
+ * @param image Indicates the pointer to an {@link OH_ImageNative} object.
+ * @param timestamp Indicates the pointer to the timestamp obtained.
+ * @return Image functions result code.
+ *         {@link IMAGE_SUCCESS} if the operation is successful.
+ *         {@link IMAGE_BAD_PARAMETER} if the input parameter is invalid.
+ * @since 12
+ */
+Image_ErrorCode OH_ImageNative_GetTimestamp(OH_ImageNative *image, int64_t *timestamp);
 
 /**
  * @brief Releases an {@link OH_ImageNative} object.

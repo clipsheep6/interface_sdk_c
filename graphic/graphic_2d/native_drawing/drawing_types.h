@@ -33,12 +33,16 @@
  *
  * @brief Declares the data types for drawing 2D graphics, including the canvas, brush, pen, bitmap, and path.
  *
+ * @kit ArkGraphics2D
+ * @library libnative_drawing.so
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
  * @since 8
  * @version 1.0
  */
 
-#include <stdint.h>
+#include <stdbool.h>
 #include <stddef.h>
+#include <stdint.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -499,6 +503,21 @@ typedef struct OH_Drawing_FontMgr OH_Drawing_FontMgr;
  */
 typedef struct OH_Drawing_FontStyleSet OH_Drawing_FontStyleSet;
 
+/**
+ * @brief Define OH_Drawing_RecordCmdUtils, which is used to generate drawing commands tool.
+ *
+ * @since 13
+ * @version 1.0
+ */
+typedef struct OH_Drawing_RecordCmdUtils OH_Drawing_RecordCmdUtils;
+
+/**
+ * @brief Define OH_Drawing_RecordCmd, which is used to replay drawing commands.
+ *
+ * @since 13
+ * @version 1.0
+ */
+typedef struct OH_Drawing_RecordCmd OH_Drawing_RecordCmd;
 #ifdef __cplusplus
 }
 #endif

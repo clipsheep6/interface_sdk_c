@@ -61,15 +61,19 @@
     },
     {
         "first_introduced": "12",
-        "name": "OH_AVCODEC_MIMETYPE_AUDIO_LBVC"
-    },
-    {
-        "first_introduced": "12",
         "name": "OH_AVCODEC_MIMETYPE_AUDIO_APE"
     },
     {
         "first_introduced": "12",
+        "name": "OH_AVCODEC_MIMETYPE_VIDEO_VVC"
+    },
+    {
+        "first_introduced": "12",
         "name": "OH_AVCODEC_MIMETYPE_SUBTITLE_SRT"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_AVCODEC_MIMETYPE_SUBTITLE_WEBVTT"
     },
     {
         "first_introduced": "9",
@@ -378,6 +382,14 @@
     {
         "first_introduced": "12",
         "name": "OH_MD_KEY_START_TIME"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_MD_KEY_TRACK_START_TIME"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_MD_KEY_VIDEO_DECODER_OUTPUT_COLOR_SPACE"
     },
     {
         "first_introduced": "10",

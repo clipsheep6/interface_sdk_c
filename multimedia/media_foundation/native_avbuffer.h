@@ -18,7 +18,7 @@
  *
  * @brief Provides audio and video buffer.
  *
- * @kit AVCodec
+ * @kit AVCodecKit
  * @library libnative_media_core.so
  * @syscap SystemCapability.Multimedia.Media.Core
  * @since 11
@@ -36,7 +36,18 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+/**
+ * @brief Forward declaration of OH_AVBuffer.
+ *
+ * @since 11
+ */
 typedef struct OH_AVBuffer OH_AVBuffer;
+/**
+ * @brief Forward declaration of OH_NativeBuffer.
+ *
+ * @since 11
+ */
 typedef struct OH_NativeBuffer OH_NativeBuffer;
 
 /**

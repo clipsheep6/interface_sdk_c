@@ -33,6 +33,7 @@
  *
  * @brief Declares functions related to the error code in the drawing module.
  *
+ * @kit ArkGraphics2D
  * @library libnative_drawing.so
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
  * @since 12
@@ -64,6 +65,11 @@ typedef enum {
      * @error The parameter is not in the valid range.
      */
     OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE = 26200001,
+    /**
+     * @error mem allocate failed.
+     * @since 13
+     */
+    OH_DRAWING_ERROR_ALLOCATION_FAILED = 26200002,
 } OH_Drawing_ErrorCode;
 
 /**
