@@ -34,6 +34,7 @@
  *
  * @brief Provides URI-based file and directory authorization and persistence, permission activation, permission query,
  * and other methods.
+ * @kit CoreFileKit
  * @library libohfileshare.so
  * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
  * @since 12

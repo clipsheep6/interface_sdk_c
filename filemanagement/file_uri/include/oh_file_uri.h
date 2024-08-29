@@ -21,6 +21,7 @@
  * @kit CoreFileKit
  *
  * @brief uri verification and conversion
+ * @kit CoreFileKit
  * @library libohfileuri.so
  * @syscap SystemCapability.FileManagement.AppFileService
  * @since 12

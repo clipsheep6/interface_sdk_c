@@ -27,6 +27,7 @@
  * @kit CoreFileKit
  *
  * @brief Provide fileio APIS.
+ * @kit CoreFileKit
  * @library libohfileio.so
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 12
