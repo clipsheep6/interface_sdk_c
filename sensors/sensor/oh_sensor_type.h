@@ -92,10 +92,20 @@ typedef enum Sensor_Type {
      */
     SENSOR_TYPE_GRAVITY = 257,
     /**
+     * Linear acceleration sensor.
+     * @since 11
+     */
+    SENSOR_TYPE_LINEAR_ACCELERATION = 258,
+    /**
      * Rotation vector sensor.
      * @since 11
      */
     SENSOR_TYPE_ROTATION_VECTOR = 259,
+    /**
+     * Game rotation vector sensor.
+     * @since 11
+     */
+    SENSOR_TYPE_GAME_ROTATION_VECTOR = 262,
     /**
      * Pedometer detection sensor.
      * @since 11
