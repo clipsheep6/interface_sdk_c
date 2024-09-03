@@ -63,6 +63,13 @@ struct OH_NativeBuffer;
 typedef struct OH_NativeBuffer OH_NativeBuffer;
 
 /**
+ * @brief Define a native ColorSpaceManager type, used for retrieving a native ColorSpaceManager.
+ *
+ * @since 13
+ */
+typedef struct OH_NativeColorSpaceManager OH_NativeColorSpaceManager;
+
+/**
  * @brief Define a pixelmap alpha type.
  *
  * @since 12
@@ -833,6 +840,32 @@ Image_ErrorCode OH_PixelmapNative_SetMetadata(OH_PixelmapNative *pixelmap, OH_Pi
  * @since 12
  */
 Image_ErrorCode OH_PixelmapNative_GetNativeBuffer(OH_PixelmapNative *pixelmap, OH_NativeBuffer **nativeBuffer);
+
+/**
+ * @brief Get the native colorspace from the PixelMap.
+ *
+ * @param pixelmap The native pixelmap to get the native colorspace from.
+ * @param colorspaceNative The native colorspace to retrieve.
+ * @return Returns {@link Image_ErrorCode} IMAGE_SUCCESS - if the operation is successful.
+ * returns {@link Image_ErrorCode} IMAGE_BAD_PARAMETER - if invalid parameter, pixelmap or colorspaceNative is null.
+ * @see OH_PixelmapNative
+ * @since 13
+ */
+Image_ErrorCode OH_PixelmapNative_GetColorSpaceNative(OH_PixelmapNative *pixelmap,
+    OH_NativeColorSpaceManager **colorspaceNative);
+
+/**
+ * @brief Set the native colorspace for the PixelMap.
+ *
+ * @param pixelmap The native pixelmap to set the native colorspace for.
+ * @param colorspaceNative The native colorspace to set.
+ * @return Returns {@link Image_ErrorCode} IMAGE_SUCCESS - if the operation is successful.
+ * returns {@link Image_ErrorCode} IMAGE_BAD_PARAMETER - if invalid parameter, pixelmap or colorspaceNative is null.
+ * @see OH_PixelmapNative
+ * @since 13
+ */
+Image_ErrorCode OH_PixelmapNative_SetColorSpaceNative(OH_PixelmapNative *pixelmap,
+    OH_NativeColorSpaceManager *colorspaceNative);
 
 #ifdef __cplusplus
 };
