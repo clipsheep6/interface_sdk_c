@@ -103,6 +103,25 @@ typedef enum Rdb_SecurityArea {
 } Rdb_SecurityArea;
 
 /**
+* @brief High availability mode.
+*
+* @since 12
+*/
+typedef enum Rdb_HAMode {
+    /**
+    * @brief Single database.
+    * @since 12
+    */
+    HA_SINGLE = 0,
+
+    /**
+    * @brief Real-time dual-write backup database.
+    * @since 12
+    */
+    HA_MASTER_SLAVER,
+} Rdb_HAMode;
+
+/**
  * @brief Manages relational database configurations.
  *
  * @since 10
@@ -143,6 +162,12 @@ typedef struct {
      * @since 11
      */
     int area;
+    /**
+     * High availability mode.
+     *
+     * @since 12
+     */
+    int haMode;
 } OH_Rdb_Config;
 #pragma pack()
 
