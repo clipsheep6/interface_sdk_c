@@ -627,6 +627,14 @@
     { "name": "OH_Drawing_SetTextStyleFontWeight" },
     { "name": "OH_Drawing_SetTextStyleBaseLine" },
     { "name": "OH_Drawing_SetTextStyleDecoration" },
+    {
+        "first_introduced": "14",
+        "name": "OH_Drawing_AddTextStyleDecoration"
+    },
+    {
+        "first_introduced": "14",
+        "name": "OH_Drawing_RemoveTextStyleDecoration"
+    },
     { "name": "OH_Drawing_SetTextStyleDecorationColor" },
     { "name": "OH_Drawing_SetTextStyleFontHeight" },
     { "name": "OH_Drawing_SetTextStyleFontFamilies" },
