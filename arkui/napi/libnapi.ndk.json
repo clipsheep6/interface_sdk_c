@@ -106,7 +106,6 @@
     {"name": "napi_resolve_deferred"},
     {"name": "napi_reject_deferred"},
     {"name": "napi_is_promise"},
-    {"name": "napi_run_script"},
     {"name": "napi_get_uv_event_loop"},
     {"name": "napi_run_script_path"},
     {"name": "napi_create_threadsafe_function"},
