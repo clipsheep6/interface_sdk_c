@@ -760,6 +760,156 @@ typedef struct Rdb_TableDetails {
 } Rdb_TableDetails;
 
 /**
+ * @brief Define OH_Rdb_CryptoParam type.
+ *
+ * @since 13
+ */
+typedef struct OH_Rdb_CryptoParam OH_Rdb_CryptoParam;
+
+/**
+ * @brief Enumerates the supported encryption algorithm when opening a database.
+ *
+ * @since 13
+ */
+typedef enum Rdb_EncryptAlgo {
+    /**
+     * @brief Database is encrypted using AES_256_CBC.
+     */
+    AES_256_CBC = 0,
+
+    /**
+     * @brief Database is encrypted using AES_256_GMC.
+     */
+    AES_256_GMC
+} Rdb_EncryptAlgo;
+
+/**
+ * Enumerates the supported HMAC algorithm when opening a database.
+ *
+ * @since 13
+ */
+typedef enum Rdb_HmacAlgo {
+    /**
+     * @brief HMAC_SHA1 algorithm.
+     */
+    SHA1 = 0,
+
+    /**
+     * @brief HMAC_SHA256 algorithm.
+     */
+    SHA256,
+
+    /**
+     * @brief HMAC_SHA512 algorithm.
+     */
+    SHA512
+} Rdb_HmacAlgo;
+
+/**
+ * Enumerates the supported KDF algorithm when opening a database.
+ *
+ * @since 13
+ */
+typedef enum Rdb_KdfAlgo {
+    /**
+     * @brief PBKDF2_HMAC_SHA1 algorithm.
+     */
+    KDF_SHA1 = 0,
+
+    /**
+     * @brief PBKDF2_HMAC_SHA256 algorithm.
+     */
+    KDF_SHA256,
+
+    /**
+     * @brief PBKDF2_HMAC_SHA512 algorithm.
+     */
+    KDF_SHA512
+} Rdb_KdfAlgo;
+
+/**
+ * @brief Create OH_Rdb_CryptoParam which is used to open an encrypted database.
+ *
+ * @param key Specifies the key used to open an encrypted database.
+ * @param len Specifies the length of the encrypt key.
+ * @return If the operation is successful, a pointer to the instance of the {@link OH_Rdb_CryptoParam}
+ * structure is returned. If create crypto param is failed, nullptr is returned.
+ * @see OH_Rdb_CryptoParam.
+ * @since 13
+ */
+OH_Rdb_CryptoParam *OH_Rdb_CreateCryptoParam(unsigned char key[], uint32_t len);
+
+/**
+ * @brief Sets the number of PBKDF2 iterations used when opening an encrypted database.
+ * The default number of iteration is 64000.
+ *
+ * @param cryptoParam Represents a pointer to an {@link OH_Rdb_CryptoParam} instance.
+ * @param iterNum Indicates the number of PBKDF2 iterations.
+ * @return Returns the status code of the execution.
+ *     {@link RDB_OK} - success.
+ *     {@link RDB_E_INVALID_ARGS} - The error code for common invalid args.
+ * @see OH_Rdb_CryptoParam.
+ * @since 13
+ */
+int OH_Rdb_SetIterNum(OH_Rdb_CryptoParam *cryptoParam, int iterNum);
+
+/**
+ * @brief Sets the encryption algorithm when opening an encrypted database.
+ * The default encryption algorithm is AES_256_CBC.
+ *
+ * @param cryptoParam Represents a pointer to an {@link OH_Rdb_CryptoParam} instance.
+ * @param encryptAlgo Indicates the encryption algorithm.
+ * @return Returns the status code of the execution.
+ *     {@link RDB_OK} - success.
+ *     {@link RDB_E_INVALID_ARGS} - The error code for common invalid args.
+ * @see OH_Rdb_CryptoParam.
+ * @since 13
+ */
+int OH_Rdb_SetEncryptAlgo(OH_Rdb_CryptoParam *cryptoParam, Rdb_EncryptAlgo encryptAlgo);
+
+/**
+ * @brief Sets the HMAC algorithm when opening an encrypted database.
+ * The default HMAC algorithm is SHA1.
+ *
+ * @param cryptoParam Represents a pointer to an {@link OH_Rdb_CryptoParam} instance.
+ * @param hmacAlgo Indicates the HMAC algorithm.
+ * @return Returns the status code of the execution.
+ *     {@link RDB_OK} - success.
+ *     {@link RDB_E_INVALID_ARGS} - The error code for common invalid args.
+ * @see OH_Rdb_CryptoParam.
+ * @since 13
+ */
+int OH_Rdb_SetHmacAlgo(OH_Rdb_CryptoParam *cryptoParam, Rdb_HmacAlgo hmacAlgo);
+
+/**
+ * @brief Sets the KDF algorithm when opening an encrypted database.
+ * The default KDF algorithm is KDF_SHA1.
+ *
+ * @param cryptoParam Represents a pointer to an {@link OH_Rdb_CryptoParam} instance.
+ * @param kdfAlgo Indicates the KDF algorithm.
+ * @return Returns the status code of the execution.
+ *     {@link RDB_OK} - success.
+ *     {@link RDB_E_INVALID_ARGS} - The error code for common invalid args.
+ * @see OH_Rdb_CryptoParam.
+ * @since 13
+ */
+int OH_Rdb_SetKdfAlgo(OH_Rdb_CryptoParam *cryptoParam, Rdb_KdfAlgo kdfAlgo);
+
+/**
+ * @brief Sets the page size used when opening an encrypted database.
+ * The default crypto page size is 1024.
+ *
+ * @param cryptoParam Represents a pointer to an {@link OH_Rdb_CryptoParam} instance.
+ * @param cryptoPageSize Indicates the page size used.
+ * @return Returns the status code of the execution.
+ *     {@link RDB_OK} - success.
+ *     {@link RDB_E_INVALID_ARGS} - The error code for common invalid args.
+ * @see OH_Rdb_CryptoParam.
+ * @since 13
+ */
+int OH_Rdb_SetCryptoPageSize(OH_Rdb_CryptoParam *cryptoParam, int cryptoPageSize);
+
+/**
  * The cloud sync progress
  *
  * @since 11
