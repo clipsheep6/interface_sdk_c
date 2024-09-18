@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-#ifndef C_INCLUDE_DRAWING_TEXT_LINETYPOGRAPHY_H
-#define C_INCLUDE_DRAWING_TEXT_LINETYPOGRAPHY_H
+#ifndef DRAWING_TEXT_LINETYPOGRAPHY_H
+#define DRAWING_TEXT_LINETYPOGRAPHY_H
 
 /**
  * @addtogroup Drawing
