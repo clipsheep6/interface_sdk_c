@@ -31,6 +31,7 @@ fi
 mkdir -p  ${OUT_DIR}/${TARGET_ARCH}-linux-ohos
 mkdir -p  ${OUT_DIR}/x86_64-linux-ohos
 mkdir -p  ${OUT_DIR}/i686-linux-ohos
+mkdir -p  ${OUT_DIR}/loongarch64-linux-ohos
 
 cp -rp ${SOURCE_DIR}/* ${OUT_DIR}
 mv  ${OUT_DIR}/asm  ${OUT_DIR}/${TARGET_ARCH}-linux-ohos/
@@ -38,3 +39,6 @@ mv  ${OUT_DIR}/asm  ${OUT_DIR}/${TARGET_ARCH}-linux-ohos/
 cp -rp ${OUT_DIR}/asm-x86/asm ${OUT_DIR}/x86_64-linux-ohos
 mv ${OUT_DIR}/asm-x86/asm ${OUT_DIR}/i686-linux-ohos
 rm -fr ${OUT_DIR}/asm-x86
+
+mv ${OUT_DIR}/asm-loongarch/asm ${OUT_DIR}/loongarch64-linux-ohos
+rm -fr ${OUT_DIR}/asm-loongarch
