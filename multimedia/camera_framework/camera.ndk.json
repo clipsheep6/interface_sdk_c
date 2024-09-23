@@ -602,5 +602,29 @@
     {
         "first_introduced": "12",
         "name": "OH_PhotoNative_Release"
+    },
+    {
+        "first_introduced": "13",
+        "name": "OH_CaptureSession_RegisterDeviceSwitchCallback"
+    },
+    {
+        "first_introduced": "13",
+        "name": "OH_CaptureSession_UnregisterDeviceSwitchCallback"
+    },
+    {
+        "first_introduced": "13",
+        "name": "OH_CaptureSession_RegisterDeviceCapabilityChangeCallback"
+    },
+    {
+        "first_introduced": "13",
+        "name": "OH_CaptureSession_UnregisterDeviceCapabilityChangeCallback"
+    },
+    {
+        "first_introduced": "13",
+        "name": "OH_CaptureSession_IsAutoSwitchDeviceSupported"
+    },
+    {
+        "first_introduced": "13",
+        "name": "OH_CaptureSession_EnableAutoSwitchDevice"
     }
 ]

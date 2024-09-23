@@ -95,6 +95,24 @@ typedef void (*OH_CaptureSession_OnSmoothZoomInfo)(Camera_CaptureSession* sessio
     Camera_SmoothZoomInfo* smoothZoomInfo);
 
 /**
+ * @brief Capture session device switch callback.
+ *
+ * @param session the {@link Camera_CaptureSession} which deliver the callback.
+ * @param isSwitched the device switch status which delivered by the callback.
+ * @since 13
+ */
+typedef void (*OH_CaptureSession_OnDeviceSwitched)(Camera_CaptureSession* session, bool* isSwitched);
+
+/**
+ * @brief Capture session device capability change callback.
+ *
+ * @param session the {@link Camera_CaptureSession} which deliver the callback.
+ * @param isChanged the device capability change status which delivered by the callback.
+ * @since 13
+ */
+typedef void (*OH_CaptureSession_OnDeviceCapabilityChanged)(Camera_CaptureSession* session, bool* isChanged);
+
+/**
  * @brief A listener for capture session.
  *
  * @see OH_CaptureSession_RegisterCallback
@@ -856,6 +874,79 @@ Camera_ErrorCode OH_CaptureSession_GetActiveColorSpace(Camera_CaptureSession* se
  */
 Camera_ErrorCode OH_CaptureSession_SetActiveColorSpace(Camera_CaptureSession* session,
     OH_NativeBuffer_ColorSpace colorSpace);
+
+/**
+ * @brief Register device switch event callback.
+ *
+ * @param session the {@link Camera_CaptureSession} instance.
+ * @param deviceSwitchCallback the {@link OH_CaptureSession_OnDeviceSwitched} to be registered.
+ * @return {@link #CAMERA_OK} if the method call succeeds.
+ *         {@link #CAMERA_INVALID_ARGUMENT} if parameter missing or parameter type incorrect.
+ * @since 13
+ */
+Camera_ErrorCode OH_CaptureSession_RegisterDeviceSwitchCallback(Camera_CaptureSession* session,
+    OH_CaptureSession_OnDeviceSwitched deviceSwitchCallback);
+
+/**
+ * @brief Unregister device switch event callback.
+ *
+ * @param session the {@link Camera_CaptureSession} instance.
+ * @param deviceSwitchCallback the {@link OH_CaptureSession_OnDeviceSwitched} to be unregistered.
+ * @return {@link #CAMERA_OK} if the method call succeeds.
+ *         {@link #CAMERA_INVALID_ARGUMENT} if parameter missing or parameter type incorrect.
+ * @since 13
+ */
+Camera_ErrorCode OH_CaptureSession_UnregisterDeviceSwitchCallback(Camera_CaptureSession* session,
+    OH_CaptureSession_OnDeviceSwitched deviceSwitchCallback);
+
+/**
+ * @brief Register device capability change event callback.
+ *
+ * @param session the {@link Camera_CaptureSession} instance.
+ * @param deviceCapabilityChangeCallback the {@link OH_CaptureSession_OnDeviceCapabilityChanged} to be registered.
+ * @return {@link #CAMERA_OK} if the method call succeeds.
+ *         {@link #CAMERA_INVALID_ARGUMENT} if parameter missing or parameter type incorrect.
+ * @since 13
+ */
+Camera_ErrorCode OH_CaptureSession_RegisterDeviceCapabilityChangeCallback(Camera_CaptureSession* session,
+    OH_CaptureSession_OnDeviceCapabilityChanged deviceCapabilityChangeCallback);
+
+/**
+ * @brief Unregister device capability change event callback.
+ *
+ * @param session the {@link Camera_CaptureSession} instance.
+ * @param deviceCapabilityChangeCallback the {@link OH_CaptureSession_OnDeviceCapabilityChanged} to be unregistered.
+ * @return {@link #CAMERA_OK} if the method call succeeds.
+ *         {@link #CAMERA_INVALID_ARGUMENT} if parameter missing or parameter type incorrect.
+ * @since 13
+ */
+Camera_ErrorCode OH_CaptureSession_UnregisterDeviceCapabilityChangeCallback(Camera_CaptureSession* session,
+    OH_CaptureSession_OnDeviceCapabilityChanged deviceCapabilityChangeCallback);
+
+/**
+ * @brief Check whether auto device switch is supported.
+ *
+ * @param session the {@link Camera_CaptureSession} instance.
+ * @param isSupported the result of whether auto device switch supported.
+ * @return {@link #CAMERA_OK} if the method call succeeds.
+ *         {@link #CAMERA_INVALID_ARGUMENT} if parameter missing or parameter type incorrect.
+ *         {@link #CAMERA_SESSION_NOT_CONFIG} if the capture session not config.
+ * @since 13
+ */
+Camera_ErrorCode OH_CaptureSession_IsAutoDeviceSwitchSupported(Camera_CaptureSession* session, bool* isSupported);
+
+/**
+ * @brief Enable auto switch or not for the camera device.
+ *
+ * @param session the {@link Camera_CaptureSession} instance.
+ * @param enabled the flag of enable auto switch or not.
+ * @return {@link #CAMERA_OK} if the method call succeeds.
+ *         {@link #CAMERA_INVALID_ARGUMENT} if parameter missing or parameter type incorrect.
+ *         {@link #CAMERA_SESSION_NOT_CONFIG} if the capture session not config.
+ *         {@link #CAMERA_SERVICE_FATAL_ERROR} if camera service fatal error.
+ * @since 13
+ */
+Camera_ErrorCode OH_CaptureSession_EnableAutoDeviceSwitch(Camera_CaptureSession* session, bool enabled);
 
 #ifdef __cplusplus
 }
