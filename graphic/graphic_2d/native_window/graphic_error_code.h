@@ -80,7 +80,10 @@ typedef enum OHNativeErrorCode {
     NATIVE_ERROR_UNSUPPORTED = 50102000,
     /** @error unknown error, please check log */
     NATIVE_ERROR_UNKNOWN = 50002000,
-    /** @error hdi interface error */
+    /**
+     * @error hdi interface error
+     * @since 13
+     */
     NATIVE_ERROR_HDI_ERROR = 50007000,
     /** @error ipc send failed */
     NATIVE_ERROR_BINDER_ERROR = 50401000,
