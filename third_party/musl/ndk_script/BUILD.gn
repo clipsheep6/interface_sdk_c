@@ -467,7 +467,8 @@ ohos_copy("musl_ndk_libs_aarch64") {
 
 ohos_copy("musl_ndk_libs_loongarch64") {
   deps = musl_lib_loongarch64
-  crt_dir = "${root_build_dir}/obj/third_party/musl/usr/lib/loongarch64-linux-ohos"
+  crt_dir =
+      "${root_build_dir}/obj/third_party/musl/usr/lib/loongarch64-linux-ohos"
   sources = [
     "${crt_dir}/Scrt1.o",
     "${crt_dir}/crt1.o",
