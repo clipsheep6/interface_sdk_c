@@ -112,6 +112,7 @@
   "SystemCapability.Multimedia.MediaLibrary.DistributedCore",
   "SystemCapability.Multimedia.Media.AVPlayer",
   "SystemCapability.Multimedia.Media.AVRecorder",
+  "SystemCapability.Multimedia.Media.AVTranscoder",
   "SystemCapability.Multimedia.Image.ImageCreator",
   "SystemCapability.Multimedia.SystemSound.Core",
   "SystemCapability.Telephony.CoreService",
