@@ -927,6 +927,14 @@
         "name": "OH_Drawing_DestroyFontDescriptor"
     },
     {
+        "first_introduced": "14",
+        "name": "OH_Drawing_MatchFontDescriptors"
+    },
+    {
+        "first_introduced": "14",
+        "name": "OH_Drawing_DestroyFontDescriptors"
+    },
+    {
         "first_introduced": "12",
         "name": "OH_Drawing_CreateFontParser"
     },
