@@ -45,6 +45,7 @@
 #include "drawing_color.h"
 #include "drawing_font.h"
 #include "drawing_text_declaration.h"
+#include "drawing_text_font_descriptor.h"
 #include "drawing_types.h"
 
 #include "stdint.h"
@@ -411,35 +412,6 @@ typedef struct OH_Drawing_FontConfigInfo {
     /** List of fallback font sets */
     OH_Drawing_FontFallbackGroup* fallbackGroupSet;
 } OH_Drawing_FontConfigInfo;
-
-/**
- * @brief Describes the font information.
- *
- * @since 12
- * @version 1.0
- */
-typedef struct OH_Drawing_FontDescriptor {
-    /** The file path of System font */
-    char* path;
-    /** A name that uniquely identifies the font */
-    char* postScriptName;
-    /** The name of System font */
-    char* fullName;
-    /** The family of System font */
-    char* fontFamily;
-    /** The subfont family of the system font */
-    char* fontSubfamily;
-    /** The weight of System font */
-    int weight;
-    /** The width of System font */
-    int width;
-    /** Whether the system font is tilted */
-    int italic;
-    /** Whether the system font is compact */
-    bool monoSpace;
-    /** whether symbolic fonts are supported */
-    bool symbolic;
-} OH_Drawing_FontDescriptor;
 
 /**
  * @brief The metrics of line.
@@ -1455,26 +1427,6 @@ double OH_Drawing_TypographyGetLineWidth(OH_Drawing_Typography*, int);
 OH_Drawing_Range* OH_Drawing_TypographyGetLineTextRange(OH_Drawing_Typography*, int, bool);
 
 /**
- * @brief Creates an <b>OH_Drawing_FontDescriptor</b> object.
- *
- * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
- * @return Returns the pointer to the font descriptor object <b>OH_Drawing_FontDescriptor</b> created.
- * @since 12
- * @version 1.0
- */
-OH_Drawing_FontDescriptor* OH_Drawing_CreateFontDescriptor(void);
-
-/**
- * @brief Releases the memory occupied by an <b>OH_Drawing_FontDescriptor</b> object.
- *
- * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
- * @param OH_Drawing_FontDescriptor the pointer to the font descriptor object <b>OH_Drawing_FontDescriptor</b>.
- * @since 12
- * @version 1.0
- */
-void OH_Drawing_DestroyFontDescriptor(OH_Drawing_FontDescriptor*);
-
-/**
  * @brief Creates an <b>OH_Drawing_FontParser</b> object.
  *
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
@@ -1516,18 +1468,6 @@ char** OH_Drawing_FontParserGetSystemFontList(OH_Drawing_FontParser*, size_t*);
  * @version 1.0
  */
 void OH_Drawing_DestroySystemFontList(char**, size_t);
-
-/**
- * @brief Gets information about the system font by font name.
- *
- * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
- * @param OH_Drawing_FontParser Indicates the pointer to the font parser object <b>OH_Drawing_FontParser</b>.
- * @param char** font name.
- * @return Returns system fonts information.
- * @since 12
- * @version 1.0
- */
-OH_Drawing_FontDescriptor* OH_Drawing_FontParserGetFontByName(OH_Drawing_FontParser*, const char*);
 
 /**
  * @brief Get line metrics information.
