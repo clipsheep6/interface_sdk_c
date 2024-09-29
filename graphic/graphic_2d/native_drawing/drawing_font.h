@@ -497,6 +497,25 @@ typedef struct OH_Drawing_Font_Metrics {
  */
 float OH_Drawing_FontGetMetrics(OH_Drawing_Font*, OH_Drawing_Font_Metrics*);
 
+/**
+ * @brief Get the text outline path.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+ * @param font Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+ * @param text Indicates the character storage encoded with text encoding.
+ * @param byteLength Indicates the text length in bytes.
+ * @param encoding <b>OH_Drawing_TextEncoding</b> Indicates the text encoding.
+ * @param x Indicates x coordinates of the text.
+ * @param y Indicates y coordinates of the text.
+ * @param path <b>OH_Drawing_Path</b> The path object, returned to the caller.
+ * @return Returns the error code.
+ *         Returns {@link OH_DRAWING_SUCCESS} if the operation is successful.
+ *         Returns {@link OH_DRAWING_ERROR_INVALID_PARAMETER} if any of font, text or path is nullptr.
+ * @since 14
+ */
+OH_Drawing_ErrorCode OH_Drawing_FontGetTextPath(const OH_Drawing_Font* font, const void* text, size_t byteLength,
+    OH_Drawing_TextEncoding encoding, float x, float y, OH_Drawing_Path* path);
+
 #ifdef __cplusplus
 }
 #endif
