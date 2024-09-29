@@ -1489,5 +1489,81 @@
     {
         "first_introduced": "13",
         "name":"OH_Drawing_RecordCmdDestroy"
+    },
+    {
+        "first_introduced": "14",
+        "name":"OH_Drawing_GetDrawingArraySize"
+    },
+    {
+        "first_introduced": "14",
+        "name":"OH_Drawing_TypographyGetTextLines"
+    },
+    {
+        "first_introduced": "14",
+        "name":"OH_Drawing_DestroyTextLines"
+    },
+    {
+        "first_introduced": "14",
+        "name":"OH_Drawing_DestroyTextLine"
+    },
+    {
+        "first_introduced": "14",
+        "name":"OH_Drawing_GetTextLineByIndex"
+    },
+    {
+        "first_introduced": "14",
+        "name":"OH_Drawing_TextLineGetGlyphCount"
+    },
+    {
+        "first_introduced": "14",
+        "name":"OH_Drawing_TextLineGetTextRange"
+    },
+    {
+        "first_introduced": "14",
+        "name":"OH_Drawing_TextLineGetGlyphRuns"
+    },
+    {
+        "first_introduced": "14",
+        "name":"OH_Drawing_DestroyRuns"
+    },
+    {
+        "first_introduced": "14",
+        "name":"OH_Drawing_GetRunByIndex"
+    },
+    {
+        "first_introduced": "14",
+        "name":"OH_Drawing_TextLinePaint"
+    },
+    {
+        "first_introduced": "14",
+        "name":"OH_Drawing_TextLineCreateTruncatedLine"
+    },
+    {
+        "first_introduced": "14",
+        "name":"OH_Drawing_TextLineGetTypographicBounds"
+    },
+    {
+        "first_introduced": "14",
+        "name":"OH_Drawing_TextLineGetImageBounds"
+    },
+    {
+        "first_introduced": "14",
+        "name":"OH_Drawing_TextLineGetTrailingSpaceWidth"
+    },
+    {
+        "first_introduced": "14",
+        "name":"OH_Drawing_TextLineGetStringIndexForPosition"
+    },
+    {
+        "first_introduced": "14",
+        "name":"OH_Drawing_TextLineGetOffsetForStringIndex"
+    },
+    {
+        "first_introduced": "14",
+        "name":"OH_Drawing_TextLineEnumerateCaretOffsets"
+    },
+    {
+        "first_introduced": "14",
+        "name":"OH_Drawing_TextLineGetAlignmentOffset"
     }
 ]
