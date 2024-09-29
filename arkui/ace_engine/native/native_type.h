@@ -137,6 +137,18 @@ typedef struct ArkUI_Context* ArkUI_ContextHandle;
 typedef struct ArkUI_SwiperIndicator ArkUI_SwiperIndicator;
 
 /**
+* @brief Define the data objects of styled string supported by text components.
+*
+* @since 14
+*/
+typedef struct {
+    /** styled string */
+    void* styledString,
+    /** btte array that stores the infomation of a styled string */
+    unint8_t* buffer;
+} ArkUI_StyledString_Describer;
+
+/**
   * @brief specifies the alignment rules for subcomponents set in relative containers.
   *
   * @since 12
@@ -1911,6 +1923,8 @@ typedef enum {
     ARKUI_ERROR_CODE_NON_SCROLLABLE_CONTAINER = 180001,
     /** The buffer is not large enough. */
     ARKUI_ERROR_CODE_BUFFER_SIZE_NOT_ENOUGH = 180002,
+    /** invalid styled string */
+    ARKUI_ERROR_CODE_INVALID_STYLED_STRING = 180101,
 } ArkUI_ErrorCode;
 
 /**
