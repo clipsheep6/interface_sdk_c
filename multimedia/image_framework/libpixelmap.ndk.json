@@ -182,5 +182,9 @@
     {
         "first_introduced": "13",
         "name": "OH_PixelmapNative_SetMemoryName"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_PixelmapImageInfo_GetMimeType"
     }
 ]

@@ -142,5 +142,9 @@
     {
         "first_introduced": "13",
         "name": "OH_DecodingOptionsForPicture_Release"
+    },
+    {
+        "first_introduced": "12",
+        "name": "OH_ImageSourceInfo_GetMimeType"
     }
 ]
