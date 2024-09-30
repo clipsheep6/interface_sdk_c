@@ -258,6 +258,34 @@ typedef enum Camera_Connection {
 } Camera_Connection;
 
 /**
+ * @brief Enum for the image rotation angles.
+ *
+ * @since 11
+ * @version 1.0
+ */
+typedef enum Camera_Orientation {
+    /**
+     * The camera orientation 0 degrees.
+     */
+    CAMERA_ORIENTATION_0 = 0,
+
+    /**
+     * The camera orientation 90 degrees.
+     */
+    CAMERA_ORIENTATION_90 = 90,
+
+    /**
+     * The camera orientation 180 degrees.
+     */
+    CAMERA_ORIENTATION_180 = 180,
+
+    /**
+     * The camera orientation 270 degrees.
+     */
+    CAMERA_ORIENTATION_270 = 270
+} Camera_Orientation;
+
+/**
  * @brief Enum for camera format type.
  *
  * @since 11
@@ -730,6 +758,8 @@ typedef struct Camera_Device {
      * Camera connection type attribute.
      */
     Camera_Connection connectionType;
+
+    Camera_Orientation cameraOrientation;
 } Camera_Device;
 
 /**
