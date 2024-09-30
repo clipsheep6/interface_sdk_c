@@ -13,6 +13,26 @@
  * limitations under the License.
  */
 
+/**
+ * @addtogroup ArkTS_NapiModule
+ * @{
+ *
+ * @brief Provides Napi of ArkTS.
+ *
+ * @since 12
+ */
+
+/**
+ * @file native_api.h
+ *
+ * @brief Provides functions for the ArkTS napi.
+ *
+ * @library NA
+ * @syscap SystemCapability.ArkUI.ArkUI.Napi
+ * @kit ArkTS
+ * @since 12
+ */
+
 #ifndef FOUNDATION_ACE_NAPI_INTERFACES_KITS_NAPI_NATIVE_API_H
 #define FOUNDATION_ACE_NAPI_INTERFACES_KITS_NAPI_NATIVE_API_H
 
@@ -416,3 +436,4 @@ NAPI_EXTERN napi_status napi_call_threadsafe_function_with_priority(napi_threads
 }
 #endif
 #endif /* FOUNDATION_ACE_NAPI_INTERFACES_KITS_NAPI_NATIVE_API_H */
+/** @} */
