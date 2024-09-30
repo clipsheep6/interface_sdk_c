@@ -606,5 +606,21 @@
     {
         "first_introduced": "12",
         "name": "OH_PhotoNative_Release"
+    },
+    {
+        "first_introduced": "13",
+        "name": "OH_CameraManager_RegisterFoldStatusCallback"
+    },
+    {
+        "first_introduced": "13",
+        "name": "OH_CameraManager_UnregisterFoldStatusCallback"
+    },
+    {
+        "first_introduced": "13",
+        "name": "OH_CameraManager_RegisterSupportedCamerasCallback"
+    },
+    {
+        "first_introduced": "13",
+        "name": "OH_CameraManager_UnregisterSupportedCamerasCallback"
     }
 ]

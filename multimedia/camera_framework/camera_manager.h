@@ -73,6 +73,26 @@ typedef void (*OH_CameraManager_StatusCallback)(Camera_Manager* cameraManager, C
 typedef void (*OH_CameraManager_TorchStatusCallback)(Camera_Manager* cameraManager, Camera_TorchStatusInfo* status);
 
 /**
+ * @brief Camera manager fold status callback.
+ *
+ * @param cameraManager the {@link Camera_Manager} which deliver the callback.
+ * @param foldStatus the {@link Camera_FoldStatus} of the device.
+ * @since 13
+ */
+typedef void (*OH_CameraManager_OnFoldStatusChange)(Camera_Manager* cameraManager, Camera_FoldStatus* foldStatus);
+
+/**
+ * @brief Camera manager supported cameras callback.
+ *
+ * @param cameraManager the {@link Camera_Manager} which deliver the callback.
+ * @param cameras the supported {@link Camera_Device} list under the fold status.
+ * @param size the size of supported {@link Camera_Device} list.
+ * @since 13
+ */
+typedef void (*OH_CameraManager_OnSupportedCamerasChange)(Camera_Manager* cameraManager,
+    Camera_Device** cameras, uint32_t* size);
+
+/**
  * @brief A listener for camera devices status.
  *
  * @see OH_CameraManager_RegisterCallback
@@ -131,6 +151,53 @@ Camera_ErrorCode OH_CameraManager_RegisterTorchStatusCallback(Camera_Manager* ca
  */
 Camera_ErrorCode OH_CameraManager_UnregisterTorchStatusCallback(Camera_Manager* cameraManager,
     OH_CameraManager_TorchStatusCallback torchStatusCallback);
+
+/**
+ * @brief Register fold status change event callback.
+ *
+ * @param cameraManager the {@link Camera_Manager} instance.
+ * @param foldStatusCallback the {@link OH_CameraManager_OnFoldStatusChange} to be registered.
+ * @return {@link #CAMERA_OK} if the method call succeeds.
+ *         {@link #CAMERA_INVALID_ARGUMENT} if parameter missing or parameter type incorrect.
+ * @since 13
+ */
+Camera_ErrorCode OH_CameraManager_RegisterFoldStatusCallback(Camera_Manager* cameraManager,
+    OH_CameraManager_OnFoldStatusChange foldStatusCallback);
+
+/**
+ * @brief Unregister fold status change event callback.
+ *
+ * @param cameraManager the {@link Camera_Manager} instance.
+ * @param foldStatusCallback the {@link OH_CameraManager_OnFoldStatusChange} to be unregistered.
+ * @return {@link #CAMERA_OK} if the method call succeeds.
+ *         {@link #CAMERA_INVALID_ARGUMENT} if parameter missing or parameter type incorrect.
+ * @since 13
+ */
+Camera_ErrorCode OH_CameraManager_UnregisterFoldStatusCallback(Camera_Manager* cameraManager,
+    OH_CameraManager_OnFoldStatusChange foldStatusCallback);
+/**
+ * @brief Register supported cameras change event callback.
+ *
+ * @param cameraManager the {@link Camera_Manager} instance.
+ * @param supportedCamerasCallback the {@link OH_CameraManager_OnSupportedCamerasChange} to be registered.
+ * @return {@link #CAMERA_OK} if the method call succeeds.
+ *         {@link #CAMERA_INVALID_ARGUMENT} if parameter missing or parameter type incorrect.
+ * @since 13
+ */
+Camera_ErrorCode OH_CameraManager_RegisterSupportedCamerasCallback(Camera_Manager* cameraManager,
+    OH_CameraManager_OnSupportedCamerasChange supportedCamerasCallback);
+
+/**
+ * @brief Unregister supported cameras change event callback.
+ *
+ * @param cameraManager the {@link Camera_Manager} instance.
+ * @param supportedCamerasCallback the {@link OH_CameraManager_OnSupportedCamerasChange} to be unregistered.
+ * @return {@link #CAMERA_OK} if the method call succeeds.
+ *         {@link #CAMERA_INVALID_ARGUMENT} if parameter missing or parameter type incorrect.
+ * @since 13
+ */
+Camera_ErrorCode OH_CameraManager_UnregisterSupportedCamerasCallback(Camera_Manager* cameraManager,
+    OH_CameraManager_OnSupportedCamerasChange supportedCamerasCallback);
 
 /**
  * @brief Gets supported camera descriptions.
