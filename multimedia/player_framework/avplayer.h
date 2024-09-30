@@ -269,6 +269,19 @@ OH_AVErrCode OH_AVPlayer_Seek(OH_AVPlayer *player, int32_t mSeconds, AVPlayerSee
 OH_AVErrCode OH_AVPlayer_GetCurrentTime(OH_AVPlayer *player, int32_t *currentTime);
 
 /**
+ * @brief Obtains the playback position compatible with the livestream, accurate to millisecond.
+ * @syscap SystemCapability.Multimedia.Media.AVPlayer
+ * @param player Pointer to an OH_AVPlayer instance
+ * @param currentTime Indicates the playback position.
+ * @return Function result code.
+ *         {@link AV_ERR_OK} if the execution is successful.
+ *         {@link AV_ERR_INVALID_VAL} if input player is nullptr or player GetCurrentTime failed.
+ * @since 13
+ * @version 1.0
+ */
+OH_AVErrCode OH_AVPlayer_GetPlaybackPosition(OH_AVPlayer *player, int32_t *playbackPosition);
+
+/**
  * @brief get the video width.
  * @syscap SystemCapability.Multimedia.Media.AVPlayer
  * @param player Pointer to an OH_AVPlayer instance
