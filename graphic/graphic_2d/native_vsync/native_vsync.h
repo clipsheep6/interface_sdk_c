@@ -114,6 +114,8 @@ int OH_NativeVSync_RequestFrameWithMultiCallback(
  * @version 1.0
  */
 int OH_NativeVSync_GetPeriod(OH_NativeVSync* nativeVsync, long long* period);
+
+int OH_NativeVSync_DVSyncSwitch(OH_NativeVSync* nativeVsync, bool enable, int scene);
 #ifdef __cplusplus
 }
 #endif
