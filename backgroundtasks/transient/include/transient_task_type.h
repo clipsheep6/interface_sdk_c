@@ -33,7 +33,7 @@
  * @library libtransient_task.so
  * @kit BackgroundTasksKit
  * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
- * @since 11
+ * @since 13
  */
 
 #include <stdint.h>
