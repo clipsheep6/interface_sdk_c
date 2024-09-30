@@ -20,7 +20,7 @@
  *
  * @brief 提供MindSpore Lite的模型推理相关接口。
  *
- * @Syscap SystemCapability.Ai.MindSpore
+ * @Syscap SystemCapability.AI.MindSporeLite
  * @since 9
  */
 

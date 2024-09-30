@@ -20,7 +20,7 @@
  *
  * @brief provide the model reasoning related interfaces of MindSpore Lite.
  *
- * @Syscap SystemCapability.Ai.MindSpore
+ * @Syscap SystemCapability.AI.MindSporeLite
  * @since 9
  */
 
