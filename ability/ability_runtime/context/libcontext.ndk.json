@@ -1,0 +1,10 @@
+[
+    {
+      "first_introduced": "13",
+      "name": "OH_NativeAbility_Create_NapiEnv"
+    },
+    {
+      "first_introduced": "13",
+      "name": "OH_NativeAbility_Destroy_NapiEnv"
+    }
+]
