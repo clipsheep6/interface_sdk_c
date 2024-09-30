@@ -39,6 +39,7 @@
 
 #include "native_drawing/drawing_text_declaration.h"
 #include "native_drawing/drawing_text_typography.h"
+#include "native_type.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -117,6 +118,58 @@ OH_Drawing_Typography* OH_ArkUI_StyledString_CreateTypography(ArkUI_StyledString
  * @since 12
  */
 void OH_ArkUI_StyledString_AddPlaceholder(ArkUI_StyledString* handle, OH_Drawing_PlaceholderSpan* placeholder);
+
+/**
+ * @brief Create a ArkUI_StyledString_Describer object.
+ *
+ * @return Pointer to the ArkUI_StyledString_Describer object.。
+ * @since 14
+ */
+ArkUI_StyledString_Describer* OH_ArkUI_StyledString_Describer_Create();
+
+/**
+ * @brief Release the memory occupied by the ArkUI_StyledString_Describer object.
+ *
+ * @param str Pointer to the ArkUI_StyledString_Describer object.
+ * @since 14
+ */
+void OH_ArkUI_StyledString_Describer_Destroy(ArkUI_StyledString_Describer* str);
+
+/**
+ * @brief Unmarshall a byte array that stores styled string information into a styled string.
+ *
+ * @param buffer The byte array that stores the unmarshalled information of the styled string.
+ * @param bufferSize Indicate the length of the byte array.
+ * @param str Pointer to the ArkUI_StyledString_Describer object.
+ * @return Error code.。
+ *         {@link ARKUI_ERROR_CODE_NO_ERROR} Success.
+ *         {@link ARKUI_ERROR_CODE_PARAM_INVALID} Function parameter exception.
+ * @since 14
+ */
+int32_t OH_ArkUI_UnmarshallingStyledStringDescriber(uint8_t* buffer, uint32_t* bufferSize, ArkUI_StyledString_Describer* str);
+
+/**
+ * @brief Marshall the styled string into a byte array。
+ *
+ * @param buffer The byte array that stores the unmarshalled information of the styled string.
+ * @param bufferSize Indicate the length of the byte array.
+ * @param str Pointer to the ArkUI_StyledString_Describer object.。
+* @return Error code.
+ *         {@link ARKUI_ERROR_CODE_NO_ERROR} Success.
+ *         {@link ARKUI_ERROR_CODE_PARAM_INVALID} Function parameter exception.
+ *         {@link ARKUI_ERROR_CODE_INVALID_STYLED_STRING} Invalid styled string
+ * @since 14
+ */
+int32_t OH_ArkUI_MarshallingStyledStringDescriber(uint8_t* buffer, uint32_t* bufferSize, ArkUI_StyledString_Describer* str);
+
+/**
+ * @brief Convert the styled string into html.
+ *
+ * @param str Pointer to the ArkUI_StyledString_Describer object.
+ * @return The converted html.
+ * @since 14
+ */
+const char* OH_ArkUI_ConvertToHtml(ArkUI_StyledString_Describer* str);
 
 #ifdef __cplusplus
 };
